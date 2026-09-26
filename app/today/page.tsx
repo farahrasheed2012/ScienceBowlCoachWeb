@@ -155,7 +155,10 @@ export default function TodayPage() {
             {item.id === "science" && focus && !schoolYear ? (
               <button className="btn" type="button" onClick={() => { setSession(focus); setStage(0); }}>Start session</button>
             ) : (
-              <Link className="btn" href={item.href}>{item.done ? "Open again" : "Start"}</Link>
+              <div className="row">
+                <Link className="btn" href={item.href}>{item.done ? "Open again" : "Start"}</Link>
+                {item.id === "weak" ? <Link className="btn ghost" href="/learn/review">Review with books</Link> : null}
+              </div>
             )}
           </div>
         ))}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { findTopicArticle, isChoiceCorrect, officialSeconds, answersMatch, subjectTone } from "@/lib/questions";
+import { lookupLine } from "@/lib/readings";
 import { RATE, praise, speak, stopSpeech } from "@/lib/speech";
 import { useStore } from "@/lib/store";
 import type { PlayQuestion } from "@/lib/types";
@@ -40,6 +41,7 @@ export function QuestionPlay({
   const limit = question ? officialSeconds(question) : 5;
   const tone = question ? subjectTone(question.category) : "bio";
   const article = question ? findTopicArticle(question) : undefined;
+  const books = article ? lookupLine(article.id) : {};
 
   useEffect(() => {
     questionGen.current += 1;
@@ -324,7 +326,12 @@ export function QuestionPlay({
               <div className="card stack">
                 <h3>Why this matters</h3>
                 <p>{article.whatIsIt}</p>
-                <Link href={`/learn/${article.id}`}>Open {article.title}</Link>
+                {books.primary ? <p className="muted">{books.primary}</p> : null}
+                {books.book ? <p className="muted">{books.book}</p> : null}
+                <div className="row">
+                  <Link href={`/learn/${article.id}`}>Open {article.title}</Link>
+                  <Link href="/learn/review">Review with books</Link>
+                </div>
               </div>
             ) : null}
             {index < list.length - 1 || (correct === false && list[index + 1]?.kind === "bonus") ? (

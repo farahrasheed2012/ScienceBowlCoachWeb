@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { NSB_SUBJECTS, topics } from "@/lib/catalogs";
+import { lookupLine } from "@/lib/readings";
 import { isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
 import { practiceSubjectFor, tossupTopicForEncyclopedia } from "@/lib/topic-map";
@@ -105,6 +106,7 @@ export default function TopicsPage() {
                   : `/practice/play?mode=subject&subject=${practiceSubjectFor(topic.subject)}`;
                 const reviewed = store.reviewedTopicIds.includes(topic.id);
                 const row = rowFor(topic.title);
+                const books = lookupLine(topic.id);
                 return (
                   <div className="card stack" key={topic.id}>
                     <div className="row">
@@ -112,6 +114,8 @@ export default function TopicsPage() {
                       {row && row.acc < 0.7 ? <span className="pill">{Math.round(row.acc * 100)}% · needs drill</span> : null}
                       {reviewed ? <span className="pill">Reviewed</span> : null}
                     </div>
+                    {books.primary ? <p className="muted">{books.primary}</p> : null}
+                    {books.book ? <p className="muted">{books.book}</p> : null}
                     <p className="muted">{topic.whatIsIt}</p>
                     <div className="row">
                       <Link className="btn ghost" href={`/learn/${topic.id}`}>Read</Link>

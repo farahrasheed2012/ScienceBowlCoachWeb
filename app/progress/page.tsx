@@ -64,7 +64,10 @@ export default function ProgressPage() {
           <h3>Recommended for you</h3>
           <p>{weak[0].topic}</p>
           <p className="muted">Accuracy: {pct(weak[0].acc)} · {weak[0].attempts} tries</p>
-          <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak[0].topic)}`}>Practice this topic today</Link>
+          <div className="row">
+            <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak[0].topic)}`}>Practice this topic today</Link>
+            <Link className="btn ghost" href="/learn/review">Review with books</Link>
+          </div>
         </div>
       ) : null}
       <h2>Getting better</h2>

@@ -61,7 +61,7 @@ export function buildTodayPlan(input: {
         id: "weak",
         minutes: 15,
         title: weak ? `Weak area · ${weak.topic}` : "Weak-area practice",
-        detail: weak ? `${Math.round(weak.acc * 100)}% accuracy — this is the school-year priority.` : "Answer a few questions and this slot will fill in.",
+        detail: weak ? `${Math.round(weak.acc * 100)}% accuracy — open the assigned section, then drill.` : "Answer a few questions and this slot will fill in.",
         href: weak ? `/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}` : "/practice/play?mode=weak",
         done: weakDone || input.extraDone.includes("weak"),
       },

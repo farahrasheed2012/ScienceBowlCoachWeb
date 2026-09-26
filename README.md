@@ -1,10 +1,10 @@
 # Science Bowl Coach — web
 
-Full-parity web port of the Mac/iPhone SwiftUI app in `../ScienceBowlCoach`.
+Middle School Science Bowl study site, ported from the Mac/iPhone app in `../ScienceBowlCoach`. The Mac app is unchanged.
 
-Middle School only. No account required. Progress stays in this browser unless you export a backup.
+No account. Progress stays in this browser unless you export a backup. MathCounts, POT 6, and Games stay on the Mac only.
 
-The Mac app is unchanged. This folder is a new Next.js / Vercel project.
+After August 28, Home is school-year keep-sharp: weak spots, a weekday toss-up, regional sprint, flashcards. The 12-week summer blocks live under Weeks as an archive. Thursday and Friday fill Earth & Energy, which the summer pass skipped.
 
 ## Local
 
@@ -18,17 +18,7 @@ Open http://localhost:3000
 
 ## GitHub
 
-This folder is ready for you to attach a repo. From here:
-
-```bash
-cd /Users/farah/Documents/FarahRasheed/ScienceBowlCoachWeb
-git init
-git add .
-git commit -m "Initial web port of Science Bowl Coach"
-gh repo create SohaScienceBowlWeb --public --source=. --remote=origin --push
-```
-
-Use any repo name you want.
+Private repo: [farahrasheed2012/ScienceBowlCoachWeb](https://github.com/farahrasheed2012/ScienceBowlCoachWeb)
 
 ## Vercel
 
@@ -45,9 +35,9 @@ Hobby / free tier is enough. No database is required. Optional later: add `DATAB
 
 Copied from the Mac app:
 
-- 125 encyclopedia topics
+- 125 encyclopedia topics with assigned readings (`topic_readings.json`)
 - encyclopedia + Hewitt Ch 17 questions
-- 50 summer study blocks
+- 50 summer study blocks (archive after Aug 28)
 - 11 Texas Regional Sprint packs
 - 634 TossUp bundled questions (bio, chem, math)
 - DOE starter question cache
@@ -59,7 +49,7 @@ To refresh extracted Swift catalogs after Mac-app edits:
 npm run extract
 ```
 
-To load the full DOE bank the Mac app parsed, export `doe_questions_cache.json` from the Mac Documents folder and import it in Settings.
+To load the full DOE bank the Mac app parsed, export `doe_questions_cache.json` from the Mac Documents folder and import it on Practice or in Settings. Earth and Energy get much thicker with a real cache.
 
 Coach notes on each question work offline from the encyclopedia. Optional richer AI: set `GROQ_API_KEY` or `OPENAI_API_KEY` in `.env.local`.
 
@@ -67,4 +57,9 @@ Coach notes on each question work offline from the encyclopedia. Optional richer
 
 Home · Practice · Learn · Progress · Settings
 
-Practice uses TossUp’s bundled question bank plus encyclopedia, curriculum, and any imported DOE cache. MathCounts, POT 6, and Games stay in the Mac app only.
+- **Home** — school-year plan (or summer 1-hour blocks before Aug 28)
+- **Practice** — TossUp bank + encyclopedia + curriculum + imported DOE. Official 5s MC / 20s SA.
+- **Learn** — encyclopedia, Review with books, Formulas, flashcards, Topics, Weeks archive
+- **Review** (`/learn/review`) — weak topics first, then unreviewed Earth/Energy, with textbook/chapter/page lines from the catalog. Open the assigned section, then drill. Not a new chapter hour.
+
+Textbooks are a lookup tool. The site does not rebuild the Mac FLS/Hewitt chapter-checkbox grid.
