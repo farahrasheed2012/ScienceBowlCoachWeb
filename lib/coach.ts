@@ -3,6 +3,23 @@ import type { EncyclopediaTopic, PlayQuestion } from "./types";
 
 export type CoachAction = "explain" | "why-wrong" | "hint" | "eighth-grade" | "teach";
 
+export function coachBrief(question: PlayQuestion, userAnswer?: string, correct?: boolean | null) {
+  const article = findTopicArticle(question);
+  const picked = question.choices.find((choice) => choice.key === userAnswer || choice.text === userAnswer);
+  const why = [
+    `The correct answer is ${question.answer}.`,
+    article?.whatIsIt,
+    correct === false && userAnswer
+      ? `You answered ${picked ? `${picked.key}) ${picked.text}` : userAnswer}, which does not match what the stem asked.`
+      : "",
+  ].filter(Boolean).join(" ");
+  const remember = article?.keyTerms[0]
+    ? `${article.keyTerms[0].term}: ${article.keyTerms[0].definition}`
+    : `Remember: ${question.answer} — ${question.topic}.`;
+  const trap = article?.nsbTraps[0] ?? "Read the last clause of the stem before you buzz. Nearby facts are the usual trap.";
+  return { why, remember, trap };
+}
+
 export function localCoach(input: {
   action: CoachAction;
   question: PlayQuestion;

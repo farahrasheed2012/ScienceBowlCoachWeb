@@ -51,9 +51,13 @@ button, input, select, textarea { font: inherit; }
 }
 .nav a.active, .nav a:hover { background: var(--surface); color: var(--text); }
 .main { position: relative; z-index: 1; min-width: 0; padding: 28px 32px 64px; max-width: 980px; }
-h1 { font-size: 28px; margin: 0 0 8px; }
+h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: -0.02em; }
 h2 { font-size: 20px; margin: 28px 0 12px; }
 h3 { font-size: 16px; margin: 0 0 6px; }
+.btn:hover, a.btn:hover { filter: brightness(1.08); }
+.btn:focus-visible, a.btn:focus-visible, .choice:focus-visible, .nav a:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
 .muted { color: var(--muted); }
 .faint { color: var(--faint); }
 .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
@@ -82,7 +86,50 @@ h3 { font-size: 16px; margin: 0 0 6px; }
 .gold { color: var(--gold); font-weight: 700; }
 .ok-text { color: var(--ok); }
 .bad-text { color: var(--bad); }
-.stem { font-size: 26px; line-height: 1.35; margin: 0 0 12px; }
+.stem { font-size: clamp(22px, 3.4vw, 30px); line-height: 1.35; margin: 0; }
+.mission {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px 22px 24px;
+  border-top: 4px solid var(--accent);
+  margin: 16px 0 8px;
+}
+.mission-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.mission-title { margin: 0; font-size: clamp(24px, 3.6vw, 34px); letter-spacing: -0.03em; }
+.btn.mission-cta, a.btn.mission-cta { min-height: 48px; padding: 12px 22px; font-size: 16px; }
+.stage-rail {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+}
+.stage-rail li {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 12px; border-radius: 12px; background: var(--surface);
+  color: var(--muted); border: 1px solid var(--line); font-size: 13px; font-weight: 600;
+}
+.stage-rail li.current { color: var(--text); border-color: var(--accent); }
+.stage-rail li.done { color: var(--ok); }
+.stage-num {
+  width: 22px; height: 22px; border-radius: 999px; display: inline-grid; place-items: center;
+  background: var(--surface-2); font-size: 12px;
+}
+.stage-rail li.current .stage-num { background: var(--accent); color: white; }
+.play-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; }
+.play-kicker { margin: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.play-kicker.bio { color: var(--bio); }
+.play-kicker.chem { color: var(--chem); }
+.play-kicker.phys { color: var(--phys); }
+.play-kicker.math { color: var(--math); }
+.play-kicker.earth { color: var(--earth); }
+.coach-brief { display: grid; gap: 8px; }
+.coach-brief p { margin: 0; }
 .play-card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -100,7 +147,7 @@ h3 { font-size: 16px; margin: 0 0 6px; }
 .timer.urgent { color: var(--bad); }
 .choice {
   display: block; width: 100%; text-align: left; background: var(--surface-2);
-  border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; color: var(--text); cursor: pointer;
+  border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; color: var(--text); cursor: pointer;
 }
 .choice.correct { border-color: var(--ok); background: rgba(46, 191, 120, 0.15); }
 .choice.wrong { border-color: var(--bad); background: rgba(217, 64, 64, 0.15); }
@@ -126,6 +173,14 @@ iframe.schedule { width: 100%; min-height: 70vh; border: 0; border-radius: 16px;
     display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #0c0c12;
     border-top: 1px solid var(--line); overflow-x: auto; padding: 8px;
   }
-  .mobile-nav a { flex: 0 0 auto; padding: 8px 10px; color: var(--muted); font-size: 13px; }
+  .mobile-nav a { flex: 1 0 auto; text-align: center; padding: 10px 8px; color: var(--muted); font-size: 13px; }
   .mobile-nav a.active { color: var(--text); }
+  .btn.mission-cta, a.btn.mission-cta { width: 100%; }
+  .btn.buzz { width: 100%; }
+  .stage-rail { grid-template-columns: 1fr 1fr; }
+  .choice { min-height: 48px; }
+}
+@media (min-width: 1100px) {
+  .main { max-width: 860px; }
+  .play-card { padding: 28px 28px 30px; }
 }

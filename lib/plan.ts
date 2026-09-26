@@ -13,6 +13,121 @@ export type PlanItem = {
   done: boolean;
 };
 
+export type TodayMission = {
+  subject: string;
+  topic: string;
+  reason: string;
+  minutes: number;
+  activities: string;
+  outcome: string;
+  href: string;
+  planId: string;
+  startSession: boolean;
+};
+
+function lastMissAt(results: DrillResult[], topic: string) {
+  const miss = [...results].reverse().find((row) => row.topic === topic && !row.correct);
+  return miss ? new Date(miss.at) : null;
+}
+
+export function todaysMission(input: {
+  week: number;
+  drillResults: DrillResult[];
+  dueCount: number;
+  completedSessionIds: string[];
+  extraDone: string[];
+  date?: Date;
+}): TodayMission {
+  const date = input.date ?? new Date();
+  const plan = buildTodayPlan({ ...input, date });
+  const weak = topicAccuracy(input.drillResults).find((row) => row.acc < 0.7);
+  const block = featuredBlock(input.week, date);
+  const next = plan.find((item) => !item.done) ?? plan[plan.length - 1];
+  const flashUrgent = input.dueCount >= 8;
+  const pick = flashUrgent && next.id !== "flash"
+    ? plan.find((item) => item.id === "flash") ?? next
+    : next;
+
+  if (pick.id === "flash") {
+    return {
+      subject: "Review",
+      topic: input.dueCount ? `${input.dueCount} flashcards due` : "Flashcards",
+      reason: input.dueCount
+        ? `${input.dueCount} cards are due now — missed toss-ups and key terms.`
+        : "The pile is clear. A short flip keeps the streak.",
+      minutes: pick.minutes,
+      activities: "Spaced recall",
+      outcome: "Clear the due pile",
+      href: pick.href,
+      planId: pick.id,
+      startSession: false,
+    };
+  }
+
+  if (pick.id === "weak") {
+    const miss = weak ? lastMissAt(input.drillResults, weak.topic) : null;
+    const recent = miss && Date.now() - miss.getTime() < 36 * 3600 * 1000;
+    return {
+      subject: weak?.subject || "Mixed",
+      topic: weak?.topic || "Weak-area practice",
+      reason: weak
+        ? `${Math.round(weak.acc * 100)}% after ${weak.attempts} tries${recent ? " · you missed this recently" : ""}. Open the assigned section, then drill.`
+        : "Answer a few questions and this slot will name a weak topic.",
+      minutes: pick.minutes,
+      activities: "5–12 toss-ups + book lookup",
+      outcome: weak ? "Get this topic moving toward 70%" : "Find today's weak spot",
+      href: pick.href,
+      planId: pick.id,
+      startSession: false,
+    };
+  }
+
+  if (pick.id === "science") {
+    return {
+      subject: block?.subject || "Science",
+      topic: block?.chapterTitle || "Science block",
+      reason: block
+        ? `${block.bookCode} ${block.chapter} · today's assigned hour.`
+        : "No summer block left — pick an encyclopedia topic.",
+      minutes: pick.minutes,
+      activities: "Recall → Read → Know Cold → Toss-ups",
+      outcome: "Leave knowing the assigned section cold",
+      href: pick.href,
+      planId: pick.id,
+      startSession: Boolean(block),
+    };
+  }
+
+  if (pick.id === "sprint") {
+    return {
+      subject: "Regional",
+      topic: "Texas Regional Sprint",
+      reason: "Deeper than the summer MS pass — know-cold packs for regionals.",
+      minutes: pick.minutes,
+      activities: "Short-answer know-cold",
+      outcome: "5 sprint answers",
+      href: pick.href,
+      planId: pick.id,
+      startSession: false,
+    };
+  }
+
+  const focus = isSchoolYear(date) ? schoolYearFocus(date) : null;
+  return {
+    subject: focus?.label || block?.subject || "Mixed",
+    topic: pick.title,
+    reason: pick.done
+      ? "Today's plan is done. A short toss-up keeps the streak."
+      : pick.detail,
+    minutes: pick.minutes,
+    activities: "Official 5s MC / 20s SA",
+    outcome: focus?.subject === "mixed" ? "5 answers across 2 subjects" : "5 answers in today's subject",
+    href: pick.href,
+    planId: pick.id,
+    startSession: false,
+  };
+}
+
 export function featuredBlock(week: number, date = new Date()): StudyBlock | null {
   const today = todayBlocks(week, date);
   if (today[0]) return today[0];

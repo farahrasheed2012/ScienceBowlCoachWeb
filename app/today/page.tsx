@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { BUZZER_SLOTS, topics } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
 import { SpeechBar } from "@/components/SpeechBar";
-import { buildTodayPlan, featuredBlock } from "@/lib/plan";
+import { buildTodayPlan, featuredBlock, todaysMission } from "@/lib/plan";
 import { lookupLine, topicForWeakTitle } from "@/lib/readings";
 import { blockTime, isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus, seasonLabel, subjectLabel, todayBlocks, weekdayFromDate } from "@/lib/schedule";
 import { studyMinutes, topicAccuracy } from "@/lib/stats";
@@ -20,8 +20,11 @@ export default function TodayPage() {
   const todayFocus = schoolYearFocus();
   const [session, setSession] = useState<StudyBlock | null>(null);
   const [stage, setStage] = useState(0);
+  const [sessionWrap, setSessionWrap] = useState(false);
+  const sessionStartedAt = useRef(Date.now());
   const due = store.flashCards.filter((c) => new Date(c.due) <= new Date());
-  const stages = ["Recall", "Read", "Know Cold", "Toss-ups"];
+  const stages = ["Recall", "Read", "Know Cold", "Toss-ups"] as const;
+  const stageMinutes = [6, 8, 5, 6];
 
   const recallQs = useMemo(() => {
     if (!session) return [];
@@ -38,12 +41,47 @@ export default function TodayPage() {
     }));
   }, [session]);
 
-  if (session) {
+  if (session && sessionWrap) {
+    const answered = store.drillResults.filter((row) => new Date(row.at).getTime() >= sessionStartedAt.current);
+    const hits = answered.filter((row) => row.correct).length;
+    const minutes = Math.max(1, Math.round((Date.now() - sessionStartedAt.current) / 60000));
+    const missed = [...new Set(answered.filter((row) => !row.correct).map((row) => row.topic))];
     return (
       <div className="stack">
-        <button className="btn ghost" type="button" onClick={() => { setSession(null); setStage(0); }}>Back to Today</button>
+        <h1>Session complete</h1>
+        <p className="muted">{session.chapterTitle} · {subjectLabel(session.subject)}</p>
+        <div className="mission stack">
+          <p className="stem">{hits} / {answered.length} correct</p>
+          <p>{minutes} min · streak {store.studyStreak} · {store.xp} XP</p>
+          {missed[0] ? <p className="muted">Needs review: {missed.join(" · ")}</p> : <p className="muted">No misses logged this hour.</p>}
+          {due.length ? <p className="muted">{due.length} flashcards due now.</p> : null}
+          <div className="row">
+            {missed[0] ? <Link className="btn" href="/learn/review">Review missed topics</Link> : (
+              <button className="btn" type="button" onClick={() => { setSession(null); setStage(0); setSessionWrap(false); }}>Continue today&apos;s plan</button>
+            )}
+            {due.length ? <Link className="btn ghost" href="/learn/flash">Review flashcards</Link> : <Link className="btn ghost" href="/practice">Free practice</Link>}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (session) {
+    const leftMin = stageMinutes.slice(stage).reduce((sum, n) => sum + n, 0);
+    return (
+      <div className="stack">
+        <button className="btn ghost" type="button" onClick={() => { setSession(null); setStage(0); setSessionWrap(false); }}>Back to Today</button>
         <h1>Study session · {subjectLabel(session.subject)}</h1>
-        <p className="muted">{stages[stage]} · {session.chapterTitle}</p>
+        <p className="muted">{session.chapterTitle}</p>
+        <ol className="stage-rail">
+          {stages.map((label, i) => (
+            <li key={label} className={i === stage ? "current" : i < stage ? "done" : ""}>
+              <span className="stage-num">{i + 1}</span>
+              <span>{label}</span>
+            </li>
+          ))}
+        </ol>
+        <p className="muted">About {leftMin} min left · {stages.length - stage} stage{stages.length - stage === 1 ? "" : "s"} remaining</p>
         {store.showSessionTimer ? <p className="timer">1 hour science block · stay on this page</p> : null}
         {stage === 0 ? <QuestionPlay questions={recallQs} title="Recall from this topic" timed={false} /> : null}
         {stage === 1 ? (
@@ -100,8 +138,7 @@ export default function TodayPage() {
               type="button"
               onClick={() => {
                 store.completeSession(session.id);
-                setSession(null);
-                setStage(0);
+                setSessionWrap(true);
               }}
             >
               Finish session
@@ -122,6 +159,13 @@ export default function TodayPage() {
     extraDone,
   });
   const finished = plan.filter((item) => item.done).length;
+  const mission = todaysMission({
+    week: store.currentWeek,
+    drillResults: store.drillResults,
+    dueCount: due.length,
+    completedSessionIds: store.completedSessionIds,
+    extraDone,
+  });
   const weak = topicAccuracy(store.drillResults).find((row) => row.acc < 0.7);
   const weakArticle = weak ? topicForWeakTitle(weak.topic) : undefined;
   const weakBooks = weakArticle ? lookupLine(weakArticle.id) : {};
@@ -140,7 +184,23 @@ export default function TodayPage() {
           ? `Hi, ${store.studentName}. Summer reading is done. Today is keep-sharp, not a new chapter hour.`
           : `Hi, ${store.studentName}. What should you do today?`}
       </p>
-      {store.studyStreak > 0 ? <p>Study streak: {store.studyStreak} day{store.studyStreak === 1 ? "" : "s"} · {store.xp} XP</p> : null}
+      <section className="mission stack">
+        <p className="mission-kicker">Today&apos;s mission</p>
+        <h2 className="mission-title">{mission.topic}</h2>
+        <p className="muted">{mission.subject}</p>
+        <p>{mission.reason}</p>
+        <p className="muted">{mission.minutes} min · {mission.activities}</p>
+        <p className="muted">Goal: {mission.outcome}</p>
+        {mission.planId === "weak" && weakBooks.primary ? <p className="muted">{weakBooks.primary}</p> : null}
+        {mission.startSession && focus ? (
+          <button className="btn mission-cta" type="button" onClick={() => { sessionStartedAt.current = Date.now(); setSession(focus); setStage(0); setSessionWrap(false); }}>
+            Start today&apos;s session
+          </button>
+        ) : (
+          <Link className="btn mission-cta" href={mission.href}>Start today&apos;s session</Link>
+        )}
+      </section>
+      {store.studyStreak > 0 ? <p className="muted">Study streak: {store.studyStreak} day{store.studyStreak === 1 ? "" : "s"} · {store.xp} XP</p> : null}
       {store.practiceRounds?.[0] ? (
         <p className="muted">
           Last session: {store.practiceRounds[0].title} · {store.practiceRounds[0].correct}/{store.practiceRounds[0].asked}
@@ -148,9 +208,6 @@ export default function TodayPage() {
           {studyMinutes(store.practiceRounds)} min studied
         </p>
       ) : null}
-      <div className="row" style={{ marginBottom: 12 }}>
-        <Link className="btn ghost" href="/learn/review">Review with books</Link>
-      </div>
       <h2>Today&apos;s plan · {finished} / {plan.length} done</h2>
       <div className="grid two">
         {plan.map((item) => (
@@ -164,7 +221,7 @@ export default function TodayPage() {
             {item.id === "weak" && weakBooks.primary ? <p className="muted">{weakBooks.primary}</p> : null}
             {item.id === "weak" && weakBooks.book ? <p className="muted">{weakBooks.book}</p> : null}
             {item.id === "science" && focus && !schoolYear ? (
-              <button className="btn" type="button" onClick={() => { setSession(focus); setStage(0); }}>Start session</button>
+              <button className="btn" type="button" onClick={() => { sessionStartedAt.current = Date.now(); setSession(focus); setStage(0); setSessionWrap(false); }}>Start session</button>
             ) : (
               <div className="row">
                 <Link className="btn" href={item.href}>{item.done ? "Open again" : "Start"}</Link>
@@ -203,7 +260,7 @@ export default function TodayPage() {
             <h3>{block.chapterTitle}</h3>
             <p className="muted">{block.bookCode} {block.chapter}</p>
             <p>{block.focus}</p>
-            <button className="btn" type="button" onClick={() => { setSession(block); setStage(0); }}>Start session</button>
+            <button className="btn" type="button" onClick={() => { sessionStartedAt.current = Date.now(); setSession(block); setStage(0); setSessionWrap(false); }}>Start session</button>
           </div>
         ))}
       </div>

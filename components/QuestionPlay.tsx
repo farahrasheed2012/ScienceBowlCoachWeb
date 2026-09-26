@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { findTopicArticle, isChoiceCorrect, officialSeconds, answersMatch, subjectTone } from "@/lib/questions";
 import { lookupLine } from "@/lib/readings";
 import { RATE, praise, speak, stopSpeech } from "@/lib/speech";
+import { topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 import type { PlayQuestion } from "@/lib/types";
 import { SpeechBar } from "./SpeechBar";
@@ -32,6 +33,7 @@ export function QuestionPlay({
   const [earned, setEarned] = useState(0);
   const [hits, setHits] = useState(0);
   const [seen, setSeen] = useState(0);
+  const [missedTopics, setMissedTopics] = useState<string[]>([]);
   const [clockOn, setClockOn] = useState(!timed);
   const startedAt = useRef(Date.now());
   const loggedRound = useRef(false);
@@ -148,6 +150,8 @@ export function QuestionPlay({
     if (isCorrect) {
       setHits((n) => n + 1);
       setEarned((n) => n + 10);
+    } else {
+      setMissedTopics((topics) => (topics.includes(question.topic) ? topics : [...topics, question.topic]));
     }
     store.recordAnswer({
       questionId: question.id,
@@ -213,17 +217,20 @@ export function QuestionPlay({
   }
 
   if (phase === "done") {
+    const minutes = Math.max(1, Math.round((Date.now() - startedAt.current) / 60000));
+    const dueNow = store.flashCards.filter((card) => new Date(card.due) <= new Date()).length;
+    const acc = seen ? hits / seen : 0;
     return (
       <div className="stack">
-        <h2>Round over</h2>
-        <div className="card stack">
+        <h2>Session complete</h2>
+        <div className="mission stack">
           <p className="stem">{hits} / {seen} correct</p>
-          <p className="muted">
-            {Math.max(1, Math.round((Date.now() - startedAt.current) / 60000))} min · +{earned} XP · streak {store.studyStreak}
-          </p>
+          <p className="muted">{Math.round(acc * 100)}% · {minutes} min · +{earned} XP · streak {store.studyStreak}</p>
+          {missedTopics[0] ? <p>Needs review: {missedTopics.join(" · ")}</p> : <p className="muted">No misses this round.</p>}
+          {dueNow ? <p className="muted">{dueNow} flashcards due now.</p> : null}
           <div className="row">
-            <Link className="btn" href="/practice">Practice again</Link>
-            <Link className="btn ghost" href="/progress">See progress</Link>
+            {missedTopics[0] ? <Link className="btn" href="/learn/review">Review missed topics</Link> : <Link className="btn" href="/today">Continue today&apos;s plan</Link>}
+            {dueNow ? <Link className="btn ghost" href="/learn/flash">Review flashcards</Link> : <Link className="btn ghost" href="/practice">Free practice</Link>}
           </div>
         </div>
       </div>
@@ -233,46 +240,52 @@ export function QuestionPlay({
   const answering = phase === "buzzed" || (!timed && phase === "live") || (store.parentReadsAloud && phase === "revealed");
   const showChoices = question.format === "multipleChoice" && (!store.parentReadsAloud || phase === "revealed");
   const showTyped = question.format === "shortAnswer" && phase !== "revealed" && (answering || !timed || phase === "live");
+  const topicRow = topicAccuracy(store.drillResults).find((row) => row.topic === question.topic);
 
   return (
     <div className="stack">
-      <div className="row">
-        <h2 style={{ margin: 0 }}>{title}</h2>
-        <span className="pill">{index + 1} / {list.length}</span>
-        <span className={`pill ${tone}`}>{question.category}</span>
-        <span className="pill">{question.kind === "bonus" ? "Bonus" : "Toss-Up"}</span>
-        <span className="pill">{question.format === "multipleChoice" ? "Multiple Choice" : "Short Answer"}</span>
-        <span className="muted">{question.topic}</span>
-        <span className="gold">{store.xp} XP</span>
+      <div className="play-meta">
+        <p className={`play-kicker ${tone}`}>
+          {question.category} · {question.kind === "bonus" ? "Bonus" : "Toss-up"} · {question.format === "multipleChoice" ? "MC" : "SA"}
+        </p>
+        <p className="muted">{title} · {index + 1} / {list.length}{question.topic ? ` · ${question.topic}` : ""}</p>
         {seen > 0 ? (
           <button className="btn ghost" type="button" onClick={finishRound}>End round</button>
         ) : null}
       </div>
       <div className={`play-card ${tone}`}>
+        <p className="stem">{question.questionText}</p>
         {timed && phase === "live" ? (
           <p className={`timer ${seconds <= 2 ? "urgent" : ""}`}>
             {clockOn ? `${seconds}s · ${limit}s official` : "Listening… clock starts after the read-aloud"}
           </p>
         ) : null}
         {!timed && phase !== "revealed" ? (
-          <p className="muted">Study mode · no official clock. Type or tap an answer when you are ready.</p>
+          <p className="muted">Study mode · no official clock.</p>
         ) : null}
         {store.parentReadsAloud && phase !== "revealed" ? (
           <p className="muted">Parent is reading. Answers stay hidden until Reveal.</p>
         ) : null}
         {timed && store.buzzerRoomCode ? (
-          <p className="muted">Phone room {store.buzzerRoomCode} · a remote buzz locks in like Space</p>
+          <p className="muted">Phone room {store.buzzerRoomCode} · remote buzz = Space</p>
         ) : null}
-        <p className="stem">{question.questionText}</p>
         <SpeechBar text={question.questionText} />
-        {phase === "live" ? (
-          <CoachPanel key={`${question.id}-live`} question={question} userAnswer={picked ?? typed} correct={correct} phase="live" />
-        ) : null}
         {phase === "live" && timed ? (
           <div className="row">
             <button className="btn buzz" type="button" onClick={() => setPhase("buzzed")}>Buzz</button>
             <span className="muted">Space</span>
           </div>
+        ) : null}
+        {phase === "live" ? (
+          <CoachPanel
+            key={`${question.id}-live`}
+            question={question}
+            userAnswer={picked ?? typed}
+            correct={correct}
+            phase="live"
+            recentAccuracy={topicRow?.acc}
+            weakTopic={Boolean(topicRow && topicRow.acc < 0.7)}
+          />
         ) : null}
         {store.parentReadsAloud && phase !== "revealed" ? (
           <button className="btn" type="button" onClick={() => setPhase("revealed")}>Reveal</button>
@@ -322,6 +335,8 @@ export function QuestionPlay({
               correct={correct}
               phase="revealed"
               onSimilar={similar}
+              recentAccuracy={topicRow?.acc}
+              weakTopic={Boolean(topicRow && topicRow.acc < 0.7)}
             />
             {article ? (
               <div className="card stack">
