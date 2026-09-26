@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { BUZZER_SLOTS } from "@/lib/catalogs";
+import { BUZZER_SLOTS, topics } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
 import { SpeechBar } from "@/components/SpeechBar";
 import { buildTodayPlan, featuredBlock } from "@/lib/plan";
-import { blockTime, isSchoolYear, schoolYearFocus, seasonLabel, subjectLabel, todayBlocks, weekdayFromDate } from "@/lib/schedule";
-import { studyMinutes } from "@/lib/stats";
+import { lookupLine, topicForWeakTitle } from "@/lib/readings";
+import { blockTime, isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus, seasonLabel, subjectLabel, todayBlocks, weekdayFromDate } from "@/lib/schedule";
+import { studyMinutes, topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 import type { StudyBlock } from "@/lib/types";
 
@@ -121,6 +122,14 @@ export default function TodayPage() {
     extraDone,
   });
   const finished = plan.filter((item) => item.done).length;
+  const weak = topicAccuracy(store.drillResults).find((row) => row.acc < 0.7);
+  const weakArticle = weak ? topicForWeakTitle(weak.topic) : undefined;
+  const weakBooks = weakArticle ? lookupLine(weakArticle.id) : {};
+  const todaySubject = schoolYearEncyclopediaSubject();
+  const earthEnergyLeft = topics.filter((topic) => (
+    (topic.subject === "Earth & Space Science" || topic.subject === "Energy")
+    && !store.reviewedTopicIds.includes(topic.id)
+  )).length;
 
   return (
     <div>
@@ -152,6 +161,8 @@ export default function TodayPage() {
             </div>
             <h3>{item.title}</h3>
             <p>{item.detail}</p>
+            {item.id === "weak" && weakBooks.primary ? <p className="muted">{weakBooks.primary}</p> : null}
+            {item.id === "weak" && weakBooks.book ? <p className="muted">{weakBooks.book}</p> : null}
             {item.id === "science" && focus && !schoolYear ? (
               <button className="btn" type="button" onClick={() => { setSession(focus); setStage(0); }}>Start session</button>
             ) : (
@@ -163,6 +174,20 @@ export default function TodayPage() {
           </div>
         ))}
       </div>
+      {schoolYear && !todaySubject ? (
+        <div className="card stack">
+          <h3>Weekend coverage · Earth &amp; Energy</h3>
+          <p className="muted">
+            {earthEnergyLeft
+              ? `${earthEnergyLeft} articles not marked reviewed yet. Summer skipped these.`
+              : "Earth and Energy articles are marked reviewed."}
+          </p>
+          <div className="row">
+            <Link className="btn" href="/learn/review">Review with books</Link>
+            <Link className="btn ghost" href="/topics">All topics</Link>
+          </div>
+        </div>
+      ) : null}
       {schoolYear ? (
         <p className="muted">The 12-week summer blocks are finished. Reopen one from Weeks if you want a chapter hour. Thursday and Friday fill Earth &amp; Energy, which the summer pass skipped.</p>
       ) : blocks.length === 0 ? (

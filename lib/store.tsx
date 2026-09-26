@@ -129,6 +129,30 @@ function addDays(days: number): string {
   return d.toISOString();
 }
 
+const STAGE_RANK: Record<ReviewStage, number> = { new: 0, learning: 1, review: 2, mastered: 3 };
+
+function flashKey(card: { prompt: string; answer: string }) {
+  return `${card.prompt.trim()}::${card.answer.trim()}`;
+}
+
+function mergeFlashCards(cards: FlashCard[]): FlashCard[] {
+  const seen = new Map<string, FlashCard>();
+  for (const card of cards) {
+    const key = flashKey(card);
+    const prev = seen.get(key);
+    if (!prev) {
+      seen.set(key, card);
+      continue;
+    }
+    seen.set(key, {
+      ...prev,
+      due: new Date(card.due) < new Date(prev.due) ? card.due : prev.due,
+      stage: STAGE_RANK[card.stage] < STAGE_RANK[prev.stage] ? card.stage : prev.stage,
+    });
+  }
+  return [...seen.values()];
+}
+
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<State>(defaultState);
   const [ready, setReady] = useState(false);
@@ -138,7 +162,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       const raw = localStorage.getItem(KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as Partial<State>;
-        setState({ ...defaultState(), ...parsed, checklist: mergeChecklist(parsed.checklist) });
+        setState({
+          ...defaultState(),
+          ...parsed,
+          checklist: mergeChecklist(parsed.checklist),
+          flashCards: mergeFlashCards(parsed.flashCards ?? []),
+        });
       }
     } catch {
       /* keep defaults */
@@ -166,18 +195,28 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         };
         let flashCards = prev.flashCards;
         if (!correct && prompt && answer) {
-          flashCards = [
-            ...flashCards,
-            {
-              id: crypto.randomUUID(),
-              subject,
-              topic,
-              prompt,
-              answer,
-              stage: "new",
-              due: addDays(INTERVALS[prev.flashCardReviewPace].new),
-            },
-          ];
+          const key = flashKey({ prompt, answer });
+          const existing = flashCards.find((card) => flashKey(card) === key);
+          if (existing) {
+            flashCards = flashCards.map((card) =>
+              card.id === existing.id
+                ? { ...card, stage: regress(card.stage), due: new Date().toISOString() }
+                : card,
+            );
+          } else {
+            flashCards = [
+              ...flashCards,
+              {
+                id: crypto.randomUUID(),
+                subject,
+                topic,
+                prompt,
+                answer,
+                stage: "new",
+                due: new Date().toISOString(),
+              },
+            ];
+          }
         }
         const today = new Date().toDateString();
         const last = prev.lastStudyDate ? new Date(prev.lastStudyDate).toDateString() : null;
@@ -243,11 +282,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       }));
     },
     addFlashCards: (cards) => {
-      const seen = new Set(state.flashCards.map((card) => `${card.prompt}::${card.answer}`));
+      const seen = new Set(state.flashCards.map(flashKey));
       const next = cards
-        .filter((card) => card.prompt && card.answer && !seen.has(`${card.prompt}::${card.answer}`))
+        .filter((card) => card.prompt && card.answer && !seen.has(flashKey(card)))
         .map((card) => {
-          seen.add(`${card.prompt}::${card.answer}`);
+          seen.add(flashKey(card));
           return {
             id: crypto.randomUUID(),
             subject: card.subject,

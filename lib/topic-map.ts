@@ -93,7 +93,7 @@ const SUBJECT_TO_PRACTICE: Record<string, string> = {
   Chemistry: "chemistry",
   chemistry: "chemistry",
   "Earth & Space Science": "earth",
-  Energy: "physics",
+  Energy: "energy",
   Math: "math",
   math: "math",
 };

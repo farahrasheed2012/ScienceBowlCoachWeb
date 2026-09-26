@@ -314,6 +314,7 @@ export function QuestionPlay({
             <p className={correct ? "ok-text" : "bad-text"}>
               <strong>{correct ? "Correct" : "Not quite"}.</strong> {question.answer}
             </p>
+            {!correct ? <p className="muted">This miss is on your flashcards — due now, not a second copy.</p> : null}
             <CoachPanel
               key={`${question.id}-revealed`}
               question={question}

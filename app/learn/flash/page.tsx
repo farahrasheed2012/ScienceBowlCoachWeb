@@ -57,7 +57,7 @@ export default function FlashReviewPage() {
       ) : (
         <div className="card stack">
           <p>None due right now.</p>
-          <p className="muted">Missed toss-ups become cards automatically. You can also make cards from key terms on a Learn article. Clearing the pile saves a session to Progress.</p>
+          <p className="muted">Missed toss-ups become cards due now (one card per prompt). You can also make cards from key terms on a Learn article. Clearing the pile saves a session to Progress.</p>
           <Link className="btn" href="/learn">Pick an article</Link>
         </div>
       )}
