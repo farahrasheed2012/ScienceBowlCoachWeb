@@ -29,6 +29,17 @@ export function seasonLabel(week: number, date = new Date()): string {
   return `Week ${week} · ${weekTheme(week)}`;
 }
 
+export function schoolYearEncyclopediaSubject(date = new Date()): string | null {
+  const map: Record<string, string> = {
+    chemistry: "Chemistry",
+    biology: "Life Science",
+    physics: "Physical Science",
+    earth: "Earth & Space Science",
+    energy: "Energy",
+  };
+  return map[schoolYearFocus(date).subject] ?? null;
+}
+
 export function schoolYearFocus(date = new Date()): { subject: string; label: string; href: string } {
   switch (date.getDay()) {
     case 1:
