@@ -120,7 +120,8 @@ export default function SettingsPage() {
       </section>
       <section className="card stack">
         <h3>Phone buzzer</h3>
-        <p className="muted">Open a room on this computer, then buzz from a phone on the same site. Same idea as the Mac remote, not a game.</p>
+        <p className="muted">Open a room on this computer, then buzz from a phone on the same site. A phone buzz locks in like Space during Practice.</p>
+        {store.buzzerRoomCode ? <p className="muted">Current room {store.buzzerRoomCode}</p> : null}
         <Link className="btn" href="/quiz/buzzer">Open buzzer room</Link>
       </section>
       <section className="card stack">

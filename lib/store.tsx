@@ -48,6 +48,7 @@ type State = {
   planExtraDone: string[];
   practiceRounds: PracticeRound[];
   studySeconds: number;
+  buzzerRoomCode: string | null;
 };
 
 const defaultState = (): State => ({
@@ -80,6 +81,7 @@ const defaultState = (): State => ({
   planExtraDone: [],
   practiceRounds: [],
   studySeconds: 0,
+  buzzerRoomCode: null,
 });
 
 type Store = State & {

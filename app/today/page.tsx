@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { BUZZER_SLOTS } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
+import { SpeechBar } from "@/components/SpeechBar";
 import { buildTodayPlan, featuredBlock } from "@/lib/plan";
 import { blockTime, subjectLabel, todayBlocks, weekTheme, weekdayFromDate } from "@/lib/schedule";
 import { studyMinutes } from "@/lib/stats";
@@ -48,11 +49,13 @@ export default function TodayPage() {
             {session.backupBookLine ? <p className="muted">Backup: {session.backupBookLine}</p> : null}
             <p>{session.focus}</p>
             <p className="muted">{session.formulasAndTerms}</p>
+            <SpeechBar text={`${session.chapterTitle}. ${session.focus}. ${session.formulasAndTerms}`} />
           </div>
         ) : null}
         {stage === 2 ? (
           <div className="card stack">
             {session.knowCold.map((line) => <p key={line}>{line}</p>)}
+            <SpeechBar text={session.knowCold.join(". ")} />
           </div>
         ) : null}
         {stage === 3 ? (
@@ -165,7 +168,7 @@ export default function TodayPage() {
       </div>
       <h2>Buzzer slots</h2>
       <div className="stack">
-        {BUZZER_SLOTS.filter((s) => !day || s.weekday === day).map((slot) => (
+        {day ? BUZZER_SLOTS.filter((s) => s.weekday === day).map((slot) => (
           <div className="card stack" key={slot.label}>
             <p><strong>{slot.label}</strong> · {slot.duration} · {slot.subject}</p>
             <div className="row">
@@ -173,7 +176,16 @@ export default function TodayPage() {
               <Link className="btn ghost" href="/quiz/buzzer">Phone buzzer</Link>
             </div>
           </div>
-        ))}
+        )) : (
+          <div className="card stack">
+            <p><strong>Weekend toss-up</strong> · 15 min · mixed</p>
+            <p className="muted">Weekday buzzer slots return Monday. Use a mixed toss-up or the phone remote.</p>
+            <div className="row">
+              <Link className="btn" href="/practice/play?mode=tossup">Start toss-up</Link>
+              <Link className="btn ghost" href="/quiz/buzzer">Phone buzzer</Link>
+            </div>
+          </div>
+        )}
       </div>
       {due.length > 0 ? (
         <>

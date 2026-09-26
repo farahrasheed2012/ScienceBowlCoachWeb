@@ -74,6 +74,32 @@ export function QuestionPlay({
   }, [clockOn, index, phase, question, timed]);
 
   useEffect(() => {
+    if (!store.buzzerRoomCode || !timed) return;
+    let primed = false;
+    let lastAt = "";
+    const id = window.setInterval(async () => {
+      try {
+        const res = await fetch(`/api/buzzer/${store.buzzerRoomCode}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const latest = (data.events as { at: string }[] | undefined)?.at(-1);
+        if (!primed) {
+          primed = true;
+          lastAt = latest?.at ?? "";
+          return;
+        }
+        if (latest?.at && latest.at !== lastAt) {
+          lastAt = latest.at;
+          setPhase((current) => (current === "live" ? "buzzed" : current));
+        }
+      } catch {
+        /* room may be empty */
+      }
+    }, 700);
+    return () => window.clearInterval(id);
+  }, [store.buzzerRoomCode, timed]);
+
+  useEffect(() => {
     function onKey(event: KeyboardEvent) {
       if (!question) return;
       const key = event.key.toLowerCase();
@@ -221,6 +247,9 @@ export function QuestionPlay({
         ) : null}
         {store.parentReadsAloud && phase !== "revealed" ? (
           <p className="muted">Parent is reading. Answers stay hidden until Reveal.</p>
+        ) : null}
+        {timed && store.buzzerRoomCode ? (
+          <p className="muted">Phone room {store.buzzerRoomCode} · a remote buzz locks in like Space</p>
         ) : null}
         <p className="stem">{question.questionText}</p>
         <SpeechBar text={question.questionText} />
