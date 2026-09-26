@@ -51,7 +51,8 @@ export function buildTodayPlan(input: {
   const sessionDone = Boolean(block && input.completedSessionIds.includes(block.id));
   const tossDone = answeredToday.some((row) => !block || String(row.subject).toLowerCase().includes(block.subject));
   const weakDone = Boolean(weak && answeredToday.some((row) => row.topic === weak.topic));
-  const sprintDone = input.extraDone.includes("sprint") || answeredToday.some((row) => regionalSprint.some((pack) => pack.title === row.topic));
+  const sprintHits = answeredToday.filter((row) => regionalSprint.some((pack) => pack.title === row.topic)).length;
+  const sprintDone = input.extraDone.includes("sprint") || sprintHits >= 5;
 
   if (isSchoolYear(date)) {
     const focus = schoolYearFocus(date);

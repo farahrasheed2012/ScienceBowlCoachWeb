@@ -119,4 +119,12 @@ export const FORMULAS = {
     { text: "Photosynthesis", use: "Chloroplast · CO₂ + H₂O + light → glucose + O₂" },
     { text: "Cellular respiration", use: "Mitochondria · glucose + O₂ → CO₂ + H₂O + ATP" },
   ],
+  earth: [
+    { text: "Rotation vs revolution", use: "Rotation = day/night · revolution = year · tilt causes seasons" },
+    { text: "Density", use: "Earth's layers: crust (least dense) → inner core (most dense)" },
+  ],
+  energy: [
+    { text: "PE = mgh · KE = ½mv²", use: "Stored height vs motion — energy changes form, total stays" },
+    { text: "Generator", use: "Turbine turns → generator → electricity on the grid" },
+  ],
 };

@@ -44,6 +44,9 @@ export default function LearnTopicPage() {
       <Link href="/learn">Back to Learn</Link>
       <h1>{topic.title}</h1>
       <p className="muted">{topic.subject}</p>
+      {store.encyclopediaWrong[topic.title] ? (
+        <p className="muted">{store.encyclopediaWrong[topic.title]} misses on this title — drill it before marking reviewed.</p>
+      ) : null}
       <div className="row">
         <button className="btn ghost" type="button" onClick={() => store.markReviewed(article.id)}>
           {reviewed ? "Reviewed" : "Mark reviewed"}

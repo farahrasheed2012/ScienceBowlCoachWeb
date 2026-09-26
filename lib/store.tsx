@@ -187,10 +187,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           yesterday.setDate(yesterday.getDate() - 1);
           studyStreak = last === yesterday.toDateString() ? prev.studyStreak + 1 : 1;
         }
+        const encyclopediaWrong = correct
+          ? prev.encyclopediaWrong
+          : { ...prev.encyclopediaWrong, [topic]: (prev.encyclopediaWrong[topic] ?? 0) + 1 };
         return {
           ...prev,
           drillResults: [...prev.drillResults, result],
           flashCards,
+          encyclopediaWrong,
           xp: prev.xp + (correct ? 10 : 0),
           studyStreak,
           lastStudyDate: new Date().toISOString(),

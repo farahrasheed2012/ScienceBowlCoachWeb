@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { isSchoolYear } from "@/lib/schedule";
 import { accuracyWindow, improvedTopics, studyMinutes, subjectAccuracy, topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
@@ -18,10 +17,7 @@ function when(iso: string) {
 
 export default function ProgressPage() {
   const store = useStore();
-  const [cardIndex, setCardIndex] = useState(0);
-  const [show, setShow] = useState(false);
   const due = store.flashCards.filter((c) => new Date(c.due) <= new Date());
-  const card = due[cardIndex];
   const results = store.drillResults;
   const rounds = store.practiceRounds ?? [];
   const topics = topicAccuracy(results);
@@ -122,17 +118,12 @@ export default function ProgressPage() {
         );
       })}
       <h2>Flash cards due today</h2>
-      <Link className="btn ghost" href="/learn/flash">Open flashcard review</Link>
-      {card ? (
-        <div className="card stack">
-          <p>{show ? card.answer : card.prompt}</p>
-          <div className="row">
-            <button className="btn ghost" type="button" onClick={() => setShow((s) => !s)}>Reveal</button>
-            <button className="btn ok" type="button" onClick={() => { store.reviewFlashCard(card.id, true); setShow(false); setCardIndex(0); }}>Correct</button>
-            <button className="btn bad" type="button" onClick={() => { store.reviewFlashCard(card.id, false); setShow(false); }}>Again</button>
-          </div>
-        </div>
-      ) : <p className="muted">None due — great job!</p>}
+      {due.length ? (
+        <Link className="btn" href="/learn/flash">Review {due.length} cards</Link>
+      ) : (
+        <p className="muted">None due — great job!</p>
+      )}
+      <Link className="btn ghost" href="/learn/formulas">Formulas & know-cold</Link>
       <h2>Notebook</h2>
       {store.notebook.map((n) => <p key={n.id}>{n.text}</p>)}
     </div>

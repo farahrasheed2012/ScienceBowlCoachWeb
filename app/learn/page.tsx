@@ -47,6 +47,7 @@ export default function LearnPage() {
         <Link className="btn" href="/learn/flash">{due ? `Review ${due} flashcards` : "Flashcards"}</Link>
         <Link className="btn ghost" href="/topics">All topics</Link>
         <Link className="btn ghost" href="/elements">Elements</Link>
+        <Link className="btn ghost" href="/learn/formulas">Formulas</Link>
         <Link className="btn ghost" href="/weeks">Weeks</Link>
         <Link className="btn ghost" href="/calendar">Calendar</Link>
         <Link className="btn ghost" href="/mental-math">Mental Math</Link>
