@@ -236,8 +236,6 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           const stage = correct ? advance(card.stage) : regress(card.stage);
           return { ...card, stage, due: addDays(INTERVALS[prev.flashCardReviewPace][stage]) };
         }),
-        planExtraDate: new Date().toDateString(),
-        planExtraDone: Array.from(new Set([...(prev.planExtraDate === new Date().toDateString() ? prev.planExtraDone : []), "flash"])),
       }));
     },
     addFlashCards: (cards) => {
@@ -313,6 +311,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           .filter((key) => data[key as keyof State] !== undefined)
           .map((key) => [key, data[key as keyof State]]),
       ) as Partial<State>;
+      if (patch.checklist) patch.checklist = mergeChecklist(patch.checklist);
       setState((prev) => ({ ...prev, ...patch }));
     },
     exportState: () => {

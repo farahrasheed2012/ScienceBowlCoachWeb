@@ -1,4 +1,5 @@
 import { regionalSprint } from "./catalogs";
+import { matchesSubject } from "./questions";
 import { blocksForWeek, isSchoolYear, schoolYearFocus, todayBlocks, weekdayFromDate } from "./schedule";
 import { topicAccuracy } from "./stats";
 import type { DrillResult, StudyBlock } from "./types";
@@ -26,6 +27,14 @@ function sameDay(iso: string, date = new Date()) {
   return new Date(iso).toDateString() === date.toDateString();
 }
 
+function tossupFinished(answeredToday: DrillResult[], subject: string) {
+  if (subject === "mixed") {
+    const subjects = new Set(answeredToday.map((row) => String(row.subject).toLowerCase()));
+    return answeredToday.length >= 5 && subjects.size >= 2;
+  }
+  return answeredToday.filter((row) => matchesSubject({ category: String(row.subject) }, subject)).length >= 5;
+}
+
 export function buildTodayPlan(input: {
   week: number;
   drillResults: DrillResult[];
@@ -42,7 +51,6 @@ export function buildTodayPlan(input: {
   const sessionDone = Boolean(block && input.completedSessionIds.includes(block.id));
   const tossDone = answeredToday.some((row) => !block || String(row.subject).toLowerCase().includes(block.subject));
   const weakDone = Boolean(weak && answeredToday.some((row) => row.topic === weak.topic));
-  const flashDone = input.dueCount === 0 || input.extraDone.includes("flash");
   const sprintDone = input.extraDone.includes("sprint") || answeredToday.some((row) => regionalSprint.some((pack) => pack.title === row.topic));
 
   if (isSchoolYear(date)) {
@@ -64,7 +72,7 @@ export function buildTodayPlan(input: {
           ? "Summer skipped this category. Short official clock."
           : "Buzz, answer, next. Official 5s / 20s clock.",
         href: focus.href,
-        done: answeredToday.length > 0 || input.extraDone.includes("tossup"),
+        done: input.extraDone.includes("tossup") || tossupFinished(answeredToday, focus.subject),
       },
       {
         id: "sprint",
@@ -80,7 +88,7 @@ export function buildTodayPlan(input: {
         title: "Flashcards",
         detail: input.dueCount ? `${input.dueCount} due today` : "None due — keep the streak.",
         href: "/learn/flash",
-        done: input.dueCount === 0 || flashDone,
+        done: input.dueCount === 0,
       },
     ];
   }
@@ -119,7 +127,7 @@ export function buildTodayPlan(input: {
       title: "Flashcards",
       detail: input.dueCount ? `${input.dueCount} due today` : "None due — keep the streak.",
       href: "/learn/flash",
-      done: input.dueCount === 0 || flashDone,
+      done: input.dueCount === 0,
     },
   ];
   return items;
