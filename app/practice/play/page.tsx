@@ -13,6 +13,7 @@ import {
   matchesSubject,
 } from "@/lib/questions";
 import { topicAccuracy } from "@/lib/stats";
+import { sameTopicLabel } from "@/lib/topic-map";
 import { tossUpHewittPairs } from "@/lib/tossup";
 import { useStore } from "@/lib/store";
 
@@ -42,13 +43,13 @@ function PlayInner() {
       };
     }
     if (mode === "topic") {
-      const list = shuffle(bank.filter((q) => q.topicId === topic || q.topic === topic)).slice(0, 15);
-      const fallback = list.length ? list : shuffle(allEncyclopediaPlay().filter((q) => q.topicId === topic || q.topic === topic)).slice(0, 15);
+      const list = shuffle(bank.filter((q) => q.topicId === topic || sameTopicLabel(q.topic, topic))).slice(0, 15);
+      const fallback = list.length ? list : shuffle(allEncyclopediaPlay().filter((q) => q.topicId === topic || sameTopicLabel(q.topic, topic))).slice(0, 15);
       return { title: fallback[0]?.topic || topic, questions: fallback };
     }
     if (mode === "weak") {
       const weakTopic = topic || topicAccuracy(store.drillResults).find((row) => row.acc < 0.7)?.topic || "";
-      const list = shuffle(bank.filter((q) => q.topic === weakTopic || q.topicId === weakTopic)).slice(0, 12);
+      const list = shuffle(bank.filter((q) => q.topicId === weakTopic || sameTopicLabel(q.topic, weakTopic))).slice(0, 12);
       return {
         title: weakTopic ? `Weak · ${weakTopic}` : "Weak areas",
         questions: list.length ? list : shuffle(bank).slice(0, 10),

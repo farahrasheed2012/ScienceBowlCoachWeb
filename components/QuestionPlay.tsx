@@ -7,6 +7,7 @@ import { lookupLine } from "@/lib/readings";
 import { RATE, praise, speak, stopSpeech } from "@/lib/speech";
 import { topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
+import { sameTopicLabel } from "@/lib/topic-map";
 import type { PlayQuestion } from "@/lib/types";
 import { SpeechBar } from "./SpeechBar";
 import { CoachPanel } from "./CoachPanel";
@@ -39,6 +40,7 @@ export function QuestionPlay({
   const loggedRound = useRef(false);
   const answeredId = useRef<string | null>(null);
   const questionGen = useRef(0);
+  const timedOut = useRef(false);
   const question = list[index];
   const limit = question ? officialSeconds(question) : 5;
   const tone = question ? subjectTone(question.category) : "bio";
@@ -48,6 +50,7 @@ export function QuestionPlay({
   useEffect(() => {
     questionGen.current += 1;
     answeredId.current = null;
+    timedOut.current = false;
     setTyped("");
     setPicked(null);
     setCorrect(null);
@@ -63,19 +66,17 @@ export function QuestionPlay({
 
   useEffect(() => {
     if (!timed || !clockOn || !question || phase !== "live") return;
-    const startedGen = questionGen.current;
     const id = window.setInterval(() => {
-      setSeconds((left) => {
-        if (left <= 1) {
-          window.clearInterval(id);
-          if (questionGen.current === startedGen) grade(false, true);
-          return 0;
-        }
-        return left - 1;
-      });
+      setSeconds((left) => (left <= 1 ? 0 : left - 1));
     }, 1000);
     return () => window.clearInterval(id);
   }, [clockOn, index, phase, question, timed]);
+
+  useEffect(() => {
+    if (!timed || !question || phase !== "live" || seconds > 0 || timedOut.current) return;
+    timedOut.current = true;
+    grade(false, true);
+  }, [phase, question, seconds, timed]);
 
   useEffect(() => {
     if (!store.buzzerRoomCode || !timed) return;
@@ -175,6 +176,7 @@ export function QuestionPlay({
   function goTo(jump: number) {
     questionGen.current += 1;
     answeredId.current = null;
+    timedOut.current = false;
     setTyped("");
     setPicked(null);
     setCorrect(null);
@@ -184,7 +186,7 @@ export function QuestionPlay({
   }
 
   function similar() {
-    const match = (q: PlayQuestion) => q.id !== question.id && (q.topicId === question.topicId || q.topic === question.topic);
+    const match = (q: PlayQuestion) => q.id !== question.id && (q.topicId === question.topicId || sameTopicLabel(q.topic, question.topic));
     const later = list.findIndex((q, i) => i > index && match(q));
     const any = list.findIndex((q) => match(q));
     if (later >= 0) goTo(later);

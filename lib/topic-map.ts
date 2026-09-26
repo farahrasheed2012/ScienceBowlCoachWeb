@@ -117,7 +117,7 @@ export function tossupLabelForEncyclopedia(topicId: string) {
   return tossUpTopics.find((topic) => topic.id === tossupId)?.name;
 }
 
-export function articleForLabel(label: string): EncyclopediaTopic | undefined {
+export function articleForLabel(label: string, loose = true): EncyclopediaTopic | undefined {
   const needle = label.toLowerCase().trim();
   if (!needle) return undefined;
   const exact = topics.find((topic) => topic.title.toLowerCase() === needle);
@@ -133,12 +133,37 @@ export function articleForLabel(label: string): EncyclopediaTopic | undefined {
     const hit = topics.find((topic) => topic.title.toLowerCase() === part);
     if (hit) return hit;
   }
+  if (!loose) return undefined;
   return topics.find((topic) => needle.includes(topic.title.toLowerCase()) && topic.title.length > 4)
     ?? topics.find((topic) => parts[0] && topic.title.toLowerCase().includes(parts[0]));
 }
 
-export function missesForArticle(title: string, wrong: Record<string, number>, topicId?: string) {
-  const tossupName = topicId ? tossupLabelForEncyclopedia(topicId) : tossupLabelForEncyclopedia(articleForLabel(title)?.id ?? "");
+export function canonicalTopic(topic: string) {
+  const needle = topic.toLowerCase().trim();
+  const tossup = tossUpTopics.find((row) => row.id === needle || row.name.toLowerCase() === needle);
+  if (tossup) return tossup.name;
+  const article = articleForLabel(topic, false);
+  return article ? tossupLabelForEncyclopedia(article.id) ?? article.title : topic;
+}
+
+export function sameTopicLabel(left: string, right: string) {
+  if (!left || !right) return false;
+  if (left === right || left.toLowerCase() === right.toLowerCase()) return true;
+  return canonicalTopic(left) === canonicalTopic(right);
+}
+
+export function missesForArticle(
+  title: string,
+  wrong: Record<string, number>,
+  topicId?: string,
+  results?: { topic: string; correct: boolean }[],
+) {
+  if (results?.length) {
+    const article = topicId ? topics.find((topic) => topic.id === topicId) ?? articleForLabel(title, false) : articleForLabel(title, false);
+    const key = article ? tossupLabelForEncyclopedia(article.id) ?? article.title : title;
+    return results.filter((row) => !row.correct && sameTopicLabel(row.topic, key)).length;
+  }
+  const tossupName = topicId ? tossupLabelForEncyclopedia(topicId) : tossupLabelForEncyclopedia(articleForLabel(title, false)?.id ?? "");
   return (wrong[title] ?? 0) + (tossupName && tossupName !== title ? (wrong[tossupName] ?? 0) : 0);
 }
 

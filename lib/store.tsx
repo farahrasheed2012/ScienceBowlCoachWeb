@@ -135,6 +135,20 @@ function flashKey(card: { prompt: string; answer: string }) {
   return `${card.prompt.trim()}::${card.answer.trim()}`;
 }
 
+function mergeDrillResults(rows: DrillResult[]): DrillResult[] {
+  const out: DrillResult[] = [];
+  for (const row of rows) {
+    const at = new Date(row.at).getTime();
+    const dup = out.some((prev) => (
+      prev.questionId === row.questionId
+      && prev.correct === row.correct
+      && Math.abs(new Date(prev.at).getTime() - at) < 1500
+    ));
+    if (!dup) out.push(row);
+  }
+  return out;
+}
+
 function mergeFlashCards(cards: FlashCard[]): FlashCard[] {
   const seen = new Map<string, FlashCard>();
   for (const card of cards) {
@@ -167,6 +181,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           ...parsed,
           checklist: mergeChecklist(parsed.checklist),
           flashCards: mergeFlashCards(parsed.flashCards ?? []),
+          drillResults: mergeDrillResults(parsed.drillResults ?? []),
         });
       }
     } catch {
@@ -185,6 +200,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     set: (patch) => setState((prev) => ({ ...prev, ...patch })),
     recordAnswer: ({ questionId, topic, subject, correct, prompt, answer }) => {
       setState((prev) => {
+        const recent = prev.drillResults.at(-1);
+        if (recent && recent.questionId === questionId && Date.now() - new Date(recent.at).getTime() < 1500) {
+          return prev;
+        }
         const result: DrillResult = {
           id: crypto.randomUUID(),
           questionId,

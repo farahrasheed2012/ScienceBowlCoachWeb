@@ -24,7 +24,7 @@ export default function LearnTopicPage() {
     ? `/practice/play?mode=topic&topic=${tossupId}`
     : `/practice/play?mode=subject&subject=${practiceSubjectFor(article.subject)}`;
   const reviewed = store.reviewedTopicIds.includes(article.id);
-  const missCount = missesForArticle(article.title, store.encyclopediaWrong, article.id);
+  const missCount = missesForArticle(article.title, store.encyclopediaWrong, article.id, store.drillResults);
   const existing = new Set(store.flashCards.map((card) => `${card.prompt}::${card.answer}`));
   const newTerms = article.keyTerms.filter((term) => !existing.has(`${term.term}::${term.definition}`));
 

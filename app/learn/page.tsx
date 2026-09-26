@@ -82,13 +82,19 @@ export default function LearnPage() {
       <h2>Regional Sprint</h2>
       <p className="muted">Texas regional depth — this is the school-year reading, not another summer chapter.</p>
       <div className="grid two">
-        {regionalSprint.map((pack) => (
-          <Link className="card stack" key={pack.id} href={`/practice/play?mode=sprint&id=${pack.id}`}>
-            <h3>{pack.title}</h3>
-            <p className="muted">{pack.subtitle}</p>
-            <span className="btn">Drill {pack.tossups.length}</span>
-          </Link>
-        ))}
+        {regionalSprint.map((pack) => {
+          const article = articleForLabel(pack.title, false);
+          return (
+            <div className="card stack" key={pack.id}>
+              <h3>{pack.title}</h3>
+              <p className="muted">{pack.subtitle}</p>
+              <div className="row">
+                <Link className="btn" href={`/practice/play?mode=sprint&id=${pack.id}`}>Drill {pack.tossups.length}</Link>
+                {article ? <Link className="btn ghost" href={`/learn/${article.id}`}>Read the article</Link> : null}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

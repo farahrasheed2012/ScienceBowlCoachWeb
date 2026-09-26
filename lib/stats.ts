@@ -1,11 +1,13 @@
+import { canonicalTopic } from "./topic-map";
 import type { DrillResult, PracticeRound } from "./types";
 
 export function topicAccuracy(results: DrillResult[]) {
   return Object.entries(
     results.reduce<Record<string, { t: number; c: number; subject: string }>>((acc, row) => {
-      acc[row.topic] = acc[row.topic] ?? { t: 0, c: 0, subject: String(row.subject) };
-      acc[row.topic].t += 1;
-      if (row.correct) acc[row.topic].c += 1;
+      const topic = canonicalTopic(row.topic);
+      acc[topic] = acc[topic] ?? { t: 0, c: 0, subject: String(row.subject) };
+      acc[topic].t += 1;
+      if (row.correct) acc[topic].c += 1;
       return acc;
     }, {}),
   )
@@ -36,9 +38,10 @@ export function accuracyWindow(results: DrillResult[], daysAgoStart: number, day
 export function improvedTopics(results: DrillResult[]) {
   const byTopic = new Map<string, DrillResult[]>();
   for (const row of results) {
-    const list = byTopic.get(row.topic) ?? [];
+    const topic = canonicalTopic(row.topic);
+    const list = byTopic.get(topic) ?? [];
     list.push(row);
-    byTopic.set(row.topic, list);
+    byTopic.set(topic, list);
   }
   return [...byTopic.entries()]
     .filter(([, list]) => list.length >= 4)
