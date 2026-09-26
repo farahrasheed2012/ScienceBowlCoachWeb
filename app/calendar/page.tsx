@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { isSchoolYear } from "@/lib/schedule";
 import { useStore } from "@/lib/store";
 
 const DOCS = [
@@ -14,12 +15,18 @@ const DOCS = [
 
 export default function CalendarPage() {
   const store = useStore();
-  const [doc, setDoc] = useState(DOCS[0]);
+  const schoolYear = isSchoolYear();
+  const [doc, setDoc] = useState(schoolYear ? DOCS.find((item) => item.id === "prep") ?? DOCS[0] : DOCS[0]);
   return (
     <div>
       <h1>Calendar</h1>
-      <p className="muted">Bundled summer HTML from the Mac app. School year lives on Home. Summer week {store.currentWeek} is archive.</p>
+      <p className="muted">
+        {schoolYear
+          ? "School year lives on Home. These are the bundled summer PDFs — prep guide first, whiteboard is archive."
+          : `Bundled summer HTML from the Mac app. Current week ${store.currentWeek}.`}
+      </p>
       <div className="row">
+        <Link className="btn ghost" href="/today">Home</Link>
         <Link className="btn ghost" href="/learn">Learn</Link>
         <Link className="btn ghost" href="/weeks">Week blocks</Link>
       </div>

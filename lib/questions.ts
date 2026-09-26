@@ -24,6 +24,52 @@ export function encyclopediaToPlay(q: EncyclopediaQuestion): PlayQuestion {
   };
 }
 
+export function parseQuestionCache(data: unknown): { questions: DoeQuestion[]; error?: string } {
+  if (!data || typeof data !== "object") return { questions: [], error: "That file is not JSON we can read." };
+  const obj = data as Record<string, unknown>;
+  if ("flashCards" in obj || "drillResults" in obj || "practiceRounds" in obj) {
+    return { questions: [], error: "That file is a progress backup. Use Backup import above." };
+  }
+  const raw = Array.isArray(data) ? data : Array.isArray(obj.questions) ? obj.questions : [];
+  const questions = raw.map(normalizeImportedQuestion).filter((row): row is DoeQuestion => Boolean(row));
+  if (!questions.length) return { questions: [], error: "No DOE or TossUp questions in that file." };
+  return { questions };
+}
+
+function normalizeImportedQuestion(row: unknown): DoeQuestion | null {
+  if (!row || typeof row !== "object") return null;
+  const q = row as Record<string, unknown>;
+  const questionText = String(q.questionText ?? "").trim();
+  const answer = String(q.answer ?? q.correctAnswer ?? "").trim();
+  if (!questionText || !answer) return null;
+  const choices = Array.isArray(q.choices) ? q.choices.map(String) : undefined;
+  return {
+    id: String(q.id || `${questionText.slice(0, 24)}-${answer.slice(0, 12)}`),
+    category: String(q.category ?? q.subject ?? "General"),
+    questionType: String(q.questionType ?? q.round ?? "TOSS-UP"),
+    format: String(q.format ?? q.type ?? (choices?.length ? "Multiple Choice" : "Short Answer")),
+    questionText,
+    choices,
+    answer,
+    sourceFile: String(q.sourceFile ?? q.sourcePDF ?? "import"),
+    sourceYear: typeof q.sourceYear === "number" ? q.sourceYear : undefined,
+    setNumber: typeof q.setNumber === "number" ? q.setNumber : undefined,
+    roundNumber: typeof q.roundNumber === "number" ? q.roundNumber : undefined,
+    questionNumber: typeof q.questionNumber === "number" ? q.questionNumber : undefined,
+  };
+}
+
+export function mergeDoeQuestions(current: DoeQuestion[], incoming: DoeQuestion[]) {
+  const seen = new Set(current.map((row) => row.id));
+  const next = [...current];
+  for (const row of incoming) {
+    if (seen.has(row.id)) continue;
+    seen.add(row.id);
+    next.push(row);
+  }
+  return next;
+}
+
 export function doeToPlay(q: DoeQuestion): PlayQuestion {
   const choices = parseChoices(q.choices);
   const kind = /bonus/i.test(q.questionType) ? "bonus" : "tossup";

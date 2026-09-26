@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { mergeDoeQuestions, parseQuestionCache } from "@/lib/questions";
 import { listVoices, RATE, speak } from "@/lib/speech";
 import { useStore } from "@/lib/store";
-import type { Appearance, DoeQuestion, FlashPace, SpeechRate } from "@/lib/types";
+import type { Appearance, FlashPace, SpeechRate } from "@/lib/types";
 
 export default function SettingsPage() {
   const store = useStore();
@@ -100,7 +101,10 @@ export default function SettingsPage() {
       </section>
       <section className="card stack">
         <h3>DOE question bank</h3>
-        <p className="muted">{48 + store.importedDoe.length} DOE questions loaded (48 starter + imports), on top of TossUp’s 634 bundled questions. Export doe_questions_cache.json from the Mac app or TossUp’s questions_cache.json and import it here for the full official bank.</p>
+        <p className="muted">
+          {48 + store.importedDoe.length} DOE questions loaded (48 starter + {store.importedDoe.length} imported), on top of TossUp’s 634 bundled questions.
+          Export doe_questions_cache.json from the Mac app or TossUp’s questions_cache.json. Earth and Energy get much thicker with a real DOE cache.
+        </p>
         <input
           type="file"
           accept="application/json"
@@ -108,16 +112,27 @@ export default function SettingsPage() {
             const file = e.target.files?.[0];
             if (!file) return;
             try {
-              const data = JSON.parse(await file.text()) as DoeQuestion[] | { questions: DoeQuestion[] };
-              const imported = Array.isArray(data) ? data : data.questions ?? [];
-              store.set({ importedDoe: imported });
-              setDoeNote(`${file.name}: ${imported.length} questions ready.`);
+              const parsed = parseQuestionCache(JSON.parse(await file.text()));
+              if (parsed.error) {
+                setDoeNote(parsed.error);
+                return;
+              }
+              const merged = mergeDoeQuestions(store.importedDoe, parsed.questions);
+              const added = merged.length - store.importedDoe.length;
+              store.set({ importedDoe: merged });
+              setDoeNote(`${file.name}: ${added} new · ${merged.length} imported total.`);
             } catch {
               setDoeNote("That file is not a DOE or TossUp question cache.");
             }
+            e.target.value = "";
           }}
         />
-        {doeNote ? <p className="ok-text">{doeNote}</p> : null}
+        {store.importedDoe.length ? (
+          <button className="btn ghost" type="button" onClick={() => { store.set({ importedDoe: [] }); setDoeNote("Imported DOE cache cleared. Starter 48 stay."); }}>
+            Clear imported DOE
+          </button>
+        ) : null}
+        {doeNote ? <p className={doeNote.includes("not") || doeNote.includes("backup") || doeNote.includes("No DOE") ? "bad-text" : "ok-text"}>{doeNote}</p> : null}
       </section>
       <section className="card stack">
         <h3>Phone buzzer</h3>
