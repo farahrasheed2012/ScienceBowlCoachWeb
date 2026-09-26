@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { FIRST20 } from "@/lib/elements";
 import { answersMatch } from "@/lib/questions";
 import { useStore } from "@/lib/store";
@@ -15,6 +15,8 @@ export default function ElementsPage() {
   const [typed, setTyped] = useState("");
   const deck = useMemo(() => FIRST20, []);
   const current = deck[index % deck.length];
+  const drillHits = useRef(0);
+  const drillStarted = useRef(Date.now());
 
   function mark(symbol: string, correct: boolean) {
     if (correct && !store.elementMastered.includes(symbol)) {
@@ -30,7 +32,17 @@ export default function ElementsPage() {
         <Link href="/learn">Back to Learn</Link>
         <button className="btn ghost" type="button" onClick={() => setMode("table")}>Table</button>
         <button className="btn ghost" type="button" onClick={() => setMode("flash")}>Flash cards</button>
-        <button className="btn ghost" type="button" onClick={() => setMode("drill")}>Drill</button>
+        <button
+          className="btn ghost"
+          type="button"
+          onClick={() => {
+            setMode("drill");
+            drillHits.current = 0;
+            drillStarted.current = Date.now();
+          }}
+        >
+          Drill
+        </button>
         <button
           className="btn"
           type="button"
@@ -82,10 +94,23 @@ export default function ElementsPage() {
             e.preventDefault();
             const ok = answersMatch(current.name, typed);
             mark(current.symbol, ok);
+            if (ok) drillHits.current += 1;
             setTyped("");
-            setIndex((i) => i + 1);
+            const next = index + 1;
+            if (next % deck.length === 0) {
+              store.recordRound({
+                title: "Elements · H–Ca",
+                asked: deck.length,
+                correct: drillHits.current,
+                seconds: Math.max(1, Math.round((Date.now() - drillStarted.current) / 1000)),
+              });
+              drillHits.current = 0;
+              drillStarted.current = Date.now();
+            }
+            setIndex(next);
           }}
         >
+          <p className="muted">{(index % deck.length) + 1} / {deck.length} · a full pass saves to Progress</p>
           <p>Name the element: <strong>{current.symbol}</strong></p>
           <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder="Element name" />
           <button className="btn" type="submit">Check</button>

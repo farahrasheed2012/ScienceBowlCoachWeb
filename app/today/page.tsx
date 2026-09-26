@@ -206,7 +206,7 @@ export default function TodayPage() {
           </div>
         )}
       </div>
-      {due.length > 0 ? (
+      {due.length > 0 && !plan.some((item) => item.id === "flash") ? (
         <>
           <h2>Flash cards due</h2>
           <Link className="btn" href="/learn/flash">Review {due.length} cards</Link>

@@ -88,6 +88,14 @@ export const CHECKLIST_SEED = [
   { id: "phys-5", subject: "physics" as const, category: "Electromagnetism", description: "Electricity — V = IR · series vs parallel" },
   { id: "phys-6", subject: "physics" as const, category: "Thermodynamics", description: "Energy conservation — heat vs temperature" },
   { id: "elem-1", subject: "chemistry" as const, category: "Periodic table", description: "First 20 element symbols (H–Ca) mastered" },
+  { id: "earth-1", subject: "earth" as const, category: "Earth", description: "Earth's layers — crust, mantle, outer/inner core · lithosphere" },
+  { id: "earth-2", subject: "earth" as const, category: "Earth", description: "Plate tectonics — divergent/convergent/transform · earthquakes · volcanoes" },
+  { id: "earth-3", subject: "earth" as const, category: "Earth", description: "Rocks & minerals — igneous/sedimentary/metamorphic · rock cycle" },
+  { id: "earth-4", subject: "earth" as const, category: "Space", description: "Earth & space — rotation vs revolution · seasons · moon phases" },
+  { id: "energy-1", subject: "energy" as const, category: "Energy", description: "Forms of energy — KE/PE · thermal · chemical · nuclear · electrical · radiant" },
+  { id: "energy-2", subject: "energy" as const, category: "Energy", description: "Conservation — energy changes form, is not created or destroyed" },
+  { id: "energy-3", subject: "energy" as const, category: "Energy", description: "Sources — fossil fuels vs renewable · hydro · solar · wind · geothermal" },
+  { id: "energy-4", subject: "energy" as const, category: "Energy", description: "Electricity — turbines/generators · grid · efficiency vs conservation" },
 ];
 
 export const FORMULAS = {

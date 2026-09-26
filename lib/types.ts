@@ -106,7 +106,7 @@ export type FlashCard = {
 
 export type ChecklistItem = {
   id: string;
-  subject: Subject;
+  subject: string;
   category: string;
   description: string;
   completed: boolean;

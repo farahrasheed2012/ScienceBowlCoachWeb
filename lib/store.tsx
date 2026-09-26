@@ -18,6 +18,13 @@ import type {
 
 const KEY = "sbc-web-state-v1";
 
+function mergeChecklist(saved?: ChecklistItem[]): ChecklistItem[] {
+  const seed = CHECKLIST_SEED.map((item) => ({ ...item, completed: false }));
+  if (!saved?.length) return seed;
+  const byId = new Map(saved.map((item) => [item.id, item]));
+  return seed.map((item) => byId.get(item.id) ?? item);
+}
+
 type State = {
   currentWeek: number;
   weekManuallySet: boolean;
@@ -63,7 +70,7 @@ const defaultState = (): State => ({
   speechVoiceURI: null,
   flashCardReviewPace: "normal",
   appAppearance: "dark",
-  checklist: CHECKLIST_SEED.map((item) => ({ ...item, completed: false })),
+  checklist: mergeChecklist(),
   drillResults: [],
   flashCards: [],
   notebook: [],
@@ -131,7 +138,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       const raw = localStorage.getItem(KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as Partial<State>;
-        setState({ ...defaultState(), ...parsed, checklist: parsed.checklist?.length ? parsed.checklist : defaultState().checklist });
+        setState({ ...defaultState(), ...parsed, checklist: mergeChecklist(parsed.checklist) });
       }
     } catch {
       /* keep defaults */

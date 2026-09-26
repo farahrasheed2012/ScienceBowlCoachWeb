@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { isSchoolYear } from "@/lib/schedule";
 import { accuracyWindow, improvedTopics, studyMinutes, subjectAccuracy, topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 
@@ -38,7 +39,11 @@ export default function ProgressPage() {
     <div className="stack">
       <div>
         <h1>Progress</h1>
-        <p className="muted">Accuracy, study time, weak topics, and recent sessions.</p>
+        <p className="muted">
+          {isSchoolYear()
+            ? "School year · keep-sharp. Earth and Energy were not on the summer pass — check those off here."
+            : "Accuracy, study time, weak topics, and recent sessions."}
+        </p>
       </div>
       <div className="grid three">
         <div className="card"><p className="stem">{pct(overall)}</p><p className="muted">Overall accuracy</p></div>
@@ -100,14 +105,22 @@ export default function ProgressPage() {
       <p className="muted">Weak: {weak.slice(0, 5).map((t) => `${t.topic} ${pct(t.acc)}`).join(" · ") || "Keep drilling."}</p>
       <p className="muted">Strong: {strong.slice(0, 5).map((t) => `${t.topic} ${pct(t.acc)}`).join(" · ") || "Not yet."}</p>
       <h2>Category checklist</h2>
-      <div className="stack">
-        {store.checklist.map((item) => (
-          <label key={item.id} className="row">
-            <input type="checkbox" checked={item.completed} onChange={() => store.toggleChecklist(item.id)} />
-            <span>{item.description}</span>
-          </label>
-        ))}
-      </div>
+      {["biology", "chemistry", "physics", "earth", "energy"].map((subject) => {
+        const items = store.checklist.filter((item) => item.subject === subject);
+        if (!items.length) return null;
+        const done = items.filter((item) => item.completed).length;
+        return (
+          <section className="stack" key={subject}>
+            <h3>{subject} · {done} / {items.length}</h3>
+            {items.map((item) => (
+              <label key={item.id} className="row">
+                <input type="checkbox" checked={item.completed} onChange={() => store.toggleChecklist(item.id)} />
+                <span>{item.description}</span>
+              </label>
+            ))}
+          </section>
+        );
+      })}
       <h2>Flash cards due today</h2>
       <Link className="btn ghost" href="/learn/flash">Open flashcard review</Link>
       {card ? (
