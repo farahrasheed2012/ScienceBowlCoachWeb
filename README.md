@@ -49,6 +49,7 @@ Copied from the Mac app:
 - encyclopedia + Hewitt Ch 17 questions
 - 50 summer study blocks
 - 11 Texas Regional Sprint packs
+- 634 TossUp bundled questions (bio, chem, math)
 - DOE starter question cache
 - calendar / timetable / periodic table HTML
 
@@ -60,8 +61,10 @@ npm run extract
 
 To load the full DOE bank the Mac app parsed, export `doe_questions_cache.json` from the Mac Documents folder and import it in Settings.
 
+Coach notes on each question work offline from the encyclopedia. Optional richer AI: set `GROQ_API_KEY` or `OPENAI_API_KEY` in `.env.local`.
+
 ## Tabs
 
-Today · Weeks · Calendar · Topics · Learn · Elements · Mental Math · Quiz · Progress · Settings
+Home · Practice · Learn · Progress · Settings
 
-MathCounts, POT 6, and Games stay in the Mac app only.
+Practice uses TossUp’s bundled question bank plus encyclopedia, curriculum, and any imported DOE cache. MathCounts, POT 6, and Games stay in the Mac app only.

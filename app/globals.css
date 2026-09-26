@@ -11,6 +11,7 @@
   --chem: #6685fa;
   --phys: #ff941e;
   --math: #8c73f2;
+  --earth: #4dc7d9;
   --ok: #2ebf78;
   --bad: #d94040;
   --gold: #f5d76e;
@@ -77,6 +78,26 @@ h3 { font-size: 16px; margin: 0 0 6px; }
 .pill.chem { color: var(--chem); }
 .pill.phys { color: var(--phys); }
 .pill.math { color: var(--math); }
+.pill.earth { color: var(--earth); }
+.gold { color: var(--gold); font-weight: 700; }
+.ok-text { color: var(--ok); }
+.bad-text { color: var(--bad); }
+.stem { font-size: 26px; line-height: 1.35; margin: 0 0 12px; }
+.play-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px 22px 24px;
+  display: grid;
+  gap: 14px;
+}
+.play-card.bio { border-top: 4px solid var(--bio); }
+.play-card.chem { border-top: 4px solid var(--chem); }
+.play-card.phys { border-top: 4px solid var(--phys); }
+.play-card.math { border-top: 4px solid var(--math); }
+.play-card.earth { border-top: 4px solid var(--earth); }
+.btn.buzz { min-width: 140px; min-height: 48px; font-size: 18px; background: var(--gold); color: #1a1408; }
+.timer.urgent { color: var(--bad); }
 .choice {
   display: block; width: 100%; text-align: left; background: var(--surface-2);
   border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; color: var(--text); cursor: pointer;

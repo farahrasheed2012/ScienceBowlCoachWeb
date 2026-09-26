@@ -1,14 +1,21 @@
 export const RATE: Record<string, number> = { slow: 0.7, normal: 0.95, fast: 1.15 };
 
 export function speak(text: string, rate = 0.95, voiceURI?: string | null) {
-  if (typeof window === "undefined" || !window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.rate = rate;
-  const voices = window.speechSynthesis.getVoices();
-  const voice = voiceURI ? voices.find((v) => v.voiceURI === voiceURI) : voices.find((v) => v.lang.startsWith("en"));
-  if (voice) utter.voice = voice;
-  window.speechSynthesis.speak(utter);
+  return new Promise<void>((resolve) => {
+    if (typeof window === "undefined" || !window.speechSynthesis) {
+      resolve();
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.rate = rate;
+    const voices = window.speechSynthesis.getVoices();
+    const voice = voiceURI ? voices.find((v) => v.voiceURI === voiceURI) : voices.find((v) => v.lang.startsWith("en"));
+    if (voice) utter.voice = voice;
+    utter.onend = () => resolve();
+    utter.onerror = () => resolve();
+    window.speechSynthesis.speak(utter);
+  });
 }
 
 export function stopSpeech() {

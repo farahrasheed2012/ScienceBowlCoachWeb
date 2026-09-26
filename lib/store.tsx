@@ -11,6 +11,7 @@ import type {
   FlashCard,
   FlashPace,
   NotebookEntry,
+  PracticeRound,
   ReviewStage,
   SpeechRate,
 } from "./types";
@@ -41,6 +42,11 @@ type State = {
   studyStreak: number;
   lastStudyDate: string | null;
   elementMastered: string[];
+  completedSessionIds: string[];
+  planExtraDate: string | null;
+  planExtraDone: string[];
+  practiceRounds: PracticeRound[];
+  studySeconds: number;
 };
 
 const defaultState = (): State => ({
@@ -67,6 +73,11 @@ const defaultState = (): State => ({
   studyStreak: 0,
   lastStudyDate: null,
   elementMastered: [],
+  completedSessionIds: [],
+  planExtraDate: null,
+  planExtraDone: [],
+  practiceRounds: [],
+  studySeconds: 0,
 });
 
 type Store = State & {
@@ -76,6 +87,10 @@ type Store = State & {
   toggleChecklist: (id: string) => void;
   addNotebook: (text: string) => void;
   reviewFlashCard: (id: string, correct: boolean) => void;
+  addFlashCards: (cards: { subject: string; topic: string; prompt: string; answer: string }[]) => number;
+  completeSession: (blockId: string) => void;
+  togglePlanItem: (id: string) => void;
+  recordRound: (input: { title: string; asked: number; correct: number; seconds: number }) => void;
   clearProgress: () => void;
   importBackup: (data: Partial<State>) => void;
 };
@@ -198,6 +213,65 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           const stage = correct ? advance(card.stage) : regress(card.stage);
           return { ...card, stage, due: addDays(INTERVALS[prev.flashCardReviewPace][stage]) };
         }),
+        planExtraDate: new Date().toDateString(),
+        planExtraDone: Array.from(new Set([...(prev.planExtraDate === new Date().toDateString() ? prev.planExtraDone : []), "flash"])),
+      }));
+    },
+    addFlashCards: (cards) => {
+      const seen = new Set(state.flashCards.map((card) => `${card.prompt}::${card.answer}`));
+      const next = cards
+        .filter((card) => card.prompt && card.answer && !seen.has(`${card.prompt}::${card.answer}`))
+        .map((card) => {
+          seen.add(`${card.prompt}::${card.answer}`);
+          return {
+            id: crypto.randomUUID(),
+            subject: card.subject,
+            topic: card.topic,
+            prompt: card.prompt,
+            answer: card.answer,
+            stage: "new" as const,
+            due: new Date().toISOString(),
+          };
+        });
+      if (next.length) {
+        setState((prev) => ({ ...prev, flashCards: [...prev.flashCards, ...next] }));
+      }
+      return next.length;
+    },
+    completeSession: (blockId) => {
+      setState((prev) => ({
+        ...prev,
+        completedSessionIds: prev.completedSessionIds.includes(blockId)
+          ? prev.completedSessionIds
+          : [...prev.completedSessionIds, blockId],
+      }));
+    },
+    togglePlanItem: (id) => {
+      const today = new Date().toDateString();
+      setState((prev) => {
+        const current = prev.planExtraDate === today ? prev.planExtraDone : [];
+        return {
+          ...prev,
+          planExtraDate: today,
+          planExtraDone: current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
+        };
+      });
+    },
+    recordRound: ({ title, asked, correct, seconds }) => {
+      setState((prev) => ({
+        ...prev,
+        studySeconds: (prev.studySeconds ?? 0) + seconds,
+        practiceRounds: [
+          {
+            id: crypto.randomUUID(),
+            title,
+            asked,
+            correct,
+            seconds,
+            at: new Date().toISOString(),
+          },
+          ...(prev.practiceRounds ?? []),
+        ].slice(0, 40),
       }));
     },
     clearProgress: () => {

@@ -2,26 +2,60 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useState } from "react";
 import { encyclopediaQuestions, topicReadings, topics } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
 import { encyclopediaToPlay } from "@/lib/questions";
+import { practiceSubjectFor, tossupTopicForEncyclopedia } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
 
 export default function LearnTopicPage() {
   const { id } = useParams<{ id: string }>();
   const store = useStore();
+  const [cardNote, setCardNote] = useState("");
   const topic = topics.find((t) => t.id === id);
   if (!topic) return <p>Topic not found.</p>;
-  const questions = encyclopediaQuestions.filter((q) => q.topicId === topic.id).map(encyclopediaToPlay);
-  const readings = topicReadings[topic.id] ?? [];
+  const article = topic;
+  const questions = encyclopediaQuestions.filter((q) => q.topicId === article.id).map(encyclopediaToPlay);
+  const readings = topicReadings[article.id] ?? [];
+  const tossupId = tossupTopicForEncyclopedia(article.id);
+  const practiceHref = tossupId
+    ? `/practice/play?mode=topic&topic=${tossupId}`
+    : `/practice/play?mode=subject&subject=${practiceSubjectFor(article.subject)}`;
+  const reviewed = store.reviewedTopicIds.includes(article.id);
+  const existing = new Set(store.flashCards.map((card) => `${card.prompt}::${card.answer}`));
+  const newTerms = article.keyTerms.filter((term) => !existing.has(`${term.term}::${term.definition}`));
+
+  function makeCards() {
+    const added = store.addFlashCards(
+      article.keyTerms.map((term) => ({
+        subject: article.subject,
+        topic: article.title,
+        prompt: term.term,
+        answer: term.definition,
+      })),
+    );
+    setCardNote(added ? `Added ${added} card${added === 1 ? "" : "s"}.` : "Those cards are already in your deck.");
+    store.markReviewed(article.id);
+  }
+
   return (
     <div className="stack">
       <Link href="/learn">Back to Learn</Link>
       <h1>{topic.title}</h1>
       <p className="muted">{topic.subject}</p>
-      <button className="btn ghost" type="button" onClick={() => store.markReviewed(topic.id)}>
-        {store.reviewedTopicIds.includes(topic.id) ? "Reviewed" : "Mark reviewed"}
-      </button>
+      <div className="row">
+        <button className="btn ghost" type="button" onClick={() => store.markReviewed(article.id)}>
+          {reviewed ? "Reviewed" : "Mark reviewed"}
+        </button>
+        <Link className="btn" href={practiceHref}>Practice this topic</Link>
+        {questions.length > 0 ? <Link className="btn ghost" href={`/practice/play?mode=encyclopedia&topicId=${topic.id}`}>Quiz the article</Link> : null}
+        <button className="btn ghost" type="button" onClick={makeCards}>
+          {newTerms.length ? `Make ${newTerms.length} flashcards` : "Flashcards added"}
+        </button>
+        <Link className="btn ghost" href="/learn/flash">Review cards</Link>
+      </div>
+      {cardNote ? <p className="muted">{cardNote}</p> : null}
       <section className="card stack">
         <h3>What is it</h3>
         <p>{topic.whatIsIt}</p>
@@ -57,7 +91,19 @@ export default function LearnTopicPage() {
           })}
         </section>
       ) : null}
-      {questions.length > 0 ? <QuestionPlay questions={questions} title="Practice this topic" /> : <p className="muted">No authored drills on this topic yet.</p>}
+      {questions.length > 0 ? <QuestionPlay questions={questions} title="Practice this topic" timed={false} /> : <p className="muted">No authored article drills yet. Use Practice this topic for TossUp questions.</p>}
+      <section className="card stack">
+        <h3>Review</h3>
+        <p className="muted">{reviewed ? "You marked this topic reviewed. Next: practice, then a related article." : "Read the article, practice, then mark it reviewed."}</p>
+        {!reviewed ? <button className="btn" type="button" onClick={() => store.markReviewed(topic.id)}>I understand this topic</button> : null}
+        {topic.relatedTopics[0] ? (
+          <Link className="btn ghost" href={`/learn/${topic.relatedTopics[0]}`}>
+            Next article{topics.find((t) => t.id === topic.relatedTopics[0]) ? ` · ${topics.find((t) => t.id === topic.relatedTopics[0])?.title}` : ""}
+          </Link>
+        ) : null}
+        <Link href="/progress">See what you are weak at</Link>
+        <Link href="/learn/flash">Review flashcards</Link>
+      </section>
     </div>
   );
 }

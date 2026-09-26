@@ -1,0 +1,2722 @@
+[
+  {
+    "id": "math-exp-001",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Express 45,000 in scientific notation.",
+    "choices": [
+      "W) 45 × 10³",
+      "X) 4.5 × 10⁴",
+      "Y) 0.45 × 10⁵",
+      "Z) 4.5 × 10³"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-002",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: x⁵ × x³",
+    "choices": null,
+    "correctAnswer": "x⁸",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-003",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is (3²)³?",
+    "choices": [
+      "W) 27",
+      "X) 18",
+      "Y) 729",
+      "Z) 81"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-004",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Convert 3.2 × 10⁻⁴ to standard notation.",
+    "choices": null,
+    "correctAnswer": "0.00032",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-005",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Simplify: x⁸ ÷ x³",
+    "choices": [
+      "W) x⁵",
+      "X) x¹¹",
+      "Y) x²⁴",
+      "Z) x²"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-006",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Multiply: (2 × 10³) × (3 × 10⁴). Express in scientific notation.",
+    "choices": null,
+    "correctAnswer": "6 × 10⁷",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-007",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is 5⁰?",
+    "choices": [
+      "W) 0",
+      "X) 5",
+      "Y) 1",
+      "Z) Undefined"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-008",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: (x³y²)⁴",
+    "choices": null,
+    "correctAnswer": "x¹²y⁸",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-009",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is 2⁻³?",
+    "choices": [
+      "W) −8",
+      "X) −6",
+      "Y) 1/8",
+      "Z) 1/6"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-010",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Add: (3 × 10⁴) + (5 × 10⁴). Express in scientific notation.",
+    "choices": null,
+    "correctAnswer": "8 × 10⁴",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-011",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Simplify: (2x²)³",
+    "choices": [
+      "W) 6x⁵",
+      "X) 8x⁶",
+      "Y) 6x⁶",
+      "Z) 8x⁵"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-012",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Divide: (8 × 10⁶) ÷ (4 × 10²). Express in scientific notation.",
+    "choices": null,
+    "correctAnswer": "2 × 10⁴",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-013",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is equal to 10⁻²?",
+    "choices": [
+      "W) −100",
+      "X) 100",
+      "Y) 0.01",
+      "Z) 0.1"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-014",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: y⁰ × y⁵",
+    "choices": null,
+    "correctAnswer": "y⁵",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-015",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The distance from Earth to the sun is approximately 1.5 × 10⁸ km. In standard notation this is:",
+    "choices": [
+      "W) 1,500",
+      "X) 150,000,000",
+      "Y) 15,000,000",
+      "Z) 1,500,000,000"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-016",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: (a⁴)/(a⁷)",
+    "choices": null,
+    "correctAnswer": "a⁻³ (or 1/a³)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-017",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is 4² + 3³?",
+    "choices": [
+      "W) 25",
+      "X) 43",
+      "Y) 91",
+      "Z) 144"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-018",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Write 0.000000072 in scientific notation.",
+    "choices": null,
+    "correctAnswer": "7.2 × 10⁻⁸",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-019",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which expression is equivalent to x⁻²?",
+    "choices": [
+      "W) −x²",
+      "X) x²",
+      "Y) 1/x²",
+      "Z) 2/x"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-020",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: (3²)(3⁴)",
+    "choices": null,
+    "correctAnswer": "3⁶ = 729",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-021",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Subtract: (9 × 10⁵) − (3 × 10⁵)",
+    "choices": [
+      "W) 6 × 10¹⁰",
+      "X) 6 × 10⁵",
+      "Y) 6 × 10⁰",
+      "Z) 3 × 10⁵"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-022",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the value of 10³ ÷ 10⁵?",
+    "choices": null,
+    "correctAnswer": "10⁻² = 0.01",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-023",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following correctly applies the product of powers rule?",
+    "choices": [
+      "W) x² × x³ = x⁶",
+      "X) x² × x³ = x⁵",
+      "Y) x² × x³ = 2x⁵",
+      "Z) x² × x³ = x⁸"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-024",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A bacterium is about 1 × 10⁻⁶ meters long. How many bacteria would fit end to end in 1 mm (1 × 10⁻³ m)?",
+    "choices": null,
+    "correctAnswer": "1000 bacteria (10⁻³ ÷ 10⁻⁶ = 10³)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-exp-025",
+    "subject": "math",
+    "topicId": "math-exponents-sci-notation",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is (x²y³)/(x⁴y)?",
+    "choices": [
+      "W) x²y²",
+      "X) y²/x²",
+      "Y) x²/y²",
+      "Z) 1/(x²y²)"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-001",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is 3/4 + 2/3?",
+    "choices": [
+      "W) 5/7",
+      "X) 17/12",
+      "Y) 5/12",
+      "Z) 6/12"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-002",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Convert 0.625 to a fraction in lowest terms.",
+    "choices": null,
+    "correctAnswer": "5/8",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-003",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is 40% of 250?",
+    "choices": [
+      "W) 40",
+      "X) 100",
+      "Y) 125",
+      "Z) 200"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-004",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Express 7/20 as a percent.",
+    "choices": null,
+    "correctAnswer": "35%",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-005",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is 2/3 × 3/8?",
+    "choices": [
+      "W) 6/11",
+      "X) 1/4",
+      "Y) 2/8",
+      "Z) 5/11"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-006",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is 15% of 80?",
+    "choices": null,
+    "correctAnswer": "12",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-007",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Divide: 5/6 ÷ 5/3",
+    "choices": [
+      "W) 25/18",
+      "X) 1/2",
+      "Y) 2",
+      "Z) 3/2"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-008",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A jacket originally costs $120. It is on sale for 25% off. What is the sale price?",
+    "choices": null,
+    "correctAnswer": "$90",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-009",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Order from least to greatest: 3/5, 0.55, 7/12",
+    "choices": [
+      "W) 3/5, 7/12, 0.55",
+      "X) 0.55, 7/12, 3/5",
+      "Y) 7/12, 0.55, 3/5",
+      "Z) 7/12, 3/5, 0.55"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-010",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is 5 ÷ 1/4?",
+    "choices": null,
+    "correctAnswer": "20",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-011",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A store increases a price by 20%, then decreases it by 20%. The final price compared to the original is:",
+    "choices": [
+      "W) The same",
+      "X) 4% less",
+      "Y) 4% more",
+      "Z) 20% less"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-012",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Convert the mixed number 3 2/5 to an improper fraction.",
+    "choices": null,
+    "correctAnswer": "17/5",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-013",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the reciprocal of 2/7?",
+    "choices": [
+      "W) −7/2",
+      "X) 7/2",
+      "Y) 2/7",
+      "Z) 14"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-014",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What percent of 60 is 45?",
+    "choices": null,
+    "correctAnswer": "75%",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-015",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Subtract: 5/6 − 1/4",
+    "choices": [
+      "W) 4/2",
+      "X) 7/12",
+      "Y) 4/3",
+      "Z) 1/2"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-016",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Express 0.333... (repeating) as a fraction.",
+    "choices": null,
+    "correctAnswer": "1/3",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-017",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If 30% of a number is 18, what is the number?",
+    "choices": [
+      "W) 5.4",
+      "X) 54",
+      "Y) 60",
+      "Z) 180"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-018",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A price increases from $50 to $65. What is the percent increase?",
+    "choices": null,
+    "correctAnswer": "30%",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-019",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which fraction is equivalent to 0.12?",
+    "choices": [
+      "W) 12/10",
+      "X) 3/25",
+      "Y) 1/12",
+      "Z) 6/25"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-020",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: 18/48",
+    "choices": null,
+    "correctAnswer": "3/8",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-021",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is 1 3/4 + 2 2/3?",
+    "choices": [
+      "W) 3 5/7",
+      "X) 4 5/12",
+      "Y) 3 17/12",
+      "Z) 4 1/4"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-022",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Soha scores 18 out of 24 on a quiz. What is her score as a percent?",
+    "choices": null,
+    "correctAnswer": "75%",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-023",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is greater than 3/4?",
+    "choices": [
+      "W) 7/10",
+      "X) 5/8",
+      "Y) 11/15",
+      "Z) 9/13"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-024",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A tip of 18% on a $35 meal is how much, rounded to the nearest cent?",
+    "choices": null,
+    "correctAnswer": "$6.30",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-frac-025",
+    "subject": "math",
+    "topicId": "math-fractions-percent",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Multiply: 2 1/2 × 1 3/5",
+    "choices": [
+      "W) 2 1/10",
+      "X) 3 15/16",
+      "Y) 4",
+      "Z) 3 1/2"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-001",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the slope of the line passing through (2, 5) and (4, 11)?",
+    "choices": [
+      "W) 2",
+      "X) 3",
+      "Y) 4",
+      "Z) 6"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-002",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the y-intercept of the line y = 3x − 7?",
+    "choices": null,
+    "correctAnswer": "−7 (the point (0, −7))",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-003",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A line has slope 0. It is:",
+    "choices": [
+      "W) Vertical",
+      "X) Diagonal",
+      "Y) Horizontal",
+      "Z) Undefined"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-004",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Write the equation in slope-intercept form of the line with slope 2 and y-intercept −3.",
+    "choices": null,
+    "correctAnswer": "y = 2x − 3",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-005",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following lines has a negative slope?",
+    "choices": [
+      "W) y = 3x + 2",
+      "X) y = −2x + 5",
+      "Y) y = x",
+      "Z) y = 4"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-006",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the slope of a vertical line?",
+    "choices": null,
+    "correctAnswer": "Undefined",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-007",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the x-intercept of the line y = 2x − 6?",
+    "choices": [
+      "W) −6",
+      "X) 3",
+      "Y) 6",
+      "Z) −3"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-008",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the slope of the line 4x + 2y = 8?",
+    "choices": null,
+    "correctAnswer": "−2",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-009",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Two lines are parallel if and only if they have:",
+    "choices": [
+      "W) The same y-intercept",
+      "X) Slopes that multiply to −1",
+      "Y) The same slope",
+      "Z) Perpendicular slopes"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-010",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Find the slope of the line through (−1, 4) and (3, −4).",
+    "choices": null,
+    "correctAnswer": "−2",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-011",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which point lies on the graph of y = 3x − 1?",
+    "choices": [
+      "W) (1, 2)",
+      "X) (2, 5)",
+      "Y) (0, 3)",
+      "Z) (3, 7)"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-012",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What does the slope of a line represent in the context of a distance-time graph?",
+    "choices": null,
+    "correctAnswer": "Speed (rate of change of distance with respect to time)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-013",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The graph of y = x² is a:",
+    "choices": [
+      "W) Line",
+      "X) Circle",
+      "Y) Parabola",
+      "Z) Hyperbola"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-014",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Is the relationship y = 3x + 2 linear or nonlinear? How do you know?",
+    "choices": null,
+    "correctAnswer": "Linear; it is in the form y = mx + b with constant rate of change (slope)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-015",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the slope of two perpendicular lines if one has a slope of 2?",
+    "choices": [
+      "W) 2",
+      "X) −2",
+      "Y) 1/2",
+      "Z) −1/2"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-016",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A function is defined as f(x) = 4x − 3. What is f(5)?",
+    "choices": null,
+    "correctAnswer": "17",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-017",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which statement best defines a function?",
+    "choices": [
+      "W) Every output maps to exactly one input",
+      "X) Every input maps to exactly one output",
+      "Y) The graph is always a straight line",
+      "Z) The domain and range are always equal"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-018",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What test is used to determine if a graph represents a function?",
+    "choices": null,
+    "correctAnswer": "The vertical line test — if any vertical line crosses the graph more than once, it is not a function",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-019",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which equation represents a line parallel to y = −3x + 7?",
+    "choices": [
+      "W) y = 3x − 2",
+      "X) y = −3x + 1",
+      "Y) y = (1/3)x + 7",
+      "Z) y = 3x + 7"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-020",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Write the equation of the line through (0, 3) with slope 4.",
+    "choices": null,
+    "correctAnswer": "y = 4x + 3",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-021",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In the equation y = mx + b, what does 'b' represent?",
+    "choices": [
+      "W) Slope",
+      "X) x-intercept",
+      "Y) y-intercept",
+      "Z) Rate of change"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-022",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Find the equation of the line through (1, 5) and (3, 11).",
+    "choices": null,
+    "correctAnswer": "y = 3x + 2",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-023",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the range of the function f(x) = x² for all real x?",
+    "choices": [
+      "W) All real numbers",
+      "X) x ≥ 0",
+      "Y) y ≥ 0",
+      "Z) y > 0"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-024",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "If f(x) = 2x + 1, solve for x when f(x) = 13.",
+    "choices": null,
+    "correctAnswer": "x = 6",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-graph-025",
+    "subject": "math",
+    "topicId": "math-graphs-slope",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the slope formula given two points (x₁, y₁) and (x₂, y₂)?",
+    "choices": [
+      "W) m = (x₂ − x₁)/(y₂ − y₁)",
+      "X) m = (y₂ − y₁)/(x₂ − x₁)",
+      "Y) m = (y₂ + y₁)/(x₂ + x₁)",
+      "Z) m = (x₂ − x₁)(y₂ − y₁)"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-001",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Solve for x: 3x + 7 = 22",
+    "choices": [
+      "W) 3",
+      "X) 5",
+      "Y) 7",
+      "Z) 9"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-002",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve for y: 2y − 4 = 3y + 1",
+    "choices": null,
+    "correctAnswer": "y = −5",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-003",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Soha has $84 to buy notebooks at $3 each and pens at $1.50 each. She buys twice as many pens as notebooks. Which equation represents the total cost?",
+    "choices": [
+      "W) 3n + 1.5n = 84",
+      "X) 3n + 3n = 84",
+      "Y) 3n + 1.5(2n) = 84",
+      "Z) 4.5n = 84"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-004",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve for x: 5(x − 2) = 3x + 4",
+    "choices": null,
+    "correctAnswer": "x = 7",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-005",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The sum of three consecutive integers is 48. What is the smallest integer?",
+    "choices": [
+      "W) 14",
+      "X) 15",
+      "Y) 16",
+      "Z) 17"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-006",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve the system: x + y = 10 and x − y = 4",
+    "choices": null,
+    "correctAnswer": "x = 7, y = 3",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-007",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A phone plan charges $20 per month plus $0.05 per text. Which equation gives the total cost C for t texts?",
+    "choices": [
+      "W) C = 0.05t",
+      "X) C = 20 + 0.05t",
+      "Y) C = 20t + 0.05",
+      "Z) C = 20 × 0.05t"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-008",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve for x: x/4 + 3 = 7",
+    "choices": null,
+    "correctAnswer": "x = 16",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-009",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is equivalent to 2(3x − 4) = 10?",
+    "choices": [
+      "W) 3x − 4 = 10",
+      "X) 6x − 8 = 10",
+      "Y) 6x − 4 = 10",
+      "Z) 3x − 8 = 10"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-010",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Two numbers have a sum of 50 and a difference of 14. What are the two numbers?",
+    "choices": null,
+    "correctAnswer": "32 and 18",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-011",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Solve: 4x − 2 > 10",
+    "choices": [
+      "W) x > 2",
+      "X) x > 3",
+      "Y) x < 3",
+      "Z) x > 12"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-012",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A train travels at 60 mph. Write an equation for the distance d traveled in t hours, then find the distance after 2.5 hours.",
+    "choices": null,
+    "correctAnswer": "d = 60t; d = 150 miles",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-013",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which value of x satisfies 3x + 5 = 2x − 1?",
+    "choices": [
+      "W) −4",
+      "X) −6",
+      "Y) 4",
+      "Z) 6"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-014",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve for x: (x + 3)/2 = (x − 1)/4",
+    "choices": null,
+    "correctAnswer": "x = −7",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-015",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A store sells pencils for $0.25 each. How many pencils can you buy with $6.00?",
+    "choices": [
+      "W) 20",
+      "X) 24",
+      "Y) 28",
+      "Z) 30"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-016",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Translate into an equation and solve: 'Seven less than three times a number is 14.' Find the number.",
+    "choices": null,
+    "correctAnswer": "3n − 7 = 14; n = 7",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-017",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Solve: −2x + 4 = 12",
+    "choices": [
+      "W) x = −4",
+      "X) x = 4",
+      "Y) x = −8",
+      "Z) x = 8"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-018",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "The perimeter of a rectangle is 46 cm. The length is 3 more than twice the width. Find the width.",
+    "choices": null,
+    "correctAnswer": "Width = 6.67 cm (accept 20/3 cm); verify: L = 2(6.67)+3=16.33; 2(6.67+16.33)=46 ✓",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-019",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If 2x = 14, then 5x equals:",
+    "choices": [
+      "W) 28",
+      "X) 35",
+      "Y) 7",
+      "Z) 70"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-020",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve the system by substitution: y = 2x and x + y = 12",
+    "choices": null,
+    "correctAnswer": "x = 4, y = 8",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-021",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which inequality represents 'a number decreased by 3 is at most 10'?",
+    "choices": [
+      "W) n − 3 ≥ 10",
+      "X) n − 3 ≤ 10",
+      "Y) n + 3 ≤ 10",
+      "Z) n − 3 < 10"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-022",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve: 3(2x + 1) = 2(x + 7)",
+    "choices": null,
+    "correctAnswer": "x = 11/4 (or 2.75)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-023",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Age problem: Zara is 3 times as old as her sister. In 4 years, she will be twice as old. How old is Zara now?",
+    "choices": [
+      "W) 6",
+      "X) 12",
+      "Y) 9",
+      "Z) 8"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-024",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve for x: 0.2x + 1.4 = 2.2",
+    "choices": null,
+    "correctAnswer": "x = 4",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-linear-025",
+    "subject": "math",
+    "topicId": "math-linear-equations",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which equation has no solution?",
+    "choices": [
+      "W) 2x + 3 = 3 + 2x",
+      "X) 3x + 5 = 3x − 2",
+      "Y) x + 1 = 2x − 1",
+      "Z) 5x = 25"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-001",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Evaluate: 3 + 4 × 2 − 1",
+    "choices": [
+      "W) 13",
+      "X) 10",
+      "Y) 9",
+      "Z) 14"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-002",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: (5 + 3)² ÷ 4",
+    "choices": null,
+    "correctAnswer": "16",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-003",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the absolute value of −17?",
+    "choices": [
+      "W) −17",
+      "X) 17",
+      "Y) 0",
+      "Z) 1/17"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-004",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "List all the factors of 36.",
+    "choices": null,
+    "correctAnswer": "1, 2, 3, 4, 6, 9, 12, 18, 36",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-005",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following numbers is prime?",
+    "choices": [
+      "W) 51",
+      "X) 57",
+      "Y) 61",
+      "Z) 91"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-006",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the greatest common factor (GCF) of 48 and 36?",
+    "choices": null,
+    "correctAnswer": "12",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-007",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Evaluate: −3 × (−4) + 2",
+    "choices": [
+      "W) −10",
+      "X) 10",
+      "Y) 14",
+      "Z) −14"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-008",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the least common multiple (LCM) of 8 and 12?",
+    "choices": null,
+    "correctAnswer": "24",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-009",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Evaluate: 2³ × 3 − 4²",
+    "choices": [
+      "W) 8",
+      "X) 16",
+      "Y) 24",
+      "Z) 56"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-010",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the prime factorization of 60?",
+    "choices": null,
+    "correctAnswer": "2² × 3 × 5 (or 2 × 2 × 3 × 5)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-011",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which property states that a(b + c) = ab + ac?",
+    "choices": [
+      "W) Commutative property",
+      "X) Associative property",
+      "Y) Distributive property",
+      "Z) Identity property"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-012",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Evaluate: −8 − (−3) + 5",
+    "choices": null,
+    "correctAnswer": "0",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-013",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the value of 0 raised to any positive power?",
+    "choices": [
+      "W) 1",
+      "X) Undefined",
+      "Y) 0",
+      "Z) The exponent itself"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-014",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Evaluate: 18 ÷ (3 + 6) × 2",
+    "choices": null,
+    "correctAnswer": "4",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-015",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is an irrational number?",
+    "choices": [
+      "W) 1/3",
+      "X) √9",
+      "Y) √7",
+      "Z) 0.25"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-016",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What are integers? Give an example of a negative integer, zero, and a positive integer.",
+    "choices": null,
+    "correctAnswer": "Integers are whole numbers including negatives, zero, and positives; e.g., −3, 0, 5",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-017",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Evaluate: (−2)⁴",
+    "choices": [
+      "W) −16",
+      "X) −8",
+      "Y) 8",
+      "Z) 16"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-018",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the value of any nonzero number raised to the power of zero?",
+    "choices": null,
+    "correctAnswer": "1",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-019",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Evaluate: 5 + 2 × (3 + 1)² ÷ 8",
+    "choices": [
+      "W) 7",
+      "X) 9",
+      "Y) 25",
+      "Z) 21"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-020",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the difference between a rational and an irrational number?",
+    "choices": null,
+    "correctAnswer": "A rational number can be expressed as a ratio of two integers (a/b where b ≠ 0); an irrational number cannot be expressed as such a ratio and has a non-terminating, non-repeating decimal",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-021",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is −5 + (−3) × 2?",
+    "choices": [
+      "W) −16",
+      "X) −11",
+      "Y) −4",
+      "Z) 1"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-022",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the additive inverse of −7?",
+    "choices": null,
+    "correctAnswer": "7",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-023",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which number is a perfect square?",
+    "choices": [
+      "W) 50",
+      "X) 72",
+      "Y) 81",
+      "Z) 98"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-024",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Evaluate: 4! (4 factorial)",
+    "choices": null,
+    "correctAnswer": "24",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-number-025",
+    "subject": "math",
+    "topicId": "math-number-sense",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The number 1 is:",
+    "choices": [
+      "W) Prime",
+      "X) Composite",
+      "Y) Neither prime nor composite",
+      "Z) Both prime and composite"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-001",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A bag contains 5 red and 3 blue marbles. What is the probability of picking a red marble?",
+    "choices": [
+      "W) 3/8",
+      "X) 5/8",
+      "Y) 5/3",
+      "Z) 1/2"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-002",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the mean of the data set: 4, 7, 9, 12, 8?",
+    "choices": null,
+    "correctAnswer": "8",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-003",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the median of the set: 3, 7, 1, 9, 5?",
+    "choices": [
+      "W) 5",
+      "X) 7",
+      "Y) 3",
+      "Z) 1"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-004",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A fair coin is flipped twice. What is the probability of getting heads both times?",
+    "choices": null,
+    "correctAnswer": "1/4",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-005",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the mode of the data set: 2, 4, 4, 6, 8, 4, 1?",
+    "choices": [
+      "W) 2",
+      "X) 4",
+      "Y) 6",
+      "Z) 8"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-006",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the range of the data set: 15, 3, 22, 8, 17?",
+    "choices": null,
+    "correctAnswer": "19",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-007",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A die is rolled once. What is the probability of rolling a number greater than 4?",
+    "choices": [
+      "W) 1/6",
+      "X) 1/3",
+      "Y) 1/2",
+      "Z) 2/3"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-008",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the difference between independent and dependent events?",
+    "choices": null,
+    "correctAnswer": "Independent events do not affect each other's probability; dependent events do (the outcome of the first affects the second)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-009",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the probability of rolling a 3 or a 5 on a single fair die?",
+    "choices": [
+      "W) 1/6",
+      "X) 1/3",
+      "Y) 1/2",
+      "Z) 2/3"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-010",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the mean absolute deviation (MAD)? Describe it in one sentence.",
+    "choices": null,
+    "correctAnswer": "The mean absolute deviation is the average of the absolute differences between each data value and the mean, measuring the spread/variability of the data",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-011",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A data set has values 10, 15, 15, 20, 100. Which measure of center BEST represents the typical value?",
+    "choices": [
+      "W) Mean",
+      "X) Mode",
+      "Y) Median",
+      "Z) Range"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-012",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A card is drawn from a standard 52-card deck. What is the probability it is a heart?",
+    "choices": null,
+    "correctAnswer": "1/4 (13/52)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-013",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Two events are mutually exclusive. If P(A) = 0.3 and P(B) = 0.4, what is P(A or B)?",
+    "choices": [
+      "W) 0.12",
+      "X) 0.7",
+      "Y) 0.58",
+      "Z) 1.0"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-014",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the probability that a randomly chosen day of the week starts with the letter 'S'?",
+    "choices": null,
+    "correctAnswer": "2/7 (Saturday and Sunday)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-015",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A box-and-whisker plot shows the five-number summary. Which value is NOT part of the five-number summary?",
+    "choices": [
+      "W) Minimum",
+      "X) Mean",
+      "Y) Median",
+      "Z) Maximum"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-016",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A spinner has 4 equal sections colored red, blue, green, and yellow. What is the probability of NOT landing on red?",
+    "choices": null,
+    "correctAnswer": "3/4",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-017",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In a class of 30, 12 play soccer, 10 play basketball, and 5 play both. How many play neither?",
+    "choices": [
+      "W) 8",
+      "X) 13",
+      "Y) 18",
+      "Z) 3"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-018",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What does the interquartile range (IQR) measure?",
+    "choices": null,
+    "correctAnswer": "The spread of the middle 50% of data; IQR = Q3 − Q1",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-019",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A bag has 4 green, 3 yellow, and 5 purple marbles. What is P(not purple)?",
+    "choices": [
+      "W) 5/12",
+      "X) 7/12",
+      "Y) 1/2",
+      "Z) 1/3"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-020",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Find the median of: 2, 5, 8, 11, 13, 20",
+    "choices": null,
+    "correctAnswer": "9.5 (average of 8 and 11)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-021",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The probability of an event that is certain to happen is:",
+    "choices": [
+      "W) 0",
+      "X) 0.5",
+      "Y) 1",
+      "Z) More than 1"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-022",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A survey of 100 students shows 60 prefer math and 40 prefer English. What is the experimental probability that a random student prefers math?",
+    "choices": null,
+    "correctAnswer": "3/5 (60%)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-023",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which graph is best for showing the distribution of a continuous data set and identifying outliers?",
+    "choices": [
+      "W) Bar graph",
+      "X) Pie chart",
+      "Y) Box-and-whisker plot",
+      "Z) Line graph"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-024",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A student rolls two dice. What is the probability both show a 6?",
+    "choices": null,
+    "correctAnswer": "1/36",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-prob-025",
+    "subject": "math",
+    "topicId": "math-probability-stats",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Find the mean of 10, 14, 18, 22, 26.",
+    "choices": [
+      "W) 16",
+      "X) 18",
+      "Y) 20",
+      "Z) 22"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-001",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is √144?",
+    "choices": [
+      "W) 11",
+      "X) 12",
+      "Y) 13",
+      "Z) 14"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-002",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: √50",
+    "choices": null,
+    "correctAnswer": "5√2",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-003",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is irrational?",
+    "choices": [
+      "W) √16",
+      "X) √25",
+      "Y) √36",
+      "Z) √30"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-004",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Between which two consecutive whole numbers does √55 lie?",
+    "choices": null,
+    "correctAnswer": "7 and 8 (since 7² = 49 and 8² = 64)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-005",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A right triangle has legs of 6 and 8. What is the hypotenuse?",
+    "choices": [
+      "W) 7",
+      "X) 10",
+      "Y) 12",
+      "Z) 14"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-006",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: √72",
+    "choices": null,
+    "correctAnswer": "6√2",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-007",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the value of 3√2 × 2√2?",
+    "choices": [
+      "W) 6",
+      "X) 12",
+      "Y) 5√4",
+      "Z) 6√2"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-008",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Add: 3√5 + 7√5",
+    "choices": null,
+    "correctAnswer": "10√5",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-009",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following equals √(4 × 25)?",
+    "choices": [
+      "W) 4√25",
+      "X) √4 × √25",
+      "Y) 2 × 25",
+      "Z) √4 + √25"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-010",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A square has an area of 200 cm². What is the exact length of one side in simplified radical form?",
+    "choices": null,
+    "correctAnswer": "10√2 cm",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-011",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is √(x²) for any non-negative x?",
+    "choices": [
+      "W) x²",
+      "X) x",
+      "Y) 2x",
+      "Z) x/2"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-012",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve for x: x² = 81",
+    "choices": null,
+    "correctAnswer": "x = 9 or x = −9",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-013",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Simplify: √(36/49)",
+    "choices": [
+      "W) 6/49",
+      "X) 36/7",
+      "Y) 6/7",
+      "Z) 6√7"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-014",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A right triangle has one leg of 5 and hypotenuse of 13. What is the other leg?",
+    "choices": null,
+    "correctAnswer": "12",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-015",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is a perfect cube?",
+    "choices": [
+      "W) 16",
+      "X) 27",
+      "Y) 36",
+      "Z) 48"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-016",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: 2√3 × 4√3",
+    "choices": null,
+    "correctAnswer": "24",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-017",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the cube root of 125?",
+    "choices": [
+      "W) 5",
+      "X) 15",
+      "Y) 25",
+      "Z) 3"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-018",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify: √98",
+    "choices": null,
+    "correctAnswer": "7√2",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-019",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which expression is equivalent to 16^(1/2)?",
+    "choices": [
+      "W) 8",
+      "X) 4",
+      "Y) 32",
+      "Z) 2"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-020",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve for x: √x = 9",
+    "choices": null,
+    "correctAnswer": "x = 81",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-021",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is √18 + √2?",
+    "choices": [
+      "W) √20",
+      "X) 4√2",
+      "Y) 3√2",
+      "Z) 2√10"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-022",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "The diagonal of a square is 10 cm. What is the side length in simplified radical form?",
+    "choices": null,
+    "correctAnswer": "5√2 cm",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-023",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is equivalent to √(a²b⁴)?",
+    "choices": [
+      "W) ab²",
+      "X) a²b²",
+      "Y) ab⁴",
+      "Z) a²b⁴"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-024",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is 27^(1/3)?",
+    "choices": null,
+    "correctAnswer": "3",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-rad-025",
+    "subject": "math",
+    "topicId": "math-radicals",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Estimate √80 to the nearest whole number.",
+    "choices": [
+      "W) 8",
+      "X) 9",
+      "Y) 10",
+      "Z) 7"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-001",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If the ratio of boys to girls in a class is 3:4 and there are 28 girls, how many boys are there?",
+    "choices": [
+      "W) 18",
+      "X) 21",
+      "Y) 24",
+      "Z) 36"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-002",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A car travels 150 miles in 3 hours. What is its unit rate in miles per hour?",
+    "choices": null,
+    "correctAnswer": "50 miles per hour",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-003",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Solve for x: 5/8 = x/40",
+    "choices": [
+      "W) 20",
+      "X) 25",
+      "Y) 32",
+      "Z) 64"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-004",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A recipe uses 2 cups of flour for every 3 cups of oats. How many cups of flour are needed with 12 cups of oats?",
+    "choices": null,
+    "correctAnswer": "8 cups of flour",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-005",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A map has a scale of 1 inch : 50 miles. A distance of 3.5 inches on the map equals how many miles?",
+    "choices": [
+      "W) 100 miles",
+      "X) 150 miles",
+      "Y) 175 miles",
+      "Z) 200 miles"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-006",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Two quantities are in direct proportion. If y = 15 when x = 5, what is y when x = 9?",
+    "choices": null,
+    "correctAnswer": "27",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-007",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following represents an inverse proportion?",
+    "choices": [
+      "W) As speed increases, distance traveled increases",
+      "X) As workers increase, time to finish a job decreases",
+      "Y) As price increases, revenue increases",
+      "Z) As time increases, distance at constant speed increases"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-008",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Simplify the ratio 45:75 to lowest terms.",
+    "choices": null,
+    "correctAnswer": "3:5",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-009",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If 4 workers can build a wall in 6 days, how many days would 8 workers take (assuming constant rate)?",
+    "choices": [
+      "W) 2 days",
+      "X) 3 days",
+      "Y) 4 days",
+      "Z) 12 days"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-010",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A store sells 5 apples for $2.00. At that rate, how much do 8 apples cost?",
+    "choices": null,
+    "correctAnswer": "$3.20",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-011",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the unit rate if 12 oranges cost $3.60?",
+    "choices": [
+      "W) $0.25 per orange",
+      "X) $0.30 per orange",
+      "Y) $0.35 per orange",
+      "Z) $0.40 per orange"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-012",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Solve the proportion: 7/x = 14/18",
+    "choices": null,
+    "correctAnswer": "x = 9",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-013",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The ratio of red to blue marbles is 5:3. If there are 24 blue marbles, how many total marbles are there?",
+    "choices": [
+      "W) 40",
+      "X) 56",
+      "Y) 64",
+      "Z) 72"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-014",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A tank fills at 12 liters per minute. How long in minutes to fill a 300-liter tank?",
+    "choices": null,
+    "correctAnswer": "25 minutes",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-015",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which proportion is equivalent to 3/5 = 6/10?",
+    "choices": [
+      "W) 3/6 = 5/10",
+      "X) 9/15 = 3/5",
+      "Y) 5/3 = 6/10",
+      "Z) 3/10 = 5/6"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-016",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "A car uses 6 gallons of gas for every 180 miles. How many gallons are needed for 300 miles?",
+    "choices": null,
+    "correctAnswer": "10 gallons",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-017",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In a school of 600 students, the ratio of 6th to 7th to 8th graders is 2:2:1. How many 8th graders are there?",
+    "choices": [
+      "W) 100",
+      "X) 120",
+      "Y) 150",
+      "Z) 200"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-018",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the constant of proportionality k in the equation y = kx if y = 42 when x = 7?",
+    "choices": null,
+    "correctAnswer": "k = 6",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-019",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A photo 4 inches wide by 6 inches tall is enlarged proportionally so the width is 10 inches. What is the new height?",
+    "choices": [
+      "W) 12 inches",
+      "X) 15 inches",
+      "Y) 16 inches",
+      "Z) 24 inches"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-020",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Two friends split a prize in the ratio 3:7. The prize is $200. How much does each person get?",
+    "choices": null,
+    "correctAnswer": "$60 and $140",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-021",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If y varies directly as x and y = 20 when x = 4, find y when x = 11.",
+    "choices": [
+      "W) 44",
+      "X) 50",
+      "Y) 55",
+      "Z) 22"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-022",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Express the ratio 1.5 : 4.5 as a fraction in simplest form.",
+    "choices": null,
+    "correctAnswer": "1/3",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-023",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A runner runs 8 km in 40 minutes. At the same pace, how far will she run in 1 hour?",
+    "choices": [
+      "W) 10 km",
+      "X) 12 km",
+      "Y) 14 km",
+      "Z) 16 km"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-024",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "The scale on a blueprint is 1:50. A wall measures 6 cm on the blueprint. How long is the actual wall in meters?",
+    "choices": null,
+    "correctAnswer": "3 meters (300 cm)",
+    "sourcePDF": "Bundled-Math"
+  },
+  {
+    "id": "math-ratio-025",
+    "subject": "math",
+    "topicId": "math-ratios-proportions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Solve: x/6 = 15/9",
+    "choices": [
+      "W) 8",
+      "X) 10",
+      "Y) 90",
+      "Z) 2.5"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Math"
+  }
+]

@@ -75,6 +75,14 @@ export type PlayQuestion = {
   choices: { key: string; text: string }[];
   answer: string;
   topicId?: string;
+  kind?: "tossup" | "bonus";
+  answerKey?: string;
+};
+
+export type TossUpTopic = {
+  id: string;
+  subject: string;
+  name: string;
 };
 
 export type DrillResult = {
@@ -107,5 +115,14 @@ export type ChecklistItem = {
 export type NotebookEntry = {
   id: string;
   text: string;
+  at: string;
+};
+
+export type PracticeRound = {
+  id: string;
+  title: string;
+  asked: number;
+  correct: number;
+  seconds: number;
   at: string;
 };

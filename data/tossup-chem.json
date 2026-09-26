@@ -1,0 +1,2382 @@
+[
+  {
+    "id": "chem-atoms-001",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the atomic number of an element equal to?",
+    "choices": [
+      "W) The number of neutrons in the nucleus",
+      "X) The number of protons in the nucleus",
+      "Y) The atomic mass minus the number of electrons",
+      "Z) The total number of particles in the nucleus"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-002",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the atomic mass of an element approximately equal to, in terms of subatomic particles?",
+    "choices": null,
+    "correctAnswer": "The number of protons plus the number of neutrons (protons + neutrons)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-003",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Carbon-12 and Carbon-14 are isotopes. How do they differ?",
+    "choices": [
+      "W) Different numbers of protons",
+      "X) Different numbers of electrons",
+      "Y) Different numbers of neutrons",
+      "Z) Different atomic numbers"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-004",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the weighted average mass of all naturally occurring isotopes of an element?",
+    "choices": null,
+    "correctAnswer": "Atomic mass (average atomic mass)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-005",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which scientist proposed the planetary model of the atom with electrons orbiting the nucleus like planets around the sun?",
+    "choices": [
+      "W) Dalton",
+      "X) Thomson",
+      "Y) Bohr",
+      "Z) Rutherford"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-006",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In the modern model, where are electrons found in an atom?",
+    "choices": null,
+    "correctAnswer": "In orbitals (electron clouds / shells) surrounding the nucleus, regions of probability",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-007",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Elements in the same group (column) of the periodic table have the same number of:",
+    "choices": [
+      "W) Protons",
+      "X) Neutrons",
+      "Y) Valence electrons",
+      "Z) Electron shells"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-008",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What are valence electrons, and why are they important?",
+    "choices": null,
+    "correctAnswer": "Valence electrons are the electrons in the outermost shell; they determine chemical bonding and reactivity",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-009",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which group of elements is the LEAST reactive because they have full outer electron shells?",
+    "choices": [
+      "W) Alkali metals",
+      "X) Halogens",
+      "Y) Alkaline earth metals",
+      "Z) Noble gases"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-010",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the scientist who first arranged elements in a periodic table organized by increasing atomic mass and repeating properties?",
+    "choices": null,
+    "correctAnswer": "Dmitri Mendeleev",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-011",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "How many valence electrons does a neutral fluorine atom (atomic number 9) have?",
+    "choices": [
+      "W) 2",
+      "X) 5",
+      "Y) 7",
+      "Z) 9"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-012",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What are the elements on the boundary between metals and nonmetals called?",
+    "choices": null,
+    "correctAnswer": "Metalloids (semimetals)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-013",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "As you move across a period from left to right on the periodic table, the atomic radius generally:",
+    "choices": [
+      "W) Increases",
+      "X) Decreases",
+      "Y) Stays the same",
+      "Z) First increases then decreases"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-014",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the tendency of an atom to attract electrons toward itself in a chemical bond?",
+    "choices": null,
+    "correctAnswer": "Electronegativity",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-015",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The modern periodic table organizes elements primarily by:",
+    "choices": [
+      "W) Atomic mass",
+      "X) Reactivity",
+      "Y) Atomic number",
+      "Z) Electron configuration only"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-016",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the maximum number of electrons that can fit in the first (n=1) electron shell?",
+    "choices": null,
+    "correctAnswer": "2",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-017",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Rutherford's gold foil experiment led to the conclusion that atoms:",
+    "choices": [
+      "W) Are solid spheres with no internal structure",
+      "X) Have electrons embedded in a positive mass like raisins in pudding",
+      "Y) Have a small, dense, positively charged nucleus surrounded by mostly empty space",
+      "Z) Are made entirely of protons"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-018",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What subatomic particle has negligible mass and a negative charge?",
+    "choices": null,
+    "correctAnswer": "Electron",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-019",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following elements is a halogen?",
+    "choices": [
+      "W) Sodium",
+      "X) Calcium",
+      "Y) Bromine",
+      "Z) Argon"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-020",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "An atom that has gained or lost electrons and now carries a charge is called what?",
+    "choices": null,
+    "correctAnswer": "Ion",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-021",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "An element with atomic number 11 (sodium) is in which group?",
+    "choices": [
+      "W) Group 2 (alkaline earth metals)",
+      "X) Group 1 (alkali metals)",
+      "Y) Group 17 (halogens)",
+      "Z) Group 18 (noble gases)"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-022",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the horizontal rows on the periodic table?",
+    "choices": null,
+    "correctAnswer": "Periods",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-023",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is the correct symbol for gold on the periodic table?",
+    "choices": [
+      "W) Go",
+      "X) Gd",
+      "Y) Au",
+      "Z) Ag"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-024",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name for the energy required to remove an electron from a neutral atom in the gas phase?",
+    "choices": null,
+    "correctAnswer": "Ionization energy (first ionization energy)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-atoms-025",
+    "subject": "chemistry",
+    "topicId": "chem-atoms-periodic-table",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which type of radiation, emitted during radioactive decay, consists of helium nuclei (2 protons + 2 neutrons)?",
+    "choices": [
+      "W) Beta radiation",
+      "X) Gamma radiation",
+      "Y) Alpha radiation",
+      "Z) X-ray radiation"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-001",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "An ionic bond forms when:",
+    "choices": [
+      "W) Two atoms share electrons equally",
+      "X) One atom transfers electrons to another, forming oppositely charged ions",
+      "Y) Two nonmetals share electrons",
+      "Z) A metal shares electrons with another metal"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-002",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of bond involves the sharing of electrons between two atoms?",
+    "choices": null,
+    "correctAnswer": "Covalent bond",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-003",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following pairs of elements is most likely to form an ionic bond?",
+    "choices": [
+      "W) Carbon and oxygen",
+      "X) Hydrogen and chlorine",
+      "Y) Sodium and chlorine",
+      "Z) Oxygen and nitrogen"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-004",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In a Lewis dot diagram, what do the dots around an element symbol represent?",
+    "choices": null,
+    "correctAnswer": "Valence electrons",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-005",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A double bond between two carbon atoms consists of:",
+    "choices": [
+      "W) One sigma bond",
+      "X) Two sigma bonds",
+      "Y) One sigma bond and one pi bond",
+      "Z) Two pi bonds"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-006",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the octet rule?",
+    "choices": null,
+    "correctAnswer": "Atoms tend to gain, lose, or share electrons until they have 8 electrons in their outer shell (resembling a noble gas)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-007",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Polar covalent bonds form when two atoms share electrons:",
+    "choices": [
+      "W) Equally between two identical atoms",
+      "X) Unequally due to a difference in electronegativity",
+      "Y) By completely transferring electrons",
+      "Z) Between a metal and a nonmetal"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-008",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Water (H2O) is a polar molecule. What type of intermolecular force does this polarity allow water molecules to form with each other?",
+    "choices": null,
+    "correctAnswer": "Hydrogen bonds",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-009",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which type of bond is formed between two metal atoms in a metallic substance?",
+    "choices": [
+      "W) Ionic bond",
+      "X) Covalent bond",
+      "Y) Metallic bond",
+      "Z) Hydrogen bond"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-010",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "When sodium (Na) loses one electron, what charge does the resulting ion carry?",
+    "choices": null,
+    "correctAnswer": "+1 (Na+ ion)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-011",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The shape of a water molecule (H2O) is best described as:",
+    "choices": [
+      "W) Linear",
+      "X) Trigonal planar",
+      "Y) Bent (angular)",
+      "Z) Tetrahedral"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-012",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the force that holds ionic compounds together in a crystal lattice?",
+    "choices": null,
+    "correctAnswer": "Electrostatic attraction (ionic bonds / electrostatic force)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-013",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following properties is typical of ionic compounds?",
+    "choices": [
+      "W) Low melting points",
+      "X) Conduct electricity when dissolved in water",
+      "Y) Are gases at room temperature",
+      "Z) Do not dissolve in water"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-014",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "How many covalent bonds does a carbon atom typically form to complete its octet?",
+    "choices": null,
+    "correctAnswer": "4",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-015",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following molecules contains a triple bond?",
+    "choices": [
+      "W) H2O",
+      "X) CO2",
+      "Y) N2",
+      "Z) NaCl"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-016",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the electronegativity difference threshold generally used to classify a bond as ionic rather than polar covalent?",
+    "choices": null,
+    "correctAnswer": "Greater than 1.7 (accept: greater than 1.7 on the Pauling scale)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-017",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A chloride ion (Cl-) has how many electrons?",
+    "choices": [
+      "W) 17",
+      "X) 18",
+      "Y) 16",
+      "Z) 35"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-018",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What name is given to a bond where both electrons in the shared pair come from only one of the atoms?",
+    "choices": null,
+    "correctAnswer": "Coordinate covalent bond (dative bond)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-019",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Nonpolar covalent bonds form between atoms with:",
+    "choices": [
+      "W) Very different electronegativities",
+      "X) Equal or very similar electronegativities",
+      "Y) One metal and one nonmetal",
+      "Z) Charges of opposite signs"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-020",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the diagrammatic representation that uses lines to show covalent bonds and dots for lone pairs between atoms?",
+    "choices": null,
+    "correctAnswer": "Lewis structure (Lewis dot structure / structural formula)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-021",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which element has the highest electronegativity on the Pauling scale?",
+    "choices": [
+      "W) Oxygen",
+      "X) Chlorine",
+      "Y) Fluorine",
+      "Z) Nitrogen"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-022",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is meant by the term 'bond length'?",
+    "choices": null,
+    "correctAnswer": "The average distance between the nuclei of two bonded atoms",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-023",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following substances would NOT conduct electricity in any state?",
+    "choices": [
+      "W) NaCl dissolved in water",
+      "X) Molten iron",
+      "Y) Pure water (distilled)",
+      "Z) Copper wire"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-024",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of intermolecular force exists between all molecules, caused by temporary dipoles from electron movement?",
+    "choices": null,
+    "correctAnswer": "London dispersion forces (van der Waals forces)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-bonding-025",
+    "subject": "chemistry",
+    "topicId": "chem-bonding",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In metallic bonding, the metal's positive ions are surrounded by:",
+    "choices": [
+      "W) Negative anions in a crystal lattice",
+      "X) Shared electron pairs between specific atoms",
+      "Y) A sea of delocalized electrons",
+      "Z) Covalent bonds to neighboring metal atoms"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-001",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is a unit of volume in the metric system?",
+    "choices": [
+      "W) Gram",
+      "X) Liter",
+      "Y) Kelvin",
+      "Z) Newton"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-002",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the difference between accuracy and precision in a scientific measurement?",
+    "choices": null,
+    "correctAnswer": "Accuracy is how close a measurement is to the true value; precision is how close repeated measurements are to each other",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-003",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In the metric system, the prefix 'kilo-' means:",
+    "choices": [
+      "W) 1/1000",
+      "X) 100",
+      "Y) 1000",
+      "Z) 1/100"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-004",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What piece of glassware would you use to most accurately measure a specific volume of liquid, marked at a single fixed volume?",
+    "choices": null,
+    "correctAnswer": "Volumetric flask",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-005",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Significant figures in a measurement communicate:",
+    "choices": [
+      "W) The size of the number",
+      "X) The uncertainty and precision of the measurement",
+      "Y) The number of decimal places allowed",
+      "Z) The metric unit used"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-006",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "How many significant figures are in the number 0.00450?",
+    "choices": null,
+    "correctAnswer": "3 significant figures (4, 5, and the trailing zero after 5)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-007",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following pieces of lab equipment is used to measure mass?",
+    "choices": [
+      "W) Graduated cylinder",
+      "X) Thermometer",
+      "Y) Balance (scale)",
+      "Z) Burette"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-008",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the formula for calculating percent error in an experiment?",
+    "choices": null,
+    "correctAnswer": "Percent error = |experimental value − accepted value| / accepted value × 100%",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-009",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "When reading the volume of liquid in a graduated cylinder, you should read from the:",
+    "choices": [
+      "W) Top of the meniscus",
+      "X) Middle of the meniscus",
+      "Y) Bottom of the meniscus (for water)",
+      "Z) Side of the cylinder"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-010",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is a control variable in a scientific experiment?",
+    "choices": null,
+    "correctAnswer": "A variable that is kept constant (not changed) during an experiment so it doesn't affect the results",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-011",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The SI base unit for temperature is:",
+    "choices": [
+      "W) Celsius",
+      "X) Fahrenheit",
+      "Y) Kelvin",
+      "Z) Rankine"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-012",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the independent variable in an experiment?",
+    "choices": null,
+    "correctAnswer": "The variable deliberately changed or manipulated by the scientist to observe its effect",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-013",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Scientific notation expresses numbers as a product of a number between 1 and 10 and a power of 10. Which of the following correctly expresses 0.000056 in scientific notation?",
+    "choices": [
+      "W) 5.6 × 10^4",
+      "X) 5.6 × 10^-5",
+      "Y) 56 × 10^-6",
+      "Z) 0.56 × 10^-4"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-014",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What piece of lab equipment is used to slowly add a measured volume of liquid to a reaction, commonly used in titrations?",
+    "choices": null,
+    "correctAnswer": "Burette (buret)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-015",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which metric prefix means one one-thousandth (10^-3)?",
+    "choices": [
+      "W) Centi-",
+      "X) Milli-",
+      "Y) Micro-",
+      "Z) Nano-"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-016",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the dependent variable in an experiment?",
+    "choices": null,
+    "correctAnswer": "The variable that is measured or observed and that changes in response to the independent variable",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-017",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Density is calculated as:",
+    "choices": [
+      "W) Density = volume / mass",
+      "X) Density = mass × volume",
+      "Y) Density = mass / volume",
+      "Z) Density = mass + volume"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-018",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What technique is used to separate components of a mixture based on differences in how far they travel on paper or gel when carried by a solvent?",
+    "choices": null,
+    "correctAnswer": "Chromatography",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-019",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A student measures a sample five times and gets values very close to each other, but all far from the accepted value. The measurements are:",
+    "choices": [
+      "W) Accurate but not precise",
+      "X) Precise but not accurate",
+      "Y) Both accurate and precise",
+      "Z) Neither accurate nor precise"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-020",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the purpose of a control group in a scientific experiment?",
+    "choices": null,
+    "correctAnswer": "To provide a baseline for comparison — the control group is treated identically to the experimental group except the independent variable is not applied",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-021",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "How many milliliters are in 1 liter?",
+    "choices": [
+      "W) 10",
+      "X) 100",
+      "Y) 1000",
+      "Z) 10000"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-022",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is a hypothesis?",
+    "choices": null,
+    "correctAnswer": "A testable, educated prediction or explanation for an observation, based on prior knowledge",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-023",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The density of water at 4°C is approximately:",
+    "choices": [
+      "W) 0.5 g/mL",
+      "X) 1.0 g/mL",
+      "Y) 10 g/mL",
+      "Z) 100 g/mL"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-024",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Name two pieces of personal protective equipment (PPE) required in a chemistry lab.",
+    "choices": null,
+    "correctAnswer": "Any two of: safety goggles/glasses, lab coat/apron, gloves, closed-toe shoes",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-lab-025",
+    "subject": "chemistry",
+    "topicId": "chem-lab-measurement",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following correctly identifies a systematic error in an experiment?",
+    "choices": [
+      "W) Random variation in readings each trial",
+      "X) A balance that always reads 0.5 g too high",
+      "Y) A student forgetting to record one trial",
+      "Z) Spilling a small amount of solution during transfer"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-001",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In a chemical equation, the law of conservation of mass requires that:",
+    "choices": [
+      "W) The number of molecules is equal on both sides",
+      "X) The number and type of atoms is equal on both sides",
+      "Y) The products weigh more than the reactants",
+      "Z) Energy is neither created nor destroyed"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-002",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In the chemical equation 2H2 + O2 → 2H2O, what are the reactants?",
+    "choices": null,
+    "correctAnswer": "Hydrogen (H2) and oxygen (O2)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-003",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which type of chemical reaction involves two elements or compounds switching partners: AB + CD → AD + CB?",
+    "choices": [
+      "W) Synthesis",
+      "X) Decomposition",
+      "Y) Double replacement",
+      "Z) Single replacement"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-004",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of reaction releases energy (usually as heat or light) to the surroundings?",
+    "choices": null,
+    "correctAnswer": "Exothermic reaction",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-005",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A synthesis reaction follows which general pattern?",
+    "choices": [
+      "W) AB → A + B",
+      "X) A + B → AB",
+      "Y) A + BC → AC + B",
+      "Z) AB + CD → AD + CB"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-006",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What term describes a substance that speeds up a chemical reaction without being consumed?",
+    "choices": null,
+    "correctAnswer": "Catalyst",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-007",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is a sign that a chemical reaction has occurred?",
+    "choices": [
+      "W) A change in the shape of a solid",
+      "X) Formation of a precipitate or color change",
+      "Y) Ice melting into liquid water",
+      "Z) A gas dissolving into a liquid"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-008",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is an endothermic reaction?",
+    "choices": null,
+    "correctAnswer": "A reaction that absorbs energy (heat) from the surroundings",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-009",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In a combustion reaction, a hydrocarbon reacts with oxygen to produce:",
+    "choices": [
+      "W) Hydrogen and carbon only",
+      "X) Carbon monoxide and hydrogen",
+      "Y) Carbon dioxide and water",
+      "Z) Carbon and nitrogen oxide"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-010",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the minimum energy required to start a chemical reaction?",
+    "choices": null,
+    "correctAnswer": "Activation energy",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-011",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Balancing a chemical equation is necessary because of which law?",
+    "choices": [
+      "W) Law of definite proportions",
+      "X) Law of conservation of mass",
+      "Y) Law of multiple proportions",
+      "Z) Law of conservation of energy"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-012",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of reaction involves a more reactive element displacing a less reactive element from a compound? Give the general form.",
+    "choices": null,
+    "correctAnswer": "Single replacement (single displacement); general form: A + BC → AC + B",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-013",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In the reaction 2KClO3 → 2KCl + 3O2, what type of reaction is this?",
+    "choices": [
+      "W) Synthesis",
+      "X) Combustion",
+      "Y) Decomposition",
+      "Z) Double replacement"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-014",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is a precipitate in a chemical reaction?",
+    "choices": null,
+    "correctAnswer": "An insoluble solid that forms and settles out of solution during a reaction",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-015",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which factor does NOT affect the rate of a chemical reaction?",
+    "choices": [
+      "W) Temperature",
+      "X) Concentration of reactants",
+      "Y) Surface area",
+      "Z) Color of the reactants"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-016",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In a neutralization reaction, an acid reacts with a base to produce what two products?",
+    "choices": null,
+    "correctAnswer": "Water and a salt",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-017",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What does a catalyst do to the activation energy of a reaction?",
+    "choices": [
+      "W) Increases it",
+      "X) Has no effect on it",
+      "Y) Lowers it",
+      "Z) Doubles it"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-018",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the number placed in front of a chemical formula in a balanced equation to indicate how many molecules or formula units are involved?",
+    "choices": null,
+    "correctAnswer": "Coefficient",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-019",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The reaction between zinc and hydrochloric acid (Zn + 2HCl → ZnCl2 + H2) is an example of which type of reaction?",
+    "choices": [
+      "W) Synthesis",
+      "X) Double replacement",
+      "Y) Single replacement",
+      "Z) Decomposition"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-020",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is an oxidation-reduction (redox) reaction?",
+    "choices": null,
+    "correctAnswer": "A reaction in which electrons are transferred from one substance to another; one reactant loses electrons (oxidized) and one gains electrons (reduced)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-021",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In which direction does energy flow in an exothermic reaction?",
+    "choices": [
+      "W) From surroundings to the system",
+      "X) From products to reactants",
+      "Y) From the system to the surroundings",
+      "Z) No energy is exchanged"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-022",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the role of a biological catalyst (enzyme) in a biochemical reaction?",
+    "choices": null,
+    "correctAnswer": "To lower activation energy and speed up the reaction without being consumed",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-023",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "When balancing the equation _H2 + _O2 → _H2O, what are the correct coefficients in order?",
+    "choices": [
+      "W) 1, 1, 1",
+      "X) 2, 1, 2",
+      "Y) 1, 2, 2",
+      "Z) 2, 2, 2"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-024",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is a reversible reaction, and how is it represented in a chemical equation?",
+    "choices": null,
+    "correctAnswer": "A reaction that can proceed in both forward and reverse directions; shown with a double arrow (⇌)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-reactions-025",
+    "subject": "chemistry",
+    "topicId": "chem-reactions",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Rusting of iron is an example of which type of chemical reaction?",
+    "choices": [
+      "W) Decomposition",
+      "X) Oxidation (redox)",
+      "Y) Neutralization",
+      "Z) Synthesis"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-001",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "On the pH scale, a solution with a pH of 3 is:",
+    "choices": [
+      "W) Basic",
+      "X) Neutral",
+      "Y) Acidic",
+      "Z) Non-ionic"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-002",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What ion do acids release when dissolved in water?",
+    "choices": null,
+    "correctAnswer": "Hydrogen ions (H+), also called protons (accept hydronium ions H3O+)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-003",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the pH of a neutral solution at 25°C?",
+    "choices": [
+      "W) 0",
+      "X) 7",
+      "Y) 14",
+      "Z) 1"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-004",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the dissolved substance in a solution?",
+    "choices": null,
+    "correctAnswer": "Solute",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-005",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is a strong acid?",
+    "choices": [
+      "W) Acetic acid (vinegar)",
+      "X) Hydrochloric acid (HCl)",
+      "Y) Carbonic acid",
+      "Z) Citric acid"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-006",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What ion do bases release or produce in aqueous solution?",
+    "choices": null,
+    "correctAnswer": "Hydroxide ions (OH-)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-007",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A solution is considered saturated when:",
+    "choices": [
+      "W) It contains no solute",
+      "X) It contains the maximum amount of solute that can dissolve at a given temperature",
+      "Y) The solvent has evaporated",
+      "Z) It contains only ions"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-008",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is molarity, and what are its units?",
+    "choices": null,
+    "correctAnswer": "Molarity is the number of moles of solute per liter of solution; units are mol/L or M",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-009",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The pH scale is logarithmic. A solution with pH 4 is how many times more acidic than a solution with pH 6?",
+    "choices": [
+      "W) 2 times",
+      "X) 10 times",
+      "Y) 100 times",
+      "Z) 1,000 times"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-010",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of a substance that resists changes in pH when small amounts of acid or base are added?",
+    "choices": null,
+    "correctAnswer": "Buffer",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-011",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following household substances is most basic (highest pH)?",
+    "choices": [
+      "W) Lemon juice",
+      "X) Cola",
+      "Y) Bleach",
+      "Z) Milk"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-012",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What general term describes how well a solute dissolves in a solvent at a given temperature?",
+    "choices": null,
+    "correctAnswer": "Solubility",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-013",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "According to the Arrhenius definition, a base is a substance that:",
+    "choices": [
+      "W) Donates a proton in solution",
+      "X) Accepts a proton in solution",
+      "Y) Produces OH- ions in aqueous solution",
+      "Z) Lowers the pH of a solution"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-014",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the process by which ionic solutes dissociate into ions when dissolved in water?",
+    "choices": null,
+    "correctAnswer": "Dissociation (ionization)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-015",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following best describes a dilute solution?",
+    "choices": [
+      "W) It contains a large amount of solute relative to solvent",
+      "X) It is a solution in which the solute has not fully dissolved",
+      "Y) It contains a small amount of solute relative to solvent",
+      "Z) It is always a gas dissolved in a liquid"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-016",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What natural indicator turns red in acidic solution and blue in basic solution?",
+    "choices": null,
+    "correctAnswer": "Litmus",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-017",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The Bronsted-Lowry definition of an acid is a substance that:",
+    "choices": [
+      "W) Produces OH- in solution",
+      "X) Accepts a proton (H+)",
+      "Y) Donates a proton (H+)",
+      "Z) Produces H2 gas"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-018",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the solvent in most common aqueous solutions?",
+    "choices": null,
+    "correctAnswer": "Water",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-019",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "As temperature increases, the solubility of most solid solutes in water:",
+    "choices": [
+      "W) Decreases",
+      "X) Stays constant",
+      "Y) Increases",
+      "Z) First increases then sharply decreases"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-020",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for a solution that contains more dissolved solute than normally possible at a given temperature, often achieved by slow cooling?",
+    "choices": null,
+    "correctAnswer": "Supersaturated solution",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-021",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is an example of a weak acid?",
+    "choices": [
+      "W) Sulfuric acid (H2SO4)",
+      "X) Nitric acid (HNO3)",
+      "Y) Acetic acid (CH3COOH)",
+      "Z) Hydrochloric acid (HCl)"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-022",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is neutralization, and what does it produce?",
+    "choices": null,
+    "correctAnswer": "The reaction between an acid and a base; produces water and a salt",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-023",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "When the solubility of a gas in a liquid is considered, which factor most increases solubility?",
+    "choices": [
+      "W) Higher temperature",
+      "X) Lower pressure",
+      "Y) Higher pressure",
+      "Z) Adding more solvent"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-024",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the pOH of a solution, and how does it relate to pH?",
+    "choices": null,
+    "correctAnswer": "pOH measures the concentration of hydroxide ions; pH + pOH = 14 at 25°C",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-solutions-025",
+    "subject": "chemistry",
+    "topicId": "chem-solutions-acids",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following describes an electrolyte?",
+    "choices": [
+      "W) A substance that does not dissolve in water",
+      "X) A substance that conducts electricity when dissolved or melted due to free ions",
+      "Y) A solid that melts at very high temperatures",
+      "Z) A covalent compound that does not ionize"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-001",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which state of matter has a definite volume but no definite shape?",
+    "choices": [
+      "W) Solid",
+      "X) Liquid",
+      "Y) Gas",
+      "Z) Plasma"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-002",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the temperature and pressure at which all three phases of a substance coexist in equilibrium?",
+    "choices": null,
+    "correctAnswer": "Triple point",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-003",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which gas law states that, at constant temperature, the volume of a gas is inversely proportional to its pressure?",
+    "choices": [
+      "W) Charles's Law",
+      "X) Boyle's Law",
+      "Y) Gay-Lussac's Law",
+      "Z) Avogadro's Law"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-004",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What phase change describes a gas converting directly to a solid without passing through the liquid phase?",
+    "choices": null,
+    "correctAnswer": "Deposition",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-005",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Charles's Law states that, at constant pressure, the volume of a gas is:",
+    "choices": [
+      "W) Inversely proportional to temperature",
+      "X) Directly proportional to temperature (in Kelvin)",
+      "Y) Independent of temperature",
+      "Z) Inversely proportional to the number of moles"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-006",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is absolute zero, and what temperature scale uses it as its zero point?",
+    "choices": null,
+    "correctAnswer": "Absolute zero is the lowest possible temperature (−273.15°C); the Kelvin scale uses it as 0 K",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-007",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The ideal gas law is PV = nRT. What does the variable n represent?",
+    "choices": [
+      "W) Number of atoms",
+      "X) Number of moles of gas",
+      "Y) Pressure in pascals",
+      "Z) Temperature in Celsius"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-008",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the kinetic molecular theory's explanation for gas pressure?",
+    "choices": null,
+    "correctAnswer": "Gas pressure results from the force of gas molecules colliding with the walls of their container",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-009",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If the temperature of a gas doubles (in Kelvin) at constant volume, the pressure:",
+    "choices": [
+      "W) Halves",
+      "X) Stays the same",
+      "Y) Doubles",
+      "Z) Quadruples"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-010",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the phase change in which a liquid becomes a gas at its boiling point?",
+    "choices": null,
+    "correctAnswer": "Vaporization (boiling)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-011",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What happens to the boiling point of water when atmospheric pressure decreases, such as at high altitude?",
+    "choices": [
+      "W) It increases",
+      "X) It stays the same",
+      "Y) It decreases",
+      "Z) Water cannot boil at lower pressures"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-012",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is sublimation? Give one everyday example.",
+    "choices": null,
+    "correctAnswer": "Sublimation is the phase change from solid directly to gas; examples: dry ice (CO2) evaporating, frost disappearing on a cold day, mothballs",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-013",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following correctly converts 100°C to Kelvin?",
+    "choices": [
+      "W) 100 K",
+      "X) 173 K",
+      "Y) 373 K",
+      "Z) 273 K"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-014",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the difference between evaporation and boiling?",
+    "choices": null,
+    "correctAnswer": "Evaporation occurs at the surface of a liquid at temperatures below the boiling point; boiling occurs throughout the liquid at the boiling point",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-015",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Dalton's law of partial pressures states that the total pressure of a gas mixture equals:",
+    "choices": [
+      "W) The product of all individual pressures",
+      "X) The pressure of the most abundant gas",
+      "Y) The sum of the partial pressures of each gas",
+      "Z) The average of all individual pressures"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-016",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In which state of matter do particles have the highest kinetic energy?",
+    "choices": null,
+    "correctAnswer": "Gas (plasma, if included)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-017",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A phase diagram shows the conditions of temperature and pressure under which a substance exists as solid, liquid, or gas. The line between liquid and gas is called the:",
+    "choices": [
+      "W) Fusion curve",
+      "X) Sublimation curve",
+      "Y) Vapor pressure curve",
+      "Z) Critical line"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-018",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the formula for converting Celsius to Kelvin?",
+    "choices": null,
+    "correctAnswer": "K = °C + 273 (or 273.15)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-019",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "According to Avogadro's Law, equal volumes of different gases at the same temperature and pressure contain:",
+    "choices": [
+      "W) Different numbers of molecules",
+      "X) Equal numbers of molecules",
+      "Y) The same mass",
+      "Z) Equal numbers of atoms"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-020",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of intermolecular forces are primarily responsible for the unusually high boiling point of water compared to other molecules of similar size?",
+    "choices": null,
+    "correctAnswer": "Hydrogen bonding",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-021",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Gay-Lussac's Law relates which two gas variables at constant volume?",
+    "choices": [
+      "W) Pressure and volume",
+      "X) Temperature and volume",
+      "Y) Pressure and temperature",
+      "Z) Moles and pressure"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-022",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is plasma, and how does it differ from the other three common states of matter?",
+    "choices": null,
+    "correctAnswer": "Plasma is a high-energy state of matter in which electrons are stripped from atoms, creating a gas of ions; it is different from gas because it consists of charged particles and responds to electromagnetic fields",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-023",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which phase change releases energy to the surroundings?",
+    "choices": [
+      "W) Melting",
+      "X) Evaporation",
+      "Y) Condensation",
+      "Z) Sublimation"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-024",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is vapor pressure, and how does it change with temperature?",
+    "choices": null,
+    "correctAnswer": "Vapor pressure is the pressure exerted by a vapor in equilibrium with its liquid; it increases as temperature increases",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-states-025",
+    "subject": "chemistry",
+    "topicId": "chem-states-of-matter",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If a gas has a volume of 4 L at 2 atm, what will its volume be at 1 atm (constant temperature)?",
+    "choices": [
+      "W) 2 L",
+      "X) 4 L",
+      "Y) 6 L",
+      "Z) 8 L"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-001",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "One mole of any substance contains approximately how many particles (Avogadro's number)?",
+    "choices": [
+      "W) 3.00 × 10^8",
+      "X) 6.02 × 10^23",
+      "Y) 1.66 × 10^-24",
+      "Z) 9.11 × 10^-31"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-002",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the molar mass of water (H2O)? (H = 1 g/mol, O = 16 g/mol)",
+    "choices": null,
+    "correctAnswer": "18 g/mol",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-003",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In the reaction N2 + 3H2 → 2NH3, how many moles of H2 are needed to produce 4 moles of NH3?",
+    "choices": [
+      "W) 2 moles",
+      "X) 4 moles",
+      "Y) 6 moles",
+      "Z) 8 moles"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-004",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the limiting reagent in a chemical reaction?",
+    "choices": null,
+    "correctAnswer": "The reactant that is completely consumed first and limits the amount of product that can be formed",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-005",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "How many moles are in 44 grams of CO2? (C = 12, O = 16)",
+    "choices": [
+      "W) 0.5 mol",
+      "X) 1 mol",
+      "Y) 2 mol",
+      "Z) 4 mol"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-006",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is percent yield, and how is it calculated?",
+    "choices": null,
+    "correctAnswer": "Percent yield = (actual yield / theoretical yield) × 100%",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-007",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The molar mass of NaCl is 58.5 g/mol (Na = 23, Cl = 35.5). How many grams are in 2 moles of NaCl?",
+    "choices": [
+      "W) 29.25 g",
+      "X) 58.5 g",
+      "Y) 117 g",
+      "Z) 234 g"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-008",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the excess reagent in a reaction?",
+    "choices": null,
+    "correctAnswer": "The reactant that remains after the limiting reagent is completely consumed",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-009",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the formula for finding the number of moles given mass and molar mass?",
+    "choices": [
+      "W) moles = mass × molar mass",
+      "X) moles = mass / molar mass",
+      "Y) moles = molar mass / mass",
+      "Z) moles = mass + molar mass"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-010",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "At STP (standard temperature and pressure), one mole of any ideal gas occupies what volume?",
+    "choices": null,
+    "correctAnswer": "22.4 liters",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-011",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In the reaction 2H2 + O2 → 2H2O, if 4 moles of H2 react completely, how many moles of H2O are produced?",
+    "choices": [
+      "W) 2",
+      "X) 4",
+      "Y) 6",
+      "Z) 8"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-012",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the empirical formula of a compound, and how does it differ from the molecular formula?",
+    "choices": null,
+    "correctAnswer": "The empirical formula gives the simplest whole-number ratio of atoms; the molecular formula gives the actual number of atoms in a molecule (which may be a multiple of the empirical formula)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-013",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The theoretical yield of a reaction is best defined as:",
+    "choices": [
+      "W) The amount of product actually collected in the lab",
+      "X) The maximum amount of product that could be produced based on stoichiometry",
+      "Y) The amount of limiting reagent available",
+      "Z) The yield after accounting for experimental error"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-014",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "How many molecules are in 2 moles of water? (Avogadro's number = 6.02 × 10^23)",
+    "choices": null,
+    "correctAnswer": "1.204 × 10^24 molecules",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-015",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The mole ratio used in stoichiometric calculations comes from:",
+    "choices": [
+      "W) The atomic masses of the elements",
+      "X) The coefficients in the balanced chemical equation",
+      "Y) The number of electrons in each atom",
+      "Z) The solubility of the reactants"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-016",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the percent composition of hydrogen in water (H2O)? (H = 1 g/mol, O = 16 g/mol, molar mass = 18 g/mol)",
+    "choices": null,
+    "correctAnswer": "11.1% (2/18 × 100)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-017",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If the actual yield of a reaction is 18 g and the theoretical yield is 24 g, what is the percent yield?",
+    "choices": [
+      "W) 33%",
+      "X) 50%",
+      "Y) 75%",
+      "Z) 133%"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-018",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What does STP stand for in chemistry?",
+    "choices": null,
+    "correctAnswer": "Standard Temperature and Pressure (0°C and 1 atm)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-019",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The molecular formula of glucose is C6H12O6. What is its empirical formula?",
+    "choices": [
+      "W) C6H12O6",
+      "X) CH2O",
+      "Y) C3H6O3",
+      "Z) CHO"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-020",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the molar mass of CO2? (C = 12 g/mol, O = 16 g/mol)",
+    "choices": null,
+    "correctAnswer": "44 g/mol",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-021",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Avogadro's number (6.02 × 10^23) is used to convert between:",
+    "choices": [
+      "W) Grams and liters",
+      "X) Moles and number of particles",
+      "Y) Atomic mass and molar mass",
+      "Z) Volume and pressure"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-022",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In a reaction where you start with 5 moles of A and 3 moles of B, and the equation requires a 1:1 ratio, which is the limiting reagent?",
+    "choices": null,
+    "correctAnswer": "B (3 moles is less than the 5 moles of A available)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-023",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the mass of 0.5 moles of O2? (O = 16 g/mol)",
+    "choices": [
+      "W) 8 g",
+      "X) 16 g",
+      "Y) 32 g",
+      "Z) 64 g"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-024",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the conversion factor used in stoichiometry that links moles of one substance to moles of another using the balanced equation?",
+    "choices": null,
+    "correctAnswer": "Mole ratio (stoichiometric ratio)",
+    "sourcePDF": "Bundled-Chem"
+  },
+  {
+    "id": "chem-stoich-025",
+    "subject": "chemistry",
+    "topicId": "chem-stoichiometry",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "How many grams are in 3 moles of O2? (O = 16 g/mol, O2 = 32 g/mol)",
+    "choices": [
+      "W) 16 g",
+      "X) 32 g",
+      "Y) 48 g",
+      "Z) 96 g"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Chem"
+  }
+]

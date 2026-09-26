@@ -1,7 +1,19 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import { accuracyWindow, improvedTopics, studyMinutes, subjectAccuracy, topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
+
+const SUBJECTS = ["biology", "chemistry", "physics", "earth", "math"];
+
+function pct(value: number | null) {
+  return value == null ? "—" : `${Math.round(value * 100)}%`;
+}
+
+function when(iso: string) {
+  return new Date(iso).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+}
 
 export default function ProgressPage() {
   const store = useStore();
@@ -9,38 +21,84 @@ export default function ProgressPage() {
   const [show, setShow] = useState(false);
   const due = store.flashCards.filter((c) => new Date(c.due) <= new Date());
   const card = due[cardIndex];
-  const subjects = ["biology", "chemistry", "physics"];
-  function accuracy(subject: string, days: number) {
-    const since = Date.now() - days * 86400000;
-    const rows = store.drillResults.filter((r) => String(r.subject).toLowerCase().includes(subject) && new Date(r.at).getTime() >= since);
-    if (!rows.length) return 0;
-    return rows.filter((r) => r.correct).length / rows.length;
-  }
-  const topicStats = Object.entries(
-    store.drillResults.reduce<Record<string, { t: number; c: number }>>((acc, r) => {
-      acc[r.topic] = acc[r.topic] ?? { t: 0, c: 0 };
-      acc[r.topic].t += 1;
-      if (r.correct) acc[r.topic].c += 1;
-      return acc;
-    }, {}),
-  ).map(([topic, v]) => ({ topic, acc: v.c / v.t, n: v.t })).filter((x) => x.n >= 2);
+  const results = store.drillResults;
+  const rounds = store.practiceRounds ?? [];
+  const topics = topicAccuracy(results);
+  const weak = topics.filter((t) => t.acc < 0.7);
+  const strong = [...topics].sort((a, b) => b.acc - a.acc).filter((t) => t.acc >= 0.8);
+  const correct = results.filter((r) => r.correct).length;
+  const overall = results.length ? correct / results.length : 0;
+  const last7 = accuracyWindow(results, 7, 0);
+  const prior7 = accuracyWindow(results, 14, 7);
+  const weekDelta = last7 != null && prior7 != null ? last7 - prior7 : null;
+  const lifted = improvedTopics(results);
+  const minutes = studyMinutes(rounds) || Math.round((store.studySeconds ?? 0) / 60);
 
   return (
-    <div>
-      <h1>Progress</h1>
-      <p>Your NSB Journey</p>
-      <p>XP {store.xp} · streak {store.studyStreak} · {store.drillResults.length} questions answered</p>
-      <h2>This week</h2>
-      {subjects.map((s) => (
-        <p key={s}>{s}: {Math.round(accuracy(s, 7) * 100)}%</p>
-      ))}
-      <h2>Lifetime</h2>
-      {subjects.map((s) => (
-        <p key={s}>{s}: {Math.round(accuracy(s, 3650) * 100)}%</p>
-      ))}
-      <h2>Weakest / strongest</h2>
-      <p className="muted">Weak: {topicStats.sort((a, b) => a.acc - b.acc).slice(0, 5).map((t) => `${t.topic} ${Math.round(t.acc * 100)}%`).join(" · ") || "Keep drilling."}</p>
-      <p className="muted">Strong: {topicStats.sort((a, b) => b.acc - a.acc).slice(0, 5).map((t) => `${t.topic} ${Math.round(t.acc * 100)}%`).join(" · ")}</p>
+    <div className="stack">
+      <div>
+        <h1>Progress</h1>
+        <p className="muted">Accuracy, study time, weak topics, and recent sessions.</p>
+      </div>
+      <div className="grid three">
+        <div className="card"><p className="stem">{pct(overall)}</p><p className="muted">Overall accuracy</p></div>
+        <div className="card"><p className="stem">{results.length}</p><p className="muted">{correct} correct</p></div>
+        <div className="card"><p className="stem">{store.xp}</p><p className="muted">XP · streak {store.studyStreak}</p></div>
+        <div className="card"><p className="stem">{minutes}</p><p className="muted">Study minutes</p></div>
+        <div className="card">
+          <p className="stem">{pct(last7)}</p>
+          <p className="muted">Last 7 days{weekDelta == null ? "" : weekDelta >= 0 ? ` · +${Math.round(weekDelta * 100)} vs prior` : ` · ${Math.round(weekDelta * 100)} vs prior`}</p>
+        </div>
+        <div className="card"><p className="stem">{rounds.length}</p><p className="muted">Saved sessions</p></div>
+      </div>
+      <h2>Accuracy by subject</h2>
+      <div className="stack">
+        {SUBJECTS.map((subject) => {
+          const acc = subjectAccuracy(results, subject);
+          return <p key={subject}>{subject}: {pct(acc)}</p>;
+        })}
+      </div>
+      {weak[0] ? (
+        <div className="card stack">
+          <h3>Recommended for you</h3>
+          <p>{weak[0].topic}</p>
+          <p className="muted">Accuracy: {pct(weak[0].acc)} · {weak[0].attempts} tries</p>
+          <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak[0].topic)}`}>Practice this topic today</Link>
+        </div>
+      ) : null}
+      <h2>Getting better</h2>
+      {lifted[0] ? (
+        <div className="stack">
+          {lifted.slice(0, 5).map((row) => (
+            <p key={row.topic}>
+              {row.topic} · {pct(row.before)} → {pct(row.after)}
+              <span className="muted"> · +{Math.round(row.delta * 100)} points</span>
+            </p>
+          ))}
+        </div>
+      ) : (
+        <p className="muted">Topics with at least four tries will show improvement here.</p>
+      )}
+      <h2>Recent sessions</h2>
+      {rounds[0] ? (
+        <div className="stack">
+          {rounds.slice(0, 8).map((round) => (
+            <div className="card row" key={round.id}>
+              <div>
+                <strong>{round.title}</strong>
+                <p className="muted">{when(round.at)}</p>
+              </div>
+              <span className="pill">{round.correct} / {round.asked}</span>
+              <span className="muted">{Math.max(1, Math.round(round.seconds / 60))} min</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="muted">Finish a practice round and it will land here.</p>
+      )}
+      <h2>Weak / strong</h2>
+      <p className="muted">Weak: {weak.slice(0, 5).map((t) => `${t.topic} ${pct(t.acc)}`).join(" · ") || "Keep drilling."}</p>
+      <p className="muted">Strong: {strong.slice(0, 5).map((t) => `${t.topic} ${pct(t.acc)}`).join(" · ") || "Not yet."}</p>
       <h2>Category checklist</h2>
       <div className="stack">
         {store.checklist.map((item) => (
@@ -51,6 +109,7 @@ export default function ProgressPage() {
         ))}
       </div>
       <h2>Flash cards due today</h2>
+      <Link className="btn ghost" href="/learn/flash">Open flashcard review</Link>
       {card ? (
         <div className="card stack">
           <p>{show ? card.answer : card.prompt}</p>

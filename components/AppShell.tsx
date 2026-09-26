@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV } from "@/lib/nav";
+import { NAV, navActive } from "@/lib/nav";
 import { useStore } from "@/lib/store";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -14,7 +14,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className="brand">Science Bowl Coach</div>
         <nav className="nav">
           {NAV.map((item) => (
-            <Link key={item.href} href={item.href} className={path.startsWith(item.href) ? "active" : ""}>
+            <Link key={item.href} href={item.href} className={navActive(path, item) ? "active" : ""}>
               {item.label}
             </Link>
           ))}
@@ -23,7 +23,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <main className="main">{children}</main>
       <nav className="mobile-nav">
         {NAV.map((item) => (
-          <Link key={item.href} href={item.href} className={path.startsWith(item.href) ? "active" : ""}>
+          <Link key={item.href} href={item.href} className={navActive(path, item) ? "active" : ""}>
             {item.label}
           </Link>
         ))}

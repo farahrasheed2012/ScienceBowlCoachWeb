@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { blocksForWeek, dayLabel, subjectLabel, weekTheme } from "@/lib/schedule";
 import { useStore } from "@/lib/store";
 
@@ -23,6 +24,7 @@ export default function WeeksPage() {
                 <h3>{block.chapterTitle}</h3>
                 <p className="muted">{block.bookCode} {block.chapter}</p>
                 <p>{block.focus}</p>
+                <Link className="btn" href={`/practice/play?mode=block&id=${block.id}`}>Practice this block</Link>
               </div>
             ))}
           </div>

@@ -1,12 +1,11 @@
 export const NAV = [
-  { href: "/today", label: "Today" },
-  { href: "/weeks", label: "Weeks" },
-  { href: "/calendar", label: "Calendar" },
-  { href: "/topics", label: "Topics" },
-  { href: "/learn", label: "Learn" },
-  { href: "/elements", label: "Elements" },
-  { href: "/mental-math", label: "Mental Math" },
-  { href: "/quiz", label: "Quiz" },
-  { href: "/progress", label: "Progress" },
-  { href: "/settings", label: "Settings" },
+  { href: "/today", label: "Home", match: ["/today"] },
+  { href: "/practice", label: "Practice", match: ["/practice", "/quiz"] },
+  { href: "/learn", label: "Learn", match: ["/learn", "/topics", "/elements", "/weeks", "/calendar", "/mental-math"] },
+  { href: "/progress", label: "Progress", match: ["/progress"] },
+  { href: "/settings", label: "Settings", match: ["/settings"] },
 ] as const;
+
+export function navActive(path: string, item: (typeof NAV)[number]) {
+  return item.match.some((prefix) => path === prefix || path.startsWith(`${prefix}/`));
+}

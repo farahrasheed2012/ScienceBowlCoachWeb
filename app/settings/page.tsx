@@ -8,6 +8,7 @@ import type { Appearance, DoeQuestion, FlashPace, SpeechRate } from "@/lib/types
 export default function SettingsPage() {
   const store = useStore();
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [doeNote, setDoeNote] = useState("");
   useEffect(() => {
     const load = () => setVoices(listVoices());
     load();
@@ -93,7 +94,7 @@ export default function SettingsPage() {
       </section>
       <section className="card stack">
         <h3>DOE question bank</h3>
-        <p className="muted">{48 + store.importedDoe.length} questions loaded (48 starter + imports). On the Mac app, PDFKit parses 251 official MS PDFs. Export that cache from the Mac Documents folder as doe_questions_cache.json and import it here to keep the full bank.</p>
+        <p className="muted">{48 + store.importedDoe.length} DOE questions loaded (48 starter + imports), on top of TossUp’s 634 bundled questions. Export doe_questions_cache.json from the Mac app or TossUp’s questions_cache.json and import it here for the full official bank.</p>
         <input
           type="file"
           accept="application/json"
@@ -101,9 +102,12 @@ export default function SettingsPage() {
             const file = e.target.files?.[0];
             if (!file) return;
             const data = JSON.parse(await file.text()) as DoeQuestion[] | { questions: DoeQuestion[] };
-            store.set({ importedDoe: Array.isArray(data) ? data : data.questions ?? [] });
+            const imported = Array.isArray(data) ? data : data.questions ?? [];
+            store.set({ importedDoe: imported });
+            setDoeNote(`${file.name}: ${imported.length} questions ready.`);
           }}
         />
+        {doeNote ? <p className="ok-text">{doeNote}</p> : null}
       </section>
       <section className="card stack">
         <h3>About</h3>

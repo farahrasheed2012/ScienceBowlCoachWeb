@@ -1,0 +1,2382 @@
+[
+  {
+    "id": "bio-body-systems-001",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which organ system is responsible for transporting oxygen, nutrients, and wastes through the body?",
+    "choices": [
+      "W) Respiratory system",
+      "X) Digestive system",
+      "Y) Circulatory system",
+      "Z) Nervous system"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-002",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the muscular organ that pumps blood throughout the body?",
+    "choices": null,
+    "correctAnswer": "Heart",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-003",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which blood vessels carry oxygenated blood away from the heart?",
+    "choices": [
+      "W) Veins",
+      "X) Capillaries",
+      "Y) Arteries",
+      "Z) Venules"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-004",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the small intestine's finger-like projections that increase surface area for nutrient absorption?",
+    "choices": null,
+    "correctAnswer": "Villi (singular: villus)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-005",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which organ in the respiratory system is the primary site of gas exchange?",
+    "choices": [
+      "W) Trachea",
+      "X) Bronchi",
+      "Y) Diaphragm",
+      "Z) Alveoli in the lungs"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-006",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the largest organ of the human body?",
+    "choices": null,
+    "correctAnswer": "Skin",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-007",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which organ filters blood and produces urine?",
+    "choices": [
+      "W) Liver",
+      "X) Kidney",
+      "Y) Pancreas",
+      "Z) Spleen"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-008",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the system that includes the brain, spinal cord, and nerves?",
+    "choices": null,
+    "correctAnswer": "Nervous system",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-009",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Red blood cells, white blood cells, and platelets are all components of blood. Which component carries oxygen?",
+    "choices": [
+      "W) White blood cells",
+      "X) Platelets",
+      "Y) Plasma",
+      "Z) Red blood cells"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-010",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What protein inside red blood cells binds to oxygen and gives blood its red color?",
+    "choices": null,
+    "correctAnswer": "Hemoglobin",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-011",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The endocrine system communicates using chemical messengers released into the bloodstream called:",
+    "choices": [
+      "W) Neurons",
+      "X) Enzymes",
+      "Y) Hormones",
+      "Z) Antibodies"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-012",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What organ produces insulin and glucagon to regulate blood sugar levels?",
+    "choices": null,
+    "correctAnswer": "Pancreas",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-013",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Peristalsis is the wave-like muscle contractions that move food through the:",
+    "choices": [
+      "W) Circulatory system",
+      "X) Digestive tract",
+      "Y) Lymphatic system",
+      "Z) Respiratory system"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-014",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the function of the immune system's white blood cells?",
+    "choices": null,
+    "correctAnswer": "To defend the body against pathogens (bacteria, viruses, foreign invaders)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-015",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is the correct order of the digestive system?",
+    "choices": [
+      "W) Mouth → Stomach → Small intestine → Large intestine → Esophagus",
+      "X) Mouth → Esophagus → Stomach → Small intestine → Large intestine",
+      "Y) Mouth → Small intestine → Stomach → Large intestine",
+      "Z) Mouth → Liver → Stomach → Small intestine"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-016",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the function of the skeletal system beyond providing support and shape?",
+    "choices": null,
+    "correctAnswer": "Protect organs, allow movement, produce blood cells (in bone marrow), store minerals",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-017",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which chamber of the heart pumps oxygenated blood to the rest of the body through the aorta?",
+    "choices": [
+      "W) Right atrium",
+      "X) Right ventricle",
+      "Y) Left atrium",
+      "Z) Left ventricle"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-018",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the dome-shaped muscle below the lungs that contracts and flattens during inhalation?",
+    "choices": null,
+    "correctAnswer": "Diaphragm",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-019",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The lymphatic system plays a key role in which of the following?",
+    "choices": [
+      "W) Digesting fats and proteins",
+      "X) Returning fluid to the bloodstream and immune defense",
+      "Y) Producing hormones for metabolism",
+      "Z) Filtering blood through the kidneys"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-020",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the maintenance of a stable internal environment in the body, such as constant body temperature and blood sugar levels?",
+    "choices": null,
+    "correctAnswer": "Homeostasis",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-021",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which organ produces bile to help digest fats?",
+    "choices": [
+      "W) Pancreas",
+      "X) Kidney",
+      "Y) Liver",
+      "Z) Stomach"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-022",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What are the three types of muscle tissue in the human body?",
+    "choices": null,
+    "correctAnswer": "Skeletal, smooth, and cardiac",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-023",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In the nervous system, which cells transmit electrical signals?",
+    "choices": [
+      "W) Ribosomes",
+      "X) Neurons",
+      "Y) Hormones",
+      "Z) Platelets"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-024",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the network of tiny blood vessels where gas exchange between blood and body tissues occurs?",
+    "choices": null,
+    "correctAnswer": "Capillaries",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-body-systems-025",
+    "subject": "biology",
+    "topicId": "bio-body-systems",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The thyroid gland produces hormones that regulate:",
+    "choices": [
+      "W) Blood sugar only",
+      "X) Reproductive cycles",
+      "Y) Metabolism and growth",
+      "Z) Blood pressure alone"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-001",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following represents the correct sequence of a food chain?",
+    "choices": [
+      "W) Consumer → Producer → Decomposer",
+      "X) Decomposer → Consumer → Producer",
+      "Y) Producer → Primary consumer → Secondary consumer",
+      "Z) Secondary consumer → Primary consumer → Producer"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-002",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What term describes all the living and nonliving components of an environment and their interactions?",
+    "choices": null,
+    "correctAnswer": "Ecosystem",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-003",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Approximately what percentage of energy is transferred from one trophic level to the next in a food chain?",
+    "choices": [
+      "W) 1%",
+      "X) 10%",
+      "Y) 50%",
+      "Z) 90%"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-004",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for organisms that break down dead organic matter and recycle nutrients back into the ecosystem?",
+    "choices": null,
+    "correctAnswer": "Decomposers (detritivores)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-005",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A relationship in which one organism benefits and the other is neither helped nor harmed is called:",
+    "choices": [
+      "W) Parasitism",
+      "X) Mutualism",
+      "Y) Commensalism",
+      "Z) Competition"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-006",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name for the role an organism plays in its ecosystem, including what it eats, where it lives, and how it interacts with others?",
+    "choices": null,
+    "correctAnswer": "Ecological niche",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-007",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which biogeochemical cycle involves the conversion of atmospheric nitrogen into a usable form by bacteria?",
+    "choices": [
+      "W) Carbon cycle",
+      "X) Water cycle",
+      "Y) Nitrogen cycle",
+      "Z) Phosphorus cycle"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-008",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What term describes the maximum population size an environment can sustain given available resources?",
+    "choices": null,
+    "correctAnswer": "Carrying capacity",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-009",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A symbiotic relationship in which one organism benefits at the expense of the other is called:",
+    "choices": [
+      "W) Mutualism",
+      "X) Commensalism",
+      "Y) Parasitism",
+      "Z) Predation"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-010",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the gradual process by which ecosystems change and develop over time, such as a bare rock eventually becoming a forest?",
+    "choices": null,
+    "correctAnswer": "Ecological succession",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-011",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Producers in an ecosystem are also called:",
+    "choices": [
+      "W) Heterotrophs",
+      "X) Consumers",
+      "Y) Autotrophs",
+      "Z) Decomposers"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-012",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the biotic potential of a population?",
+    "choices": null,
+    "correctAnswer": "The maximum rate of reproduction under ideal conditions with unlimited resources",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-013",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "When two species compete for the same limited resource, which ecological principle states that they cannot coexist indefinitely in the same niche?",
+    "choices": [
+      "W) Predator-prey principle",
+      "X) Competitive exclusion principle",
+      "Y) Succession principle",
+      "Z) Limiting factor principle"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-014",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of succession begins in an area with no soil, such as bare rock after a volcanic eruption?",
+    "choices": null,
+    "correctAnswer": "Primary succession",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-015",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is a biotic factor in an ecosystem?",
+    "choices": [
+      "W) Temperature",
+      "X) Rainfall",
+      "Y) Soil composition",
+      "Z) Predators"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-016",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is a keystone species?",
+    "choices": null,
+    "correctAnswer": "A species that has a disproportionately large effect on its ecosystem relative to its abundance",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-017",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The increase in concentration of toxins such as mercury or DDT at higher trophic levels is called:",
+    "choices": [
+      "W) Eutrophication",
+      "X) Biomagnification",
+      "Y) Decomposition",
+      "Z) Nutrient cycling"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-018",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Name two abiotic (nonliving) factors that affect ecosystems.",
+    "choices": null,
+    "correctAnswer": "Any two of: temperature, sunlight, water/rainfall, soil type, pH, wind, salinity",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-019",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A mutualistic relationship involves:",
+    "choices": [
+      "W) One organism benefiting and the other being harmed",
+      "X) Both organisms benefiting from the interaction",
+      "Y) One organism benefiting with no effect on the other",
+      "Z) Both organisms competing for the same resource"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-020",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What term describes all the members of a single species living in the same area at the same time?",
+    "choices": null,
+    "correctAnswer": "Population",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-021",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The process by which excess nutrients (especially nitrogen and phosphorus) cause rapid algae growth that depletes oxygen in water bodies is called:",
+    "choices": [
+      "W) Biomagnification",
+      "X) Acid rain",
+      "Y) Eutrophication",
+      "Z) Desertification"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-022",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for all the populations of different species living and interacting in the same area?",
+    "choices": null,
+    "correctAnswer": "Community",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-023",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In a food web, energy flows from:",
+    "choices": [
+      "W) Consumers to producers",
+      "X) Decomposers to producers",
+      "Y) Producers to consumers",
+      "Z) Top predators to all other levels equally"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-024",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the pioneer species in primary succession on bare rock?",
+    "choices": null,
+    "correctAnswer": "Lichens",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-ecology-025",
+    "subject": "biology",
+    "topicId": "bio-ecology",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following best describes a food web compared to a food chain?",
+    "choices": [
+      "W) A food web shows only one path of energy flow",
+      "X) A food web shows multiple interconnected feeding relationships",
+      "Y) A food web only includes producers and top predators",
+      "Z) A food web does not include decomposers"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-001",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which organelle is the site of photosynthesis in plant cells?",
+    "choices": [
+      "W) Mitochondrion",
+      "X) Ribosome",
+      "Y) Chloroplast",
+      "Z) Vacuole"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-002",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What are the two raw materials (reactants) that plants use to perform photosynthesis?",
+    "choices": null,
+    "correctAnswer": "Carbon dioxide and water (CO2 and H2O)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-003",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the primary product of the light-dependent reactions of photosynthesis that is used in the Calvin cycle?",
+    "choices": [
+      "W) Glucose",
+      "X) ATP and NADPH",
+      "Y) Carbon dioxide",
+      "Z) Oxygen and water"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-004",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What gas is released as a byproduct of photosynthesis?",
+    "choices": null,
+    "correctAnswer": "Oxygen",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-005",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Cellular respiration breaks down glucose to produce ATP. What are the three main stages of aerobic cellular respiration?",
+    "choices": [
+      "W) Glycolysis, Krebs cycle, electron transport chain",
+      "X) Photosynthesis, glycolysis, fermentation",
+      "Y) Glycolysis, Calvin cycle, Krebs cycle",
+      "Z) Fermentation, Krebs cycle, electron transport chain"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-006",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In which part of the cell does glycolysis take place?",
+    "choices": null,
+    "correctAnswer": "Cytoplasm (cytosol)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-007",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "How many net ATP molecules are produced during glycolysis from one molecule of glucose?",
+    "choices": [
+      "W) 0",
+      "X) 2",
+      "Y) 4",
+      "Z) 36"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-008",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the process by which cells produce ATP without oxygen, used by yeast and muscle cells during intense exercise?",
+    "choices": null,
+    "correctAnswer": "Fermentation (anaerobic respiration)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-009",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The overall chemical equation for photosynthesis is 6CO2 + 6H2O → C6H12O6 + 6O2. What does C6H12O6 represent?",
+    "choices": [
+      "W) Carbon dioxide",
+      "X) ATP",
+      "Y) Glucose",
+      "Z) Water"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-010",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the cycle in photosynthesis that uses ATP and NADPH to fix carbon dioxide into sugar, also called the light-independent reactions?",
+    "choices": null,
+    "correctAnswer": "Calvin cycle (carbon fixation cycle)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-011",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Where does the Krebs cycle take place in a eukaryotic cell?",
+    "choices": [
+      "W) Cytoplasm",
+      "X) Nucleus",
+      "Y) Mitochondrial matrix",
+      "Z) Chloroplast stroma"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-012",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What molecule carries electrons from glycolysis and the Krebs cycle to the electron transport chain? Name one.",
+    "choices": null,
+    "correctAnswer": "NADH (accept FADH2)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-013",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Lactic acid fermentation occurs in human muscle cells when oxygen is scarce. What is the end product of this process besides ATP?",
+    "choices": [
+      "W) Ethanol",
+      "X) Carbon dioxide",
+      "Y) Lactic acid",
+      "Z) Glucose"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-014",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What green pigment in chloroplasts absorbs light energy to drive photosynthesis?",
+    "choices": null,
+    "correctAnswer": "Chlorophyll",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-015",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Approximately how many total ATP molecules are produced from the complete aerobic respiration of one glucose molecule?",
+    "choices": [
+      "W) 2",
+      "X) 4",
+      "Y) 18",
+      "Z) 36 to 38"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-016",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What two structures inside the chloroplast are the sites of the light-dependent and light-independent reactions respectively?",
+    "choices": null,
+    "correctAnswer": "Thylakoids (light-dependent) and stroma (light-independent / Calvin cycle)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-017",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which process is the reverse of photosynthesis in terms of the overall reactants and products?",
+    "choices": [
+      "W) Fermentation",
+      "X) Cellular respiration",
+      "Y) Transpiration",
+      "Z) Translation"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-018",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the final electron acceptor at the end of the electron transport chain in aerobic respiration?",
+    "choices": null,
+    "correctAnswer": "Oxygen (O2)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-019",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which wavelengths of light does chlorophyll absorb MOST efficiently?",
+    "choices": [
+      "W) Green and yellow",
+      "X) Red and blue-violet",
+      "Y) Infrared and ultraviolet",
+      "Z) Orange and indigo"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-020",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the molecule that is the universal energy currency of the cell?",
+    "choices": null,
+    "correctAnswer": "ATP (adenosine triphosphate)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-021",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Alcoholic fermentation by yeast produces ethanol and which gas?",
+    "choices": [
+      "W) Oxygen",
+      "X) Nitrogen",
+      "Y) Carbon dioxide",
+      "Z) Hydrogen"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-022",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What term describes organisms like plants that make their own food through photosynthesis?",
+    "choices": null,
+    "correctAnswer": "Autotrophs (producers)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-023",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "During the electron transport chain, the flow of hydrogen ions (protons) through ATP synthase drives the production of ATP by a process called:",
+    "choices": [
+      "W) Glycolysis",
+      "X) Chemiosmosis",
+      "Y) Photolysis",
+      "Z) Hydrolysis"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-024",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the starting molecule (substrate) of glycolysis?",
+    "choices": null,
+    "correctAnswer": "Glucose",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-energy-025",
+    "subject": "biology",
+    "topicId": "bio-energy",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following best describes the relationship between photosynthesis and cellular respiration?",
+    "choices": [
+      "W) They occur in the same organelle",
+      "X) The products of one are the reactants of the other",
+      "Y) Only plants perform photosynthesis and only animals perform respiration",
+      "Z) Both processes require sunlight"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-001",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Who proposed the theory of evolution by natural selection in 1859?",
+    "choices": [
+      "W) Gregor Mendel",
+      "X) Louis Pasteur",
+      "Y) Charles Darwin",
+      "Z) Alfred Wallace"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-002",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the process by which individuals with favorable traits survive and reproduce more than others, driving evolutionary change?",
+    "choices": null,
+    "correctAnswer": "Natural selection",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-003",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is NOT a requirement for natural selection to occur?",
+    "choices": [
+      "W) Variation in traits within a population",
+      "X) Heritability of traits",
+      "Y) All individuals reproducing equally",
+      "Z) Differential survival and reproduction"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-004",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name for preserved remains or traces of ancient organisms?",
+    "choices": null,
+    "correctAnswer": "Fossils",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-005",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In the Linnaean classification system, which is the most specific level of classification?",
+    "choices": [
+      "W) Order",
+      "X) Genus",
+      "Y) Family",
+      "Z) Species"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-006",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What are the two parts of a species' scientific name in binomial nomenclature?",
+    "choices": null,
+    "correctAnswer": "Genus and species (e.g., Homo sapiens)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-007",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Structures that are similar in different species because they share a common ancestor are called:",
+    "choices": [
+      "W) Analogous structures",
+      "X) Vestigial structures",
+      "Y) Homologous structures",
+      "Z) Convergent structures"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-008",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for body structures that have lost most of their original function through evolution, such as the human appendix?",
+    "choices": null,
+    "correctAnswer": "Vestigial structures",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-009",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The three domains of life are:",
+    "choices": [
+      "W) Bacteria, Protista, Fungi",
+      "X) Archaea, Bacteria, Eukarya",
+      "Y) Plantae, Animalia, Fungi",
+      "Z) Prokaryota, Eukaryota, Viruses"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-010",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name for the gradual change in allele frequencies in a population over time?",
+    "choices": null,
+    "correctAnswer": "Evolution",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-011",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Two species of birds have wings, but one evolved wings from forelimbs and the other evolved wings independently from a different structure. Their wings are:",
+    "choices": [
+      "W) Homologous",
+      "X) Vestigial",
+      "Y) Analogous",
+      "Z) Identical"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-012",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the process by which one species splits into two or more species, often after populations become isolated?",
+    "choices": null,
+    "correctAnswer": "Speciation",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-013",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In the Linnaean hierarchy, which level is BROADER than order but more specific than kingdom?",
+    "choices": [
+      "W) Class",
+      "X) Genus",
+      "Y) Species",
+      "Z) Family"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-014",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the hypothesis that evolution occurs in rapid bursts followed by long periods of stability?",
+    "choices": null,
+    "correctAnswer": "Punctuated equilibrium",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-015",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The six kingdoms of life in the traditional classification system are Animalia, Plantae, Fungi, Protista, and:",
+    "choices": [
+      "W) Archaea and Bacteria",
+      "X) Virus and Archaea",
+      "Y) Monera and Bacteria",
+      "Z) Bacteria and Cyanobacteria"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-016",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of evidence for evolution compares DNA and protein sequences between species to determine how closely related they are?",
+    "choices": null,
+    "correctAnswer": "Molecular (genetic) evidence",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-017",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Geographic isolation of a population is most likely to lead to:",
+    "choices": [
+      "W) Faster mutation rates",
+      "X) Speciation over time",
+      "Y) Immediate extinction",
+      "Z) Increased gene flow"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-018",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What term describes a random change in allele frequency in a small population, which can lead to evolution by chance rather than natural selection?",
+    "choices": null,
+    "correctAnswer": "Genetic drift",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-019",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which scientist developed a flawed theory of evolution based on the idea that organisms pass on traits acquired during their lifetime?",
+    "choices": [
+      "W) Darwin",
+      "X) Lamarck",
+      "Y) Mendel",
+      "Z) Wallace"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-020",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the correct order of taxonomic levels from broadest to most specific? List all seven.",
+    "choices": null,
+    "correctAnswer": "Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-021",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Antibiotic resistance in bacteria is an example of:",
+    "choices": [
+      "W) Lamarckian evolution",
+      "X) Natural selection acting on existing variation",
+      "Y) Genetic engineering",
+      "Z) Punctuated equilibrium only"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-022",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the scientific name for modern humans?",
+    "choices": null,
+    "correctAnswer": "Homo sapiens",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-023",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A phylogenetic tree (cladogram) is used to show:",
+    "choices": [
+      "W) The life cycle of an organism",
+      "X) Evolutionary relationships between species",
+      "Y) The food web in an ecosystem",
+      "Z) The cell cycle stages"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-024",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the evolution of similar traits in unrelated species due to similar environmental pressures?",
+    "choices": null,
+    "correctAnswer": "Convergent evolution",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-evolution-025",
+    "subject": "biology",
+    "topicId": "bio-evolution",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The observation that embryos of different vertebrate species look very similar early in development is evidence for:",
+    "choices": [
+      "W) Convergent evolution",
+      "X) Common ancestry",
+      "Y) Lamarckian inheritance",
+      "Z) Genetic drift"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-001",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "What is the full name of the molecule that carries genetic information in most living organisms?",
+    "choices": [
+      "W) RNA",
+      "X) ATP",
+      "Y) DNA",
+      "Z) mRNA"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-002",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What are the four nitrogenous bases found in DNA?",
+    "choices": null,
+    "correctAnswer": "Adenine, thymine, guanine, cytosine",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-003",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In a DNA double helix, adenine always pairs with which base?",
+    "choices": [
+      "W) Guanine",
+      "X) Cytosine",
+      "Y) Uracil",
+      "Z) Thymine"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-004",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the process by which DNA is copied before cell division?",
+    "choices": null,
+    "correctAnswer": "DNA replication",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-005",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A gene can best be defined as:",
+    "choices": [
+      "W) A single nucleotide in DNA",
+      "X) A segment of DNA that codes for a specific protein or trait",
+      "Y) The entire DNA of an organism",
+      "Z) A type of RNA molecule"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-006",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the complete set of genetic information in an organism called?",
+    "choices": null,
+    "correctAnswer": "Genome",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-007",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "During transcription, which molecule is produced using a DNA template?",
+    "choices": [
+      "W) Protein",
+      "X) More DNA",
+      "Y) mRNA",
+      "Z) Glucose"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-008",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the process called by which the sequence of mRNA codons is used to build a protein?",
+    "choices": null,
+    "correctAnswer": "Translation",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-009",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "How many nucleotide bases make up one codon on an mRNA strand?",
+    "choices": [
+      "W) 1",
+      "X) 2",
+      "Y) 3",
+      "Z) 4"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-010",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In RNA, what base replaces thymine (which is found in DNA)?",
+    "choices": null,
+    "correctAnswer": "Uracil",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-011",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Chromosomes are made of DNA wrapped around proteins called:",
+    "choices": [
+      "W) Ribosomes",
+      "X) Histones",
+      "Y) Lipids",
+      "Z) Enzymes"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-012",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "How many chromosomes do normal human body (somatic) cells contain?",
+    "choices": null,
+    "correctAnswer": "46 (23 pairs)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-013",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A mutation that changes one nucleotide base to another is called a:",
+    "choices": [
+      "W) Frameshift mutation",
+      "X) Chromosomal deletion",
+      "Y) Point mutation",
+      "Z) Duplication"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-014",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of RNA molecule carries amino acids to the ribosome during translation?",
+    "choices": null,
+    "correctAnswer": "tRNA (transfer RNA)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-015",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Where in the eukaryotic cell does transcription occur?",
+    "choices": [
+      "W) Cytoplasm",
+      "X) Ribosome",
+      "Y) Nucleus",
+      "Z) Mitochondrion"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-016",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What are the monomers (building blocks) of DNA and RNA called?",
+    "choices": null,
+    "correctAnswer": "Nucleotides",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-017",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "If a DNA strand reads 3'-ATCGTA-5', what is the complementary strand written 5' to 3'?",
+    "choices": [
+      "W) TAGCAT",
+      "X) ATCGTA",
+      "Y) UAGCAU",
+      "Z) TACGAT"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-018",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the specific location of a gene on a chromosome?",
+    "choices": null,
+    "correctAnswer": "Locus (plural: loci)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-019",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Sex chromosomes in human females are:",
+    "choices": [
+      "W) XY",
+      "X) YY",
+      "Y) XX",
+      "Z) XO"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-020",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What enzyme unwinds and separates the two strands of DNA during replication?",
+    "choices": null,
+    "correctAnswer": "Helicase",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-021",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The central dogma of molecular biology describes the flow of genetic information as:",
+    "choices": [
+      "W) Protein → RNA → DNA",
+      "X) DNA → RNA → Protein",
+      "Y) RNA → DNA → Protein",
+      "Z) DNA → Protein → RNA"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-022",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is a karyotype?",
+    "choices": null,
+    "correctAnswer": "A visual display of an organism's chromosomes arranged in homologous pairs by size and shape",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-023",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Alternative versions of the same gene are called:",
+    "choices": [
+      "W) Codons",
+      "X) Alleles",
+      "Y) Mutations",
+      "Z) Ribosomes"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-024",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the structure made of RNA and protein where translation (protein synthesis) occurs?",
+    "choices": null,
+    "correctAnswer": "Ribosome",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-genetics-025",
+    "subject": "biology",
+    "topicId": "bio-genetics",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Down syndrome is caused by having three copies of chromosome 21 instead of two. This condition is called:",
+    "choices": [
+      "W) Deletion",
+      "X) Inversion",
+      "Y) Trisomy",
+      "Z) Translocation"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-001",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Who is known as the father of genetics for his work with pea plants in the 1800s?",
+    "choices": [
+      "W) Charles Darwin",
+      "X) Gregor Mendel",
+      "Y) James Watson",
+      "Z) Thomas Hunt Morgan"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-002",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What term describes an organism that has two identical alleles for a trait (e.g., AA or aa)?",
+    "choices": null,
+    "correctAnswer": "Homozygous",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-003",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In a monohybrid cross between two Aa parents, what fraction of offspring are expected to show the dominant phenotype?",
+    "choices": [
+      "W) 1/4",
+      "X) 1/2",
+      "Y) 3/4",
+      "Z) All of them"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-004",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the physical appearance or expression of a trait in an organism?",
+    "choices": null,
+    "correctAnswer": "Phenotype",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-005",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "An organism with the genotype Bb is said to be:",
+    "choices": [
+      "W) Homozygous dominant",
+      "X) Homozygous recessive",
+      "Y) Heterozygous",
+      "Z) Codominant"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-006",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "In a Punnett square cross of Tt × Tt, list all four possible genotype combinations of offspring.",
+    "choices": null,
+    "correctAnswer": "TT, Tt, Tt, tt (ratio 1:2:1)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-007",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Mendel's law of segregation states that:",
+    "choices": [
+      "W) Traits from different genes assort together",
+      "X) The two alleles for a trait separate during gamete formation",
+      "Y) Dominant alleles always suppress recessive ones",
+      "Z) Offspring always resemble their parents exactly"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-008",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What pattern of inheritance occurs when neither allele is completely dominant and the heterozygote shows a blend of both traits, such as a red flower crossed with a white flower producing pink offspring?",
+    "choices": null,
+    "correctAnswer": "Incomplete dominance",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-009",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In codominance, if a red-flower plant (RR) is crossed with a white-flower plant (WW), the offspring would be:",
+    "choices": [
+      "W) All pink",
+      "X) Half red, half white",
+      "Y) Red and white (both colors expressed)",
+      "Z) All red"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-010",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the genotypic ratio produced by a monohybrid cross between two heterozygous parents (Aa × Aa)?",
+    "choices": null,
+    "correctAnswer": "1 AA : 2 Aa : 1 aa",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-011",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A trait controlled by a gene located on the X chromosome is said to be:",
+    "choices": [
+      "W) Autosomal dominant",
+      "X) Codominant",
+      "Y) Sex-linked (X-linked)",
+      "Z) Polygenic"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-012",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "If a color-blind man (X^b Y) mates with a carrier woman (X^B X^b), what is the probability their sons will be color-blind?",
+    "choices": null,
+    "correctAnswer": "50% (1 in 2)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-013",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Mendel's law of independent assortment states that:",
+    "choices": [
+      "W) Alleles of one gene separate together with alleles of other genes",
+      "X) Genes on the same chromosome always stay together",
+      "Y) Alleles of different genes assort independently of one another during gamete formation",
+      "Z) Dominant traits always appear in every generation"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-014",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What term describes a trait controlled by many genes, resulting in a continuous range of phenotypes such as human height or skin color?",
+    "choices": null,
+    "correctAnswer": "Polygenic inheritance (polygenic trait)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-015",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In a testcross, an organism showing a dominant phenotype is crossed with:",
+    "choices": [
+      "W) Another dominant phenotype",
+      "X) A homozygous recessive organism",
+      "Y) A homozygous dominant organism",
+      "Z) Its own offspring"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-016",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What do we call the allele that is hidden and only expressed when an organism has two copies of it?",
+    "choices": null,
+    "correctAnswer": "Recessive allele",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-017",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A dihybrid cross between AaBb × AaBb produces offspring in approximately what phenotypic ratio?",
+    "choices": [
+      "W) 1:1:1:1",
+      "X) 3:1",
+      "Y) 9:3:3:1",
+      "Z) 1:2:1"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-018",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the allele that is expressed when only one copy is present?",
+    "choices": null,
+    "correctAnswer": "Dominant allele",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-019",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which tool, used by genetic counselors, is a diagram that traces the inheritance of a trait through several generations of a family?",
+    "choices": [
+      "W) Karyotype",
+      "X) Punnett square",
+      "Y) Pedigree",
+      "Z) Phylogenetic tree"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-020",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Cystic fibrosis is caused by two recessive alleles (ff). If both parents are carriers (Ff), what is the probability that a child will have cystic fibrosis?",
+    "choices": null,
+    "correctAnswer": "25% (1 in 4)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-021",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The observable traits of an organism are its phenotype. The genetic makeup behind those traits is its:",
+    "choices": [
+      "W) Karyotype",
+      "X) Genotype",
+      "Y) Haplotype",
+      "Z) Proteome"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-022",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the diagram used to predict the possible genotypes of offspring from a genetic cross?",
+    "choices": null,
+    "correctAnswer": "Punnett square",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-023",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "In humans, ABO blood type is an example of multiple alleles. How many alleles exist for the ABO blood type gene?",
+    "choices": [
+      "W) 2",
+      "X) 3",
+      "Y) 4",
+      "Z) 8"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-024",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for genes that are located close together on the same chromosome and tend to be inherited together?",
+    "choices": null,
+    "correctAnswer": "Linked genes (gene linkage)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-inheritance-025",
+    "subject": "biology",
+    "topicId": "bio-inheritance",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Hemophilia is an X-linked recessive disorder. A carrier mother and a normal father have a son. What is the probability the son has hemophilia?",
+    "choices": [
+      "W) 0%",
+      "X) 25%",
+      "Y) 50%",
+      "Z) 100%"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-001",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is NOT considered a living organism?",
+    "choices": [
+      "W) Bacterium",
+      "X) Fungus",
+      "Y) Virus",
+      "Z) Protozoan"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-002",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the protein coat that surrounds a virus's genetic material?",
+    "choices": null,
+    "correctAnswer": "Capsid",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-003",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Bacteria are classified as prokaryotes because they:",
+    "choices": [
+      "W) Are multicellular",
+      "X) Have a membrane-bound nucleus",
+      "Y) Lack a membrane-bound nucleus",
+      "Z) Perform photosynthesis"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-004",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What class of drugs is used to treat bacterial infections by killing or inhibiting bacteria?",
+    "choices": null,
+    "correctAnswer": "Antibiotics",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-005",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A virus that infects bacteria is specifically called a:",
+    "choices": [
+      "W) Retrovirus",
+      "X) Bacteriophage",
+      "Y) Prion",
+      "Z) Viroid"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-006",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the two-phase life cycle of a virus: the lytic cycle destroys the host cell, while the other cycle integrates viral DNA into the host genome without immediately killing it?",
+    "choices": null,
+    "correctAnswer": "Lysogenic cycle",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-007",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the three basic bacterial shapes is described as rod-shaped?",
+    "choices": [
+      "W) Coccus",
+      "X) Bacillus",
+      "Y) Spirillum",
+      "Z) Vibrio"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-008",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is a vaccine and how does it work?",
+    "choices": null,
+    "correctAnswer": "A vaccine introduces a weakened or inactivated pathogen (or its parts) to stimulate the immune system to produce antibodies without causing disease",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-009",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "HIV is an example of a retrovirus. What is unique about retroviruses?",
+    "choices": [
+      "W) They only infect plants",
+      "X) They use RNA as genetic material and reverse-transcribe it into DNA inside the host",
+      "Y) They have no genetic material",
+      "Z) They can only survive outside a host cell"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-010",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "Name the two types of nucleic acids a virus can contain as its genetic material.",
+    "choices": null,
+    "correctAnswer": "DNA or RNA (not both — viruses contain one or the other)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-011",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following diseases is caused by a bacterium, not a virus?",
+    "choices": [
+      "W) Influenza",
+      "X) COVID-19",
+      "Y) Strep throat",
+      "Z) Chickenpox"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-012",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for bacteria that form a protective slime layer and attach to surfaces, making them much harder to kill with antibiotics?",
+    "choices": null,
+    "correctAnswer": "Biofilm",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-013",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Bacteria reproduce asexually through a process called:",
+    "choices": [
+      "W) Meiosis",
+      "X) Conjugation",
+      "Y) Binary fission",
+      "Z) Budding"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-014",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for a bacterium that requires oxygen to survive?",
+    "choices": null,
+    "correctAnswer": "Aerobe (obligate aerobe)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-015",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which kingdom contains single-celled eukaryotes such as amoeba and paramecium?",
+    "choices": [
+      "W) Fungi",
+      "X) Monera",
+      "Y) Protista",
+      "Z) Animalia"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-016",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the toxin produced by the bacterium Clostridium botulinum that causes botulism?",
+    "choices": null,
+    "correctAnswer": "Botulinum toxin (botulin / botulinum neurotoxin)",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-017",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following best explains why antibiotics do NOT work against viruses?",
+    "choices": [
+      "W) Viruses are too large for antibiotics",
+      "X) Antibiotics target bacterial cell structures that viruses lack",
+      "Y) Viruses destroy antibiotics before they can work",
+      "Z) Antibiotics only work in the bloodstream"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-018",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What type of immunity develops after a person recovers from an infection or receives a vaccine?",
+    "choices": null,
+    "correctAnswer": "Acquired (adaptive) immunity",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-019",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Fungi differ from plants primarily because fungi:",
+    "choices": [
+      "W) Are multicellular",
+      "X) Perform photosynthesis",
+      "Y) Are heterotrophic and have cell walls made of chitin",
+      "Z) Reproduce using seeds"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-020",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the term for a disease that can be spread from person to person?",
+    "choices": null,
+    "correctAnswer": "Contagious (communicable / infectious) disease",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-021",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "The Gram stain test distinguishes between two types of bacteria. Gram-positive bacteria stain purple because they have:",
+    "choices": [
+      "W) A thin cell wall with an outer membrane",
+      "X) A thick peptidoglycan cell wall",
+      "Y) No cell wall at all",
+      "Z) A capsid around their DNA"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-022",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is herd immunity?",
+    "choices": null,
+    "correctAnswer": "When a large enough portion of a population is immune to a disease (through vaccination or prior infection) that it protects those who are not immune by reducing spread",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-023",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is an example of a beneficial use of bacteria?",
+    "choices": [
+      "W) Causing tuberculosis",
+      "X) Producing yogurt and cheese through fermentation",
+      "Y) Triggering the flu",
+      "Z) Causing malaria"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-024",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the protein produced by the immune system that specifically binds to and neutralizes a pathogen or foreign substance?",
+    "choices": null,
+    "correctAnswer": "Antibody",
+    "sourcePDF": "Bundled-Bio"
+  },
+  {
+    "id": "bio-microbes-025",
+    "subject": "biology",
+    "topicId": "bio-microbes",
+    "round": "Toss-Up",
+    "type": "multipleChoice",
+    "questionText": "A prion is an infectious agent composed entirely of:",
+    "choices": [
+      "W) RNA",
+      "X) DNA",
+      "Y) Misfolded protein",
+      "Z) Lipids"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Bundled-Bio"
+  }
+]

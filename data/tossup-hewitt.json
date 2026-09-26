@@ -1,0 +1,737 @@
+[
+  {
+    "id": "h17-001",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.1",
+    "type": "multipleChoice",
+    "questionText": "Chemistry is called the \"central science\" primarily because it:",
+    "choices": [
+      "W) is the oldest of all sciences",
+      "X) connects and underlies biology, physics, geology, and other sciences",
+      "Y) is the most difficult subject to study",
+      "Z) was developed before mathematics"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-002",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.1",
+    "type": "shortAnswer",
+    "questionText": "Name TWO scientific fields that rely heavily on chemistry as a foundation.",
+    "choices": null,
+    "correctAnswer": "Any two of: biology, physics, geology, environmental science, medicine, materials science",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-003",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.1",
+    "type": "shortAnswer",
+    "questionText": "What term describes matter that has a uniform and definite composition throughout?",
+    "choices": null,
+    "correctAnswer": "Pure substance",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-004",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.1",
+    "type": "multipleChoice",
+    "questionText": "Which of the following best describes what chemists primarily study?",
+    "choices": [
+      "W) The motion of planets and stars",
+      "X) The composition, structure, and properties of matter and how it changes",
+      "Y) The flow of electrical current through circuits",
+      "Z) The behavior of living organisms"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-005",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.2",
+    "type": "multipleChoice",
+    "questionText": "Which of the following correctly lists the three subatomic particles found in atoms?",
+    "choices": [
+      "W) Protons, electrons, neutrons",
+      "X) Protons, photons, neutrons",
+      "Y) Electrons, quarks, photons",
+      "Z) Ions, protons, electrons"
+    ],
+    "correctAnswer": "W",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-006",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.2",
+    "type": "shortAnswer",
+    "questionText": "Where is virtually all of the mass of an atom concentrated?",
+    "choices": null,
+    "correctAnswer": "The nucleus",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-007",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.2",
+    "type": "shortAnswer",
+    "questionText": "What is the term for atoms of the same element that have different numbers of neutrons?",
+    "choices": null,
+    "correctAnswer": "Isotopes",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-008",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.2",
+    "type": "multipleChoice",
+    "questionText": "Approximately how many times smaller is an atom compared to a typical living cell?",
+    "choices": [
+      "W) 10 times smaller",
+      "X) 100 times smaller",
+      "Y) 1,000 times smaller",
+      "Z) 10,000 times smaller"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-009",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.2",
+    "type": "multipleChoice",
+    "questionText": "The electrons in an atom are located:",
+    "choices": [
+      "W) Inside the nucleus alongside protons",
+      "X) Randomly scattered throughout the atom with no pattern",
+      "Y) In regions of space outside the nucleus called orbitals or shells",
+      "Z) Attached directly to neutrons"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-010",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.2",
+    "type": "shortAnswer",
+    "questionText": "What charge does a proton carry, and what charge does an electron carry?",
+    "choices": null,
+    "correctAnswer": "Proton is positive (+1); electron is negative (\u22121)",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-011",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.2",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the particle in the nucleus that has no electrical charge?",
+    "choices": null,
+    "correctAnswer": "Neutron",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-012",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.2",
+    "type": "multipleChoice",
+    "questionText": "If an atom has 6 protons, 6 neutrons, and 6 electrons, what element is it?",
+    "choices": [
+      "W) Nitrogen",
+      "X) Oxygen",
+      "Y) Carbon",
+      "Z) Boron"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-013",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.3",
+    "type": "multipleChoice",
+    "questionText": "In which phase of matter do particles have the most energy and move most freely?",
+    "choices": [
+      "W) Solid",
+      "X) Liquid",
+      "Y) Gas",
+      "Z) Plasma"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-014",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.3",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the phase change from liquid to gas that occurs at the surface of a liquid at temperatures below boiling point?",
+    "choices": null,
+    "correctAnswer": "Evaporation",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-015",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.3",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the temperature at which a solid changes directly into a liquid?",
+    "choices": null,
+    "correctAnswer": "Melting point",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-016",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.3",
+    "type": "multipleChoice",
+    "questionText": "Which phase change describes a gas turning directly into a solid, skipping the liquid phase?",
+    "choices": [
+      "W) Condensation",
+      "X) Sublimation",
+      "Y) Deposition",
+      "Z) Freezing"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-017",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.3",
+    "type": "multipleChoice",
+    "questionText": "In a solid, particles:",
+    "choices": [
+      "W) Move rapidly and are far apart",
+      "X) Slide past each other freely",
+      "Y) Vibrate in fixed positions and are closely packed",
+      "Z) Have no attraction to each other"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-018",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.3",
+    "type": "shortAnswer",
+    "questionText": "What is the term for the phase change in which a solid converts directly to a gas without passing through the liquid phase? Give an everyday example.",
+    "choices": null,
+    "correctAnswer": "Sublimation; dry ice or mothballs",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-019",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.3",
+    "type": "shortAnswer",
+    "questionText": "What happens to the temperature of a substance while it is undergoing a phase change, such as melting or boiling?",
+    "choices": null,
+    "correctAnswer": "It remains constant",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-020",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.3",
+    "type": "multipleChoice",
+    "questionText": "Which of the following correctly describes a liquid?",
+    "choices": [
+      "W) Definite shape and definite volume",
+      "X) No definite shape and no definite volume",
+      "Y) Definite volume but no definite shape",
+      "Z) Definite shape but no definite volume"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-021",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.4",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is a PHYSICAL property of matter?",
+    "choices": [
+      "W) Flammability",
+      "X) Ability to rust",
+      "Y) Density",
+      "Z) Reactivity with acid"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-022",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.4",
+    "type": "shortAnswer",
+    "questionText": "Give TWO examples of chemical properties of matter.",
+    "choices": null,
+    "correctAnswer": "Any two of: flammability, reactivity with acid, ability to rust, toxicity, tendency to oxidize",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-023",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.4",
+    "type": "shortAnswer",
+    "questionText": "What physical property describes the ratio of a substance's mass to its volume?",
+    "choices": null,
+    "correctAnswer": "Density",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-024",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.4",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is a CHEMICAL property?",
+    "choices": [
+      "W) Boiling point",
+      "X) Color",
+      "Y) Malleability",
+      "Z) Flammability"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-025",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.4",
+    "type": "multipleChoice",
+    "questionText": "A substance's melting point, color, and hardness are all examples of:",
+    "choices": [
+      "W) Chemical properties",
+      "X) Physical properties",
+      "Y) Intensive reactions",
+      "Z) Atomic properties"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-026",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.4",
+    "type": "shortAnswer",
+    "questionText": "What is the difference between an intensive physical property and an extensive physical property? Give one example of each.",
+    "choices": null,
+    "correctAnswer": "Intensive does not depend on amount (density, boiling point); extensive depends on amount (mass, volume)",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-027",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.5",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is an example of a CHEMICAL change?",
+    "choices": [
+      "W) Crushing a can",
+      "X) Melting ice",
+      "Y) Dissolving sugar in water",
+      "Z) Burning wood"
+    ],
+    "correctAnswer": "Z",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-028",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.5",
+    "type": "shortAnswer",
+    "questionText": "List THREE signs that a chemical change may have occurred.",
+    "choices": null,
+    "correctAnswer": "Any three of: color change, gas production, precipitate, heat/light, odor change, irreversibility",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-029",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.5",
+    "type": "shortAnswer",
+    "questionText": "When iron rusts, is this a physical or chemical change? Explain in one sentence.",
+    "choices": null,
+    "correctAnswer": "Chemical change \u2014 iron reacts with oxygen to form iron oxide",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-030",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.5",
+    "type": "multipleChoice",
+    "questionText": "Dissolving salt in water is generally considered a physical change because:",
+    "choices": [
+      "W) It produces a new gas",
+      "X) The salt changes color",
+      "Y) The salt can be recovered by evaporating the water",
+      "Z) It releases a large amount of heat"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-031",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.5",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is the BEST example of a physical change?",
+    "choices": [
+      "W) Burning paper",
+      "X) Digesting food",
+      "Y) Cutting hair",
+      "Z) Souring milk"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-032",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.5",
+    "type": "shortAnswer",
+    "questionText": "Why can it sometimes be difficult to classify a change as physical or chemical?",
+    "choices": null,
+    "correctAnswer": "Some changes show signs of both or can be interpreted different ways",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-033",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.6",
+    "type": "multipleChoice",
+    "questionText": "On the periodic table, elements in the same COLUMN (group) share:",
+    "choices": [
+      "W) The same number of protons",
+      "X) The same atomic mass",
+      "Y) Similar chemical properties",
+      "Z) The same number of neutrons"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-034",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.6",
+    "type": "shortAnswer",
+    "questionText": "What is the atomic number of an element, and what does it tell you?",
+    "choices": null,
+    "correctAnswer": "Number of protons in the nucleus; it uniquely identifies the element",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-035",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.6",
+    "type": "shortAnswer",
+    "questionText": "What scientist is most credited with developing the modern periodic table by arranging elements by atomic mass and repeating properties?",
+    "choices": null,
+    "correctAnswer": "Dmitri Mendeleev",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-036",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.6",
+    "type": "multipleChoice",
+    "questionText": "Elements in Group 18 of the periodic table are called noble gases. They are chemically unreactive primarily because:",
+    "choices": [
+      "W) They are all metals",
+      "X) They have complete outer electron shells",
+      "Y) They are liquids at room temperature",
+      "Z) They have very high atomic masses"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-037",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.6",
+    "type": "multipleChoice",
+    "questionText": "The rows (horizontal) of the periodic table are called:",
+    "choices": [
+      "W) Groups",
+      "X) Families",
+      "Y) Periods",
+      "Z) Series"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-038",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.6",
+    "type": "shortAnswer",
+    "questionText": "What are the two broad categories that most elements fall into on the periodic table, and which side of the table does each occupy?",
+    "choices": null,
+    "correctAnswer": "Metals (left/center) and nonmetals (right); metalloids along the staircase",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-039",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.6",
+    "type": "shortAnswer",
+    "questionText": "What is the name given to the elements in Group 1 of the periodic table, which are highly reactive metals?",
+    "choices": null,
+    "correctAnswer": "Alkali metals",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-040",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.6",
+    "type": "multipleChoice",
+    "questionText": "Which of the following elements is a halogen?",
+    "choices": [
+      "W) Sodium (Na)",
+      "X) Calcium (Ca)",
+      "Y) Chlorine (Cl)",
+      "Z) Argon (Ar)"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-041",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.6",
+    "type": "shortAnswer",
+    "questionText": "How many naturally occurring elements exist?",
+    "choices": null,
+    "correctAnswer": "92",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-042",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.6",
+    "type": "multipleChoice",
+    "questionText": "In the periodic table, as you move LEFT to RIGHT across a period, the atomic number:",
+    "choices": [
+      "W) Decreases by one each step",
+      "X) Stays the same",
+      "Y) Increases by one each step",
+      "Z) Doubles each step"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-043",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.7",
+    "type": "multipleChoice",
+    "questionText": "A compound differs from a mixture in that a compound:",
+    "choices": [
+      "W) Contains only one type of atom",
+      "X) Has components that can be separated by physical means",
+      "Y) Has elements chemically bonded in fixed ratios",
+      "Z) Is always a liquid at room temperature"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-044",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.7",
+    "type": "shortAnswer",
+    "questionText": "Water is a compound with the chemical formula H\u2082O. What does this formula tell you about the ratio of hydrogen to oxygen atoms in water?",
+    "choices": null,
+    "correctAnswer": "2 hydrogen atoms for every 1 oxygen atom",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-045",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.7",
+    "type": "shortAnswer",
+    "questionText": "What type of chemical bond forms when one atom transfers electrons to another atom, creating oppositely charged ions that attract each other?",
+    "choices": null,
+    "correctAnswer": "Ionic bond",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-046",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.7",
+    "type": "multipleChoice",
+    "questionText": "Which of the following is an example of a compound (not a mixture or pure element)?",
+    "choices": [
+      "W) Gold (Au)",
+      "X) Air",
+      "Y) Table salt (NaCl)",
+      "Z) Brass"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-047",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.7",
+    "type": "multipleChoice",
+    "questionText": "A covalent bond forms when two atoms:",
+    "choices": [
+      "W) Transfer electrons from one to the other completely",
+      "X) Share electrons between them",
+      "Y) Repel each other due to like charges",
+      "Z) Exchange protons in their nuclei"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-048",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.7",
+    "type": "shortAnswer",
+    "questionText": "What is the law of definite proportions, and how does it apply to compounds?",
+    "choices": null,
+    "correctAnswer": "A compound always contains the same elements in the same proportion by mass",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-049",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.7",
+    "type": "shortAnswer",
+    "questionText": "What is the smallest unit of a compound that still has the chemical properties of that compound?",
+    "choices": null,
+    "correctAnswer": "Molecule",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-050",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.7",
+    "type": "multipleChoice",
+    "questionText": "Table salt forms when sodium and chlorine combine. This is an example of:",
+    "choices": [
+      "W) A physical change forming a mixture",
+      "X) A chemical change forming a compound",
+      "Y) Sublimation",
+      "Z) A nuclear reaction"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-051",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.8",
+    "type": "multipleChoice",
+    "questionText": "In the name \"dinitrogen monoxide,\" the prefix \"mono-\" indicates:",
+    "choices": [
+      "W) Two atoms of nitrogen",
+      "X) One atom of oxygen",
+      "Y) Two molecules total",
+      "Z) The compound is a metal"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-052",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.8",
+    "type": "shortAnswer",
+    "questionText": "Using the system for naming binary covalent compounds, what is the name of CO\u2082?",
+    "choices": null,
+    "correctAnswer": "Carbon dioxide",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-053",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.8",
+    "type": "shortAnswer",
+    "questionText": "What is the name of the compound with the formula N\u2082O\u2084?",
+    "choices": null,
+    "correctAnswer": "Dinitrogen tetroxide",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-054",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.8",
+    "type": "multipleChoice",
+    "questionText": "When naming an ionic compound, which ion's name is written first?",
+    "choices": [
+      "W) The negative ion",
+      "X) The ion with higher atomic mass",
+      "Y) The positive ion (cation)",
+      "Z) Whichever is a metal"
+    ],
+    "correctAnswer": "Y",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-055",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.8",
+    "type": "multipleChoice",
+    "questionText": "What is the correct name for the compound NaCl?",
+    "choices": [
+      "W) Sodium chlorine",
+      "X) Sodium chloride",
+      "Y) Monosodium chloride",
+      "Z) Natrium chloride"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-056",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.8",
+    "type": "shortAnswer",
+    "questionText": "What prefix is used in compound naming to indicate FOUR atoms of an element?",
+    "choices": null,
+    "correctAnswer": "Tetra-",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-057",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.8",
+    "type": "shortAnswer",
+    "questionText": "What is the chemical formula for water, and using the naming system for covalent compounds, what would its systematic name be?",
+    "choices": null,
+    "correctAnswer": "H\u2082O; dihydrogen monoxide",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-058",
+    "subject": "chemistry",
+    "round": "Bonus \u00a717.8",
+    "type": "multipleChoice",
+    "questionText": "Which compound name is correctly written?",
+    "choices": [
+      "W) Iron two oxide",
+      "X) Iron(II) oxide",
+      "Y) Diiron oxide",
+      "Z) Iron monoxide"
+    ],
+    "correctAnswer": "X",
+    "sourcePDF": "Hewitt-Ch17"
+  },
+  {
+    "id": "h17-059",
+    "subject": "chemistry",
+    "round": "Toss-Up \u00a717.8",
+    "type": "shortAnswer",
+    "questionText": "What suffix is added to the name of the nonmetal element when naming a binary ionic compound?",
+    "choices": null,
+    "correctAnswer": "-ide",
+    "sourcePDF": "Hewitt-Ch17"
+  }
+]

@@ -1,0 +1,74 @@
+"use client";
+
+import Link from "next/link";
+import { tossUpBundled, tossUpHewittPairs, tossUpTopics } from "@/lib/tossup";
+import { regionalSprint } from "@/lib/catalogs";
+import { practiceBank } from "@/lib/questions";
+import { topicAccuracy } from "@/lib/stats";
+import { useStore } from "@/lib/store";
+
+const MODES = [
+  { href: "/practice/play?mode=quick", title: "Quick Practice", detail: "10 mixed questions · about 10 minutes" },
+  { href: "/practice/play?mode=tossup", title: "Toss-Up", detail: "Official-style toss-ups · 5s MC / 20s SA" },
+  { href: "/practice/play?mode=bonus", title: "Bonus", detail: `${tossUpHewittPairs.length} Hewitt pairs · bonus only after a correct toss-up` },
+  { href: "/practice/play?mode=weak", title: "Weak Areas", detail: "Topics under 70% after at least 2 tries" },
+  { href: "/practice/play?mode=mock", title: "Mock Match", detail: "8 toss-up/bonus pairs, then toss-ups to 25 · miss a toss-up and the bonus is skipped" },
+  { href: "/practice/play?mode=sprint", title: "Regional Sprint", detail: `${regionalSprint.length} know-cold packs · short answer` },
+];
+
+const SUBJECTS = [
+  { id: "biology", label: "Biology" },
+  { id: "chemistry", label: "Chemistry" },
+  { id: "physics", label: "Physics" },
+  { id: "earth", label: "Earth & Space" },
+  { id: "math", label: "Math" },
+];
+
+export default function PracticePage() {
+  const store = useStore();
+  const bank = practiceBank(store.importedDoe);
+  const weak = topicAccuracy(store.drillResults).filter((row) => row.acc < 0.7);
+  const topics = tossUpTopics.filter((t) => !t.id.endsWith("-all"));
+
+  return (
+    <div className="stack">
+      <div>
+        <h1>Practice</h1>
+        <p className="muted">{bank.length} questions ready · {tossUpBundled.length} from TossUp · buzz with Space · W X Y Z to answer</p>
+      </div>
+      <div className="grid two">
+        {MODES.map((mode) => (
+          <Link className="card stack" key={mode.href} href={mode.href}>
+            <h3>{mode.title}</h3>
+            <p className="muted">{mode.detail}</p>
+            <span className="btn">Start</span>
+          </Link>
+        ))}
+      </div>
+      <h2>Subject</h2>
+      <div className="grid two">
+        {SUBJECTS.map((subject) => (
+          <Link className="card stack" key={subject.id} href={`/practice/play?mode=subject&subject=${subject.id}`}>
+            <h3>{subject.label}</h3>
+            <p className="muted">15 questions · toss-ups first</p>
+          </Link>
+        ))}
+      </div>
+      <h2>Topic</h2>
+      <div className="row">
+        {topics.map((topic) => (
+          <Link className="pill" key={topic.id} href={`/practice/play?mode=topic&topic=${topic.id}`}>{topic.name}</Link>
+        ))}
+      </div>
+      {weak[0] ? (
+        <div className="card stack">
+          <h3>Recommended</h3>
+          <p>{weak[0].topic} · {Math.round(weak[0].acc * 100)}% accuracy</p>
+          <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak[0].topic)}`}>Practice this topic today</Link>
+        </div>
+      ) : (
+        <p className="muted">Answer a few drills and this page will recommend a weak topic.</p>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,70 @@
+import { NextResponse } from "next/server";
+import { localCoach, type CoachAction } from "@/lib/coach";
+import type { PlayQuestion } from "@/lib/types";
+
+const ACTIONS: CoachAction[] = ["explain", "why-wrong", "hint", "eighth-grade", "teach"];
+
+export async function POST(req: Request) {
+  const body = await req.json().catch(() => ({}));
+  const action = ACTIONS.includes(body.action) ? (body.action as CoachAction) : "explain";
+  const question = body.question as PlayQuestion | undefined;
+  if (!question?.questionText || !question.answer) {
+    return NextResponse.json({ error: "Missing question" }, { status: 400 });
+  }
+  const fallback = localCoach({
+    action,
+    question,
+    userAnswer: body.userAnswer,
+    correct: body.correct,
+  });
+
+  const key = process.env.GROQ_API_KEY || process.env.OPENAI_API_KEY;
+  const url = process.env.GROQ_API_KEY
+    ? "https://api.groq.com/openai/v1/chat/completions"
+    : "https://api.openai.com/v1/chat/completions";
+  const model = process.env.GROQ_API_KEY ? "llama-3.1-8b-instant" : "gpt-4o-mini";
+
+  if (!key) {
+    return NextResponse.json({ text: fallback, source: "local" });
+  }
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model,
+        temperature: 0.3,
+        max_tokens: 220,
+        messages: [
+          {
+            role: "system",
+            content: "You are a concise middle-school Science Bowl coach. Explain in 4-8 short sentences. Use 8th-grade language. Do not invent facts. If unsure, say what to review.",
+          },
+          {
+            role: "user",
+            content: [
+              `Action: ${action}`,
+              `Question: ${question.questionText}`,
+              `Type: ${question.kind ?? "tossup"} ${question.format}`,
+              `Topic: ${question.topic}`,
+              `Correct answer: ${question.answer}`,
+              question.choices.length ? `Choices: ${question.choices.map((c) => `${c.key}) ${c.text}`).join(" / ")}` : "",
+              body.userAnswer ? `Student answered: ${body.userAnswer}` : "Student did not answer",
+              `Correct?: ${body.correct === true ? "yes" : body.correct === false ? "no" : "unknown"}`,
+              `Local notes: ${fallback}`,
+            ].filter(Boolean).join("\n"),
+          },
+        ],
+      }),
+    });
+    const data = await res.json();
+    const text = data?.choices?.[0]?.message?.content?.trim();
+    return NextResponse.json({ text: text || fallback, source: text ? "ai" : "local" });
+  } catch {
+    return NextResponse.json({ text: fallback, source: "local" });
+  }
+}

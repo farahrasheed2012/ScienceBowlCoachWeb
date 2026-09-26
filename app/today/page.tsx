@@ -4,7 +4,9 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { BUZZER_SLOTS } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
+import { buildTodayPlan, featuredBlock } from "@/lib/plan";
 import { blockTime, subjectLabel, todayBlocks, weekTheme, weekdayFromDate } from "@/lib/schedule";
+import { studyMinutes } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 import type { StudyBlock } from "@/lib/types";
 
@@ -86,19 +88,57 @@ export default function TodayPage() {
           </>
         ) : null}
         <div className="row">
-          {stage < 3 ? <button className="btn" type="button" onClick={() => setStage((s) => s + 1)}>Next stage</button> : null}
+          {stage < 3 ? <button className="btn" type="button" onClick={() => setStage((s) => s + 1)}>Next stage</button> : (
+            <button className="btn" type="button" onClick={() => { store.completeSession(session.id); setSession(null); setStage(0); }}>Finish session</button>
+          )}
         </div>
       </div>
     );
   }
 
+  const focus = featuredBlock(store.currentWeek);
+  const extraDone = store.planExtraDate === new Date().toDateString() ? store.planExtraDone : [];
+  const plan = buildTodayPlan({
+    week: store.currentWeek,
+    drillResults: store.drillResults,
+    dueCount: due.length,
+    completedSessionIds: store.completedSessionIds,
+    extraDone,
+  });
+  const finished = plan.filter((item) => item.done).length;
+
   return (
     <div>
-      <h1>Today</h1>
+      <h1>Home</h1>
       <p className="muted">Week {store.currentWeek} · {weekTheme(store.currentWeek)}</p>
-      <p className="muted">Hi, {store.studentName}. One hour science. DOE Life / Physical Science topics only — not whole textbooks.</p>
-      {store.studyStreak > 0 ? <p>Study streak: {store.studyStreak} day{store.studyStreak === 1 ? "" : "s"}</p> : null}
-      {blocks.length === 0 ? <p className="muted">No science block on the weekend. Use Learn or Quiz.</p> : null}
+      <p className="muted">Hi, {store.studentName}. What should you do today?</p>
+      {store.studyStreak > 0 ? <p>Study streak: {store.studyStreak} day{store.studyStreak === 1 ? "" : "s"} · {store.xp} XP</p> : null}
+      {store.practiceRounds?.[0] ? (
+        <p className="muted">
+          Last session: {store.practiceRounds[0].title} · {store.practiceRounds[0].correct}/{store.practiceRounds[0].asked}
+          {" · "}
+          {studyMinutes(store.practiceRounds)} min studied
+        </p>
+      ) : null}
+      <h2>Today&apos;s plan · {finished} / {plan.length} done</h2>
+      <div className="grid two">
+        {plan.map((item) => (
+          <div className="card stack" key={item.id} id={item.id === "science" && focus ? `session-${focus.id}` : undefined}>
+            <div className="row">
+              <input type="checkbox" checked={item.done} onChange={() => store.togglePlanItem(item.id)} />
+              <p className="muted">{item.minutes} min</p>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.detail}</p>
+            {item.id === "science" && focus ? (
+              <button className="btn" type="button" onClick={() => { setSession(focus); setStage(0); }}>Start session</button>
+            ) : (
+              <Link className="btn" href={item.href}>{item.done ? "Open again" : "Start"}</Link>
+            )}
+          </div>
+        ))}
+      </div>
+      {blocks.length === 0 ? <p className="muted">Weekend: the science slot reviews this week&apos;s last assigned block instead of a new weekday hour.</p> : null}
       <div className="grid two">
         {blocks.map((block) => (
           <div className="card stack" key={block.id}>
@@ -124,7 +164,7 @@ export default function TodayPage() {
       {due.length > 0 ? (
         <>
           <h2>Flash cards due</h2>
-          <Link className="btn" href="/progress">Review {due.length} cards</Link>
+          <Link className="btn" href="/learn/flash">Review {due.length} cards</Link>
         </>
       ) : null}
     </div>
