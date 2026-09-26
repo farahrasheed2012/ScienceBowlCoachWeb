@@ -16,8 +16,9 @@ export default function MentalMathPage() {
   const [started, setStarted] = useState(false);
   const [correct, setCorrect] = useState(0);
   const [done, setDone] = useState(false);
+  const [count, setCount] = useState(10);
   const startedAt = useRef(Date.now());
-  const problems = useMemo(() => mentalProblems(op, level), [op, level, started]);
+  const problems = useMemo(() => mentalProblems(op, level, count), [op, level, count, started]);
   const current = problems[index];
 
   function finish(hits: number) {
@@ -34,7 +35,7 @@ export default function MentalMathPage() {
       <Link href="/learn">Back to Learn</Link>
       <div>
         <h1>Mental Math</h1>
-        <p className="muted">20 problems. Same engine as the Mac app: addition, subtraction, multiplication, division, squares, mixed.</p>
+        <p className="muted">Same engine as the Mac app: addition, subtraction, multiplication, division, squares, mixed.</p>
       </div>
       {done && !started ? (
         <div className="card stack">
@@ -54,6 +55,14 @@ export default function MentalMathPage() {
           </select>
           <label>Level {level}</label>
           <input type="range" min={1} max={6} value={level} onChange={(e) => setLevel(Number(e.target.value))} />
+          <label>How many</label>
+          <div className="row">
+            {[5, 10, 20].map((n) => (
+              <button key={n} className={`btn ${count === n ? "" : "ghost"}`} type="button" onClick={() => setCount(n)}>
+                {n}
+              </button>
+            ))}
+          </div>
           <button
             className="btn"
             type="button"

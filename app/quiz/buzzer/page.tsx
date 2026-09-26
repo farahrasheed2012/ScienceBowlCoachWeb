@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function BuzzerHostPage() {
@@ -23,6 +24,7 @@ export default function BuzzerHostPage() {
 
   return (
     <div className="stack">
+      <Link href="/settings">Back to Settings</Link>
       <h1>iPhone buzzer remote</h1>
       <p className="muted">Same idea as the Mac app: phone buzzes during a computer drill. Open the phone page on the same site. Works locally in `next dev`; on Vercel it works while both hit the same server instance.</p>
       <div className="card stack">

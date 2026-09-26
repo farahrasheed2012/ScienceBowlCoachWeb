@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { listVoices, RATE, speak } from "@/lib/speech";
 import { useStore } from "@/lib/store";
@@ -86,8 +87,12 @@ export default function SettingsPage() {
           onChange={async (e) => {
             const file = e.target.files?.[0];
             if (!file) return;
-            const data = JSON.parse(await file.text());
-            store.importBackup(data);
+            try {
+              const data = JSON.parse(await file.text());
+              store.importBackup(data);
+            } catch {
+              window.alert("That file is not a Science Bowl Coach backup.");
+            }
           }}
         />
         <button className="btn ghost" type="button" onClick={() => store.clearProgress()}>Clear all progress</button>
@@ -108,6 +113,11 @@ export default function SettingsPage() {
           }}
         />
         {doeNote ? <p className="ok-text">{doeNote}</p> : null}
+      </section>
+      <section className="card stack">
+        <h3>Phone buzzer</h3>
+        <p className="muted">Open a room on this computer, then buzz from a phone on the same site. Same idea as the Mac remote, not a game.</p>
+        <Link className="btn" href="/quiz/buzzer">Open buzzer room</Link>
       </section>
       <section className="card stack">
         <h3>About</h3>

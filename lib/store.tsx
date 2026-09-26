@@ -37,6 +37,7 @@ type State = {
   reviewedTopicIds: string[];
   encyclopediaWrong: Record<string, number>;
   encyclopediaStreak: number;
+  lastEncyclopediaDate: string | null;
   importedDoe: DoeQuestion[];
   xp: number;
   studyStreak: number;
@@ -68,6 +69,7 @@ const defaultState = (): State => ({
   reviewedTopicIds: [],
   encyclopediaWrong: {},
   encyclopediaStreak: 0,
+  lastEncyclopediaDate: null,
   importedDoe: [],
   xp: 0,
   studyStreak: 0,
@@ -187,12 +189,23 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       });
     },
     markReviewed: (topicId) => {
-      setState((prev) => ({
-        ...prev,
-        reviewedTopicIds: prev.reviewedTopicIds.includes(topicId)
-          ? prev.reviewedTopicIds
-          : [...prev.reviewedTopicIds, topicId],
-      }));
+      setState((prev) => {
+        const already = prev.reviewedTopicIds.includes(topicId);
+        const today = new Date().toDateString();
+        const last = prev.lastEncyclopediaDate ? new Date(prev.lastEncyclopediaDate).toDateString() : null;
+        let encyclopediaStreak = prev.encyclopediaStreak;
+        if (!already && last !== today) {
+          const yesterday = new Date();
+          yesterday.setDate(yesterday.getDate() - 1);
+          encyclopediaStreak = last === yesterday.toDateString() ? prev.encyclopediaStreak + 1 : 1;
+        }
+        return {
+          ...prev,
+          reviewedTopicIds: already ? prev.reviewedTopicIds : [...prev.reviewedTopicIds, topicId],
+          encyclopediaStreak,
+          lastEncyclopediaDate: already ? prev.lastEncyclopediaDate : new Date().toISOString(),
+        };
+      });
     },
     toggleChecklist: (id) => {
       setState((prev) => ({
@@ -284,7 +297,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       };
       setState({ ...defaultState(), ...keep });
     },
-    importBackup: (data) => setState((prev) => ({ ...prev, ...data })),
+    importBackup: (data) => {
+      const allowed = defaultState();
+      const patch = Object.fromEntries(
+        Object.keys(allowed)
+          .filter((key) => data[key as keyof State] !== undefined)
+          .map((key) => [key, data[key as keyof State]]),
+      ) as Partial<State>;
+      setState((prev) => ({ ...prev, ...patch }));
+    },
     exportState: () => {
       const snapshot = { ...defaultState(), ...state };
       return Object.fromEntries(

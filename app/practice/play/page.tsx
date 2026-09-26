@@ -45,14 +45,16 @@ function PlayInner() {
     }
     if (mode === "subject") {
       const name = subject || "biology";
+      const list = shuffle(bank.filter((q) => matchesSubject(q, name) && q.kind !== "bonus")).slice(0, 15);
       return {
         title: name === "earth" ? "Earth & Space" : name[0].toUpperCase() + name.slice(1),
-        questions: shuffle(bank.filter((q) => matchesSubject(q, name) && q.kind !== "bonus")).slice(0, 15),
+        questions: list.length ? list : shuffle(allEncyclopediaPlay().filter((q) => matchesSubject(q, name))).slice(0, 15),
       };
     }
     if (mode === "topic") {
       const list = shuffle(bank.filter((q) => q.topicId === topic || q.topic === topic)).slice(0, 15);
-      return { title: list[0]?.topic || topic, questions: list };
+      const fallback = list.length ? list : shuffle(allEncyclopediaPlay().filter((q) => q.topicId === topic || q.topic === topic)).slice(0, 15);
+      return { title: fallback[0]?.topic || topic, questions: fallback };
     }
     if (mode === "weak") {
       const weakTopic = topic || topicAccuracy(store.drillResults).find((row) => row.acc < 0.7)?.topic || "";
