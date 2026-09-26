@@ -106,10 +106,14 @@ export default function SettingsPage() {
           onChange={async (e) => {
             const file = e.target.files?.[0];
             if (!file) return;
-            const data = JSON.parse(await file.text()) as DoeQuestion[] | { questions: DoeQuestion[] };
-            const imported = Array.isArray(data) ? data : data.questions ?? [];
-            store.set({ importedDoe: imported });
-            setDoeNote(`${file.name}: ${imported.length} questions ready.`);
+            try {
+              const data = JSON.parse(await file.text()) as DoeQuestion[] | { questions: DoeQuestion[] };
+              const imported = Array.isArray(data) ? data : data.questions ?? [];
+              store.set({ importedDoe: imported });
+              setDoeNote(`${file.name}: ${imported.length} questions ready.`);
+            } catch {
+              setDoeNote("That file is not a DOE or TossUp question cache.");
+            }
           }}
         />
         {doeNote ? <p className="ok-text">{doeNote}</p> : null}

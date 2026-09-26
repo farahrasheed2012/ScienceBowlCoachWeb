@@ -2,11 +2,19 @@
 
 import Link from "next/link";
 import { encyclopediaQuestions, NSB_SUBJECTS, regionalSprint, topics } from "@/lib/catalogs";
+import { topicAccuracy } from "@/lib/stats";
+import { practiceSubjectFor } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
 
 export default function LearnPage() {
   const store = useStore();
   const due = store.flashCards.filter((card) => new Date(card.due) <= new Date()).length;
+  const weak = topicAccuracy(store.drillResults).find((row) => row.acc < 0.7);
+  const weakNeedle = weak?.topic.toLowerCase() ?? "";
+  const weakArticle = weak
+    ? topics.find((topic) => topic.title.toLowerCase() === weakNeedle)
+      ?? topics.find((topic) => weakNeedle.includes(topic.title.toLowerCase()) && topic.title.length > 4)
+    : undefined;
   return (
     <div>
       <h1>Learn</h1>
@@ -21,6 +29,18 @@ export default function LearnPage() {
         <Link className="btn ghost" href="/calendar">Calendar</Link>
         <Link className="btn ghost" href="/mental-math">Mental Math</Link>
       </div>
+      {weak ? (
+        <div className="card stack">
+          <h3>Needs review</h3>
+          <p>{weak.topic} · {Math.round(weak.acc * 100)}% after {weak.attempts} tries</p>
+          <div className="row">
+            <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}`}>Practice this</Link>
+            {weakArticle ? <Link className="btn ghost" href={`/learn/${weakArticle.id}`}>Read the article</Link> : (
+              <Link className="btn ghost" href={`/practice/play?mode=subject&subject=${practiceSubjectFor(weak.subject)}`}>Open subject</Link>
+            )}
+          </div>
+        </div>
+      ) : null}
       <div className="grid two">
         {NSB_SUBJECTS.map((subject) => {
           const list = topics.filter((t) => t.subject === subject);

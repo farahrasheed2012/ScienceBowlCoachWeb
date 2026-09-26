@@ -216,6 +216,9 @@ export function QuestionPlay({
             {clockOn ? `${seconds}s · ${limit}s official` : "Listening… clock starts after the read-aloud"}
           </p>
         ) : null}
+        {!timed && phase !== "revealed" ? (
+          <p className="muted">Study mode · no official clock. Type or tap an answer when you are ready.</p>
+        ) : null}
         {store.parentReadsAloud && phase !== "revealed" ? (
           <p className="muted">Parent is reading. Answers stay hidden until Reveal.</p>
         ) : null}

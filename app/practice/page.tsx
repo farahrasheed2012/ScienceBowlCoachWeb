@@ -34,7 +34,10 @@ export default function PracticePage() {
     <div className="stack">
       <div>
         <h1>Practice</h1>
-        <p className="muted">{bank.length} questions ready · {tossUpBundled.length} from TossUp · buzz with Space · W X Y Z to answer</p>
+        <p className="muted">{bank.length} questions ready · {tossUpBundled.length} from TossUp</p>
+      </div>
+      <div className="card">
+        <p className="muted">Space buzzes · W X Y Z or 1–4 answers · N or Enter goes to the next question after reveal · End round saves the session.</p>
       </div>
       <div className="grid two">
         {MODES.map((mode) => (

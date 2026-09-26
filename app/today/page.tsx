@@ -41,7 +41,7 @@ export default function TodayPage() {
         <h1>Study session · {subjectLabel(session.subject)}</h1>
         <p className="muted">{stages[stage]} · {session.chapterTitle}</p>
         {store.showSessionTimer ? <p className="timer">1 hour science block · stay on this page</p> : null}
-        {stage === 0 ? <QuestionPlay questions={recallQs} title="Recall from this topic" /> : null}
+        {stage === 0 ? <QuestionPlay questions={recallQs} title="Recall from this topic" timed={false} /> : null}
         {stage === 1 ? (
           <div className="card stack">
             <p><strong>{session.bookCode}</strong> {session.chapter} — {session.chapterTitle}</p>
@@ -89,7 +89,17 @@ export default function TodayPage() {
         ) : null}
         <div className="row">
           {stage < 3 ? <button className="btn" type="button" onClick={() => setStage((s) => s + 1)}>Next stage</button> : (
-            <button className="btn" type="button" onClick={() => { store.completeSession(session.id); setSession(null); setStage(0); }}>Finish session</button>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => {
+                store.completeSession(session.id);
+                setSession(null);
+                setStage(0);
+              }}
+            >
+              Finish session
+            </button>
           )}
         </div>
       </div>
@@ -156,8 +166,12 @@ export default function TodayPage() {
       <h2>Buzzer slots</h2>
       <div className="stack">
         {BUZZER_SLOTS.filter((s) => !day || s.weekday === day).map((slot) => (
-          <div className="card" key={slot.label}>
-            <strong>{slot.label}</strong> · {slot.duration} · {slot.subject}
+          <div className="card stack" key={slot.label}>
+            <p><strong>{slot.label}</strong> · {slot.duration} · {slot.subject}</p>
+            <div className="row">
+              <Link className="btn" href={`/practice/play?mode=subject&subject=${slot.subject}`}>Practice {slot.subject}</Link>
+              <Link className="btn ghost" href="/quiz/buzzer">Phone buzzer</Link>
+            </div>
           </div>
         ))}
       </div>
