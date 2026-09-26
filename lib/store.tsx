@@ -36,16 +36,11 @@ type State = {
   reviewedTopicIds: string[];
   encyclopediaWrong: Record<string, number>;
   encyclopediaStreak: number;
-  pot6CatchUpCompleted: string[];
-  pot6GeoCompleted: string[];
   importedDoe: DoeQuestion[];
   xp: number;
   studyStreak: number;
   lastStudyDate: string | null;
   elementMastered: string[];
-  mathCountsLevel: number;
-  mathCountsStreak: number;
-  mathCountsSessions: number;
 };
 
 const defaultState = (): State => ({
@@ -67,16 +62,11 @@ const defaultState = (): State => ({
   reviewedTopicIds: [],
   encyclopediaWrong: {},
   encyclopediaStreak: 0,
-  pot6CatchUpCompleted: [],
-  pot6GeoCompleted: [],
   importedDoe: [],
   xp: 0,
   studyStreak: 0,
   lastStudyDate: null,
   elementMastered: [],
-  mathCountsLevel: 1,
-  mathCountsStreak: 0,
-  mathCountsSessions: 0,
 });
 
 type Store = State & {

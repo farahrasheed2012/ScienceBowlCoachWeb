@@ -90,12 +90,6 @@ input[type="text"], input[type="number"], select, textarea {
 table { width: 100%; border-collapse: collapse; }
 th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
 iframe.schedule { width: 100%; min-height: 70vh; border: 0; border-radius: 16px; background: white; }
-.wordle { display: grid; gap: 6px; justify-content: center; }
-.wordle-row { display: grid; grid-template-columns: repeat(5, 44px); gap: 6px; }
-.tile { width: 44px; height: 44px; border-radius: 8px; display: grid; place-items: center; font-weight: 700; background: var(--surface-2); }
-.tile.hit { background: var(--ok); }
-.tile.near { background: #c9a227; }
-.tile.miss { background: #3a3a48; }
 .ptable { display: grid; grid-template-columns: repeat(18, minmax(0, 1fr)); gap: 4px; }
 .el {
   background: var(--surface-2); border-radius: 8px; padding: 6px 4px; text-align: center; font-size: 11px; min-height: 54px;

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { BUZZER_SLOTS } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
-import { blockTime, mathBlockTime, subjectLabel, todayBlocks, weekTheme, weekdayFromDate } from "@/lib/schedule";
+import { blockTime, subjectLabel, todayBlocks, weekTheme, weekdayFromDate } from "@/lib/schedule";
 import { useStore } from "@/lib/store";
 import type { StudyBlock } from "@/lib/types";
 
@@ -96,9 +96,9 @@ export default function TodayPage() {
     <div>
       <h1>Today</h1>
       <p className="muted">Week {store.currentWeek} · {weekTheme(store.currentWeek)}</p>
-      <p className="muted">Hi, {store.studentName}. One hour science + one hour algebra. DOE Life / Physical Science topics only — not whole textbooks.</p>
+      <p className="muted">Hi, {store.studentName}. One hour science. DOE Life / Physical Science topics only — not whole textbooks.</p>
       {store.studyStreak > 0 ? <p>Study streak: {store.studyStreak} day{store.studyStreak === 1 ? "" : "s"}</p> : null}
-      {blocks.length === 0 ? <p className="muted">No science block on the weekend. Use Learn, Quiz, or POT 6.</p> : null}
+      {blocks.length === 0 ? <p className="muted">No science block on the weekend. Use Learn or Quiz.</p> : null}
       <div className="grid two">
         {blocks.map((block) => (
           <div className="card stack" key={block.id}>
@@ -112,14 +112,6 @@ export default function TodayPage() {
             <button className="btn" type="button" onClick={() => { setSession(block); setStage(0); }}>Start session</button>
           </div>
         ))}
-        {day ? (
-          <div className="card stack">
-            <h3>Algebra block</h3>
-            <p className="muted">{mathBlockTime(day)}</p>
-            <p>Walk POT 6 algebra / geometry for today. Open the POT 6 tabs.</p>
-            <Link className="btn" href="/pot6">Open POT 6</Link>
-          </div>
-        ) : null}
       </div>
       <h2>Buzzer slots</h2>
       <div className="stack">

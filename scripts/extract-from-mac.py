@@ -108,58 +108,10 @@ def parse_regional_sprint() -> list[dict]:
     return packs
 
 
-def parse_pot6_topics() -> list[dict]:
-    text = (MAC / "Data" / "POT6TopicRegistry.swift").read_text()
-    topics = []
-    for m in re.finditer(
-        r'MathTopic\(\s*id:\s*"([^"]+)",\s*code:\s*"([^"]+)",\s*title:\s*"([^"]+)",\s*pot6Category:\s*\.(\w+),\s*isCompetitionOnly:\s*(true|false),\s*conceptSummary:\s*"((?:\\.|[^"\\])*)"',
-        text,
-        re.S,
-    ):
-        chunk_start = m.start()
-        chunk = text[chunk_start : chunk_start + 8000]
-        formulas = re.search(r"keyFormulas:\s*\[(.*?)\]", chunk, re.S)
-        key_formulas = re.findall(r'"((?:\\.|[^"\\])*)"', formulas.group(1)) if formulas else []
-        topics.append(
-            {
-                "id": m.group(1),
-                "code": m.group(2),
-                "title": m.group(3),
-                "category": m.group(4),
-                "isCompetitionOnly": m.group(5) == "true",
-                "conceptSummary": m.group(6).replace("\\n", "\n"),
-                "keyFormulas": key_formulas,
-            }
-        )
-    return topics
-
-
-def parse_pot6_catchup() -> list[dict]:
-    text = (MAC / "Data" / "POT6CatchUpCatalog.swift").read_text()
-    items = []
-    for m in re.finditer(
-        r'Item\(potCode:\s*"([^"]+)",\s*title:\s*"([^"]+)",\s*catchUpDay:\s*(\d+),\s*bfnChapters:\s*\[([^\]]*)\],\s*practiceTopicIds:\s*\[([^\]]*)\],\s*isJanJune:\s*(true|false)\)',
-        text,
-    ):
-        items.append(
-            {
-                "potCode": m.group(1),
-                "title": m.group(2),
-                "catchUpDay": int(m.group(3)),
-                "bfnChapters": [int(x) for x in re.findall(r"\d+", m.group(4))],
-                "practiceTopicIds": re.findall(r'"([^"]+)"', m.group(5)),
-                "isJanJune": m.group(6) == "true",
-            }
-        )
-    return items
-
-
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     write("study-blocks.json", parse_study_blocks())
     write("regional-sprint.json", parse_regional_sprint())
-    write("pot6-topics.json", parse_pot6_topics())
-    write("pot6-catchup.json", parse_pot6_catchup())
 
 
 if __name__ == "__main__":

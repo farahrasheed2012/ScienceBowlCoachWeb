@@ -5,8 +5,6 @@ import readingsJson from "@/data/topic_readings.json";
 import doeStarterJson from "@/data/doe_starter_cache.json";
 import blocksJson from "@/data/study-blocks.json";
 import sprintJson from "@/data/regional-sprint.json";
-import pot6TopicsJson from "@/data/pot6-topics.json";
-import pot6CatchupJson from "@/data/pot6-catchup.json";
 import type {
   DoeQuestion,
   EncyclopediaQuestion,
@@ -33,23 +31,6 @@ export const regionalSprint = sprintJson as {
   topicId: string;
   knowCold: string[];
   tossups: { question: string; answer: string }[];
-}[];
-export const pot6Topics = pot6TopicsJson as {
-  id: string;
-  code: string;
-  title: string;
-  category: string;
-  isCompetitionOnly: boolean;
-  conceptSummary: string;
-  keyFormulas: string[];
-}[];
-export const pot6Catchup = pot6CatchupJson as {
-  potCode: string;
-  title: string;
-  catchUpDay: number;
-  bfnChapters: number[];
-  practiceTopicIds: string[];
-  isJanJune: boolean;
 }[];
 
 export const NSB_SUBJECTS = [
@@ -131,22 +112,3 @@ export const FORMULAS = {
     { text: "Cellular respiration", use: "Mitochondria · glucose + O₂ → CO₂ + H₂O + ATP" },
   ],
 };
-
-export const POT6_GEO_SUBGROUPS = [
-  { id: "fundamentals", title: "Angles & Lines", codes: ["T310", "T311", "T312", "T313", "T314", "T315", "T316", "T317"] },
-  { id: "triangles", title: "Triangles & Polygons", codes: ["T318", "T319", "T320", "T321", "T331", "T332", "T333", "T334", "T335"] },
-  { id: "proofs", title: "Proofs & Congruence", codes: ["T322", "T323", "T324", "T325", "T326", "T347", "6HW37"] },
-  { id: "areaVolume", title: "Area & 3D Figures", codes: ["T336", "T337", "T338", "T344", "T345"] },
-  { id: "circles", title: "Circles & Coordinate", codes: ["T339", "T340", "T341", "T292"] },
-];
-
-export const POT6_GEO_DAYS = [
-  { day: 1, title: "Introduction — angles & parallel lines", potCodes: ["T310", "T311", "T312", "T313", "T314", "T315", "T316", "T317"] },
-  { day: 2, title: "Classify triangles & quadrilaterals", potCodes: ["T318", "T319", "T320", "T321"] },
-  { day: 3, title: "Proofs & congruence", potCodes: ["T322", "T323", "T324"] },
-  { day: 4, title: "Similarity & triangle centers", potCodes: ["T325", "T326", "T331"] },
-  { day: 5, title: "Special triangles", potCodes: ["T332", "T333", "T334", "T335"] },
-  { day: 6, title: "Area, surface area & solids", potCodes: ["T336", "T337", "T338", "T344", "T345"] },
-  { day: 7, title: "Circles & equations of circles", potCodes: ["T339", "T340", "T341", "T292"] },
-  { day: 8, title: "Advanced triangles", potCodes: ["T347", "6HW37"] },
-];
