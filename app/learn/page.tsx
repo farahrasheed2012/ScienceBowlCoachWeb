@@ -4,7 +4,7 @@ import Link from "next/link";
 import { encyclopediaQuestions, NSB_SUBJECTS, regionalSprint, topics } from "@/lib/catalogs";
 import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
-import { practiceSubjectFor } from "@/lib/topic-map";
+import { articleForLabel, practiceSubjectFor } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
 
 export default function LearnPage() {
@@ -13,11 +13,7 @@ export default function LearnPage() {
   const today = schoolYearFocus();
   const due = store.flashCards.filter((card) => new Date(card.due) <= new Date()).length;
   const weak = topicAccuracy(store.drillResults).find((row) => row.acc < 0.7);
-  const weakNeedle = weak?.topic.toLowerCase() ?? "";
-  const weakArticle = weak
-    ? topics.find((topic) => topic.title.toLowerCase() === weakNeedle)
-      ?? topics.find((topic) => weakNeedle.includes(topic.title.toLowerCase()) && topic.title.length > 4)
-    : undefined;
+  const weakArticle = weak ? articleForLabel(weak.topic) : undefined;
   return (
     <div>
       <h1>Learn</h1>

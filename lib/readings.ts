@@ -1,4 +1,4 @@
-import { topicReadings, topics } from "./catalogs";
+import { topicReadings } from "./catalogs";
 
 export type Reading = { bookCode: string; label: string; role: string };
 
@@ -37,8 +37,4 @@ export function readingRoleLabel(role: string) {
   return role;
 }
 
-export function topicForWeakTitle(title: string) {
-  const needle = title.toLowerCase();
-  return topics.find((topic) => topic.title.toLowerCase() === needle)
-    ?? topics.find((topic) => needle.includes(topic.title.toLowerCase()) && topic.title.length > 4);
-}
+export { articleForLabel as topicForWeakTitle } from "./topic-map";

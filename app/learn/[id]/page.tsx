@@ -7,7 +7,7 @@ import { encyclopediaQuestions, topics } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
 import { encyclopediaToPlay } from "@/lib/questions";
 import { readingRoleLabel, readingsFor } from "@/lib/readings";
-import { practiceSubjectFor, tossupTopicForEncyclopedia } from "@/lib/topic-map";
+import { missesForArticle, practiceSubjectFor, tossupTopicForEncyclopedia } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
 
 export default function LearnTopicPage() {
@@ -24,6 +24,7 @@ export default function LearnTopicPage() {
     ? `/practice/play?mode=topic&topic=${tossupId}`
     : `/practice/play?mode=subject&subject=${practiceSubjectFor(article.subject)}`;
   const reviewed = store.reviewedTopicIds.includes(article.id);
+  const missCount = missesForArticle(article.title, store.encyclopediaWrong, article.id);
   const existing = new Set(store.flashCards.map((card) => `${card.prompt}::${card.answer}`));
   const newTerms = article.keyTerms.filter((term) => !existing.has(`${term.term}::${term.definition}`));
 
@@ -45,8 +46,8 @@ export default function LearnTopicPage() {
       <Link href="/learn">Back to Learn</Link>
       <h1>{topic.title}</h1>
       <p className="muted">{topic.subject}</p>
-      {store.encyclopediaWrong[topic.title] ? (
-        <p className="muted">{store.encyclopediaWrong[topic.title]} misses on this title — drill it before marking reviewed.</p>
+      {missCount ? (
+        <p className="muted">{missCount} misses on this title — drill it before marking reviewed.</p>
       ) : null}
       <div className="row">
         <button className="btn ghost" type="button" onClick={() => store.markReviewed(article.id)}>

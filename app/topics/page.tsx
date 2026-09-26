@@ -6,7 +6,7 @@ import { NSB_SUBJECTS, topics } from "@/lib/catalogs";
 import { lookupLine } from "@/lib/readings";
 import { isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
-import { practiceSubjectFor, tossupTopicForEncyclopedia } from "@/lib/topic-map";
+import { accuracyForArticle, practiceSubjectFor, tossupTopicForEncyclopedia } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
 
 export default function TopicsPage() {
@@ -28,9 +28,7 @@ export default function TopicsPage() {
   }, [schoolYear, store.reviewedTopicIds]);
 
   function rowFor(title: string) {
-    const needleTitle = title.toLowerCase();
-    return stats.find((row) => row.topic.toLowerCase() === needleTitle)
-      ?? stats.find((row) => row.topic.toLowerCase().includes(needleTitle) && title.length > 4);
+    return accuracyForArticle(title, stats);
   }
 
   const subjects = filter ? NSB_SUBJECTS.filter((subject) => subject === filter) : NSB_SUBJECTS;

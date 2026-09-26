@@ -338,17 +338,12 @@ export function QuestionPlay({
               recentAccuracy={topicRow?.acc}
               weakTopic={Boolean(topicRow && topicRow.acc < 0.7)}
             />
-            {article ? (
-              <div className="card stack">
-                <h3>Why this matters</h3>
-                <p>{article.whatIsIt}</p>
-                {books.primary ? <p className="muted">{books.primary}</p> : null}
-                {books.book ? <p className="muted">{books.book}</p> : null}
-                <div className="row">
-                  <Link href={`/learn/${article.id}`}>Open {article.title}</Link>
-                  <Link href="/learn/review">Review with books</Link>
-                </div>
-              </div>
+            {article && (books.primary || books.book) ? (
+              <p className="muted">
+                {books.primary}{books.book ? ` · ${books.book}` : ""}
+                {" · "}
+                <Link href="/learn/review">Review with books</Link>
+              </p>
             ) : null}
             {index < list.length - 1 || (correct === false && list[index + 1]?.kind === "bonus") ? (
               <button className="btn" type="button" onClick={next}>Next</button>

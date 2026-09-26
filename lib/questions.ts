@@ -1,4 +1,5 @@
 import { doeStarter, encyclopediaQuestions, studyBlocks, topics } from "./catalogs";
+import { articleForLabel } from "./topic-map";
 import { tossUpBundled, tossUpHewitt, tossUpHewittPairs, parseChoices } from "./tossup";
 import type { DoeQuestion, EncyclopediaQuestion, EncyclopediaTopic, PlayQuestion } from "./types";
 
@@ -180,14 +181,7 @@ export function findTopicArticle(question: PlayQuestion): EncyclopediaTopic | un
     const exact = topics.find((t) => t.id === question.topicId);
     if (exact) return exact;
   }
-  const needle = (question.topic || question.category).toLowerCase().trim();
-  const exactTitle = topics.find((t) => t.title.toLowerCase() === needle);
-  if (exactTitle) return exactTitle;
-  const first = needle.split(" ")[0] || "";
-  if (first.length < 5 || ["chemistry", "biology", "physics", "math", "science", "earth"].includes(first)) {
-    return undefined;
-  }
-  return topics.find((t) => t.title.toLowerCase().includes(first));
+  return articleForLabel(question.topic) ?? articleForLabel(question.category);
 }
 
 export function bonusPool(importedDoe: DoeQuestion[] = []): PlayQuestion[] {

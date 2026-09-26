@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { isSchoolYear } from "@/lib/schedule";
+import { articleForLabel } from "@/lib/topic-map";
 import { accuracyWindow, improvedTopics, studyMinutes, subjectAccuracy, topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 
@@ -30,6 +31,7 @@ export default function ProgressPage() {
   const weekDelta = last7 != null && prior7 != null ? last7 - prior7 : null;
   const lifted = improvedTopics(results);
   const minutes = studyMinutes(rounds) || Math.round((store.studySeconds ?? 0) / 60);
+  const weakArticle = weak[0] ? articleForLabel(weak[0].topic) : undefined;
 
   return (
     <div className="stack">
@@ -66,6 +68,9 @@ export default function ProgressPage() {
           <p className="muted">Accuracy: {pct(weak[0].acc)} · {weak[0].attempts} tries</p>
           <div className="row">
             <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak[0].topic)}`}>Practice this topic today</Link>
+            {weakArticle ? (
+              <Link className="btn ghost" href={`/learn/${weakArticle.id}`}>Read the article</Link>
+            ) : null}
             <Link className="btn ghost" href="/learn/review">Review with books</Link>
           </div>
         </div>

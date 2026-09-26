@@ -225,6 +225,7 @@ export default function TodayPage() {
             ) : (
               <div className="row">
                 <Link className="btn" href={item.href}>{item.done ? "Open again" : "Start"}</Link>
+                {item.id === "weak" && weakArticle ? <Link className="btn ghost" href={`/learn/${weakArticle.id}`}>Read the article</Link> : null}
                 {item.id === "weak" ? <Link className="btn ghost" href="/learn/review">Review with books</Link> : null}
               </div>
             )}
