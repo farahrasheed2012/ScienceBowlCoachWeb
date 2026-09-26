@@ -139,6 +139,9 @@ export default function TodayPage() {
           {studyMinutes(store.practiceRounds)} min studied
         </p>
       ) : null}
+      <div className="row" style={{ marginBottom: 12 }}>
+        <Link className="btn ghost" href="/learn/review">Review with books</Link>
+      </div>
       <h2>Today&apos;s plan · {finished} / {plan.length} done</h2>
       <div className="grid two">
         {plan.map((item) => (

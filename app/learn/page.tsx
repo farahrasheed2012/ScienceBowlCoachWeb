@@ -48,6 +48,7 @@ export default function LearnPage() {
         <Link className="btn ghost" href="/topics">All topics</Link>
         <Link className="btn ghost" href="/elements">Elements</Link>
         <Link className="btn ghost" href="/learn/formulas">Formulas</Link>
+        <Link className="btn ghost" href="/learn/review">Review with books</Link>
         <Link className="btn ghost" href="/weeks">Weeks</Link>
         <Link className="btn ghost" href="/calendar">Calendar</Link>
         <Link className="btn ghost" href="/mental-math">Mental Math</Link>
@@ -58,6 +59,7 @@ export default function LearnPage() {
           <p>{weak.topic} · {Math.round(weak.acc * 100)}% after {weak.attempts} tries</p>
           <div className="row">
             <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}`}>Practice this</Link>
+            <Link className="btn ghost" href="/learn/review">Review with books</Link>
             {weakArticle ? <Link className="btn ghost" href={`/learn/${weakArticle.id}`}>Read the article</Link> : (
               <Link className="btn ghost" href={`/practice/play?mode=subject&subject=${practiceSubjectFor(weak.subject)}`}>Open subject</Link>
             )}

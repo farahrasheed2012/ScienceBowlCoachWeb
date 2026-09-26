@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
-import { encyclopediaQuestions, topicReadings, topics } from "@/lib/catalogs";
+import { encyclopediaQuestions, topics } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
 import { encyclopediaToPlay } from "@/lib/questions";
+import { readingRoleLabel, readingsFor } from "@/lib/readings";
 import { practiceSubjectFor, tossupTopicForEncyclopedia } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
 
@@ -17,7 +18,7 @@ export default function LearnTopicPage() {
   if (!topic) return <p>Topic not found.</p>;
   const article = topic;
   const questions = encyclopediaQuestions.filter((q) => q.topicId === article.id).map(encyclopediaToPlay);
-  const readings = topicReadings[article.id] ?? [];
+  const readings = readingsFor(article.id);
   const tossupId = tossupTopicForEncyclopedia(article.id);
   const practiceHref = tossupId
     ? `/practice/play?mode=topic&topic=${tossupId}`
@@ -59,6 +60,17 @@ export default function LearnTopicPage() {
         <Link className="btn ghost" href="/learn/flash">Review cards</Link>
       </div>
       {cardNote ? <p className="muted">{cardNote}</p> : null}
+      {readings.length > 0 ? (
+        <section className="card stack">
+          <h3>Assigned reading</h3>
+          <p className="muted">Open the section, then drill. Not the whole chapter unless that is the section.</p>
+          {readings.map((reading) => (
+            <p key={`${reading.role}-${reading.label}`}>
+              <span className="pill">{readingRoleLabel(reading.role)}</span> {reading.bookCode} — {reading.label}
+            </p>
+          ))}
+        </section>
+      ) : null}
       <section className="card stack">
         <h3>What is it</h3>
         <p>{topic.whatIsIt}</p>
@@ -79,12 +91,6 @@ export default function LearnTopicPage() {
         <h3>Did you know</h3>
         {topic.didYouKnow.map((fact) => <p key={fact}>{fact}</p>)}
       </section>
-      {readings.length > 0 ? (
-        <section className="card stack">
-          <h3>Assigned reading</h3>
-          {readings.map((r) => <p key={r.label}><span className="pill">{r.role}</span> {r.bookCode} — {r.label}</p>)}
-        </section>
-      ) : null}
       {topic.relatedTopics.length > 0 ? (
         <section className="card stack">
           <h3>Related</h3>
@@ -104,6 +110,7 @@ export default function LearnTopicPage() {
             Next article{topics.find((t) => t.id === topic.relatedTopics[0]) ? ` · ${topics.find((t) => t.id === topic.relatedTopics[0])?.title}` : ""}
           </Link>
         ) : null}
+        <Link href="/learn/review">Review with books</Link>
         <Link href="/progress">See what you are weak at</Link>
         <Link href="/learn/flash">Review flashcards</Link>
       </section>

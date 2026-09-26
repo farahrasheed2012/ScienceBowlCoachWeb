@@ -44,6 +44,7 @@ export default function TopicsPage() {
             ? "School year · pin Earth & Energy (summer skipped them) or today's subject."
             : "Official MS NSB topic areas — Life Science, Physical Science, and the rest of the six encyclopedia categories."}
         </p>
+        <Link className="btn ghost" href="/learn/review">Review with books</Link>
       </div>
       {schoolYear && !todaySubject ? (
         <div className="card stack">
