@@ -9,6 +9,7 @@ export default function WeeksPage() {
   const weeks = Array.from({ length: 12 }, (_, i) => i + 1);
   return (
     <div>
+      <Link href="/learn">Back to Learn</Link>
       <h1>Weeks</h1>
       <p className="muted">12-week summer plan · 50 science blocks · Jun 8 – Aug 28</p>
       {weeks.map((week) => (
