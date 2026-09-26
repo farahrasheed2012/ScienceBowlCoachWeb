@@ -18,7 +18,7 @@ export default function CalendarPage() {
   return (
     <div>
       <h1>Calendar</h1>
-      <p className="muted">Bundled HTML from the Mac app. Current week {store.currentWeek}.</p>
+      <p className="muted">Bundled summer HTML from the Mac app. School year lives on Home. Summer week {store.currentWeek} is archive.</p>
       <div className="row">
         <Link className="btn ghost" href="/learn">Learn</Link>
         <Link className="btn ghost" href="/weeks">Week blocks</Link>

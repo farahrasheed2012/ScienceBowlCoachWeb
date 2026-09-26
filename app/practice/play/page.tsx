@@ -22,6 +22,7 @@ function matchesSubject(question: PlayQuestion, subject: string) {
   if (subject === "chemistry") return category.includes("chem");
   if (subject === "physics") return category.includes("phys") || category.includes("energy");
   if (subject === "earth") return category.includes("earth") || category.includes("space") || category.includes("astro");
+  if (subject === "energy") return category.includes("energy") || category.includes("power") || category.includes("fuel");
   if (subject === "math") return category.includes("math");
   return category.includes(subject.toLowerCase());
 }

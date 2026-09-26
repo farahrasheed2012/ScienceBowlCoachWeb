@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { blocksForWeek, dayLabel, subjectLabel, weekTheme } from "@/lib/schedule";
+import { blocksForWeek, dayLabel, isSchoolYear, subjectLabel, weekTheme } from "@/lib/schedule";
 import { useStore } from "@/lib/store";
 
 export default function WeeksPage() {
@@ -11,10 +11,14 @@ export default function WeeksPage() {
     <div>
       <Link href="/learn">Back to Learn</Link>
       <h1>Weeks</h1>
-      <p className="muted">12-week summer plan · 50 science blocks · Jun 8 – Aug 28</p>
+      <p className="muted">
+        {isSchoolYear()
+          ? "Summer archive · Jun 8 – Aug 28. Home now uses a school-year keep-sharp plan."
+          : "12-week summer plan · 50 science blocks · Jun 8 – Aug 28"}
+      </p>
       {weeks.map((week) => (
         <section key={week}>
-          <h2>Week {week} · {weekTheme(week)} {week === store.currentWeek ? "· now" : ""}</h2>
+          <h2>Week {week} · {weekTheme(week)} {!isSchoolYear() && week === store.currentWeek ? "· now" : ""}</h2>
           <div className="grid two">
             {blocksForWeek(week).map((block) => (
               <div className="card" key={block.id}>

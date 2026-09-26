@@ -6,7 +6,7 @@ import { BUZZER_SLOTS } from "@/lib/catalogs";
 import { QuestionPlay } from "@/components/QuestionPlay";
 import { SpeechBar } from "@/components/SpeechBar";
 import { buildTodayPlan, featuredBlock } from "@/lib/plan";
-import { blockTime, subjectLabel, todayBlocks, weekTheme, weekdayFromDate } from "@/lib/schedule";
+import { blockTime, isSchoolYear, schoolYearFocus, seasonLabel, subjectLabel, todayBlocks, weekdayFromDate } from "@/lib/schedule";
 import { studyMinutes } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 import type { StudyBlock } from "@/lib/types";
@@ -14,7 +14,9 @@ import type { StudyBlock } from "@/lib/types";
 export default function TodayPage() {
   const store = useStore();
   const day = weekdayFromDate();
-  const blocks = todayBlocks(store.currentWeek);
+  const schoolYear = isSchoolYear();
+  const blocks = schoolYear ? [] : todayBlocks(store.currentWeek);
+  const todayFocus = schoolYearFocus();
   const [session, setSession] = useState<StudyBlock | null>(null);
   const [stage, setStage] = useState(0);
   const due = store.flashCards.filter((c) => new Date(c.due) <= new Date());
@@ -123,8 +125,12 @@ export default function TodayPage() {
   return (
     <div>
       <h1>Home</h1>
-      <p className="muted">Week {store.currentWeek} · {weekTheme(store.currentWeek)}</p>
-      <p className="muted">Hi, {store.studentName}. What should you do today?</p>
+      <p className="muted">{seasonLabel(store.currentWeek)}</p>
+      <p className="muted">
+        {schoolYear
+          ? `Hi, ${store.studentName}. Summer reading is done. Today is keep-sharp, not a new chapter hour.`
+          : `Hi, ${store.studentName}. What should you do today?`}
+      </p>
       {store.studyStreak > 0 ? <p>Study streak: {store.studyStreak} day{store.studyStreak === 1 ? "" : "s"} · {store.xp} XP</p> : null}
       {store.practiceRounds?.[0] ? (
         <p className="muted">
@@ -143,7 +149,7 @@ export default function TodayPage() {
             </div>
             <h3>{item.title}</h3>
             <p>{item.detail}</p>
-            {item.id === "science" && focus ? (
+            {item.id === "science" && focus && !schoolYear ? (
               <button className="btn" type="button" onClick={() => { setSession(focus); setStage(0); }}>Start session</button>
             ) : (
               <Link className="btn" href={item.href}>{item.done ? "Open again" : "Start"}</Link>
@@ -151,7 +157,11 @@ export default function TodayPage() {
           </div>
         ))}
       </div>
-      {blocks.length === 0 ? <p className="muted">Weekend: the science slot reviews this week&apos;s last assigned block instead of a new weekday hour.</p> : null}
+      {schoolYear ? (
+        <p className="muted">The 12-week summer blocks are finished. Reopen one from Weeks if you want a chapter hour. Thursday and Friday fill Earth &amp; Energy, which the summer pass skipped.</p>
+      ) : blocks.length === 0 ? (
+        <p className="muted">Weekend: the science slot reviews this week&apos;s last assigned block instead of a new weekday hour.</p>
+      ) : null}
       <div className="grid two">
         {blocks.map((block) => (
           <div className="card stack" key={block.id}>
@@ -168,7 +178,16 @@ export default function TodayPage() {
       </div>
       <h2>Buzzer slots</h2>
       <div className="stack">
-        {day ? BUZZER_SLOTS.filter((s) => s.weekday === day).map((slot) => (
+        {schoolYear ? (
+          <div className="card stack">
+            <p><strong>Today&apos;s subject · {todayFocus.label}</strong> · 15 min</p>
+            <p className="muted">School-year slot — not the summer free-period clock.</p>
+            <div className="row">
+              <Link className="btn" href={todayFocus.href}>Practice {todayFocus.label}</Link>
+              <Link className="btn ghost" href="/quiz/buzzer">Phone buzzer</Link>
+            </div>
+          </div>
+        ) : day ? BUZZER_SLOTS.filter((s) => s.weekday === day).map((slot) => (
           <div className="card stack" key={slot.label}>
             <p><strong>{slot.label}</strong> · {slot.duration} · {slot.subject}</p>
             <div className="row">

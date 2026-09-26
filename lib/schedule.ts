@@ -2,6 +2,7 @@ import { studyBlocks, WEEK_THEMES } from "./catalogs";
 import type { StudyBlock, Weekday } from "./types";
 
 export const STUDY_START = new Date(2026, 5, 8);
+export const SUMMER_END = new Date(2026, 7, 28);
 
 const WEEKDAYS: Weekday[] = ["monday", "tuesday", "wednesday", "thursday", "friday"];
 
@@ -15,6 +16,34 @@ export function weekNumber(date = new Date()): number {
 
 export function weekdayFromDate(date = new Date()): Weekday | null {
   return WEEKDAYS[date.getDay() - 1] ?? null;
+}
+
+export function isSchoolYear(date = new Date()): boolean {
+  const start = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+  const end = Date.UTC(SUMMER_END.getFullYear(), SUMMER_END.getMonth(), SUMMER_END.getDate());
+  return start > end;
+}
+
+export function seasonLabel(week: number, date = new Date()): string {
+  if (isSchoolYear(date)) return "School year · Regional prep";
+  return `Week ${week} · ${weekTheme(week)}`;
+}
+
+export function schoolYearFocus(date = new Date()): { subject: string; label: string; href: string } {
+  switch (date.getDay()) {
+    case 1:
+      return { subject: "chemistry", label: "chemistry", href: "/practice/play?mode=subject&subject=chemistry" };
+    case 2:
+      return { subject: "biology", label: "biology", href: "/practice/play?mode=subject&subject=biology" };
+    case 3:
+      return { subject: "physics", label: "physics", href: "/practice/play?mode=subject&subject=physics" };
+    case 4:
+      return { subject: "earth", label: "Earth & Space", href: "/practice/play?mode=subject&subject=earth" };
+    case 5:
+      return { subject: "energy", label: "Energy", href: "/practice/play?mode=subject&subject=energy" };
+    default:
+      return { subject: "mixed", label: "mixed", href: "/practice/play?mode=tossup" };
+  }
 }
 
 export function weekTheme(week: number): string {

@@ -1,4 +1,5 @@
-import { blocksForWeek, todayBlocks, weekdayFromDate } from "./schedule";
+import { regionalSprint } from "./catalogs";
+import { blocksForWeek, isSchoolYear, schoolYearFocus, todayBlocks, weekdayFromDate } from "./schedule";
 import { topicAccuracy } from "./stats";
 import type { DrillResult, StudyBlock } from "./types";
 
@@ -42,6 +43,47 @@ export function buildTodayPlan(input: {
   const tossDone = answeredToday.some((row) => !block || String(row.subject).toLowerCase().includes(block.subject));
   const weakDone = Boolean(weak && answeredToday.some((row) => row.topic === weak.topic));
   const flashDone = input.dueCount === 0 || input.extraDone.includes("flash");
+  const sprintDone = input.extraDone.includes("sprint") || answeredToday.some((row) => regionalSprint.some((pack) => pack.title === row.topic));
+
+  if (isSchoolYear(date)) {
+    const focus = schoolYearFocus(date);
+    return [
+      {
+        id: "weak",
+        minutes: 15,
+        title: weak ? `Weak area · ${weak.topic}` : "Weak-area practice",
+        detail: weak ? `${Math.round(weak.acc * 100)}% accuracy — this is the school-year priority.` : "Answer a few questions and this slot will fill in.",
+        href: weak ? `/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}` : "/practice/play?mode=weak",
+        done: weakDone || input.extraDone.includes("weak"),
+      },
+      {
+        id: "tossup",
+        minutes: 15,
+        title: `Toss-up · ${focus.label}`,
+        detail: focus.subject === "earth" || focus.subject === "energy"
+          ? "Summer skipped this category. Short official clock."
+          : "Buzz, answer, next. Official 5s / 20s clock.",
+        href: focus.href,
+        done: answeredToday.length > 0 || input.extraDone.includes("tossup"),
+      },
+      {
+        id: "sprint",
+        minutes: 10,
+        title: "Regional sprint",
+        detail: "Know-cold packs for Texas regionals — deeper than the summer MS pass.",
+        href: "/practice/play?mode=sprint",
+        done: sprintDone,
+      },
+      {
+        id: "flash",
+        minutes: 5,
+        title: "Flashcards",
+        detail: input.dueCount ? `${input.dueCount} due today` : "None due — keep the streak.",
+        href: "/learn/flash",
+        done: input.dueCount === 0 || flashDone,
+      },
+    ];
+  }
 
   const scienceHref = block ? `#session-${block.id}` : "/learn";
   const items: PlanItem[] = [

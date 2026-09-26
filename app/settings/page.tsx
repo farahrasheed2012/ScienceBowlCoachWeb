@@ -59,7 +59,8 @@ export default function SettingsPage() {
       </section>
       <section className="card stack">
         <h3>Study plan</h3>
-        <label>Current week</label>
+        <p className="muted">After Aug 28, Home uses a school-year keep-sharp plan. This picker only marks a summer week when you browse Weeks.</p>
+        <label>Summer week (archive)</label>
         <select value={store.currentWeek} onChange={(e) => store.set({ currentWeek: Number(e.target.value), weekManuallySet: true })}>
           {Array.from({ length: 12 }, (_, i) => i + 1).map((w) => <option key={w} value={w}>Week {w}</option>)}
         </select>
