@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { mergeDoeQuestions, parseQuestionCache } from "@/lib/questions";
+import { doeBundled, mergeDoeQuestions, parseQuestionCache } from "@/lib/questions";
 import { listVoices, RATE, speak } from "@/lib/speech";
 import { useStore } from "@/lib/store";
 import type { Appearance, FlashPace, SpeechRate } from "@/lib/types";
@@ -102,8 +102,9 @@ export default function SettingsPage() {
       <section className="card stack">
         <h3>DOE question bank</h3>
         <p className="muted">
-          {48 + store.importedDoe.length} DOE questions loaded (48 starter + {store.importedDoe.length} imported), on top of TossUp’s 634 bundled questions.
-          Export doe_questions_cache.json from the Mac app or TossUp’s questions_cache.json. Earth and Energy get much thicker with a real DOE cache.
+          {doeBundled.length} DOE questions from the Mac cache are already in Practice
+          {store.importedDoe.length ? ` · ${store.importedDoe.length} extra imported` : ""}, on top of TossUp’s 634 bundled questions.
+          Import another cache only if you have a newer file.
         </p>
         <input
           type="file"
@@ -128,7 +129,7 @@ export default function SettingsPage() {
           }}
         />
         {store.importedDoe.length ? (
-          <button className="btn ghost" type="button" onClick={() => { store.set({ importedDoe: [] }); setDoeNote("Imported DOE cache cleared. Starter 48 stay."); }}>
+          <button className="btn ghost" type="button" onClick={() => { store.set({ importedDoe: [] }); setDoeNote("Extra imported DOE cleared. The bundled Mac cache stays."); }}>
             Clear imported DOE
           </button>
         ) : null}

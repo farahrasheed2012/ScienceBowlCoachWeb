@@ -40,7 +40,7 @@ Copied from the Mac app:
 - 50 summer study blocks (archive after Aug 28)
 - 11 Texas Regional Sprint packs
 - 634 TossUp bundled questions (bio, chem, math)
-- DOE starter question cache
+- DOE question cache from the Mac app (`doe_questions_cache.json`, ~1,100 questions; Earth is thick, official MS Energy is small)
 - calendar / timetable / periodic table HTML
 
 To refresh extracted Swift catalogs after Mac-app edits:
@@ -49,7 +49,7 @@ To refresh extracted Swift catalogs after Mac-app edits:
 npm run extract
 ```
 
-To load the full DOE bank the Mac app parsed, export `doe_questions_cache.json` from the Mac Documents folder and import it on Practice or in Settings. Earth and Energy get much thicker with a real cache.
+The Mac `doe_questions_cache.json` is already bundled. Practice or Settings can still import a newer cache if the Mac parser adds more later.
 
 Coach notes on each question work offline from the encyclopedia. Optional richer AI: set `GROQ_API_KEY` or `OPENAI_API_KEY` in `.env.local`.
 

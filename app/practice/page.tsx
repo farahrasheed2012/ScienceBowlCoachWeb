@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { tossUpBundled, tossUpHewittPairs, tossUpTopics } from "@/lib/tossup";
 import { regionalSprint } from "@/lib/catalogs";
-import { matchesSubject, mergeDoeQuestions, parseQuestionCache, practiceBank } from "@/lib/questions";
+import { doeBundled, matchesSubject, mergeDoeQuestions, parseQuestionCache, practiceBank } from "@/lib/questions";
 import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
@@ -35,6 +35,7 @@ export default function PracticePage() {
   const topics = tossUpTopics.filter((t) => !t.id.endsWith("-all"));
   const today = schoolYearFocus();
   const schoolYear = isSchoolYear();
+  const extraDoe = store.importedDoe.filter((row) => !doeBundled.some((bundled) => bundled.id === row.id)).length;
   const earthCount = bank.filter((q) => matchesSubject(q, "earth") && q.kind !== "bonus").length;
   const energyCount = bank.filter((q) => matchesSubject(q, "energy") && q.kind !== "bonus").length;
 
@@ -64,9 +65,9 @@ export default function PracticePage() {
       <div className="card stack">
         <h3>DOE question bank</h3>
         <p className="muted">
-          {48 + store.importedDoe.length} DOE questions loaded
-          {store.importedDoe.length ? ` · ${store.importedDoe.length} imported` : " · starter 48 only"}.
-          Earth {earthCount} · Energy {energyCount}. Import doe_questions_cache.json from the Mac app to thicken those.
+          {doeBundled.length + extraDoe} DOE questions loaded · Mac cache bundled
+          {extraDoe ? ` · ${extraDoe} extra imported` : ""}.
+          Earth {earthCount} · Energy {energyCount}. Official MS Energy is a small category; Earth is the thick set. Extra caches still import below.
         </p>
         <input
           type="file"

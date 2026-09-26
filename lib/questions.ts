@@ -1,4 +1,5 @@
-import { doeStarter, encyclopediaQuestions, studyBlocks, topics } from "./catalogs";
+import doeCacheJson from "@/data/doe_questions_cache.json";
+import { encyclopediaQuestions, studyBlocks, topics } from "./catalogs";
 import { articleForLabel } from "./topic-map";
 import { tossUpBundled, tossUpHewitt, tossUpHewittPairs, parseChoices } from "./tossup";
 import type { DoeQuestion, EncyclopediaQuestion, EncyclopediaTopic, PlayQuestion } from "./types";
@@ -36,6 +37,8 @@ export function parseQuestionCache(data: unknown): { questions: DoeQuestion[]; e
   if (!questions.length) return { questions: [], error: "No DOE or TossUp questions in that file." };
   return { questions };
 }
+
+export const doeBundled = parseQuestionCache(doeCacheJson).questions;
 
 function normalizeImportedQuestion(row: unknown): DoeQuestion | null {
   if (!row || typeof row !== "object") return null;
@@ -124,7 +127,7 @@ export function matchesSubject(question: { category: string }, subject: string) 
 }
 
 export function starterDoePlay(): PlayQuestion[] {
-  return doeStarter.map(doeToPlay);
+  return doeBundled.map(doeToPlay);
 }
 
 export function practiceBank(importedDoe: DoeQuestion[] = []): PlayQuestion[] {
@@ -132,8 +135,7 @@ export function practiceBank(importedDoe: DoeQuestion[] = []): PlayQuestion[] {
     ...tossUpBundled,
     ...allEncyclopediaPlay(),
     ...curriculumTossups(),
-    ...starterDoePlay(),
-    ...importedDoe.map(doeToPlay),
+    ...mergeDoeQuestions(doeBundled, importedDoe).map(doeToPlay),
   ];
 }
 
@@ -185,7 +187,7 @@ export function findTopicArticle(question: PlayQuestion): EncyclopediaTopic | un
 }
 
 export function bonusPool(importedDoe: DoeQuestion[] = []): PlayQuestion[] {
-  return [...tossUpHewitt, ...importedDoe.map(doeToPlay), ...starterDoePlay()].filter((q) => q.kind === "bonus");
+  return [...tossUpHewitt, ...mergeDoeQuestions(doeBundled, importedDoe).map(doeToPlay)].filter((q) => q.kind === "bonus");
 }
 
 export function pairConsecutive(questions: PlayQuestion[]) {
@@ -202,7 +204,7 @@ export function pairConsecutive(questions: PlayQuestion[]) {
 }
 
 export function buildMockMatch(importedDoe: DoeQuestion[] = []): PlayQuestion[] {
-  const doePairs = pairConsecutive([...starterDoePlay(), ...importedDoe.map(doeToPlay)]).filter((pair) => pair.bonus);
+  const doePairs = pairConsecutive(mergeDoeQuestions(doeBundled, importedDoe).map(doeToPlay)).filter((pair) => pair.bonus);
   const pairs = shuffle([...tossUpHewittPairs.filter((pair) => pair.bonus), ...doePairs]);
   const chain = pairs.slice(0, 8).flatMap((pair) => [pair.tossup, ...(pair.bonus ? [pair.bonus] : [])]);
   const used = new Set(chain.map((question) => question.id));
