@@ -124,7 +124,17 @@ export function QuestionPlay({
   });
 
   if (!question) {
-    return <div className="card muted">No questions in this set yet.</div>;
+    return (
+      <div className="card stack">
+        <p>No questions in this set yet.</p>
+        <p className="muted">Try a mixed toss-up or an encyclopedia topic. Import a DOE cache in Settings for the official bank.</p>
+        <div className="row">
+          <Link className="btn" href="/practice/play?mode=tossup">Mixed toss-up</Link>
+          <Link className="btn ghost" href="/learn">Learn</Link>
+          <Link className="btn ghost" href="/settings">Import DOE</Link>
+        </div>
+      </div>
+    );
   }
 
   function grade(isCorrect: boolean, timedOut = false) {

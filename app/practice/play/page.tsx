@@ -10,22 +10,11 @@ import {
   practiceBank,
   shuffle,
   allEncyclopediaPlay,
+  matchesSubject,
 } from "@/lib/questions";
 import { topicAccuracy } from "@/lib/stats";
 import { tossUpHewittPairs } from "@/lib/tossup";
 import { useStore } from "@/lib/store";
-import type { PlayQuestion } from "@/lib/types";
-
-function matchesSubject(question: PlayQuestion, subject: string) {
-  const category = question.category.toLowerCase();
-  if (subject === "biology") return category.includes("bio") || category.includes("life");
-  if (subject === "chemistry") return category.includes("chem");
-  if (subject === "physics") return category.includes("phys") || category.includes("energy");
-  if (subject === "earth") return category.includes("earth") || category.includes("space") || category.includes("astro");
-  if (subject === "energy") return category.includes("energy") || category.includes("power") || category.includes("fuel");
-  if (subject === "math") return category.includes("math");
-  return category.includes(subject.toLowerCase());
-}
 
 function PlayInner() {
   const params = useSearchParams();
@@ -48,7 +37,7 @@ function PlayInner() {
       const name = subject || "biology";
       const list = shuffle(bank.filter((q) => matchesSubject(q, name) && q.kind !== "bonus")).slice(0, 15);
       return {
-        title: name === "earth" ? "Earth & Space" : name[0].toUpperCase() + name.slice(1),
+        title: name === "earth" ? "Earth & Space" : name === "energy" ? "Energy" : name[0].toUpperCase() + name.slice(1),
         questions: list.length ? list : shuffle(allEncyclopediaPlay().filter((q) => matchesSubject(q, name))).slice(0, 15),
       };
     }

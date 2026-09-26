@@ -5,7 +5,7 @@ import { useState } from "react";
 import { accuracyWindow, improvedTopics, studyMinutes, subjectAccuracy, topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 
-const SUBJECTS = ["biology", "chemistry", "physics", "earth", "math"];
+const SUBJECTS = ["biology", "chemistry", "physics", "earth", "energy", "math"];
 
 function pct(value: number | null) {
   return value == null ? "—" : `${Math.round(value * 100)}%`;

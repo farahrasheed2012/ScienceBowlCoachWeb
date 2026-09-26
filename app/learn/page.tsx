@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import { encyclopediaQuestions, NSB_SUBJECTS, regionalSprint, topics } from "@/lib/catalogs";
+import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
 import { practiceSubjectFor } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
 
 export default function LearnPage() {
   const store = useStore();
+  const schoolYear = isSchoolYear();
+  const today = schoolYearFocus();
   const due = store.flashCards.filter((card) => new Date(card.due) <= new Date()).length;
   const weak = topicAccuracy(store.drillResults).find((row) => row.acc < 0.7);
   const weakNeedle = weak?.topic.toLowerCase() ?? "";
@@ -19,7 +22,26 @@ export default function LearnPage() {
     <div>
       <h1>Learn</h1>
       <p>Hi, {store.studentName}!</p>
+      <p className="muted">
+        {schoolYear
+          ? "School year · Regional prep. Weak spots and Earth/Energy first — summer chapters live in Weeks."
+          : "Follow the summer block, then drill."}
+      </p>
       <p className="muted">{topics.length} NSB topics · 6 categories · {encyclopediaQuestions.length} encyclopedia questions plus TossUp drills in Practice.</p>
+      {schoolYear ? (
+        <div className="card stack">
+          <h3>Today · {today.label}</h3>
+          <p className="muted">
+            {today.subject === "earth" || today.subject === "energy"
+              ? "Not on the summer pass. Read an article, then drill."
+              : "Keep facts cold. Open Weeks only if you want a chapter hour."}
+          </p>
+          <div className="row">
+            <Link className="btn" href={today.href}>Practice {today.label}</Link>
+            <Link className="btn ghost" href="/topics">All topics</Link>
+          </div>
+        </div>
+      ) : null}
       <p className="muted">{store.reviewedTopicIds.length} reviewed · {store.encyclopediaStreak} day encyclopedia streak</p>
       <div className="row">
         <Link className="btn" href="/learn/flash">{due ? `Review ${due} flashcards` : "Flashcards"}</Link>
@@ -59,7 +81,7 @@ export default function LearnPage() {
         })}
       </div>
       <h2>Regional Sprint</h2>
-      <p className="muted">Know-cold packs from the summer coach. Short answer, no clock-pressure bonus.</p>
+      <p className="muted">Texas regional depth — this is the school-year reading, not another summer chapter.</p>
       <div className="grid two">
         {regionalSprint.map((pack) => (
           <Link className="card stack" key={pack.id} href={`/practice/play?mode=sprint&id=${pack.id}`}>

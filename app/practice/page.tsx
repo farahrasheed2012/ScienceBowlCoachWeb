@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { tossUpBundled, tossUpHewittPairs, tossUpTopics } from "@/lib/tossup";
 import { regionalSprint } from "@/lib/catalogs";
-import { practiceBank } from "@/lib/questions";
+import { matchesSubject, practiceBank } from "@/lib/questions";
+import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 
@@ -21,6 +22,7 @@ const SUBJECTS = [
   { id: "chemistry", label: "Chemistry" },
   { id: "physics", label: "Physics" },
   { id: "earth", label: "Earth & Space" },
+  { id: "energy", label: "Energy" },
   { id: "math", label: "Math" },
 ];
 
@@ -29,13 +31,29 @@ export default function PracticePage() {
   const bank = practiceBank(store.importedDoe);
   const weak = topicAccuracy(store.drillResults).filter((row) => row.acc < 0.7);
   const topics = tossUpTopics.filter((t) => !t.id.endsWith("-all"));
+  const today = schoolYearFocus();
+  const schoolYear = isSchoolYear();
 
   return (
     <div className="stack">
       <div>
         <h1>Practice</h1>
-        <p className="muted">{bank.length} questions ready · {tossUpBundled.length} from TossUp</p>
+        <p className="muted">
+          {bank.length} questions ready · {tossUpBundled.length} from TossUp
+          {schoolYear ? " · School year keep-sharp" : ""}
+        </p>
       </div>
+      {schoolYear ? (
+        <div className="card stack">
+          <h3>Today · {today.label}</h3>
+          <p className="muted">
+            {today.subject === "earth" || today.subject === "energy"
+              ? "Summer skipped this category. Use encyclopedia + DOE if the TossUp bank is thin."
+              : "Official 5s / 20s clock. Weak areas stay the first Home card."}
+          </p>
+          <Link className="btn" href={today.href}>Start today&apos;s subject</Link>
+        </div>
+      ) : null}
       <div className="card">
         <p className="muted">Space buzzes · W X Y Z or 1–4 answers · N or Enter goes to the next question after reveal · End round saves the session.</p>
       </div>
@@ -53,7 +71,9 @@ export default function PracticePage() {
         {SUBJECTS.map((subject) => (
           <Link className="card stack" key={subject.id} href={`/practice/play?mode=subject&subject=${subject.id}`}>
             <h3>{subject.label}</h3>
-            <p className="muted">15 questions · toss-ups first</p>
+            <p className="muted">
+              {bank.filter((q) => matchesSubject(q, subject.id) && q.kind !== "bonus").length} toss-ups · 15 in a set
+            </p>
           </Link>
         ))}
       </div>

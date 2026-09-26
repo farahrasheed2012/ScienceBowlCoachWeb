@@ -64,6 +64,18 @@ export function allEncyclopediaPlay(): PlayQuestion[] {
   return encyclopediaQuestions.map(encyclopediaToPlay);
 }
 
+export function matchesSubject(question: { category: string }, subject: string) {
+  const category = question.category.toLowerCase();
+  const name = subject.toLowerCase();
+  if (name === "biology") return category.includes("bio") || category.includes("life");
+  if (name === "chemistry") return category.includes("chem");
+  if (name === "physics") return category.includes("phys") && !category.includes("earth");
+  if (name === "earth") return category.includes("earth") || category.includes("space") || category.includes("astro");
+  if (name === "energy") return category.includes("energy") || category.includes("power") || category.includes("fuel");
+  if (name === "math") return category.includes("math");
+  return category.includes(name);
+}
+
 export function starterDoePlay(): PlayQuestion[] {
   return doeStarter.map(doeToPlay);
 }
