@@ -16,6 +16,7 @@
   --bad: #d94040;
   --gold: #f5d76e;
   --sidebar: 230px;
+  --chrome: #0c0c12;
 }
 
 [data-theme="light"] {
@@ -27,6 +28,7 @@
   --faint: #9a8f80;
   --line: rgba(42, 36, 28, 0.12);
   --accent: #3d5ccc;
+  --chrome: #efe6d6;
 }
 
 * { box-sizing: border-box; }
@@ -43,7 +45,7 @@ button, input, select, textarea { font: inherit; }
 .shell { display: grid; grid-template-columns: var(--sidebar) 1fr; min-height: 100vh; }
 .sidebar {
   position: sticky; top: 0; height: 100vh; overflow: auto; z-index: 2;
-  background: #0c0c12; padding: 18px 12px; border-right: 1px solid var(--line);
+  background: var(--chrome); padding: 18px 12px; border-right: 1px solid var(--line);
 }
 .brand { font-weight: 700; padding: 8px 10px 16px; font-size: 15px; }
 .nav a {
@@ -170,7 +172,7 @@ iframe.schedule { width: 100%; min-height: 70vh; border: 0; border-radius: 16px;
   .sidebar { display: none; }
   .main { padding: 20px 16px 96px; }
   .mobile-nav {
-    display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #0c0c12;
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--chrome);
     border-top: 1px solid var(--line); overflow-x: auto; padding: 8px;
   }
   .mobile-nav a { flex: 1 0 auto; text-align: center; padding: 10px 8px; color: var(--muted); font-size: 13px; }

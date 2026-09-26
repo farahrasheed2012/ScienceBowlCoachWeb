@@ -44,9 +44,12 @@ export function todaysMission(input: {
   const block = featuredBlock(input.week, date);
   const next = plan.find((item) => !item.done) ?? plan[plan.length - 1];
   const flashUrgent = input.dueCount >= 8;
-  const pick = flashUrgent && next.id !== "flash"
+  const stillWeak = Boolean(weak);
+  const pick = flashUrgent
     ? plan.find((item) => item.id === "flash") ?? next
-    : next;
+    : stillWeak
+      ? plan.find((item) => item.id === "weak") ?? next
+      : next;
 
   if (pick.id === "flash") {
     return {
@@ -67,11 +70,12 @@ export function todaysMission(input: {
   if (pick.id === "weak") {
     const miss = weak ? lastMissAt(input.drillResults, weak.topic) : null;
     const recent = miss && Date.now() - miss.getTime() < 36 * 3600 * 1000;
+    const checkedOff = Boolean(plan.find((item) => item.id === "weak")?.done);
     return {
       subject: weak?.subject || "Mixed",
       topic: weak?.topic || "Weak-area practice",
       reason: weak
-        ? `${Math.round(weak.acc * 100)}% after ${weak.attempts} tries${recent ? " · you missed this recently" : ""}. Open the assigned section, then drill.`
+        ? `${Math.round(weak.acc * 100)}% after ${weak.attempts} tries${recent ? " · you missed this recently" : ""}${checkedOff ? " · still under 70% even if you checked it off" : ""}. Open the assigned section, then drill.`
         : "Answer a few questions and this slot will name a weak topic.",
       minutes: pick.minutes,
       activities: "5–12 toss-ups + book lookup",
