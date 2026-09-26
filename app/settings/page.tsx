@@ -70,7 +70,7 @@ export default function SettingsPage() {
           className="btn"
           type="button"
           onClick={() => {
-            const blob = new Blob([JSON.stringify(store, null, 2)], { type: "application/json" });
+            const blob = new Blob([JSON.stringify(store.exportState(), null, 2)], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;

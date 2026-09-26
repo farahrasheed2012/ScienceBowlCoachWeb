@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { FIRST20 } from "@/lib/elements";
 import { answersMatch } from "@/lib/questions";
@@ -7,6 +8,7 @@ import { useStore } from "@/lib/store";
 
 export default function ElementsPage() {
   const store = useStore();
+  const [note, setNote] = useState("");
   const [mode, setMode] = useState<"table" | "flash" | "drill">("table");
   const [index, setIndex] = useState(0);
   const [show, setShow] = useState(false);
@@ -25,10 +27,30 @@ export default function ElementsPage() {
       <h1>Elements</h1>
       <p className="muted">{store.elementMastered.length} / {FIRST20.length} first-20 symbols mastered (H–Ca).</p>
       <div className="row">
+        <Link href="/learn">Back to Learn</Link>
         <button className="btn ghost" type="button" onClick={() => setMode("table")}>Table</button>
         <button className="btn ghost" type="button" onClick={() => setMode("flash")}>Flash cards</button>
         <button className="btn ghost" type="button" onClick={() => setMode("drill")}>Drill</button>
+        <button
+          className="btn"
+          type="button"
+          onClick={() => {
+            const added = store.addFlashCards(
+              FIRST20.map((el) => ({
+                subject: "chemistry",
+                topic: "First 20 elements",
+                prompt: `${el.symbol} — name this element`,
+                answer: `${el.name} · #${el.atomicNumber} · ${el.category}`,
+              })),
+            );
+            setNote(added ? `Added ${added} cards.` : "Those element cards are already in your deck.");
+          }}
+        >
+          Add H–Ca to flashcards
+        </button>
+        <Link className="btn ghost" href="/learn/flash">Review cards</Link>
       </div>
+      {note ? <p className="muted">{note}</p> : null}
       {mode === "table" ? (
         <div className="ptable" style={{ marginTop: 16 }}>
           {FIRST20.map((el) => (

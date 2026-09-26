@@ -93,6 +93,7 @@ type Store = State & {
   recordRound: (input: { title: string; asked: number; correct: number; seconds: number }) => void;
   clearProgress: () => void;
   importBackup: (data: Partial<State>) => void;
+  exportState: () => State;
 };
 
 const StoreContext = createContext<Store | null>(null);
@@ -284,6 +285,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       setState({ ...defaultState(), ...keep });
     },
     importBackup: (data) => setState((prev) => ({ ...prev, ...data })),
+    exportState: () => {
+      const snapshot = { ...defaultState(), ...state };
+      return Object.fromEntries(
+        Object.keys(defaultState()).map((key) => [key, snapshot[key as keyof State]]),
+      ) as State;
+    },
   }), [state]);
 
   if (!ready) return <div className="boot">Loading Science Bowl Coach…</div>;

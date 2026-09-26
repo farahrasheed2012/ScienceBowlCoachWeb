@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useStore } from "@/lib/store";
 
@@ -18,6 +19,10 @@ export default function CalendarPage() {
     <div>
       <h1>Calendar</h1>
       <p className="muted">Bundled HTML from the Mac app. Current week {store.currentWeek}.</p>
+      <div className="row">
+        <Link className="btn ghost" href="/learn">Learn</Link>
+        <Link className="btn ghost" href="/weeks">Week blocks</Link>
+      </div>
       <div className="row">
         {DOCS.map((item) => (
           <button key={item.id} className={`btn ${doc.id === item.id ? "" : "ghost"}`} type="button" onClick={() => setDoc(item)}>
