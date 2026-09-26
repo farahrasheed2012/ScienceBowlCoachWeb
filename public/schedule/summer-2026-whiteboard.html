@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Summer 2026 — Weekly Whiteboard Sheets</title>
+  <style>
+    @page {
+      size: landscape;
+      margin: 0.35in;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.3;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+
+    .screen-only {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-bottom: 3px solid #333;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+
+    .screen-only h1 { margin-top: 0; font-size: 1.4rem; }
+    .screen-only ol { margin: 0.5rem 0 0 1.2rem; }
+
+    .week {
+      page-break-after: always;
+      break-after: page;
+      padding: 0.15in 0;
+    }
+
+    .week:last-child { page-break-after: auto; }
+
+    .week-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 3px solid #111;
+      padding-bottom: 0.12in;
+      margin-bottom: 0.15in;
+    }
+
+    .week-header h2 {
+      margin: 0;
+      font-size: 18pt;
+      letter-spacing: -0.02em;
+    }
+
+    .week-meta {
+      text-align: right;
+      font-size: 9pt;
+    }
+
+    .pass-tag {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      padding: 0.12em 0.5em;
+      font-size: 8pt;
+      font-weight: bold;
+      border-radius: 3px;
+      margin-bottom: 0.2em;
+    }
+
+    .pass-note {
+      font-size: 8.5pt;
+      color: #333;
+      margin: 0 0 0.12in 0;
+      font-style: italic;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+    }
+
+    th {
+      background: #eee;
+      border: 2px solid #111;
+      padding: 0.28em 0.35em;
+      text-align: left;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      vertical-align: bottom;
+    }
+
+    td {
+      border: 1.5px solid #333;
+      padding: 0.32em 0.35em;
+      vertical-align: top;
+    }
+
+    td.day-col {
+      font-weight: bold;
+      white-space: nowrap;
+      width: 2.5em;
+    }
+
+    td.date-col {
+      white-space: nowrap;
+      width: 3.2em;
+      font-weight: 600;
+    }
+
+    .chem { background: #fef9e7; }
+    .bio  { background: #eafaf1; }
+    .phys { background: #ebf5fb; }
+    .alg  { background: #f4ecf7; }
+    .py   { background: #eef7ee; }
+    .review { background: #fdedec; font-weight: 600; }
+
+    .focus, .know, .formulas, .tossup {
+      display: block;
+      font-size: 6.5pt;
+      line-height: 1.36;
+      margin-top: 0.18em;
+      color: #222;
+    }
+
+    .formulas { color: #1a5276; }
+    .tossup { color: #7d3c00; font-style: italic; }
+
+    .focus em, .know em, .formulas em, .tossup em {
+      font-style: normal;
+      font-weight: 600;
+      color: #444;
+    }
+
+    td.study-cell strong { display: block; margin-bottom: 0.1em; }
+
+    .reading-pace {
+      display: block;
+      margin-top: 0.12em;
+      color: #1b5e20;
+      font-size: 0.95em;
+      font-weight: 600;
+    }
+
+    .reading-pace em { font-style: normal; font-weight: 600; color: #2e7d32; }
+
+    .optional-book {
+      display: block;
+      margin-top: 0.15em;
+      color: #5d4037;
+      font-size: 0.92em;
+    }
+
+    table { font-size: 7.8pt; }
+
+    .footer {
+      margin-top: 0.18in;
+      font-size: 7.5pt;
+      color: #444;
+      border-top: 1px solid #999;
+      padding-top: 0.12in;
+    }
+
+    .legend-page table,
+    .index-page table { font-size: 8pt; }
+    .legend-page td,
+    .index-page td { padding: 0.25em 0.4em; }
+
+    .index-page h3 {
+      font-size: 10pt;
+      margin: 0.2in 0 0.08in 0;
+      border-bottom: 1px solid #999;
+      padding-bottom: 0.05in;
+    }
+
+    .index-page h3:first-of-type { margin-top: 0; }
+
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.15in 0.3in;
+    }
+
+    @media print {
+      .screen-only { display: none !important; }
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LEGEND -->
+<section class="week legend-page">
+  <div class="week-header">
+    <h2>Book key &amp; DOE topic scope</h2>
+    <div class="week-meta">Summer 2026 · Soha<br>Jun 8 – Aug 19</div>
+  </div>
+  <table>
+    <tr><th>Code</th><th>Book</th><th>When</th></tr>
+    <tr><td><strong>BFN-C</strong></td><td>Big Fat Notebook: High School Chemistry (ISBN 9781523504251)</td><td>Primary chemistry · Mon &amp; Thu</td></tr>
+    <tr><td><strong>FLS</strong></td><td>Focus on Life Science — Prentice Hall CA ed. (ISBN 9780130443465)</td><td>Primary biology · Tue &amp; Fri</td></tr>
+    <tr><td><strong>OSB</strong></td><td>OpenStax Biology 2e — free online (openstax.org)</td><td>Biology backup · same DOE topics</td></tr>
+    <tr><td><strong>CB</strong></td><td>Campbell Biology: Concepts &amp; Connections — 7th ed. (ISBN 9780321696816)</td><td>Biology backup · deeper TAG level</td></tr>
+    <tr><td><strong>Hewitt</strong></td><td>Conceptual Physical Science Explorations — Hewitt student text (ISBN 9780321567918)</td><td>Chemistry backup (Ch 15 + 17–24) · Wed physics</td></tr>
+    <tr><td><strong>Mod</strong></td><td>Modern Chemistry 2012 — Sarquis (ISBN 9780547586632)</td><td>Chemistry backup · Mon &amp; Thu</td></tr>
+    <tr><td><strong>Tro</strong></td><td>Introductory Chemistry — Tro 4th ed. (ISBN 9780321687937)</td><td>Chemistry backup</td></tr>
+    <tr><td><strong>OSA</strong></td><td>OpenStax Algebra &amp; Trigonometry 2e — free online (openstax.org)</td><td>Primary algebra · Mon–Fri · assigned §</td></tr>
+    <tr><td><strong>Lar</strong></td><td>Holt McDougal Larson Algebra 1 2011 (ISBN 9780547315157)</td><td>Algebra backup · Ch 1–13</td></tr>
+    <tr><td><strong>BFN-A/Bio/Sci</strong></td><td>Big Fat Notebooks — Algebra · Biology · Science</td><td>Backup quizzes · Fri review</td></tr>
+    <tr><td><strong>Coach</strong></td><td>Soha Python Coach — Mac app (Outschool L1–4 + portfolio)</td><td>Tue/Thu 4:45–5:15 PM · Journey tab</td></tr>
+  </table>
+  <h3 style="font-size:9pt;margin:0.15in 0 0.08in">DOE study topics (not whole textbooks)</h3>
+  <p style="font-size:8pt;margin:0 0 0.1in">Life: cell biology, genetics, anatomy &amp; physiology, plant biology, ecology, animal behavior · Physical: chem reactions/periodic table/states of matter + physics forces/motion/waves/electromagnetism/thermo · Math: algebra, geometry, probability, statistics (OSA § block).</p>
+  <h3 style="font-size:9pt;margin:0.15in 0 0.08in">Pick your book *(Soha)*</h3>
+  <table style="font-size:8pt">
+    <tr><th>When</th><th>Primary</th><th>Also OK</th><th>Backup</th></tr>
+    <tr><td>Mon/Thu Chem</td><td><strong>BFN-C</strong> assigned chapters</td><td>—</td><td><strong>Hewitt</strong> · <strong>Mod</strong> · <strong>Tro</strong> · <strong>BFN-Sci</strong></td></tr>
+    <tr><td>Tue/Fri Bio</td><td><strong>FLS</strong></td><td>—</td><td><strong>OSB</strong> · <strong>CB</strong> · <strong>BFN-Bio</strong></td></tr>
+    <tr><td>Wed Phys</td><td><strong>Hewitt</strong></td><td>—</td><td><strong>BFN-Sci</strong></td></tr>
+    <tr><td>Mon–Fri Algebra</td><td><strong>OSA</strong> assigned §</td><td>—</td><td><strong>Lar</strong> · <strong>BFN-A</strong></td></tr>
+    <tr><td>Tue/Thu Python</td><td><strong>Coach</strong> Journey week</td><td>—</td><td>Playground + live notes</td></tr>
+  </table>
+  <table style="margin-top:0.2in">
+    <tr><th>Plan</th><th>Dates</th><th>Chemistry</th><th>Biology</th><th>Physics</th><th>Python</th></tr>
+    <tr><td><strong>One summer pass</strong></td><td>Jun 8 – Aug 14</td><td><strong>BFN-C</strong> chem</td><td><strong>FLS</strong> (+ OSB/CB backup)</td><td><strong>Hewitt</strong></td><td><strong>Coach</strong> wk 1–10</td></tr>
+    <tr><td><strong>Backups</strong></td><td>anytime</td><td><strong>Hewitt</strong> · <strong>Mod</strong> · <strong>Tro</strong> · BFN-Sci</td><td><strong>OSB</strong> · <strong>CB</strong> · BFN-Bio</td><td>BFN-Sci</td><td>Quiz → DOE in app</td></tr>
+    <tr><td><strong>Bridge</strong></td><td>Aug 15 – 18</td><td colspan="4">Optional flash cards · school meetings in fall · Aug 19 = first day of school</td></tr>
+  </table>
+  <p class="footer">Each cell: read assigned **FLS sections only** (page estimate on bio — not whole chapter) · <strong>Formulas</strong> · <strong>Focus</strong> · <strong>Know</strong> · <strong>Toss-up</strong> · Full detail + answers in summer-2026-calendar.md · Daily times → weekly-timetable.md</p>
+</section>
+
+<!-- WEEK 1 -->
+<section class="week" id="week-1">
+  <div class="week-header">
+    <h2>Week 1 · Jun 8 – 12 · Atoms · cells · motion</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Catch-up weeks — Chem/Bio/Phys <strong>Week 1 starts Jun 22</strong> (missed BFN-C weeks 1–2)</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Jun 8</td><td class="day-col">Mon</td><td class="skipped">— <strong>No chemistry</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 1–2 — Types of Numbers · Algebraic Properties</strong><span class="optional-book"><em>Also OK:</em> OSA §1.1 · §1.2 · Lar Ch 1</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jun 9</td><td class="day-col">Tue</td><td>—</td><td class="skipped">— <strong>No biology</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 3–4 — Order of Operations · Adding Positive and Negative Whole Numbers</strong><span class="optional-book"><em>Also OK:</em> OSA §5.8 · Lar Ch 2</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 1 · L1 (1–2)</strong><span class="focus"><em>Focus:</em> Hello Python · variables · if/else</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jun 10</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="skipped">— <strong>No physics</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td class="alg study-cell"><strong>BFN-A — Ch 5–6 — Subtracting Positive and Negative Whole Numbers · Multiplying and Dividing Positive and Negative Whole Numbers</strong><span class="optional-book"><em>Also OK:</em> OSA §2.1 · §4.1 · §3.3 · Lar Ch 4</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jun 11</td><td class="day-col">Thu</td><td class="skipped">— <strong>No chemistry</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 7–8 — Multiplying and Dividing Positive and Negative Fractions · Adding and Subtracting Positive and Negative Fractions</strong><span class="optional-book"><em>Also OK:</em> OSA §1.1 · §1.2 · Lar Ch 1–2</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 1 · L1 (3–5)</strong><span class="focus"><em>Focus:</em> loops · functions · first games</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jun 12</td><td class="day-col">Fri</td><td>—</td><td class="skipped">— <strong>No biology</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Plan next week — skim Week 2 · list 2 weak topics</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 2 -->
+<section class="week" id="week-2">
+  <div class="week-header">
+    <h2>Week 2 · Jun 15 – 19 · Atoms · genetics · Newton's</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Catch-up weeks — Chem/Bio/Phys <strong>Week 1 starts Jun 22</strong> (missed BFN-C weeks 1–2)</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Jun 15</td><td class="day-col">Mon</td><td class="skipped">— <strong>No chemistry</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 11–12 — Ratio · Unit Rate</strong><span class="optional-book"><em>Also OK:</em> OSA §1.1 · Lar Ch 2</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jun 16</td><td class="day-col">Tue</td><td>—</td><td class="skipped">— <strong>No biology</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 13–14 — Proportion · Percent</strong><span class="optional-book"><em>Also OK:</em> OSA §5.8 · Lar Ch 3</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 2 · L1 (6–7)</strong><span class="focus"><em>Focus:</em> lists · Science Quiz · pygame</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jun 17</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="skipped">— <strong>No physics</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td class="alg study-cell"><strong>BFN-A — Ch 15–16 — Percent Applications · Simple Interest</strong><span class="optional-book"><em>Also OK:</em> OSA §2.3 · Lar Ch 3</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jun 18</td><td class="day-col">Thu</td><td class="skipped">— <strong>No chemistry</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 17–18 — Percent Rate of Change · Tables and Ratios</strong><span class="optional-book"><em>Also OK:</em> OSA §1.2 · §6.1 · Lar Ch 8</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 2 · L1 (8–10)</strong><span class="focus"><em>Focus:</em> Final Boss · Flask · grad prep</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jun 19</td><td class="day-col">Fri</td><td>—</td><td class="skipped">— <strong>No biology</strong> this calendar week<br><span class="focus"><em>Right-shifted — starts calendar week 3 (Week 1 content)</em></span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Timed drill · 20 toss-ups (Bio + Chem + Phys) · log misses</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 3 -->
+<section class="week" id="week-3">
+  <div class="week-header">
+    <h2>Week 3 · Jun 22 – 26 · Solutions · ecology · forces</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 1 · Chem · Bio · Phys — <strong>first science day</strong></p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Jun 22</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 8–9 — Atoms, Elements, Compounds, and Mixtures · Atomic Theory</strong> — Atoms<span class="optional-book"><em>Backup:</em> Hewitt Ch 17 §17.1–17.3 · Mod Ch 3 §3.1–3.3 · Tro Ch 4 §4.3–4.6 · BFN-Sci · Unit 2 · Ch 7 Periodic Table, Atomic Structure, and Compounds · p59</span><span class="formulas"><em>Formulas:</em> Z = # protons · A = p + n</span><span class="focus"><em>Focus:</em> proton · neutron · electron · Z = # protons · A = p+n · isotopes</span><span class="know"><em>Know:</em> 17 protons → element? · C-12 electrons?</span><span class="tossup"><em>Toss-up:</em> Atomic number of atom with 15 protons?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 21–22 — Expressions · Evaluating Algebraic Expressions</strong><span class="optional-book"><em>Also OK:</em> OSA §2.3 · Lar Ch 1</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jun 23</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 1 — Cell Structure and Function · §1.3 Parts of a Cell (~p21–28) · §1.4 Two Kinds of Cells (~p29–37)</strong> — Cell organelles &amp; membrane<span class="optional-book"><em>Backup:</em> OSB Ch 3 §3.2–3.4 · CB Ch 4 · BFN-Bio · Unit 3 · Ch 9 Cell Structure and Function · p84</span><span class="formulas"><em>Formulas:</em> ATP = energy currency</span><span class="focus"><em>Focus:</em> nucleus · mitochondria → ATP · ribosomes · chloroplast · cell wall · pro/eukaryote</span><span class="know"><em>Know:</em> ATP organelle? · 2 plant-only parts?</span><span class="tossup"><em>Toss-up:</em> Which organelle produces most ATP in eukaryotes?</span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 23–24 — Combining Like Terms · Introduction to Equations</strong><span class="optional-book"><em>Also OK:</em> OSA §2.3 · Lar Ch 3</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 3 · L2 (1–2)</strong><span class="focus"><em>Focus:</em> try/except · Caesar cipher</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jun 24</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 1 §1.2–1.5 + App. B</strong> — About Science + motion<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 3 · Ch 1–2 Scientific thinking · Ch 9 Motion · p1 · p91</span><span class="formulas"><em>Formulas:</em> v = d/t · slope = rise/run</span><span class="focus"><em>Focus:</em> hypothesis · SI units · v = d/t · d-t graphs</span><span class="know"><em>Know:</em> Theory vs law? · 120 km/2 h → speed?</span><span class="tossup"><em>Toss-up:</em> Car goes 150 km in 3 h — average speed?</span></td><td class="alg study-cell"><strong>BFN-A — Ch 25–26 — Solving One-Variable Equations · Solving One-Variable Inequalities</strong><span class="optional-book"><em>Also OK:</em> OSA §2.3 · Lar Ch 3</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jun 25</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 11–12 — The Periodic Table · Periodic Trends</strong> — Periodic Law<span class="optional-book"><em>Backup:</em> Hewitt Ch 17 §17.6–17.8 · Mod Ch 5 §5.1–5.2 · Tro Ch 4 §4.7–4.8 + Ch 5 · BFN-Sci · Unit 2 · Ch 7 Periodic Table and Compounds · p59</span><span class="formulas"><em>Formulas:</em> Na → Na⁺ + e⁻ · Group 18 noble gases</span><span class="focus"><em>Focus:</em> periods · groups · metals/nonmetals · H₂O, CO₂, NaCl · ions intro</span><span class="know"><em>Know:</em> Noble gas group? · CO₂ formula?</span><span class="tossup"><em>Toss-up:</em> Which group contains the noble gases?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 27–28 — Solving Compound Inequalities · Rewriting Formulas</strong><span class="optional-book"><em>Also OK:</em> OSA §2.3 · Lar Ch 6</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 3 · L2 (3–5)</strong><span class="focus"><em>Focus:</em> OOP · APIs · weather app</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jun 26</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 16 — Healthy Body Systems · §16.1 Your Body Systems (~p508–518)</strong> — Levels of organization<span class="optional-book"><em>Backup:</em> OSB Ch 1 §1.1 · CB Ch 6–7 · BFN-Bio · Unit 3 · Ch 10 Chemical Energy and ATP · Ch 11–12 Energy in cells · p97</span><span class="formulas"><em>Formulas:</em> Levels of organization</span><span class="focus"><em>Focus:</em> cell → tissue → organ → system · specialization</span><span class="know"><em>Know:</em> Order: organ, cell, tissue, organism?</span><span class="tossup"><em>Toss-up:</em> Simplest → most complex: organ, cell, tissue, organism.</span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Timed drill · 20 toss-ups · log misses by subject</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 4 -->
+<section class="week" id="week-4">
+  <div class="week-header">
+    <h2>Week 4 · Jun 29 – Jul 3 · Evolution · states · momentum</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 2 · Chem · Bio · Phys</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Jun 29</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 9–10 — Atomic Theory · Waves, Quantum Theory, and Photons</strong> — The Atom<span class="optional-book"><em>Backup:</em> Hewitt Ch 15 §15.1–15.5 · Mod Ch 5 §3 + Ch 4 · Tro Ch 9 §9.7 · §9.9 · BFN-Sci · Unit 2 · Ch 6 Matter, Properties, and Phases · p59</span><span class="formulas"><em>Formulas:</em> Z = # protons · A = p + n · avg atomic mass</span><span class="focus"><em>Focus:</em> atom · nucleus · isotopes · electron shells · valence e⁻ · first 20 symbols H–Ca · builds on Week 1 Ch 17 intro</span><span class="know"><em>Know:</em> Symbol for K? · C-12 vs C-14 protons? · Protons located where?</span><span class="tossup"><em>Toss-up:</em> Chemical symbol for potassium?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — Ch 29–30 — Solving Systems of Linear Equations by Substitution · Solving Systems of Linear Equations by Elimination</strong><span class="optional-book"><em>Also OK:</em> OSA §4.1 · §5.8 · Lar Ch 7</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jun 30</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 4 — Modern Genetics · §4.1 Human Inheritance (~p100–110) · §4.2 Advances in Modern Genetics (~p111–121)</strong> — DNA &amp; genes<span class="optional-book"><em>Backup:</em> OSB Ch 8 §8.1–8.2 (part 1) · CB Ch 9 · BFN-Bio · Unit 10 · Ch 44 Introduction to Genetics · Ch 45 DNA and RNA · p413</span><span class="formulas"><em>Formulas:</em> Tt × Tt → 3:1</span><span class="focus"><em>Focus:</em> DNA · gene · chromosome · allele · dominant/recessive</span><span class="know"><em>Know:</em> Tt × Tt phenotype ratio?</span><span class="tossup"><em>Toss-up:</em> What molecule carries genetic information?</span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T225, T226, T227 · Ch 47–48 — Application of Functions · Adding and Subtracting Polynomials</strong><span class="optional-book"><em>Also OK:</em> OSA §6.1 · Lar Ch 9</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 4 · L2 (6–7)</strong><span class="focus"><em>Focus:</em> Pandas · Matplotlib</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 1</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 2 §2.2–2.6 + Ch 3 §3.1–3.3</strong> — Newton's 1st &amp; 2nd<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 3 · Ch 10 Force and Newton's Laws · Ch 11 Gravity and Friction · p91</span><span class="formulas"><em>Formulas:</em> F = ma · a = F/m</span><span class="focus"><em>Focus:</em> inertia · F = ma · friction intro</span><span class="know"><em>Know:</em> F=20 N, m=4 kg → a?</span><span class="tossup"><em>Toss-up:</em> 4 kg object at 5 m/s² — net force?</span></td><td class="alg study-cell"><strong>BFN-A — POT 6 — T228, T229 · Ch 51 — Multiplying and Dividing Polynomials</strong><span class="optional-book"><em>Also OK:</em> OSA §6.1 · Lar Ch 9</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 2</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 14 — Bonding</strong> — Chemical bonding (part 1)<span class="optional-book"><em>Backup:</em> Hewitt Ch 18 §18.1–18.4 · Mod Ch 7 §7.1–7.2 · Tro Ch 5 · BFN-Sci · Unit 2 · Ch 6–8 Matter · Solutions · Chemical change · p59</span><span class="formulas"><em>Formulas:</em> Na → Na⁺ + e⁻ · ionic = metal + nonmetal</span><span class="focus"><em>Focus:</em> electron-dot · ions · ionic/metallic bonds · NaCl</span><span class="know"><em>Know:</em> NaCl ionic or covalent? · Metal loses e⁻ → cation?</span><span class="tossup"><em>Toss-up:</em> Is NaCl ionic or covalent?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T230, T231 · Ch 51 — Multiplying and Dividing Polynomials</strong><span class="optional-book"><em>Also OK:</em> OSA §6.1 · Lar Ch 9</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 4 · L2 (8–10)</strong><span class="focus"><em>Focus:</em> lambda · sklearn · L2 grad</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 3</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 4 — Modern Genetics · §4.3 Genetic Disorders (~p122–133)</strong> — Punnett squares<span class="optional-book"><em>Backup:</em> OSB Ch 8 §8.2–8.3 (part 2) · CB Ch 9 · BFN-Bio · Unit 10 · Ch 44 Introduction to Genetics · Ch 45 DNA and RNA · p413</span><span class="formulas"><em>Formulas:</em> Tt × Tt → 3:1</span><span class="focus"><em>Focus:</em> genotype vs phenotype · Tt × Tt · homozygous vs heterozygous</span><span class="know"><em>Know:</em> Dominant: capital or lowercase?</span><span class="tossup"><em>Toss-up:</em> Tt × Tt expected phenotypic ratio?</span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Mock round · 25 toss-ups · log weak subtopics</td></tr>
+  </table>
+  <p class="footer">Jul 4 weekend — Off.</p>
+</section>
+
+<!-- WEEK 5 -->
+<section class="week" id="week-5">
+  <div class="week-header">
+    <h2>Week 5 · Jul 6 – 10 · Energy in life & physics</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 3 · Chem · Bio · Phys</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Jul 6</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 25–26 — Solubility · Solubility Rules and Conditions</strong> — Solutions<span class="optional-book"><em>Backup:</em> Hewitt Ch 19 §19.1–19.4 · Mod Ch 12 §12.1–12.2 · Tro Ch 13 · BFN-Sci · Unit 2 · Ch 6–8 Matter and Solutions · p59</span><span class="formulas"><em>Formulas:</em> solute in solvent</span><span class="focus"><em>Focus:</em> solvent/solute · saturation · filtration · distillation</span><span class="know"><em>Know:</em> Salt water — solute?</span><span class="tossup"><em>Toss-up:</em> In salt water, which is the solute?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T241 · Ch 54–55 — Factoring Trinomials When a = 1 · Factoring Trinomials When a ≠ 1</strong><span class="optional-book"><em>Also OK:</em> OSA §6.1 · Lar Ch 9</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 7</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 7 — Living Things · §7.2 Classification of Living Things (~p214–224) · §7.3 The Six Kingdoms (~p225–235)</strong> — Ecology — communities<span class="optional-book"><em>Backup:</em> OSB Ch 19 §19.1 (part 1) · CB Ch 36–37 · BFN-Bio · Unit 12 · Ch 49 The Ecosystem · Ch 50 Populations · p483</span><span class="formulas"><em>Formulas:</em> mutualism · commensalism · parasitism</span><span class="focus"><em>Focus:</em> producers · consumers · decomposers · symbiosis</span><span class="know"><em>Know:</em> 3 symbiosis types?</span><span class="tossup"><em>Toss-up:</em> Organism at base of food chain?</span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T247 · Ch 31 — Points and Lines</strong><span class="optional-book"><em>Also OK:</em> OSA §2.1 · Lar Ch 4</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 5 · L3 (1–5)</strong><span class="focus"><em>Focus:</em> Tkinter · cipher · APIs</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 8</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 3 §3.4–3.6 + Ch 4 §4.1–4.3</strong> — Newton's 3rd &amp; friction<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 3 · Ch 10 Force and Newton's Laws · Ch 11 Gravity and Friction · p91</span><span class="formulas"><em>Formulas:</em> F = ma · action-reaction pairs</span><span class="focus"><em>Focus:</em> action-reaction · friction · net force</span><span class="know"><em>Know:</em> Newton's 3rd in words?</span><span class="tossup"><em>Toss-up:</em> Earth pulls you down — you pull Earth which way?</span></td><td class="alg study-cell"><strong>BFN-A — POT 6 — T248, T250, T251 · Ch 33–36 — Slope of a Line · Solving Systems of Linear Equations by Graphing</strong><span class="optional-book"><em>Also OK:</em> OSA §2.1 · §4.1 · §3.3 · Lar Ch 4–5</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 9</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 20 — Chemical Reactions</strong> — Chemical reactions<span class="optional-book"><em>Backup:</em> Hewitt Ch 20 §20.1–20.4 · Mod Ch 8 §8.1–8.3 · Tro Ch 7 §7.1–7.4 · BFN-Sci · Unit 2 · Ch 8 Solutions and Fluids · p59</span><span class="formulas"><em>Formulas:</em> 2H₂ + O₂ → 2H₂O</span><span class="focus"><em>Focus:</em> balance equations · reactants → products · exo/endothermic</span><span class="know"><em>Know:</em> Balance H₂ + Cl₂ → HCl</span><span class="tossup"><em>Toss-up:</em> Balance: H₂ + Cl₂ → HCl.</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T252, T254, T257 · Ch 31–27 — Points and Lines · Solving Compound Inequalities</strong><span class="optional-book"><em>Also OK:</em> OSA §2.1 · §2.3 · Lar Ch 4</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 5 · L3 (1–5)</strong><span class="focus"><em>Focus:</em> Tkinter · cipher · APIs</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 10</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 17 — Bones, Muscles, and Skin · §17.1 Bones and Muscles (~p530–544) · Ch 18 — Food and Digestion · §18.1 Food and Energy (~p560–575) · Heavy day — split or OSB backup</strong> — Body systems<span class="optional-book"><em>Backup:</em> OSB Ch 16 §16.1–16.3 · CB Ch 21–23 · BFN-Bio · Unit 9 · Ch 36 Body Systems · Ch 40 Respiratory/Circulatory · Ch 41 Digestive · p325</span><span class="formulas"><em>Formulas:</em> fulcrum · effort · load</span><span class="focus"><em>Focus:</em> levers · heart · arteries/veins · lungs O₂/CO₂</span><span class="know"><em>Know:</em> 3 lever parts?</span><span class="tossup"><em>Toss-up:</em> Arteries carry blood toward or away from heart?</span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Photosynthesis + respiration · 10 toss-ups on cell energy</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 6 -->
+<section class="week" id="week-6">
+  <div class="week-header">
+    <h2>Week 6 · Jul 13 – 17 · Ecology & solutions</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 4 · Chem · Bio · Phys</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Jul 13</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 6–7 — Properties of Matter and Changes in Form · States of Matter</strong> — States of matter<span class="optional-book"><em>Backup:</em> Hewitt Ch 17 §17.3–17.5 · Mod Ch 10 §10.1–10.2 · Tro Ch 3 · BFN-Sci · Unit 2 · Ch 7 Periodic Table and Atomic Structure · p59</span><span class="formulas"><em>Formulas:</em> Solid ↔ liquid ↔ gas</span><span class="focus"><em>Focus:</em> solid/liquid/gas · particle model · phase changes · heating curve</span><span class="know"><em>Know:</em> Gas vs solid particle motion?</span><span class="tossup"><em>Toss-up:</em> Which state has fastest-moving particles?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T264, T265 · Ch 26–27 — Solving One-Variable Inequalities · Solving Compound Inequalities</strong><span class="optional-book"><em>Also OK:</em> OSA §2.3 · Lar Ch 6</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 14</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 5 — Evolution · §5.1 Evidence for Evolution (~p134–141) · §5.2 How Evolution Works (~p142–150)</strong> — Evolution — natural selection<span class="optional-book"><em>Backup:</em> OSB Ch 11 (part 1) · CB Ch 13–14 · BFN-Bio · Unit 11 · Ch 47 Evolution · Ch 48 History of Life · p451</span><span class="formulas"><em>Formulas:</em> Darwin · natural selection</span><span class="focus"><em>Focus:</em> natural selection · variation · adaptation · fossils</span><span class="know"><em>Know:</em> Scientist for natural selection?</span><span class="tossup"><em>Toss-up:</em> Who is associated with natural selection?</span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T266, T267 · Ch 57–60 — Square Roots and Cube Roots · Multiplying and Dividing Radicals</strong><span class="optional-book"><em>Also OK:</em> OSA §1.3 · Lar Ch 11</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 6 · L3 (6–10)</strong><span class="focus"><em>Focus:</em> JSON · pygame · L3 capstone</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 15</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 5 §5.1–5.5</strong> — Momentum &amp; Collisions<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 4 · Ch 15 Light and Sound · p129</span><span class="formulas"><em>Formulas:</em> p = mv · conservation of momentum</span><span class="focus"><em>Focus:</em> p = mv · conservation · elastic vs inelastic</span><span class="know"><em>Know:</em> 2 kg at 3 m/s momentum? · Truck vs bike at same v?</span><span class="tossup"><em>Toss-up:</em> 2 kg at 3 m/s — momentum?</span></td><td class="alg study-cell"><strong>BFN-A — POT 6 — T261, T262 · Ch 61–64 — Introduction to Quadratic Equations · Solving Quadratic Equations by Completing the Square</strong><span class="optional-book"><em>Also OK:</em> OSA §6.1 · Lar Ch 10</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 16</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 4–5 — Measurement · Lab Safety and Scientific Tools</strong> — Lab &amp; measurement<span class="optional-book"><em>Backup:</em> Hewitt Ch 17 §17.1–17.4 · Mod Ch 2 §2.1–2.3 · Tro Ch 2 · BFN-Sci · Unit 1 · Ch 4–5 SI Units · Lab Safety and Scientific Tools · p1</span><span class="formulas"><em>Formulas:</em> kg, m, s, mol</span><span class="focus"><em>Focus:</em> SI units · sig figs · graduated cylinder · safety</span><span class="know"><em>Know:</em> SI mass unit? · Precise volume glassware?</span><span class="tossup"><em>Toss-up:</em> SI base unit for mass?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T263, T289 · Ch 65–68 — Solving Quadratic Equations with the Quadratic Formula · Solving Quadratic Equations by Graphing</strong><span class="optional-book"><em>Also OK:</em> OSA §6.1 · Lar Ch 10</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 6 · L3 (6–10)</strong><span class="focus"><em>Focus:</em> JSON · pygame · L3 capstone</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 17</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 6 — Earth's History · §6.1 Fossil Evidence (~p160–173)</strong> — Classification &amp; taxonomy<span class="optional-book"><em>Backup:</em> OSB Ch 12 (part 2) · CB Ch 13–14 · BFN-Bio · Unit 11 · Ch 47 Evolution · Ch 48 History of Life · p451</span><span class="formulas"><em>Formulas:</em> Homo sapiens</span><span class="focus"><em>Focus:</em> Domain → Kingdom → Species · binomial names</span><span class="know"><em>Know:</em> Most specific taxonomic rank?</span><span class="tossup"><em>Toss-up:</em> Most specific classification level?</span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Ecology + microbes drill · 15 toss-ups</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 7 -->
+<section class="week" id="week-7">
+  <div class="week-header">
+    <h2>Week 7 · Jul 20 – 24 · Immunity & heat</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 5 · Chem · Bio · Phys</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Jul 20</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 14–15 — Bonding · Valence Shell Electron Pair Repulsion (VSEPR) Theory</strong> — Covalent bonding<span class="optional-book"><em>Backup:</em> Hewitt Ch 18 §18.5–18.8 · Mod Ch 7 §7.1–7.2 · Tro Ch 5 · BFN-Sci · Unit 2 · Ch 7 Atomic Structure and Compounds · p59</span><span class="formulas"><em>Formulas:</em> covalent · H₂O · O₂</span><span class="focus"><em>Focus:</em> covalent sharing · polar vs nonpolar · H₂O vs O₂ · electronegativity</span><span class="know"><em>Know:</em> O₂ ionic or covalent? · Two nonmetals share → bond type?</span><span class="tossup"><em>Toss-up:</em> Is O₂ ionic or covalent?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T281, T285, T286, T287 · Ch 46–45 — Function Notation · Relations and Functions</strong><span class="optional-book"><em>Also OK:</em> OSA §3.1 · §3.2 · §6.1 · Lar Ch 1</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 21</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 2 — Cell Processes and Energy · §2.4 Photosynthesis (~p56–61)</strong> — Photosynthesis (part 1)<span class="optional-book"><em>Backup:</em> OSB Ch 4 · CB Ch 8 · BFN-Bio · Unit 3 · Ch 11 Photosynthesis · Ch 12 Cellular Respiration · p103</span><span class="formulas"><em>Formulas:</em> 6CO₂ + 6H₂O + light → glucose + O₂</span><span class="focus"><em>Focus:</em> chloroplast · light reactions · CO₂ + H₂O + light · finish Fri Ch 5</span><span class="know"><em>Know:</em> Photosynthesis organelle? · Gas released?</span><span class="tossup"><em>Toss-up:</em> Which organelle carries out photosynthesis?</span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 Algebra · Review — lines, systems &amp; verbal models</strong><span class="optional-book"><em>Also OK:</em> OSA §2.2 · §4.1 · §5.8 · Lar Ch 7</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 7 · L4 (1–5)</strong><span class="focus"><em>Focus:</em> OOP adventure · algorithms · pathfinding</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 22</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 6 §6.1–6.5</strong> — Work &amp; Energy (part 1)<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 3–4 · Ch 12 Work and Machines · Ch 13 Forms of Energy · p91 · p129</span><span class="formulas"><em>Formulas:</em> W = Fd · KE = ½mv²</span><span class="focus"><em>Focus:</em> W = Fd · KE = ½mv² · energy conservation intro</span><span class="know"><em>Know:</em> 10 N × 4 m → work? · Double speed → KE factor?</span><span class="tossup"><em>Toss-up:</em> 10 N for 4 m — work done?</span></td><td class="alg study-cell"><strong>BFN-A — RRISD · Quadratic transformations · OSA §3.5 &amp; §5.1 · Ch 67–68</strong><span class="optional-book"><em>Also OK:</em> OSA §3.5 · §5.1 · Lar Ch 10</span><span class="focus"><em>Focus:</em> 1 hr algebra · RRISD exponentials · read assigned OSA § + Lar Ch 8</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 23</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 18–19 — The Mole · Finding Compositions in Compounds</strong> — Chemical Quantities<span class="optional-book"><em>Backup:</em> Hewitt Ch 19 §19.3–19.4 · Mod Ch 6 §6.1–6.2 · Tro Ch 6 · BFN-Sci · Unit 2 · Ch 8 Solutions and Fluids · Molarity intro · p59</span><span class="formulas"><em>Formulas:</em> mol · molar mass g/mol · n = m/M</span><span class="focus"><em>Focus:</em> mole · molar mass · Avogadro concept · percent composition intro</span><span class="know"><em>Know:</em> SI unit for amount? · H₂O molar mass ≈?</span><span class="tossup"><em>Toss-up:</em> SI unit for amount of substance?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — RRISD · Domain &amp; range · OSA §3.1 &amp; §3.2</strong><span class="optional-book"><em>Also OK:</em> OSA §3.1 · §3.2 · Lar Ch 1</span><span class="focus"><em>Focus:</em> 1 hr algebra · RRISD exponentials · read assigned OSA § + Lar Ch 8</span></td><td class="py study-cell"><strong>Journey wk 7 · L4 (1–5)</strong><span class="focus"><em>Focus:</em> OOP adventure · algorithms · pathfinding</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 24</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 2 — Cell Processes and Energy · §2.5 Cellular Respiration (~p62–67)</strong> — Cellular Respiration (part 2)<span class="optional-book"><em>Backup:</em> OSB Ch 5 · CB Ch 9 · BFN-Bio · Unit 3 · Ch 11 Photosynthesis · Ch 12 Cellular Respiration · p103</span><span class="formulas"><em>Formulas:</em> C₆H₁₂O₆ + 6O₂ → CO₂ + H₂O + ATP</span><span class="focus"><em>Focus:</em> mitochondria · aerobic respiration · compare to photosynthesis</span><span class="know"><em>Know:</em> Respiration organelle? · Gas consumed?</span><span class="tossup"><em>Toss-up:</em> Main site of aerobic respiration?</span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Plant structure · draw xylem/phloem path</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 8 -->
+<section class="week" id="week-8">
+  <div class="week-header">
+    <h2>Week 8 · Jul 27 – 31 · Plants & electricity</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 6 · Chem · Bio · Phys</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Jul 27</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 27 — Concentrations of Solutions</strong> — Molarity &amp; Dilution<span class="optional-book"><em>Backup:</em> Hewitt Ch 19 §19.3–19.5 · Mod Ch 12 § · Tro Ch 13 · BFN-Sci · Unit 2 · Ch 8 Solutions and Fluids · p59</span><span class="formulas"><em>Formulas:</em> M = mol/L · M₁V₁ = M₂V₂</span><span class="focus"><em>Focus:</em> M = mol/L · M₁V₁ = M₂V₂ · saturated · electrolytes</span><span class="know"><em>Know:</em> Add solvent — concentration? · Molarity unit?</span><span class="tossup"><em>Toss-up:</em> Adding solvent — concentration up or down?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — RRISD · Scatter plots &amp; linear regression · OSA §4.2 &amp; §4.3 · T270, T271</strong><span class="optional-book"><em>Also OK:</em> OSA §4.2 · §4.3 · Lar Ch 4</span><span class="focus"><em>Focus:</em> 1 hr algebra · RRISD exponentials · read assigned OSA § + Lar Ch 8</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 28</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 7 — Living Things · §7.3 The Six Kingdoms (~p225–235)</strong> — Population Ecology (part 2)<span class="optional-book"><em>Backup:</em> OSB Ch 20 · CB Ch 36 · BFN-Bio · Unit 12 · Ch 49 The Ecosystem · Ch 50 Populations · p483</span><span class="formulas"><em>Formulas:</em> carrying capacity · biotic vs abiotic</span><span class="focus"><em>Focus:</em> carrying capacity · logistic growth · succession</span><span class="know"><em>Know:</em> Max population term? · Sunlight biotic or abiotic?</span><span class="tossup"><em>Toss-up:</em> Term for max population environment supports?</span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — T275, T276, T277 · Ch 42–43 — Probability · Compound Events</strong><span class="optional-book"><em>Also OK:</em> OSA §13.7 · Lar Ch 13</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 8 · L4 (6–10)</strong><span class="focus"><em>Focus:</em> ML · weather API · L4 grad</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 29</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 7 §7.1–7.4 + §7.7</strong> — Gravity &amp; Projectiles<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 3–4 · Ch 12 Work and Machines · Ch 13 Forms of Energy · p91 · p129</span><span class="formulas"><em>Formulas:</em> W = mg · PE = mgh</span><span class="focus"><em>Focus:</em> W = mg · mass vs weight · PE = mgh · projectiles qualitatively</span><span class="know"><em>Know:</em> Moon — mass or weight changes? · Ball rises — PE?</span><span class="tossup"><em>Toss-up:</em> On Moon, mass, weight, or both different?</span></td><td class="alg study-cell"><strong>BFN-A — POT 6 — T278, T279, T280 · Ch 43 — Compound Events</strong><span class="optional-book"><em>Also OK:</em> OSA §13.7 · Lar Ch 13</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Jul 30</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 28–31 — Properties of Acids and Bases · pH Scale and Calculations · …</strong> — Neutralization<span class="optional-book"><em>Backup:</em> Hewitt Ch 21 §21.1–21.3 · Mod Ch 14 § · Tro Ch 14 · BFN-Sci · Unit 2 · Ch 6–8 Matter and Solutions · p59</span><span class="formulas"><em>Formulas:</em> HCl + NaOH → NaCl + H₂O</span><span class="focus"><em>Focus:</em> acid + base → salt + water · HCl + NaOH · titration concept</span><span class="know"><em>Know:</em> HCl + NaOH products? · pH 11 acid or base?</span><span class="tossup"><em>Toss-up:</em> Products of HCl + NaOH?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — MIX1</strong><span class="optional-book"><em>Also OK:</em> OSA §1.2 · §5.8 · §2.3 · Lar Ch 1–13</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 8 · L4 (6–10)</strong><span class="focus"><em>Focus:</em> ML · weather API · L4 grad</span></td><td>—</td></tr>
+    <tr><td class="date-col">Jul 31</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 8 — Viruses and Bacteria · §8.1 Bacteria (~p236–251) · §8.2 Viruses (~p252–267) · Heavy day — split or OSB backup</strong> — Bacteria &amp; Viruses<span class="optional-book"><em>Backup:</em> OSB Ch 13 · CB Ch 16 · BFN-Bio · Unit 4 · Ch 15 Bacteria · Ch 16 Viruses · Ch 18 Disease · p141</span><span class="formulas"><em>Formulas:</em> bacteria = prokaryote · antibiotic ≠ virus</span><span class="focus"><em>Focus:</em> prokaryote · antibiotic vs antiviral · vaccines intro</span><span class="know"><em>Know:</em> Antibiotic for virus? · Bacteria have nucleus?</span><span class="tossup"><em>Toss-up:</em> Can antibiotics treat viral infections?</span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Electricity + waves · V = IR and v = fλ toss-ups</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 9 -->
+<section class="week" id="week-9">
+  <div class="week-header">
+    <h2>Week 9 · Aug 3 – 7 · Magnetism · waves · body systems</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 7 · Chem · Bio · Phys</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Aug 3</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 20–21 — Chemical Reactions · Chemical Calculations</strong> — Reaction Types (deeper)<span class="optional-book"><em>Backup:</em> Hewitt Ch 20 §20.1–20.4 · Mod Ch 8 § · Tro Ch 7 · BFN-Sci · Unit 2 · Ch 6–8 Matter · Solutions · Chemical change · p59</span><span class="formulas"><em>Formulas:</em> A + B → AB · AB → A + B</span><span class="focus"><em>Focus:</em> synthesis · decomposition · combustion · balance harder</span><span class="know"><em>Know:</em> 2H₂O → 2H₂ + O₂ type? · Combustion needs?</span><span class="tossup"><em>Toss-up:</em> Classify 2H₂O → 2H₂ + O₂</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — RRISD · Exponential functions · OSA §6.1 · Ch 19, 49</strong><span class="optional-book"><em>Also OK:</em> OSA §6.1 · Lar Ch 8</span><span class="focus"><em>Focus:</em> 1 hr algebra · RRISD exponentials · read assigned OSA § + Lar Ch 8</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 4</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 21 — Fighting Disease · §21.1 The Body's Defenses (~p648–664)</strong> — Immune System<span class="optional-book"><em>Backup:</em> OSB Ch 17 · CB Ch 24 · BFN-Bio · Unit 4 · Ch 15 Bacteria · Ch 16 Viruses · Ch 18 Disease · p141</span><span class="formulas"><em>Formulas:</em> innate vs adaptive · memory cells</span><span class="focus"><em>Focus:</em> innate vs adaptive · B/T cells · memory · vaccines</span><span class="know"><em>Know:</em> Second infection milder why? · Innate barrier?</span><span class="tossup"><em>Toss-up:</em> Why is second infection often milder?</span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — RRISD · Graphing exponentials · OSA §6.2</strong><span class="optional-book"><em>Also OK:</em> OSA §6.2 · Lar Ch 8</span><span class="focus"><em>Focus:</em> 1 hr algebra · RRISD exponentials · read assigned OSA § + Lar Ch 8</span></td><td class="py study-cell"><strong>Journey wk 9 · Portfolio (1–5)</strong><span class="focus"><em>Focus:</em> calculator · adventure · algo viz</span></td><td>—</td></tr>
+    <tr><td class="date-col">Aug 5</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 9 §9.1–9.5</strong> — Heat &amp; Temperature<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 3 · Ch 10–11 Forces · Newton's laws · p91</span><span class="formulas"><em>Formulas:</em> heat flows hot → cold · K = °C + 273</span><span class="focus"><em>Focus:</em> thermal energy · temperature vs heat · specific heat · conduction</span><span class="know"><em>Know:</em> Heat vs temperature? · 25°C to K?</span><span class="tossup"><em>Toss-up:</em> Is heat the same as temperature?</span></td><td class="alg study-cell"><strong>BFN-A — RRISD · Logarithmic functions intro · OSA §6.3</strong><span class="optional-book"><em>Also OK:</em> OSA §6.3 · Lar Ch 8</span><span class="focus"><em>Focus:</em> 1 hr algebra · RRISD exponentials · read assigned OSA § + Lar Ch 8</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 6</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 12–13 — Periodic Trends · Electrons</strong> — Periodic Trends (deeper)<span class="optional-book"><em>Backup:</em> Hewitt Ch 17 §17.6–17.7 · Mod Ch 5 § · Tro Ch 9 · BFN-Sci · Unit 2 · Ch 7 Periodic Table and Atomic Structure · p59</span><span class="formulas"><em>Formulas:</em> radius ↓ across period · F most reactive halogen</span><span class="focus"><em>Focus:</em> ionization energy · electronegativity · halogen reactivity</span><span class="know"><em>Know:</em> Radius across period? · F or I more reactive?</span><span class="tossup"><em>Toss-up:</em> Atomic radius across period — increase or decrease?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 Algebra · App drills &amp; weak spots</strong><span class="optional-book"><em>Also OK:</em> OSA §2.1 · §6.1 · §13.7 · Lar Ch 1–13</span><span class="focus"><em>Focus:</em> 1 hr algebra · POT 6 app drills</span></td><td class="py study-cell"><strong>Journey wk 9 · Portfolio (1–5)</strong><span class="focus"><em>Focus:</em> calculator · adventure · algo viz</span></td><td>—</td></tr>
+    <tr><td class="date-col">Aug 7</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 10 — Introduction to Plants · §10.1 What Are Plants? (~p298–307) · §10.2 Roots, Stems, and Leaves (~p308–317)</strong> — Plant Structure (part 1)<span class="optional-book"><em>Backup:</em> OSB Ch 14 · CB Ch 31 · BFN-Bio · Unit 7–8 · Ch 26–29 Plants · Ch 30–35 Animals · p229</span><span class="formulas"><em>Formulas:</em> xylem · phloem · meristem</span><span class="focus"><em>Focus:</em> root · stem · leaf · meristem · Fri = Ch 15 transport</span><span class="know"><em>Know:</em> Water-up tissue? · Meristem function?</span><span class="tossup"><em>Toss-up:</em> Vascular tissue transporting water upward?</span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Mixed drill · 20 toss-ups all categories</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 10 -->
+<section class="week" id="week-10">
+  <div class="week-header">
+    <h2>Week 10 · Aug 10 – 14 · Summer capstone</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 8 · Chem · Bio · Phys</p>
+  <p class="pass-note">1-hr block: ~10 min recall → ~30 min read **assigned FLS/OSB sections only** (page estimate on bio cells — not the whole chapter) → ~10 min know cold → ~10 min toss-ups. Light capstone — review weak topics · Bio/Phys weeks 9–10 continue in calendar weeks 11–12 if needed.</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Aug 10</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 4–19 — Measurement · Finding Compositions in Compounds</strong> — Density &amp; Unit Analysis<span class="optional-book"><em>Backup:</em> Hewitt Ch 17 §17.4–17.5 · Mod Ch 2 § · Tro Ch 2 · BFN-Sci · Unit 1 · Ch 4–5 SI Units · Lab Safety and Scientific Tools · p1</span><span class="formulas"><em>Formulas:</em> d = m/V · K = °C + 273</span><span class="focus"><em>Focus:</em> d = m/V · sig figs · K = °C + 273 · percent error</span><span class="know"><em>Know:</em> Sig figs in 0.00450? · 25°C to K?</span><span class="tossup"><em>Toss-up:</em> Sig figs in 0.00450?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — RRISD · Log graphs, exp equations &amp; models · OSA §6.4 · §6.6 · §6.7</strong><span class="optional-book"><em>Also OK:</em> OSA §6.4 · §6.6 · §6.7 · Lar Ch 8</span><span class="focus"><em>Focus:</em> 1 hr algebra · RRISD exponentials · read assigned OSA § + Lar Ch 8</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 11</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 11 — Seed Plants · §11.1 Seed Plants (~p328–345)</strong> — Plant Transport (part 2)<span class="optional-book"><em>Backup:</em> OSB Ch 15 · CB Ch 31 · BFN-Bio · Unit 7–8 · Ch 26–29 Plants · Ch 30–35 Animals · p229</span><span class="formulas"><em>Formulas:</em> xylem · phloem · stomata</span><span class="focus"><em>Focus:</em> xylem up · phloem sugars · stomata · transpiration</span><span class="know"><em>Know:</em> Phloem transports? · Xylem direction?</span><span class="tossup"><em>Toss-up:</em> Vascular tissue for sugars in plants?</span></td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 — MIX2</strong><span class="optional-book"><em>Also OK:</em> OSA §1.2 · §5.8 · §2.3 · Lar Ch 1–13</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td class="py study-cell"><strong>Journey wk 10 · Portfolio (6–10)</strong><span class="focus"><em>Focus:</em> GUI lab · sprint · graduation</span></td><td>—</td></tr>
+    <tr><td class="date-col">Aug 12</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 10 §10.1–10.7 + §10.11</strong> — Electricity — Current<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 4 · Ch 16 Electricity and Magnetism · p129</span><span class="formulas"><em>Formulas:</em> V = IR · A · V · Ω</span><span class="focus"><em>Focus:</em> charge · V = IR · series vs parallel intro</span><span class="know"><em>Know:</em> SI unit of current? · More resistors in series?</span><span class="tossup"><em>Toss-up:</em> SI unit of electric current?</span></td><td class="alg study-cell"><strong>BFN-A — POT 6 — T290 · Ch 51 — Multiplying and Dividing Polynomials</strong><span class="optional-book"><em>Also OK:</em> OSA §6.1 · Lar Ch 9</span><span class="focus"><em>Focus:</em> 1 hr algebra · read assigned BFN chapter(s)</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 13</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 6–7 — Properties of Matter and Changes in Form · States of Matter</strong> — Heating Curves<span class="optional-book"><em>Backup:</em> Hewitt Ch 17 §17.3–17.5 · Mod Ch 10 § · Tro Ch 3 · BFN-Sci · Unit 2 · Ch 6 Matter, Properties, and Phases · p59</span><span class="formulas"><em>Formulas:</em> heating curve plateau</span><span class="focus"><em>Focus:</em> phase diagrams · plateau = phase change · physical vs chemical</span><span class="know"><em>Know:</em> Plateau meaning? · Melting ice physical or chemical?</span><span class="tossup"><em>Toss-up:</em> Flat plateau on heating curve?</span></td><td>—</td><td>—</td><td class="alg study-cell"><strong>BFN-A — POT 6 · Weak spots &amp; app drills</strong><span class="optional-book"><em>Also OK:</em> OSA §1.2 · §5.8 · §2.3 · §6.1 · Lar Ch 1–13</span><span class="focus"><em>Focus:</em> 1 hr algebra · POT 6 app drills</span></td><td class="py study-cell"><strong>Journey wk 10 · Portfolio (6–10)</strong><span class="focus"><em>Focus:</em> GUI lab · sprint · graduation</span></td><td>—</td></tr>
+    <tr><td class="date-col">Aug 14</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 17 — Bones, Muscles, and Skin · §17.1 Bones and Muscles (~p530–544)</strong> — Animal Tissues<span class="optional-book"><em>Backup:</em> OSB Ch 18 · CB Ch 20 · BFN-Bio · Unit 7–8 · Ch 26–29 Plants · Ch 30–35 Animals · p229</span><span class="formulas"><em>Formulas:</em> tissue types</span><span class="focus"><em>Focus:</em> epithelial · muscle · nervous · connective</span><span class="know"><em>Know:</em> Contracting tissue? · Signal tissue?</span><span class="tossup"><em>Toss-up:</em> Tissue specialized for contraction?</span></td><td>—</td><td class="free">Free block</td><td>—</td><td class="review">Final summer mock · 25 toss-ups · list 3 topics for school meetings</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 11 -->
+<section class="week" id="week-11">
+  <div class="week-header">
+    <h2>Week 11 · Aug 17 – 21 · Bio/Phys week 9</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 9 · Chem · Bio · Phys — <em>after Aug 14</em></p>
+  <p class="pass-note">Finish remaining chem/bio/phys curriculum weeks (Week 9–10).</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Aug 17</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Ch 9–10 — Atomic Theory · Waves, Quantum Theory, and Photons</strong> — Isotopes &amp; Avg Atomic Mass<span class="optional-book"><em>Backup:</em> Hewitt Ch 17 §17.2–17.3 · Mod Ch 3 § · Tro Ch 4 · BFN-Sci · Unit 2 · Ch 7 Periodic Table, Atomic Structure, and Compounds · p59</span><span class="formulas"><em>Formulas:</em> Z · A · isotopes</span><span class="focus"><em>Focus:</em> isotopes · average atomic mass · nuclear notation</span><span class="know"><em>Know:</em> Isotopes differ in? · C-12 electrons?</span><span class="tossup"><em>Toss-up:</em> Isotopes differ in which particle?</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 18</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 3 — Genetics: The Science of Heredity · §3.1 Genetics: The Science of Heredity (~p68–77) · §3.2 Traits and Inheritance (~p78–88)</strong> — Cell Reproduction (intro)<span class="optional-book"><em>Backup:</em> OSB Ch 6 · CB Ch 8 · BFN-Bio · Unit 3 · Ch 9 Cell Structure and Function · p84</span><span class="formulas"><em>Formulas:</em> mitosis → 2 cells</span><span class="focus"><em>Focus:</em> mitosis overview · diploid vs haploid intro</span><span class="know"><em>Know:</em> Mitosis produces how many? · Used for growth?</span><span class="tossup"><em>Toss-up:</em> Daughter cells from one mitosis?</span></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 19</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 11 §11.1–11.5 + Ch 12 §12.1–12.6</strong> — Magnetism &amp; Waves<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 4 · Ch 15 Light and Sound · Ch 16 Electricity and Magnetism · p129</span><span class="formulas"><em>Formulas:</em> v = fλ · like poles repel</span><span class="focus"><em>Focus:</em> magnetic poles · v = fλ · reflection · refraction</span><span class="know"><em>Know:</em> Higher pitch → frequency? · Like poles?</span><span class="tossup"><em>Toss-up:</em> Do like magnetic poles attract or repel?</span></td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 20</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Ch 16–17 — Metallic Bonds and Intramolecular Forces · Naming Substances</strong> — Ions &amp; Ionic Compounds<span class="optional-book"><em>Backup:</em> Hewitt Ch 18 §18.2–18.4 · Mod Ch 5 + Ch 7 · Tro Ch 4–5 · BFN-Sci · Unit 2 · Ch 7 Atomic Structure and Compounds · p59</span><span class="formulas"><em>Formulas:</em> cation · anion · NaCl</span><span class="focus"><em>Focus:</em> Na⁺ Cl⁻ Ca²⁺ O²⁻ · polyatomic ions · formulas</span><span class="know"><em>Know:</em> Oxide ion charge? · Na ion?</span><span class="tossup"><em>Toss-up:</em> Charge on oxide ion?</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 21</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Ch 18 — Food and Digestion · §18.1 Food and Energy (~p560–575) · Ch 19 — Circulation · §19.1 The Circulatory System (~p592–606) · Heavy day — split or OSB backup</strong> — Digestive &amp; Circulatory<span class="optional-book"><em>Backup:</em> OSB Ch 16 § · CB Ch 21–23 · BFN-Bio · Unit 9 · Ch 36 Body Systems · Ch 40 Respiratory/Circulatory · Ch 41 Digestive · p325</span><span class="formulas"><em>Formulas:</em> small intestine · artery · vein</span><span class="focus"><em>Focus:</em> small intestine absorption · heart · alveoli</span><span class="know"><em>Know:</em> Most absorption where? · Veins toward heart?</span><span class="tossup"><em>Toss-up:</em> Most nutrient absorption organ?</span></td><td>—</td><td>—</td><td>—</td><td class="review">Bio/Phys week 9 — timed drill · log weak topics</td></tr>
+  </table>
+</section>
+
+<!-- WEEK 12 -->
+<section class="week" id="week-12">
+  <div class="week-header">
+    <h2>Week 12 · Aug 24 – 28 · Bio/Phys week 10 · finish</h2>
+    <div class="week-meta"><span class="pass-tag">SUMMER · ONE PASS</span><br>BFN-C + FLS + assigned chapters</div>
+  </div>
+  <p class="split-track" style="background:#fff3cd;border:1px solid #e6c200;padding:0.1in 0.15in;margin:0 0 0.12in;font-size:9pt;"><strong>Split track:</strong> Week 10 · Chem · Bio · Phys — <em>after Aug 14</em></p>
+  <p class="pass-note">Finish remaining chem/bio/phys curriculum weeks (Week 9–10).</p>
+  <table>
+    <tr><th>Date</th><th>Day</th><th>Chemistry · BFN-C (+ Hewitt/Mod backup)</th><th>Biology · FLS</th><th>Physics · Hewitt</th><th>Algebra · OSA (+ Lar backup)</th><th>Python · Coach<br><span style="font-weight:normal;text-transform:none">Tue/Thu 4:45–5:15</span></th><th>Fri review</th></tr>
+    <tr><td class="date-col">Aug 24</td><td class="day-col">Mon</td><td class="chem study-cell"><strong>BFN-C — Units 1–6 · Check Your Knowledge</strong> — Chemistry capstone<span class="optional-book"><em>Backup:</em> Hewitt Review · Mod Review · Tro if stuck · BFN-Sci · Unit 2 · Ch 7 Periodic Table, Atomic Structure, and Compounds · p59</span><span class="formulas"><em>Formulas:</em> Z · pH · balance · M = mol/L</span><span class="focus"><em>Focus:</em> pick 2 weak BFN-C chem topics · know-cold · 8 toss-ups · Mod/Tro/BFN if stuck</span><span class="know"><em>Know:</em> pH water? · Symbol K?</span><span class="tossup"><em>Toss-up:</em> pH of neutral solution?</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 25</td><td class="day-col">Tue</td><td>—</td><td class="bio study-cell"><strong>FLS Review</strong> — Biology capstone<span class="optional-book"><em>Backup:</em> OSB Review · CB · BFN-Bio · BFN-Bio · Unit 3 · Ch 9 Cell Structure and Function · p84</span><span class="formulas"><em>Formulas:</em> ATP · Punnett · symbiosis</span><span class="focus"><em>Focus:</em> organelles · genetics · ecology · immunity · weak areas</span><span class="know"><em>Know:</em> ATP organelle? · Tt×Tt ratio?</span><span class="tossup"><em>Toss-up:</em> Organelle producing most ATP?</span></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 26</td><td class="day-col">Wed</td><td>—</td><td>—</td><td class="phys study-cell"><strong>Hewitt Ch 13 §13.1 + §13.3–13.4</strong> — Light &amp; Reflection<span class="optional-book"><em>Backup:</em> BFN-Sci · Unit 4 · Ch 16 Electricity and Magnetism · p129</span><span class="formulas"><em>Formulas:</em> v = fλ · red lower f than violet</span><span class="focus"><em>Focus:</em> EM spectrum · ROYGBIV · reflection · refraction</span><span class="know"><em>Know:</em> Red or violet lower f? · PE converts to when falling?</span><span class="tossup"><em>Toss-up:</em> Red or violet — lower frequency in visible light?</span></td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 27</td><td class="day-col">Thu</td><td class="chem study-cell"><strong>BFN-C — Units 7–10 · Check Your Knowledge</strong> — Lab &amp; periodic table<span class="optional-book"><em>Backup:</em> Hewitt Review · Mod Review · Tro if stuck · BFN-Sci · Unit 1 · Ch 4–5 SI Units · Lab Safety and Scientific Tools · p1</span><span class="formulas"><em>Formulas:</em> kg · m · s · meniscus</span><span class="focus"><em>Focus:</em> SI · sig figs · first 20 elements · safety</span><span class="know"><em>Know:</em> SI mass unit? · Precise volume glassware?</span><span class="tossup"><em>Toss-up:</em> SI base unit for mass?</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="date-col">Aug 28</td><td class="day-col">Fri</td><td>—</td><td class="bio study-cell"><strong>FLS Review</strong> — Final bio check<span class="optional-book"><em>Backup:</em> OSB Review · BFN-Bio · BFN-Bio · Unit 12 · Ch 49 The Ecosystem · Ch 50 Populations · p483</span><span class="formulas"><em>Formulas:</em> producer · xylem · antibody</span><span class="focus"><em>Focus:</em> mock toss-ups · list 3 topics for school meetings</span><span class="know"><em>Know:</em> Three symbiosis types? · Photosynthesis gas?</span><span class="tossup"><em>Toss-up:</em> Three types of symbiosis?</span></td><td>—</td><td>—</td><td>—</td><td class="review">Bio/Phys week 10 — final mock before school rhythm</td></tr>
+  </table>
+</section>
+
+
+<!-- MASTER INDEX 1 -->
+<section class="week index-page">
+  <div class="week-header">
+    <h2>Master chapter index (1 of 2)</h2>
+    <div class="week-meta">Biology · Chemistry</div>
+  </div>
+  <div class="index-grid">
+    <div>
+      <h3>Focus on Life Science (FLS) — primary</h3>
+      <table>
+        <tr><th>Ch</th><th>Title</th><th>Weeks</th></tr>
+        <tr><td>1</td><td>Cell Structure and Function</td><td>1, 5, 9</td></tr>
+        <tr><td>2</td><td>From a Cell to an Organism</td><td>1, 3, 4, 9, 10</td></tr>
+        <tr><td>4</td><td>Genetics</td><td>2, 7, 10</td></tr>
+        <tr><td>5</td><td>The Process of Evolution</td><td>4</td></tr>
+        <tr><td>6</td><td>Evolution—Evidence of Change</td><td>4</td></tr>
+        <tr><td>9</td><td>The Musculoskeletal System</td><td>2, 7</td></tr>
+        <tr><td>10</td><td>The Cardiopulmonary System</td><td>2, 7</td></tr>
+      </table>
+      <h3>Campbell Biology (CB) — backup</h3>
+      <table>
+        <tr><th>Ch</th><th>Title</th><th>Weeks</th></tr>
+        <tr><td>4</td><td>A Tour of the Cell</td><td>5, 9</td></tr>
+        <tr><td>6–7</td><td>Cellular Energy · Photosynthesis</td><td>5, 9</td></tr>
+        <tr><td>9</td><td>Patterns of Inheritance</td><td>6, 10</td></tr>
+        <tr><td>13–14</td><td>How Populations Evolve · Origin of Species</td><td>8, 10</td></tr>
+        <tr><td>16</td><td>Microbial Life</td><td>3, 7, 10</td></tr>
+        <tr><td>20</td><td>Unifying Concepts of Animal Structure</td><td>8</td></tr>
+        <tr><td>21–23</td><td>Digestion · Gas Exchange · Circulation</td><td>6, 7</td></tr>
+        <tr><td>24</td><td>The Immune System</td><td>3, 7, 10</td></tr>
+        <tr><td>31</td><td>Plant Structure, Growth, and Reproduction</td><td>4, 8</td></tr>
+        <tr><td>36–37</td><td>Population Ecology · Communities &amp; Ecosystems</td><td>3, 7, 10</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Big Fat Notebook: High School Chemistry (BFN-C) — primary chem</h3>
+      <table>
+        <tr><th>Unit</th><th>Chapters</th><th>Summer weeks</th></tr>
+        <tr><td>1 Basics</td><td>4–5 Measurement · Lab safety</td><td>4 Thu</td></tr>
+        <tr><td>2 Matter</td><td>6–8 Atoms · states</td><td>1 Mon · 4 Mon · 8 Thu</td></tr>
+        <tr><td>3 Atomic theory</td><td>9–10</td><td>1 Mon · 2 Mon · 9 Mon</td></tr>
+        <tr><td>4 Periodic table</td><td>11–13</td><td>1 Thu · 7 Thu</td></tr>
+        <tr><td>5 Bonding</td><td>14–16</td><td>2 Thu · 5 Mon · 9 Thu</td></tr>
+        <tr><td>6 Compounds</td><td>18–19 Mole</td><td>5 Thu · 8 Mon</td></tr>
+        <tr><td>7 Reactions</td><td>20–21</td><td>3 Thu · 7 Mon</td></tr>
+        <tr><td>9 Solutions</td><td>25–27</td><td>3 Mon · 6 Mon</td></tr>
+        <tr><td>10 Acids/bases</td><td>28–31</td><td>6 Thu</td></tr>
+      </table>
+      <h3>Conceptual Physical Science Explorations (Hewitt) — backup chem</h3>
+      <table>
+        <tr><th>Ch</th><th>Title</th><th>Weeks</th></tr>
+        <tr><td>15</td><td>The Atom</td><td>2</td></tr>
+        <tr><td>17</td><td>Elements of Chemistry</td><td>1, 4, 8–10</td></tr>
+        <tr><td>18</td><td>How Atoms Bond and Molecules Attract</td><td>2, 5, 9</td></tr>
+        <tr><td>19</td><td>How Chemicals Mix</td><td>3, 6</td></tr>
+        <tr><td>20</td><td>How Chemicals React</td><td>3, 7</td></tr>
+        <tr><td>21</td><td>Two Types of Chemical Reactions</td><td>6</td></tr>
+      </table>
+
+      <h3>Modern Chemistry (Mod) — backup</h3>
+      <table>
+        <tr><th>Ch</th><th>Title</th><th>Weeks</th></tr>
+        <tr><td>2</td><td>Measurements and Calculations</td><td>4</td></tr>
+        <tr><td>3</td><td>Atoms: The Building Blocks of Matter</td><td>1, 5, 9</td></tr>
+        <tr><td>4</td><td>Arrangement of Electrons in Atoms</td><td>4</td></tr>
+        <tr><td>5</td><td>The Periodic Law</td><td>1, 4, 5, 9</td></tr>
+        <tr><td>7</td><td>Chemical Formulas and Compounds</td><td>1, 5</td></tr>
+        <tr><td>8</td><td>Chemical Equations and Reactions</td><td>2, 6, 10</td></tr>
+        <tr><td>10</td><td>States of Matter</td><td>2</td></tr>
+        <tr><td>12</td><td>Solutions</td><td>3, 7, 10</td></tr>
+        <tr><td>14</td><td>Acids and Bases</td><td>3, 7, 10</td></tr>
+      </table>
+      <h3>Introductory Chemistry (Tro) — backup</h3>
+      <table>
+        <tr><th>Ch</th><th>Title</th><th>Weeks</th></tr>
+        <tr><td>2</td><td>Measurement and Problem Solving</td><td>8, 10</td></tr>
+        <tr><td>3</td><td>Matter and Energy</td><td>6, 9</td></tr>
+        <tr><td>4–5</td><td>Atoms · Molecules &amp; Compounds</td><td>5, 9</td></tr>
+        <tr><td>7</td><td>Chemical Reactions</td><td>6, 9</td></tr>
+        <tr><td>9</td><td>Electrons &amp; Periodic Table (trends)</td><td>8, 10</td></tr>
+        <tr><td>13</td><td>Solutions</td><td>7, 10</td></tr>
+        <tr><td>14</td><td>Acids and Bases</td><td>7, 10</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MASTER INDEX 2 -->
+<section class="week index-page">
+  <div class="week-header">
+    <h2>Master chapter index (2 of 2)</h2>
+    <div class="week-meta">Physics · Algebra</div>
+  </div>
+  <div class="index-grid">
+    <div>
+      <h3>Conceptual Physical Science Explorations (Hewitt) — primary physics</h3>
+      <table style="font-size:8pt">
+        <tr><th>Ch</th><th>Title</th><th>What you learn</th><th>Weeks</th></tr>
+        <tr><td>1</td><td>About Science</td><td>Scientific method · SI units · hypothesis vs theory</td><td>1, 5, 9</td></tr>
+        <tr><td>App. B</td><td>Linear and Rotational Motion</td><td>Speed vs velocity · v = d/t · d-t graphs</td><td>1, 5, 9</td></tr>
+        <tr><td>2–4</td><td>Newton’s First · Second · Third Law</td><td>Inertia · F = ma · friction · action-reaction</td><td>2, 6</td></tr>
+        <tr><td>5</td><td>Momentum</td><td>p = mv · impulse · conservation · collisions</td><td>6 (wk 6–7)</td></tr>
+        <tr><td>6</td><td>Energy</td><td>W = Fd · power · KE/PE · machines · efficiency</td><td>3, 7, 10</td></tr>
+        <tr><td>7</td><td>Gravity, Projectiles and Satellite Motion</td><td>Weight = mg · projectiles · orbits</td><td>7 (wk 6–7)</td></tr>
+        <tr><td>10</td><td>Electricity</td><td>V = IR · current · series/parallel</td><td>4, 8</td></tr>
+        <tr><td>12</td><td>Waves and Sound</td><td>λ · f · v = fλ · reflection · sound</td><td>4, 8</td></tr>
+        <tr><td>13</td><td>Light, Reflection, and Color</td><td>EM spectrum · refraction · color · ROYGBIV</td><td>4, 8</td></tr>
+        <tr><td>14</td><td>Properties of Light</td><td>Dispersion · lenses · diffraction</td><td>8 stretch</td></tr>
+      </table>
+      <h3 style="margin-top:0.15in">Expl chemistry (optional Mon/Thu)</h3>
+      <table style="font-size:8pt">
+        <tr><th>Ch</th><th>Title</th><th>Weeks</th></tr>
+        <tr><td>17</td><td>Elements of Chemistry</td><td>1 Mon, 1 Thu, 2 Mon, 4 Thu</td></tr>
+        <tr><td>18</td><td>How Atoms Bond</td><td>1 Thu, 4 Mon</td></tr>
+        <tr><td>19</td><td>How Chemicals Mix</td><td>2 Mon, 3 Thu</td></tr>
+        <tr><td>20–21</td><td>Reactions</td><td>2 Thu, 3 Mon</td></tr>
+        <tr><td>22</td><td>Organic *(stretch)*</td><td>4 Fri review</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Larson Algebra 1 (Lar) — 2011 ed.</h3>
+      <table>
+        <tr><th>Ch</th><th>Title</th><th>Weeks</th></tr>
+        <tr><td>1</td><td>Expressions, Equations, and Functions</td><td>1, 5, 9</td></tr>
+        <tr><td>2</td><td>Properties of Real Numbers</td><td>1–10</td></tr>
+        <tr><td>3</td><td>Solving Linear Equations</td><td>2–4, 6–8, 9–10</td></tr>
+        <tr><td>4</td><td>Graphing Linear Equations and Functions</td><td>1, 3, 5, 7, 9, 10</td></tr>
+        <tr><td>8</td><td>Exponents and Exponential Functions</td><td>2, 6</td></tr>
+        <tr><td>11</td><td>Radicals and Geometry Connections</td><td>8</td></tr>
+        <tr><td>13</td><td>Probability and Data Analysis</td><td>4, 8</td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="footer">Daily times → weekly-timetable.md · Full Focus detail → summer-2026-calendar.md · Study method → science-bowl-prep.md</p>
+</section>
+
+</body>
+</html>

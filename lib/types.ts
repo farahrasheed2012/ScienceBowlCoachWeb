@@ -1,0 +1,111 @@
+export type Subject = "biology" | "chemistry" | "physics" | "math";
+export type Weekday = "monday" | "tuesday" | "wednesday" | "thursday" | "friday";
+export type Appearance = "dark" | "warmLight" | "system";
+export type SpeechRate = "slow" | "normal" | "fast";
+export type FlashPace = "normal" | "quick" | "longTerm";
+export type ReviewStage = "new" | "learning" | "review" | "mastered";
+
+export type StudyBlock = {
+  id: string;
+  week: number;
+  day: Weekday;
+  subject: Subject;
+  bookCode: string;
+  chapter: string;
+  chapterTitle: string;
+  pass2BookCode: string | null;
+  pass2Chapter: string | null;
+  pass2ChapterTitle: string | null;
+  backupBookLine: string | null;
+  focus: string;
+  formulasAndTerms: string;
+  knowCold: string[];
+  topic: string;
+  sampleTossups: { question: string; answer: string }[];
+};
+
+export type EncyclopediaTopic = {
+  id: string;
+  subject: string;
+  title: string;
+  whatIsIt: string;
+  howItWorks: string;
+  realWorldExample: string;
+  keyTerms: { term: string; definition: string }[];
+  nsbTraps: string[];
+  didYouKnow: string[];
+  relatedTopics: string[];
+};
+
+export type EncyclopediaQuestion = {
+  id: string;
+  subject: string;
+  subtopic: string;
+  type: string;
+  questionText: string;
+  answerChoices?: Record<string, string>;
+  correctAnswer: string;
+  difficulty: string;
+  topicId: string;
+};
+
+export type DoeQuestion = {
+  id: string;
+  setNumber?: number;
+  roundNumber?: number;
+  questionNumber?: number;
+  category: string;
+  questionType: string;
+  format: string;
+  questionText: string;
+  choices?: string[];
+  answer: string;
+  sourceFile?: string;
+  sourceYear?: number;
+};
+
+export type PlayQuestion = {
+  id: string;
+  source: string;
+  category: string;
+  type: string;
+  format: "multipleChoice" | "shortAnswer";
+  topic: string;
+  questionText: string;
+  choices: { key: string; text: string }[];
+  answer: string;
+  topicId?: string;
+};
+
+export type DrillResult = {
+  id: string;
+  questionId: string;
+  topic: string;
+  subject: Subject | string;
+  correct: boolean;
+  at: string;
+};
+
+export type FlashCard = {
+  id: string;
+  subject: string;
+  topic: string;
+  prompt: string;
+  answer: string;
+  stage: ReviewStage;
+  due: string;
+};
+
+export type ChecklistItem = {
+  id: string;
+  subject: Subject;
+  category: string;
+  description: string;
+  completed: boolean;
+};
+
+export type NotebookEntry = {
+  id: string;
+  text: string;
+  at: string;
+};

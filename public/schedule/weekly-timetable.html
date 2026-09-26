@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weekly Timetable — Mon–Sat</title>
+  <style>
+    @page overview {
+      size: portrait;
+      margin: 0.45in;
+    }
+
+    @page weekdays-pair {
+      size: landscape;
+      margin: 0.3in;
+    }
+
+    @page friday {
+      size: portrait;
+      margin: 0.45in;
+    }
+
+    @page saturday {
+      size: portrait;
+      margin: 0.45in;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.35;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+
+    .screen-only {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-bottom: 3px solid #333;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+
+    .screen-only h1 { margin-top: 0; font-size: 1.4rem; }
+    .screen-only ol { margin: 0.5rem 0 0 1.2rem; }
+
+    .page {
+      page-break-after: always;
+      break-after: page;
+      padding: 0.08in 0;
+    }
+
+    .page:last-child { page-break-after: auto; }
+
+    .page-overview { page: overview; }
+    .page-weekdays-pair { page: weekdays-pair; }
+    .page-friday { page: friday; }
+    .page-saturday { page: saturday; }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 3px solid #111;
+      padding-bottom: 0.12in;
+      margin-bottom: 0.14in;
+    }
+
+    .page-header h2 {
+      margin: 0;
+      font-size: 22pt;
+      letter-spacing: -0.02em;
+    }
+
+    .page-weekdays-pair .page-header h2 { font-size: 18pt; }
+    .page-friday .page-header h2 { font-size: 22pt; }
+
+    .page-meta {
+      text-align: right;
+      font-size: 9.5pt;
+      max-width: 45%;
+    }
+
+    .page-weekdays-pair .page-meta { font-size: 8.5pt; max-width: 55%; }
+
+    .rules-bar {
+      background: #f0f0f0;
+      border: 2px solid #111;
+      padding: 0.35em 0.5em;
+      font-size: 9pt;
+      margin-bottom: 0.18in;
+      line-height: 1.45;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      background: #eee;
+      border: 2px solid #111;
+      padding: 0.35em 0.5em;
+      text-align: left;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      border: 1.5px solid #333;
+      padding: 0.38em 0.5em;
+      vertical-align: top;
+    }
+
+    .anchor { background: #e8e8e8; font-weight: 600; }
+    .meal   { background: #fff8e7; }
+    .exercise { background: #fdebd0; }
+    .music  { background: #fdebd0; }
+    .chem   { background: #fef9e7; font-weight: 600; }
+    .bio    { background: #eafaf1; font-weight: 600; }
+    .phys   { background: #ebf5fb; font-weight: 600; }
+    .alg    { background: #f4ecf7; font-weight: 600; }
+    .read   { background: #eaf2f8; }
+    .craft  { background: #f5eef8; }
+    .free-block { background: #d5f5e3; font-weight: 600; }
+    .free   { background: #fafafa; color: #444; }
+    .chore  { background: #fdedec; font-weight: 600; }
+    .plan   { background: #fdedec; font-weight: 600; }
+    .wind   { background: #eaecee; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.25in;
+    }
+
+    .tips {
+      font-size: 9pt;
+      margin: 0.15in 0 0 0;
+      padding-left: 1.1em;
+      columns: 2;
+      column-gap: 0.3in;
+    }
+
+    .tips li { margin-bottom: 0.25em; break-inside: avoid; }
+
+    .footer {
+      margin-top: 0.15in;
+      font-size: 7pt;
+      color: #444;
+      border-top: 1px solid #999;
+      padding-top: 0.08in;
+      line-height: 1.35;
+    }
+
+    .overview-table { font-size: 9pt; }
+    .overview-table td { padding: 0.28em 0.4em; }
+
+    /* —— Weekday pair pages (Mon–Tue, Wed–Thu) —— */
+    .week-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.2in;
+      align-items: start;
+    }
+
+    .day-block {
+      min-width: 0;
+      border: 2px solid #111;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .day-head {
+      background: #111;
+      color: #fff;
+      padding: 0.2em 0.35em 0.25em;
+      line-height: 1.25;
+    }
+
+    .day-head strong {
+      display: block;
+      font-size: 12pt;
+      letter-spacing: 0.03em;
+    }
+
+    .day-head em {
+      display: block;
+      font-size: 9pt;
+      font-style: italic;
+      opacity: 0.92;
+      margin-top: 0.15em;
+    }
+
+    .day-head span {
+      display: block;
+      font-size: 8pt;
+      font-weight: normal;
+      opacity: 0.9;
+      margin-top: 0.2em;
+      line-height: 1.35;
+    }
+
+    .day-table {
+      font-size: 9pt;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .day-table td {
+      border: 1px solid #666;
+      padding: 0.28em 0.35em;
+      vertical-align: top;
+    }
+
+    .day-table .t {
+      font-weight: 600;
+      white-space: nowrap;
+      width: 30%;
+      font-variant-numeric: tabular-nums;
+      font-size: 8.5pt;
+    }
+
+    .day-table .a { font-size: 9pt; }
+
+    .day-foot {
+      font-size: 8pt;
+      padding: 0.35em 0.45em;
+      background: #f5f5f5;
+      border-top: 1px solid #999;
+      line-height: 1.35;
+    }
+
+    .friday-table { font-size: 10.5pt; }
+    .friday-table td { padding: 0.38em 0.5em; }
+
+    td.time-col {
+      font-weight: 600;
+      white-space: nowrap;
+      width: 6.5em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media print {
+      .screen-only { display: none !important; }
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- OVERVIEW -->
+<section class="page page-overview">
+  <div class="page-header">
+    <h2>Weekly timetable</h2>
+    <div class="page-meta">Soha · Mon–Sat<br>Wake <strong>9:00</strong> · Bed <strong>10:00</strong><br>Summer Jun 8 – Aug 14</div>
+  </div>
+  <div class="rules-bar">
+    <strong>Every day:</strong> Exercise 15 min · Clarinet 30 min · Guitar 10 min · Reading 15 min · Crochet 15 min ·
+    1 hr study Mon–Thu (30 min Algebra + 30 min science) · Fri science + free block · Dinner 7:00 PM ·
+    <strong>2:00–3:00 PM always free</strong> · Exercise 30 min after any eating · Shower Mon / Thu / Sat afternoons only
+  </div>
+
+  <div class="two-col">
+    <div>
+      <table class="overview-table">
+        <tr><th colspan="3">Every day includes</th></tr>
+        <tr><td>Get ready</td><td>30 min</td><td>Dress, brush teeth, make bed — <strong>always first</strong></td></tr>
+        <tr><td>Breakfast</td><td>30 min</td><td>Eat — no screens if you can — <strong>always second</strong></td></tr>
+        <tr><td>Exercise</td><td>15 min</td><td><strong>30 min after any eating</strong> — meals or snacks</td></tr>
+        <tr><td>Break after eating</td><td>20–30 min</td><td><strong>Before clarinet</strong> when it follows breakfast</td></tr>
+        <tr><td>Clarinet</td><td>30 min</td><td>Daily practice</td></tr>
+        <tr><td>Snack</td><td>15 min</td><td><strong>After clarinet or guitar</strong></td></tr>
+        <tr><td>Guitar</td><td>10 min</td><td>Daily practice</td></tr>
+        <tr><td>Algebra 1</td><td>30 min</td><td>Mon–Thu (Fri = free block 3:45–4:15)</td></tr>
+        <tr><td>Break between subjects</td><td>15 min</td><td>Never study two subjects back-to-back</td></tr>
+        <tr><td>Science</td><td>30 min</td><td>Chemistry, Biology, or Physics — see <strong>book picker</strong> below</td></tr>
+        <tr><td>Lunch</td><td>30 min</td><td>Eat &amp; short break</td></tr>
+        <tr><td>Dinner</td><td>7:00–7:30</td><td>Eat with family when possible</td></tr>
+        <tr><td>Reading</td><td>15 min</td><td>Any book — not school textbooks</td></tr>
+        <tr><td>Crochet</td><td>15 min</td><td>Every day</td></tr>
+        <tr><td>Free time</td><td>2:00–3:00</td><td><strong>Always — no activities scheduled</strong></td></tr>
+        <tr><td>Get ready for bed</td><td>30 min</td><td>PJs, wash up, set out clothes, wind down</td></tr>
+      </table>
+    </div>
+    <div>
+      <table class="overview-table">
+        <tr><th colspan="4">Study rotation</th></tr>
+        <tr><th>Day</th><th>Algebra 1</th><th>Science</th><th>When</th></tr>
+        <tr><td><strong>Mon</strong></td><td>10:45–11:15</td><td>Chemistry 10:00–10:30</td><td>Morning</td></tr>
+        <tr><td><strong>Tue</strong></td><td>11:00–11:30</td><td>Biology 10:00–10:30</td><td>Morning</td></tr>
+        <tr><td><strong>Wed</strong></td><td>1:15–1:45</td><td>Physics 3:00–3:30</td><td>Split (before &amp; after 2:00)</td></tr>
+        <tr><td><strong>Thu</strong></td><td>11:45–12:15</td><td>Chemistry 11:00–11:30</td><td>Late morning</td></tr>
+        <tr><td><strong>Fri</strong></td><td>— <em>(free block 3:45–4:15)</em></td><td>Biology 3:00–3:30</td><td>Afternoon</td></tr>
+      </table>
+      <table class="overview-table" style="margin-top:0.12in;font-size:8pt">
+        <tr><th colspan="4">Pick your book — Soha</th></tr>
+        <tr><th>When</th><th>Primary</th><th>Also OK</th><th>Backup</th></tr>
+        <tr><td>Mon/Thu Chem</td><td><strong>Mod</strong> (Jun) · <strong>Tro</strong> (Jul)</td><td><strong>Expl</strong> Ch 17–24 opt</td><td><strong>BFN-Sci</strong></td></tr>
+        <tr><td>Tue/Fri Bio</td><td><strong>FLS</strong> · <strong>CB</strong></td><td>—</td><td><strong>BFN-Bio</strong></td></tr>
+        <tr><td>Wed Phys</td><td><strong>Expl</strong></td><td>—</td><td><strong>BFN-Sci</strong></td></tr>
+        <tr><td>Mon–Thu Algebra</td><td><strong>Lar</strong></td><td>—</td><td><strong>BFN-A</strong></td></tr>
+      </table>
+      <p style="font-size:7.5pt;margin:0.08in 0 0"><strong>All books on shelf:</strong> FLS · CB · Mod · Tro · Expl · Lar · BFN-A · BFN-Bio · BFN-Sci · ExplLab *(optional Wed labs)*</p>
+      <p style="font-size:7.5pt;margin:0.04in 0 0">Chapters each day → <strong>summer-2026-calendar.md</strong> · chem map → <strong>science-bowl-prep.md</strong></p>
+      <p style="font-size:7.5pt;margin:0.04in 0 0"><strong>Optional Python Coach:</strong> Tue &amp; Thu <strong>4:45–5:15 PM</strong> · 30 min · <strong>10-week</strong> one summer pass (Jun 8 – Aug 14) · Mac app <strong>Soha Python Coach</strong></p>
+      <table class="overview-table" style="margin-top:0.12in">
+        <tr><th colspan="6">At a glance</th></tr>
+        <tr><th>Day</th><th>Exercise</th><th>Clarinet</th><th>Guitar</th><th>Reading</th><th>Shower</th></tr>
+        <tr><td><strong>Mon</strong></td><td>11:30 AM</td><td>3:00 PM</td><td>12:15 PM</td><td>11:15 AM</td><td>1:30 PM</td></tr>
+        <tr><td><strong>Tue</strong></td><td>10:30 AM</td><td>12:40 PM</td><td>11:45 AM</td><td>10:45 AM</td><td>—</td></tr>
+        <tr><td><strong>Wed</strong></td><td>10:30 AM</td><td>11:30 AM</td><td>3:30 PM</td><td>10:45 AM</td><td>—</td></tr>
+        <tr><td><strong>Thu</strong></td><td>10:45 AM</td><td>3:30 PM</td><td>12:15 PM</td><td>10:30 AM</td><td>3:00 PM</td></tr>
+        <tr><td><strong>Fri</strong></td><td>12:30 PM</td><td>11:15 AM</td><td>4:15 PM</td><td>1:15 PM</td><td>—</td></tr>
+        <tr><td><strong>Sat</strong></td><td>10:30 AM</td><td>—</td><td>—</td><td>—</td><td>3:00 PM</td></tr>
+      </table>
+      <p style="font-size:8.5pt;margin:0.1in 0 0"><strong>Weekly tasks:</strong> Tidy room — Thursdays only · laundry · stretch break · free time · family time</p>
+      <p style="font-size:8.5pt;margin:0.05in 0 0"><strong>Science rotation:</strong> Chemistry · Biology · Physics · Chemistry · Biology (Mon–Fri)</p>
+    </div>
+  </div>
+
+  <ul class="tips">
+    <li><strong>Snack:</strong> 15 min <strong>after clarinet and after guitar</strong> every day.</li>
+    <li><strong>Morning order:</strong> get ready → breakfast → then everything else. <strong>No early-morning exercise.</strong></li>
+    <li><strong>Exercise:</strong> 15 min daily — <strong>wait 30 min after any eating</strong> before exercising.</li>
+    <li><strong>2:00–3:00 PM</strong> is always free time — nothing gets scheduled in that block.</li>
+    <li><strong>Shower:</strong> Monday 1:30 PM · Thursday 3:00 PM · Saturday 3:00 PM — afternoons only, never evening or night.</li>
+    <li><strong>Dinner is at 7:00 PM</strong> every day.</li>
+    <li><strong>Study blocks:</strong> Mon–Thu = 30 min Algebra + 30 min science · <strong>Friday = science only</strong> — 3:45–4:15 is a free block.</li>
+    <li><strong>Clarinet after eating?</strong> Always leave <strong>20–30 min</strong> between a meal and clarinet.</li>
+    <li><strong>Pick your book:</strong> calendar says primary (BFN-C/Hewitt/FLS) — backups on picker table — swap to another option on the picker table if same topic.</li>
+    <li><strong>Reading</strong> — any book you like; keep it separate from school textbook reading.</li>
+    <li><strong>Crochet</strong> — 15 min every day; times vary.</li>
+    <li><strong>Tidy room</strong> — Thursdays only (4:15–4:45 PM).</li>
+  </ul>
+  <p class="footer"><strong>For Soha:</strong> This file = <strong>when</strong> to study. <strong>What to learn each day</strong> (chapters · focus · formulas · toss-ups) → summer-2026-calendar.md · compact grid → summer-2026-whiteboard.html · study method → science-bowl-prep.md · <strong>Pages 2–4 = Mon–Fri schedules</strong></p>
+</section>
+
+<!-- MON + TUE -->
+<section class="page page-weekdays-pair">
+  <div class="page-header">
+    <h2>Monday &amp; Tuesday</h2>
+    <div class="page-meta">Wake 9:00 · Bed 10:00 · 2:00–3:00 PM always free · Dinner 7:00<br>When = this file · What to learn = summer-2026-calendar.md</div>
+  </div>
+  <div class="week-grid-2">
+
+    <!-- MONDAY -->
+    <div class="day-block">
+      <div class="day-head">
+        <strong>Monday</strong>
+        <em>Study early, music late</em>
+        <span>Science first thing after breakfast; clarinet wraps up the afternoon.</span>
+      </div>
+      <table class="day-table">
+        <tr><td class="t">9:00–9:30</td><td class="a anchor">Get ready — dress, make bed</td></tr>
+        <tr><td class="t">9:30–10:00</td><td class="a meal">Breakfast</td></tr>
+        <tr><td class="t">10:00–10:30</td><td class="a chem">Chemistry — 30 min<br><span style="font-size:7.5pt">BFN-C · Hewitt/Mod/Tro backup · BFN-Sci</span></td></tr>
+        <tr><td class="t">10:30–10:45</td><td class="a free">Break (switch subjects)</td></tr>
+        <tr><td class="t">10:45–11:15</td><td class="a alg">Algebra 1 — 30 min<br><span style="font-size:7.5pt">Lar · BFN-A</span></td></tr>
+        <tr><td class="t">11:15–11:30</td><td class="a read">Reading</td></tr>
+        <tr><td class="t">11:30–11:45</td><td class="a exercise">Exercise</td></tr>
+        <tr><td class="t">11:45–12:15</td><td class="a meal">Lunch</td></tr>
+        <tr><td class="t">12:15–12:25</td><td class="a music">Guitar</td></tr>
+        <tr><td class="t">12:25–12:40</td><td class="a meal">Snack</td></tr>
+        <tr><td class="t">12:40–1:30</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">1:30–2:00</td><td class="a chore">Shower</td></tr>
+        <tr><td class="t">2:00–3:00</td><td class="a free-block">Free time (always)</td></tr>
+        <tr><td class="t">3:00–3:30</td><td class="a music">Clarinet</td></tr>
+        <tr><td class="t">3:30–3:45</td><td class="a meal">Snack</td></tr>
+        <tr><td class="t">3:45–4:00</td><td class="a craft">Crochet</td></tr>
+        <tr><td class="t">4:00–7:00</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">7:00–7:30</td><td class="a meal">Dinner</td></tr>
+        <tr><td class="t">7:30–9:30</td><td class="a free">Relax / family time</td></tr>
+        <tr><td class="t">9:30–10:00</td><td class="a wind">Get ready for bed</td></tr>
+      </table>
+    </div>
+
+    <!-- TUESDAY -->
+    <div class="day-block">
+      <div class="day-head">
+        <strong>Tuesday</strong>
+        <em>Study first, clarinet at lunch</em>
+        <span>Both study blocks in the morning — split by exercise and reading — then clarinet before your 2:00 break.</span>
+      </div>
+      <table class="day-table">
+        <tr><td class="t">9:00–9:30</td><td class="a anchor">Get ready</td></tr>
+        <tr><td class="t">9:30–10:00</td><td class="a meal">Breakfast</td></tr>
+        <tr><td class="t">10:00–10:30</td><td class="a bio">Biology — 30 min<br><span style="font-size:7.5pt">FLS/CB · BFN-Bio</span></td></tr>
+        <tr><td class="t">10:30–10:45</td><td class="a exercise">Exercise</td></tr>
+        <tr><td class="t">10:45–11:00</td><td class="a read">Reading</td></tr>
+        <tr><td class="t">11:00–11:30</td><td class="a alg">Algebra 1 — 30 min<br><span style="font-size:7.5pt">Lar · BFN-A</span></td></tr>
+        <tr><td class="t">11:30–11:45</td><td class="a free">Free time / short walk</td></tr>
+        <tr><td class="t">11:45–11:55</td><td class="a music">Guitar</td></tr>
+        <tr><td class="t">11:55–12:10</td><td class="a meal">Snack</td></tr>
+        <tr><td class="t">12:10–12:40</td><td class="a meal">Lunch</td></tr>
+        <tr><td class="t">12:40–1:10</td><td class="a music">Clarinet</td></tr>
+        <tr><td class="t">1:10–1:25</td><td class="a meal">Snack</td></tr>
+        <tr><td class="t">1:25–2:00</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">2:00–3:00</td><td class="a free-block">Free time (always)</td></tr>
+        <tr><td class="t">3:00–5:00</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">5:00–5:15</td><td class="a craft">Crochet</td></tr>
+        <tr><td class="t">5:15–7:00</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">7:00–7:30</td><td class="a meal">Dinner</td></tr>
+        <tr><td class="t">7:30–9:30</td><td class="a free">Relax</td></tr>
+        <tr><td class="t">9:30–10:00</td><td class="a wind">Get ready for bed</td></tr>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- WED + THU -->
+<section class="page page-weekdays-pair">
+  <div class="page-header">
+    <h2>Wednesday &amp; Thursday</h2>
+    <div class="page-meta">Wake 9:00 · Bed 10:00 · 2:00–3:00 PM always free · Dinner 7:00</div>
+  </div>
+  <div class="week-grid-2">
+
+    <!-- WEDNESDAY -->
+    <div class="day-block">
+      <div class="day-head">
+        <strong>Wednesday</strong>
+        <em>Split study day</em>
+        <span>Algebra before lunch, physics after your 2:00 break — crochet and exercise kick off the morning.</span>
+      </div>
+      <table class="day-table">
+        <tr><td class="t">9:00–9:30</td><td class="a anchor">Get ready</td></tr>
+        <tr><td class="t">9:30–10:00</td><td class="a meal">Breakfast</td></tr>
+        <tr><td class="t">10:00–10:15</td><td class="a craft">Crochet</td></tr>
+        <tr><td class="t">10:15–10:30</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">10:30–10:45</td><td class="a exercise">Exercise</td></tr>
+        <tr><td class="t">10:45–11:00</td><td class="a read">Reading</td></tr>
+        <tr><td class="t">11:00–11:30</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">11:30–12:00</td><td class="a music">Clarinet</td></tr>
+        <tr><td class="t">12:00–12:15</td><td class="a meal">Snack</td></tr>
+        <tr><td class="t">12:15–12:45</td><td class="a meal">Lunch</td></tr>
+        <tr><td class="t">12:45–1:15</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">1:15–1:45</td><td class="a alg">Algebra 1 — 30 min<br><span style="font-size:7.5pt">Lar · BFN-A</span></td></tr>
+        <tr><td class="t">1:45–2:00</td><td class="a free">Break (switch subjects)</td></tr>
+        <tr><td class="t">2:00–3:00</td><td class="a free-block">Free time (always)</td></tr>
+        <tr><td class="t">3:00–3:30</td><td class="a phys">Physics — 30 min<br><span style="font-size:7.5pt">Expl · BFN-Sci · ExplLab opt</span></td></tr>
+        <tr><td class="t">3:30–3:40</td><td class="a music">Guitar</td></tr>
+        <tr><td class="t">3:40–3:55</td><td class="a meal">Snack</td></tr>
+        <tr><td class="t">3:55–7:00</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">4:30–5:00</td><td class="a chore">Lay out clothes &amp; laundry</td></tr>
+        <tr><td class="t">7:00–7:30</td><td class="a meal">Dinner</td></tr>
+        <tr><td class="t">7:30–9:30</td><td class="a free">Relax / family time</td></tr>
+        <tr><td class="t">9:30–10:00</td><td class="a wind">Get ready for bed</td></tr>
+      </table>
+    </div>
+
+    <!-- THURSDAY -->
+    <div class="day-block">
+      <div class="day-head">
+        <strong>Thursday</strong>
+        <em>Mid-morning study, shower day</em>
+        <span>Study sandwiched around lunch; clarinet and tidy room after your shower.</span>
+      </div>
+      <table class="day-table">
+        <tr><td class="t">9:00–9:30</td><td class="a anchor">Get ready</td></tr>
+        <tr><td class="t">9:30–10:00</td><td class="a meal">Breakfast</td></tr>
+        <tr><td class="t">10:00–10:30</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">10:30–10:45</td><td class="a read">Reading</td></tr>
+        <tr><td class="t">10:45–11:00</td><td class="a exercise">Exercise</td></tr>
+        <tr><td class="t">11:00–11:30</td><td class="a chem">Chemistry — 30 min<br><span style="font-size:7.5pt">BFN-C · Hewitt/Mod/Tro backup · BFN-Sci</span></td></tr>
+        <tr><td class="t">11:30–11:45</td><td class="a free">Break (switch subjects)</td></tr>
+        <tr><td class="t">11:45–12:15</td><td class="a alg">Algebra 1 — 30 min<br><span style="font-size:7.5pt">Lar · BFN-A</span></td></tr>
+        <tr><td class="t">12:15–12:25</td><td class="a music">Guitar</td></tr>
+        <tr><td class="t">12:25–12:40</td><td class="a meal">Snack</td></tr>
+        <tr><td class="t">12:40–1:10</td><td class="a meal">Lunch</td></tr>
+        <tr><td class="t">1:10–2:00</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">2:00–3:00</td><td class="a free-block">Free time (always)</td></tr>
+        <tr><td class="t">3:00–3:30</td><td class="a chore">Shower</td></tr>
+        <tr><td class="t">3:30–4:00</td><td class="a music">Clarinet</td></tr>
+        <tr><td class="t">4:00–4:15</td><td class="a meal">Snack</td></tr>
+        <tr><td class="t">4:15–4:45</td><td class="a chore">Tidy room</td></tr>
+        <tr><td class="t">4:45–5:00</td><td class="a craft">Crochet</td></tr>
+        <tr><td class="t">5:00–7:00</td><td class="a free">Free time</td></tr>
+        <tr><td class="t">7:00–7:30</td><td class="a meal">Dinner</td></tr>
+        <tr><td class="t">7:30–9:30</td><td class="a free">Relax / family time</td></tr>
+        <tr><td class="t">9:30–10:00</td><td class="a wind">Get ready for bed</td></tr>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- FRIDAY -->
+<section class="page page-friday">
+  <div class="page-header">
+    <h2>Friday</h2>
+    <div class="page-meta"><em>Easy Friday, study last</em><br>Slow morning, clarinet mid-day, biology after your 2:00 break — 3:45–4:15 is a free block.</div>
+  </div>
+  <table class="friday-table">
+    <tr><th>Time</th><th>Activity</th></tr>
+    <tr><td class="time-col">9:00 – 9:30</td><td class="anchor">Get ready</td></tr>
+    <tr><td class="time-col">9:30 – 10:00</td><td class="meal">Breakfast</td></tr>
+    <tr><td class="time-col">10:00 – 11:00</td><td class="free">Free time / slow start</td></tr>
+    <tr><td class="time-col">11:00 – 11:15</td><td class="craft">Crochet</td></tr>
+    <tr><td class="time-col">11:15 – 11:45</td><td class="music">Clarinet</td></tr>
+    <tr><td class="time-col">11:45 – 12:00</td><td class="meal">Snack</td></tr>
+    <tr><td class="time-col">12:00 – 12:30</td><td class="free">Free time (wait before exercise)</td></tr>
+    <tr><td class="time-col">12:30 – 12:45</td><td class="exercise">Exercise</td></tr>
+    <tr><td class="time-col">12:45 – 1:15</td><td class="meal">Lunch</td></tr>
+    <tr><td class="time-col">1:15 – 1:30</td><td class="read">Reading</td></tr>
+    <tr><td class="time-col">1:30 – 2:00</td><td class="free">Free time</td></tr>
+    <tr><td class="time-col">2:00 – 3:00</td><td class="free-block">Free time (always)</td></tr>
+    <tr><td class="time-col">3:00 – 3:30</td><td class="bio">Biology — 30 min<br><span style="font-size:7.5pt">FLS/CB · BFN-Bio</span></td></tr>
+    <tr><td class="time-col">3:30 – 3:45</td><td class="free">Break (switch subjects)</td></tr>
+    <tr><td class="time-col">3:45 – 4:15</td><td class="free-block">Free block<br><span style="font-size:7.5pt">optional BFN-A catch-up</span></td></tr>
+    <tr><td class="time-col">4:15 – 4:25</td><td class="music">Guitar</td></tr>
+    <tr><td class="time-col">4:25 – 4:40</td><td class="meal">Snack</td></tr>
+    <tr><td class="time-col">4:40 – 5:40</td><td class="plan">Plan next week</td></tr>
+    <tr><td class="time-col">5:40 – 7:00</td><td class="free">Free time</td></tr>
+    <tr><td class="time-col">7:00 – 7:30</td><td class="meal">Dinner</td></tr>
+    <tr><td class="time-col">7:30 – 9:30</td><td class="free">Relax — you made it through the week</td></tr>
+    <tr><td class="time-col">9:30 – 10:00</td><td class="wind">Get ready for bed</td></tr>
+  </table>
+  <p class="footer">Have a test coming up? Swap that day’s 30 min science block for extra time on the subject you’re testing in.</p>
+</section>
+
+
+</body>
+</html>

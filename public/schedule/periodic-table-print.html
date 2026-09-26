@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Periodic Table — Print (Soha · NSB)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --ink: #111;
+      --muted: #444;
+      --line: #bbb;
+      --paper: #fff;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ececec;
+      color: var(--ink);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.35;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #1a2332;
+      color: #fff;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+      border-bottom: 3px solid #c9a227;
+    }
+
+    .toolbar p { margin: 0; font-size: 0.92rem; }
+    .toolbar button {
+      font: inherit;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      background: #c9a227;
+      color: #111;
+    }
+
+    .doc {
+      max-width: 8.5in;
+      margin: 16px auto;
+      background: var(--paper);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+
+    .sheet {
+      padding: 0.45in 0.5in;
+    }
+
+    .sheet + .sheet {
+      border-top: 1px dashed #ccc;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin: 14px 0 6px;
+      font-size: 1.02rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 3px;
+    }
+
+    p { margin: 4px 0; }
+    .muted { color: var(--muted); font-size: 0.92rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 4px 6px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th { background: #f3f3f3; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+      margin: 8px 0 0;
+      font-size: 0.72rem;
+    }
+
+    .legend span {
+      border: 1px solid #888;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .ptable-wrap {
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .ptable {
+      display: grid;
+      grid-template-columns: repeat(18, 0.39in);
+      grid-template-rows: repeat(9, 0.38in);
+      gap: 1px;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .el {
+      border: 1px solid #555;
+      padding: 1px 2px;
+      font-size: 6.5pt;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background: #fff;
+      width: 0.39in;
+      height: 0.38in;
+    }
+
+    .el .z { font-size: 5pt; color: #444; line-height: 1; }
+    .el .sym { font-size: 9pt; font-weight: 800; line-height: 1; }
+    .el .nm { font-size: 4.5pt; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .range-label {
+      border: 1px dashed #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7pt;
+      font-weight: 700;
+      color: #444;
+      background: #fafafa;
+    }
+
+    .cat-alkali { background: #fdeaea; }
+    .cat-alkaline { background: #fdf5e3; }
+    .cat-transition { background: #e8eef8; }
+    .cat-post { background: #f0e8f4; }
+    .cat-metalloid { background: #edf3e4; }
+    .cat-nonmetal { background: #e3f2ef; }
+    .cat-halogen { background: #ebe6f4; }
+    .cat-noble { background: #e6eef4; }
+    .cat-lanthanide { background: #f5ebe0; }
+    .cat-actinide { background: #f5e4e8; }
+
+    .ref-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .ref-cols table { font-size: 7.5pt; }
+    .ref-cols th, .ref-cols td { padding: 2px 4px; }
+
+    .mnemonic {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      margin: 6px 0;
+      background: #fafafa;
+    }
+
+    .drill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 14px;
+      font-size: 0.88rem;
+    }
+
+    .drill-item {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      border-bottom: 1px dotted #ccc;
+      padding-bottom: 3px;
+    }
+
+    .drill-z {
+      font-size: 0.75rem;
+      color: var(--muted);
+      min-width: 1.2rem;
+    }
+
+    .blank {
+      flex: 1;
+      border-bottom: 1px solid #333;
+      min-width: 2rem;
+      margin-left: auto;
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0.45in;
+    }
+
+    @media print {
+      html, body { background: #fff; }
+      .no-print { display: none !important; }
+      .doc {
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+      }
+      .sheet {
+        padding: 0;
+        border: none;
+      }
+      .sheet + .sheet { border: none; }
+      .sheet-break { break-before: page; page-break-before: always; }
+      .el, th, .legend span, .mnemonic, .cat-alkali, .cat-alkaline, .cat-transition,
+      .cat-post, .cat-metalloid, .cat-nonmetal, .cat-halogen, .cat-noble,
+      .cat-lanthanide, .cat-actinide {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    @media screen {
+      .ptable-wrap { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar no-print">
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+    <p><strong>Tip:</strong> Click <em>Print</em> or choose <em>Save as PDF</em>. Use letter paper, portrait. Turn on <strong>Background graphics</strong> so category colors print.</p>
+  </div>
+
+  <div class="doc">
+    <section class="sheet">
+      <h1>Periodic Table Study — National Science Bowl</h1>
+      <p class="muted">Soha · all 118 elements · no periodic table allowed in competition</p>
+      <p>Tier 1 (elements 1–20) is the summer checklist. For nationals, work through Tiers 2–5 until every symbol is instant.</p>
+
+      <h2>Study path (5 tiers)</h2>
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Z range</th><th>Focus</th><th>When</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>T1</td><td>1–20</td><td>Summer foundation</td><td>Summer</td><td>Fast wins; builds symbol fluency</td></tr>
+          <tr><td>T2</td><td>21–36</td><td>Regional depth</td><td>Late summer / early fall</td><td>Transition metals, Br, Kr</td></tr>
+          <tr><td>T3</td><td>37–54</td><td>Upper-mid table</td><td>Fall / early winter</td><td>Ag, Sn, Sb, I, Xe and more</td></tr>
+          <tr><td>T4</td><td>55–86</td><td>Heavy elements</td><td>Winter</td><td>Nationals-level recall speed</td></tr>
+          <tr><td>T5</td><td>87–118</td><td>Superheavy coverage</td><td>Late winter → nationals</td><td>Full-table confidence</td></tr>
+        </tbody>
+      </table>
+
+      <h2>NSB symbol traps (Latin / historical roots)</h2>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Symbol</th><th>Root</th><th>Fast cue</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Iron</td><td><b>Fe</b></td><td>Ferrum</td><td>Fe = ferrum (not Ir)</td></tr>
+          <tr><td>Copper</td><td><b>Cu</b></td><td>Cuprum</td><td>Cu = cuprum</td></tr>
+          <tr><td>Silver</td><td><b>Ag</b></td><td>Argentum</td><td>Ag = argentum</td></tr>
+          <tr><td>Gold</td><td><b>Au</b></td><td>Aurum</td><td>Au = aurum</td></tr>
+          <tr><td>Lead</td><td><b>Pb</b></td><td>Plumbum</td><td>Pb = plumbum</td></tr>
+          <tr><td>Tin</td><td><b>Sn</b></td><td>Stannum</td><td>Sn = stannum</td></tr>
+          <tr><td>Antimony</td><td><b>Sb</b></td><td>Stibium</td><td>Sb = stibium</td></tr>
+          <tr><td>Tungsten</td><td><b>W</b></td><td>Wolfram</td><td>W = wolfram</td></tr>
+          <tr><td>Mercury</td><td><b>Hg</b></td><td>Hydrargyrum</td><td>Hg = hydrargyrum</td></tr>
+          <tr><td>Sodium</td><td><b>Na</b></td><td>Natrium</td><td>Na = natrium</td></tr>
+          <tr><td>Potassium</td><td><b>K</b></td><td>Kalium</td><td>K = kalium</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sheet sheet-break">
+      <h1>Periodic table — all 118 elements</h1>
+      <p class="muted">Rows 1–7 = periods · row 8 = lanthanides · row 9 = actinides</p>
+      <div class="ptable-wrap">
+        <div class="ptable">
+      <div class="el cat-nonmetal" style="grid-row:1;grid-column:1" title="Hydrogen">
+        <span class="z">1</span>
+        <span class="sym">H</span>
+        <span class="nm">Hydrogen</span>
+      </div>
+      <div class="el cat-noble" style="grid-row:1;grid-column:18" title="Helium">
+        <span class="z">2</span>
+        <span class="sym">He</span>
+        <span class="nm">Helium</span>
+      </div>
+      <div class="el cat-alkali" style="grid-row:2;grid-column:1" title="Lithium">
+        <span class="z">3</span>
+        <span class="sym">Li</span>
+        <span class="nm">Lithium</span>
+      </div>
+      <div class="el cat-alkaline" style="grid-row:2;grid-column:2" title="Beryllium">
+        <span class="z">4</span>
+        <span class="sym">Be</span>
+        <span class="nm">Berylli…</span>
+      </div>
+      <div class="el cat-metalloid" style="grid-row:2;grid-column:13" title="Boron">
+        <span class="z">5</span>
+        <span class="sym">B</span>
+        <span class="nm">Boron</span>
+      </div>
+      <div class="el cat-nonmetal" style="grid-row:2;grid-column:14" title="Carbon">
+        <span class="z">6</span>
+        <span class="sym">C</span>
+        <span class="nm">Carbon</span>
+      </div>
+      <div class="el cat-nonmetal" style="grid-row:2;grid-column:15" title="Nitrogen">
+        <span class="z">7</span>
+        <span class="sym">N</span>
+        <span class="nm">Nitrogen</span>
+      </div>
+      <div class="el cat-nonmetal" style="grid-row:2;grid-column:16" title="Oxygen">
+        <span class="z">8</span>
+        <span class="sym">O</span>
+        <span class="nm">Oxygen</span>
+      </div>
+      <div class="el cat-halogen" style="grid-row:2;grid-column:17" title="Fluorine">
+        <span class="z">9</span>
+        <span class="sym">F</span>
+        <span class="nm">Fluorine</span>
+      </div>
+      <div class="el cat-noble" style="grid-row:2;grid-column:18" title="Neon">
+        <span class="z">10</span>
+        <span class="sym">Ne</span>
+        <span class="nm">Neon</span>
+      </div>
+      <div class="el cat-alkali" style="grid-row:3;grid-column:1" title="Sodium">
+        <span class="z">11</span>
+        <span class="sym">Na</span>
+        <span class="nm">Sodium</span>
+      </div>
+      <div class="el cat-alkaline" style="grid-row:3;grid-column:2" title="Magnesium">
+        <span class="z">12</span>
+        <span class="sym">Mg</span>
+        <span class="nm">Magnesi…</span>
+      </div>
+      <div class="el cat-post" style="grid-row:3;grid-column:13" title="Aluminum">
+        <span class="z">13</span>
+        <span class="sym">Al</span>
+        <span class="nm">Aluminum</span>
+      </div>
+      <div class="el cat-metalloid" style="grid-row:3;grid-column:14" title="Silicon">
+        <span class="z">14</span>
+        <span class="sym">Si</span>
+        <span class="nm">Silicon</span>
+      </div>
+      <div class="el cat-nonmetal" style="grid-row:3;grid-column:15" title="Phosphorus">
+        <span class="z">15</span>
+        <span class="sym">P</span>
+        <span class="nm">Phospho…</span>
+      </div>
+      <div class="el cat-nonmetal" style="grid-row:3;grid-column:16" title="Sulfur">
+        <span class="z">16</span>
+        <span class="sym">S</span>
+        <span class="nm">Sulfur</span>
+      </div>
+      <div class="el cat-halogen" style="grid-row:3;grid-column:17" title="Chlorine">
+        <span class="z">17</span>
+        <span class="sym">Cl</span>
+        <span class="nm">Chlorine</span>
+      </div>
+      <div class="el cat-noble" style="grid-row:3;grid-column:18" title="Argon">
+        <span class="z">18</span>
+        <span class="sym">Ar</span>
+        <span class="nm">Argon</span>
+      </div>
+      <div class="el cat-alkali" style="grid-row:4;grid-column:1" title="Potassium">
+        <span class="z">19</span>
+        <span class="sym">K</span>
+        <span class="nm">Potassi…</span>
+      </div>
+      <div class="el cat-alkaline" style="grid-row:4;grid-column:2" title="Calcium">
+        <span class="z">20</span>
+        <span class="sym">Ca</span>
+        <span class="nm">Calcium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:3" title="Scandium">
+        <span class="z">21</span>
+        <span class="sym">Sc</span>
+        <span class="nm">Scandium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:4" title="Titanium">
+        <span class="z">22</span>
+        <span class="sym">Ti</span>
+        <span class="nm">Titanium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:5" title="Vanadium">
+        <span class="z">23</span>
+        <span class="sym">V</span>
+        <span class="nm">Vanadium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:6" title="Chromium">
+        <span class="z">24</span>
+        <span class="sym">Cr</span>
+        <span class="nm">Chromium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:7" title="Manganese">
+        <span class="z">25</span>
+        <span class="sym">Mn</span>
+        <span class="nm">Mangane…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:8" title="Iron">
+        <span class="z">26</span>
+        <span class="sym">Fe</span>
+        <span class="nm">Iron</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:9" title="Cobalt">
+        <span class="z">27</span>
+        <span class="sym">Co</span>
+        <span class="nm">Cobalt</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:10" title="Nickel">
+        <span class="z">28</span>
+        <span class="sym">Ni</span>
+        <span class="nm">Nickel</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:11" title="Copper">
+        <span class="z">29</span>
+        <span class="sym">Cu</span>
+        <span class="nm">Copper</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:4;grid-column:12" title="Zinc">
+        <span class="z">30</span>
+        <span class="sym">Zn</span>
+        <span class="nm">Zinc</span>
+      </div>
+      <div class="el cat-post" style="grid-row:4;grid-column:13" title="Gallium">
+        <span class="z">31</span>
+        <span class="sym">Ga</span>
+        <span class="nm">Gallium</span>
+      </div>
+      <div class="el cat-metalloid" style="grid-row:4;grid-column:14" title="Germanium">
+        <span class="z">32</span>
+        <span class="sym">Ge</span>
+        <span class="nm">Germani…</span>
+      </div>
+      <div class="el cat-metalloid" style="grid-row:4;grid-column:15" title="Arsenic">
+        <span class="z">33</span>
+        <span class="sym">As</span>
+        <span class="nm">Arsenic</span>
+      </div>
+      <div class="el cat-nonmetal" style="grid-row:4;grid-column:16" title="Selenium">
+        <span class="z">34</span>
+        <span class="sym">Se</span>
+        <span class="nm">Selenium</span>
+      </div>
+      <div class="el cat-halogen" style="grid-row:4;grid-column:17" title="Bromine">
+        <span class="z">35</span>
+        <span class="sym">Br</span>
+        <span class="nm">Bromine</span>
+      </div>
+      <div class="el cat-noble" style="grid-row:4;grid-column:18" title="Krypton">
+        <span class="z">36</span>
+        <span class="sym">Kr</span>
+        <span class="nm">Krypton</span>
+      </div>
+      <div class="el cat-alkali" style="grid-row:5;grid-column:1" title="Rubidium">
+        <span class="z">37</span>
+        <span class="sym">Rb</span>
+        <span class="nm">Rubidium</span>
+      </div>
+      <div class="el cat-alkaline" style="grid-row:5;grid-column:2" title="Strontium">
+        <span class="z">38</span>
+        <span class="sym">Sr</span>
+        <span class="nm">Stronti…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:3" title="Yttrium">
+        <span class="z">39</span>
+        <span class="sym">Y</span>
+        <span class="nm">Yttrium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:4" title="Zirconium">
+        <span class="z">40</span>
+        <span class="sym">Zr</span>
+        <span class="nm">Zirconi…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:5" title="Niobium">
+        <span class="z">41</span>
+        <span class="sym">Nb</span>
+        <span class="nm">Niobium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:6" title="Molybdenum">
+        <span class="z">42</span>
+        <span class="sym">Mo</span>
+        <span class="nm">Molybde…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:7" title="Technetium">
+        <span class="z">43</span>
+        <span class="sym">Tc</span>
+        <span class="nm">Technet…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:8" title="Ruthenium">
+        <span class="z">44</span>
+        <span class="sym">Ru</span>
+        <span class="nm">Rutheni…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:9" title="Rhodium">
+        <span class="z">45</span>
+        <span class="sym">Rh</span>
+        <span class="nm">Rhodium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:10" title="Palladium">
+        <span class="z">46</span>
+        <span class="sym">Pd</span>
+        <span class="nm">Palladi…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:11" title="Silver">
+        <span class="z">47</span>
+        <span class="sym">Ag</span>
+        <span class="nm">Silver</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:5;grid-column:12" title="Cadmium">
+        <span class="z">48</span>
+        <span class="sym">Cd</span>
+        <span class="nm">Cadmium</span>
+      </div>
+      <div class="el cat-post" style="grid-row:5;grid-column:13" title="Indium">
+        <span class="z">49</span>
+        <span class="sym">In</span>
+        <span class="nm">Indium</span>
+      </div>
+      <div class="el cat-post" style="grid-row:5;grid-column:14" title="Tin">
+        <span class="z">50</span>
+        <span class="sym">Sn</span>
+        <span class="nm">Tin</span>
+      </div>
+      <div class="el cat-metalloid" style="grid-row:5;grid-column:15" title="Antimony">
+        <span class="z">51</span>
+        <span class="sym">Sb</span>
+        <span class="nm">Antimony</span>
+      </div>
+      <div class="el cat-metalloid" style="grid-row:5;grid-column:16" title="Tellurium">
+        <span class="z">52</span>
+        <span class="sym">Te</span>
+        <span class="nm">Telluri…</span>
+      </div>
+      <div class="el cat-halogen" style="grid-row:5;grid-column:17" title="Iodine">
+        <span class="z">53</span>
+        <span class="sym">I</span>
+        <span class="nm">Iodine</span>
+      </div>
+      <div class="el cat-noble" style="grid-row:5;grid-column:18" title="Xenon">
+        <span class="z">54</span>
+        <span class="sym">Xe</span>
+        <span class="nm">Xenon</span>
+      </div>
+      <div class="el cat-alkali" style="grid-row:6;grid-column:1" title="Cesium">
+        <span class="z">55</span>
+        <span class="sym">Cs</span>
+        <span class="nm">Cesium</span>
+      </div>
+      <div class="el cat-alkaline" style="grid-row:6;grid-column:2" title="Barium">
+        <span class="z">56</span>
+        <span class="sym">Ba</span>
+        <span class="nm">Barium</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:6;grid-column:3" title="Lanthanum">
+        <span class="z">57</span>
+        <span class="sym">La</span>
+        <span class="nm">Lanthan…</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:4" title="Cerium">
+        <span class="z">58</span>
+        <span class="sym">Ce</span>
+        <span class="nm">Cerium</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:5" title="Praseodymium">
+        <span class="z">59</span>
+        <span class="sym">Pr</span>
+        <span class="nm">Praseod…</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:6" title="Neodymium">
+        <span class="z">60</span>
+        <span class="sym">Nd</span>
+        <span class="nm">Neodymi…</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:7" title="Promethium">
+        <span class="z">61</span>
+        <span class="sym">Pm</span>
+        <span class="nm">Prometh…</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:8" title="Samarium">
+        <span class="z">62</span>
+        <span class="sym">Sm</span>
+        <span class="nm">Samarium</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:9" title="Europium">
+        <span class="z">63</span>
+        <span class="sym">Eu</span>
+        <span class="nm">Europium</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:10" title="Gadolinium">
+        <span class="z">64</span>
+        <span class="sym">Gd</span>
+        <span class="nm">Gadolin…</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:11" title="Terbium">
+        <span class="z">65</span>
+        <span class="sym">Tb</span>
+        <span class="nm">Terbium</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:12" title="Dysprosium">
+        <span class="z">66</span>
+        <span class="sym">Dy</span>
+        <span class="nm">Dyspros…</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:13" title="Holmium">
+        <span class="z">67</span>
+        <span class="sym">Ho</span>
+        <span class="nm">Holmium</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:14" title="Erbium">
+        <span class="z">68</span>
+        <span class="sym">Er</span>
+        <span class="nm">Erbium</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:15" title="Thulium">
+        <span class="z">69</span>
+        <span class="sym">Tm</span>
+        <span class="nm">Thulium</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:16" title="Ytterbium">
+        <span class="z">70</span>
+        <span class="sym">Yb</span>
+        <span class="nm">Ytterbi…</span>
+      </div>
+      <div class="el cat-lanthanide" style="grid-row:8;grid-column:17" title="Lutetium">
+        <span class="z">71</span>
+        <span class="sym">Lu</span>
+        <span class="nm">Lutetium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:4" title="Hafnium">
+        <span class="z">72</span>
+        <span class="sym">Hf</span>
+        <span class="nm">Hafnium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:5" title="Tantalum">
+        <span class="z">73</span>
+        <span class="sym">Ta</span>
+        <span class="nm">Tantalum</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:6" title="Tungsten">
+        <span class="z">74</span>
+        <span class="sym">W</span>
+        <span class="nm">Tungsten</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:7" title="Rhenium">
+        <span class="z">75</span>
+        <span class="sym">Re</span>
+        <span class="nm">Rhenium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:8" title="Osmium">
+        <span class="z">76</span>
+        <span class="sym">Os</span>
+        <span class="nm">Osmium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:9" title="Iridium">
+        <span class="z">77</span>
+        <span class="sym">Ir</span>
+        <span class="nm">Iridium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:10" title="Platinum">
+        <span class="z">78</span>
+        <span class="sym">Pt</span>
+        <span class="nm">Platinum</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:11" title="Gold">
+        <span class="z">79</span>
+        <span class="sym">Au</span>
+        <span class="nm">Gold</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:6;grid-column:12" title="Mercury">
+        <span class="z">80</span>
+        <span class="sym">Hg</span>
+        <span class="nm">Mercury</span>
+      </div>
+      <div class="el cat-post" style="grid-row:6;grid-column:13" title="Thallium">
+        <span class="z">81</span>
+        <span class="sym">Tl</span>
+        <span class="nm">Thallium</span>
+      </div>
+      <div class="el cat-post" style="grid-row:6;grid-column:14" title="Lead">
+        <span class="z">82</span>
+        <span class="sym">Pb</span>
+        <span class="nm">Lead</span>
+      </div>
+      <div class="el cat-post" style="grid-row:6;grid-column:15" title="Bismuth">
+        <span class="z">83</span>
+        <span class="sym">Bi</span>
+        <span class="nm">Bismuth</span>
+      </div>
+      <div class="el cat-post" style="grid-row:6;grid-column:16" title="Polonium">
+        <span class="z">84</span>
+        <span class="sym">Po</span>
+        <span class="nm">Polonium</span>
+      </div>
+      <div class="el cat-halogen" style="grid-row:6;grid-column:17" title="Astatine">
+        <span class="z">85</span>
+        <span class="sym">At</span>
+        <span class="nm">Astatine</span>
+      </div>
+      <div class="el cat-noble" style="grid-row:6;grid-column:18" title="Radon">
+        <span class="z">86</span>
+        <span class="sym">Rn</span>
+        <span class="nm">Radon</span>
+      </div>
+      <div class="el cat-alkali" style="grid-row:7;grid-column:1" title="Francium">
+        <span class="z">87</span>
+        <span class="sym">Fr</span>
+        <span class="nm">Francium</span>
+      </div>
+      <div class="el cat-alkaline" style="grid-row:7;grid-column:2" title="Radium">
+        <span class="z">88</span>
+        <span class="sym">Ra</span>
+        <span class="nm">Radium</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:7;grid-column:3" title="Actinium">
+        <span class="z">89</span>
+        <span class="sym">Ac</span>
+        <span class="nm">Actinium</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:4" title="Thorium">
+        <span class="z">90</span>
+        <span class="sym">Th</span>
+        <span class="nm">Thorium</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:5" title="Protactinium">
+        <span class="z">91</span>
+        <span class="sym">Pa</span>
+        <span class="nm">Protact…</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:6" title="Uranium">
+        <span class="z">92</span>
+        <span class="sym">U</span>
+        <span class="nm">Uranium</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:7" title="Neptunium">
+        <span class="z">93</span>
+        <span class="sym">Np</span>
+        <span class="nm">Neptuni…</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:8" title="Plutonium">
+        <span class="z">94</span>
+        <span class="sym">Pu</span>
+        <span class="nm">Plutoni…</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:9" title="Americium">
+        <span class="z">95</span>
+        <span class="sym">Am</span>
+        <span class="nm">Americi…</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:10" title="Curium">
+        <span class="z">96</span>
+        <span class="sym">Cm</span>
+        <span class="nm">Curium</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:11" title="Berkelium">
+        <span class="z">97</span>
+        <span class="sym">Bk</span>
+        <span class="nm">Berkeli…</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:12" title="Californium">
+        <span class="z">98</span>
+        <span class="sym">Cf</span>
+        <span class="nm">Califor…</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:13" title="Einsteinium">
+        <span class="z">99</span>
+        <span class="sym">Es</span>
+        <span class="nm">Einstei…</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:14" title="Fermium">
+        <span class="z">100</span>
+        <span class="sym">Fm</span>
+        <span class="nm">Fermium</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:15" title="Mendelevium">
+        <span class="z">101</span>
+        <span class="sym">Md</span>
+        <span class="nm">Mendele…</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:16" title="Nobelium">
+        <span class="z">102</span>
+        <span class="sym">No</span>
+        <span class="nm">Nobelium</span>
+      </div>
+      <div class="el cat-actinide" style="grid-row:9;grid-column:17" title="Lawrencium">
+        <span class="z">103</span>
+        <span class="sym">Lr</span>
+        <span class="nm">Lawrenc…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:4" title="Rutherfordium">
+        <span class="z">104</span>
+        <span class="sym">Rf</span>
+        <span class="nm">Rutherf…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:5" title="Dubnium">
+        <span class="z">105</span>
+        <span class="sym">Db</span>
+        <span class="nm">Dubnium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:6" title="Seaborgium">
+        <span class="z">106</span>
+        <span class="sym">Sg</span>
+        <span class="nm">Seaborg…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:7" title="Bohrium">
+        <span class="z">107</span>
+        <span class="sym">Bh</span>
+        <span class="nm">Bohrium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:8" title="Hassium">
+        <span class="z">108</span>
+        <span class="sym">Hs</span>
+        <span class="nm">Hassium</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:9" title="Meitnerium">
+        <span class="z">109</span>
+        <span class="sym">Mt</span>
+        <span class="nm">Meitner…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:10" title="Darmstadtium">
+        <span class="z">110</span>
+        <span class="sym">Ds</span>
+        <span class="nm">Darmsta…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:11" title="Roentgenium">
+        <span class="z">111</span>
+        <span class="sym">Rg</span>
+        <span class="nm">Roentge…</span>
+      </div>
+      <div class="el cat-transition" style="grid-row:7;grid-column:12" title="Copernicium">
+        <span class="z">112</span>
+        <span class="sym">Cn</span>
+        <span class="nm">Coperni…</span>
+      </div>
+      <div class="el cat-post" style="grid-row:7;grid-column:13" title="Nihonium">
+        <span class="z">113</span>
+        <span class="sym">Nh</span>
+        <span class="nm">Nihonium</span>
+      </div>
+      <div class="el cat-post" style="grid-row:7;grid-column:14" title="Flerovium">
+        <span class="z">114</span>
+        <span class="sym">Fl</span>
+        <span class="nm">Flerovi…</span>
+      </div>
+      <div class="el cat-post" style="grid-row:7;grid-column:15" title="Moscovium">
+        <span class="z">115</span>
+        <span class="sym">Mc</span>
+        <span class="nm">Moscovi…</span>
+      </div>
+      <div class="el cat-post" style="grid-row:7;grid-column:16" title="Livermorium">
+        <span class="z">116</span>
+        <span class="sym">Lv</span>
+        <span class="nm">Livermo…</span>
+      </div>
+      <div class="el cat-halogen" style="grid-row:7;grid-column:17" title="Tennessine">
+        <span class="z">117</span>
+        <span class="sym">Ts</span>
+        <span class="nm">Tenness…</span>
+      </div>
+      <div class="el cat-noble" style="grid-row:7;grid-column:18" title="Oganesson">
+        <span class="z">118</span>
+        <span class="sym">Og</span>
+        <span class="nm">Oganess…</span>
+      </div>
+      <div class="range-label" style="grid-row:8;grid-column:3">57–71</div>
+      <div class="range-label" style="grid-row:9;grid-column:3">89–103</div>
+        </div>
+      </div>
+      <div class="legend">
+        <span class="cat-alkali">Alkali</span>
+        <span class="cat-alkaline">Alkaline earth</span>
+        <span class="cat-transition">Transition</span>
+        <span class="cat-post">Post-transition</span>
+        <span class="cat-metalloid">Metalloid</span>
+        <span class="cat-nonmetal">Nonmetal</span>
+        <span class="cat-halogen">Halogen</span>
+        <span class="cat-noble">Noble gas</span>
+        <span class="cat-lanthanide">Lanthanide</span>
+        <span class="cat-actinide">Actinide</span>
+      </div>
+    </section>
+
+    <section class="sheet sheet-break">
+      <h1>Reference list — Z · symbol · name · tier</h1>
+      <div class="ref-cols">
+        <table>
+          <thead><tr><th>Z</th><th>Sym</th><th>Name</th><th>T</th></tr></thead>
+          <tbody>
+          <tr><td>1</td><td><b>H</b></td><td>Hydrogen</td><td>T1</td></tr>
+          <tr><td>2</td><td><b>He</b></td><td>Helium</td><td>T1</td></tr>
+          <tr><td>3</td><td><b>Li</b></td><td>Lithium</td><td>T1</td></tr>
+          <tr><td>4</td><td><b>Be</b></td><td>Beryllium</td><td>T1</td></tr>
+          <tr><td>5</td><td><b>B</b></td><td>Boron</td><td>T1</td></tr>
+          <tr><td>6</td><td><b>C</b></td><td>Carbon</td><td>T1</td></tr>
+          <tr><td>7</td><td><b>N</b></td><td>Nitrogen</td><td>T1</td></tr>
+          <tr><td>8</td><td><b>O</b></td><td>Oxygen</td><td>T1</td></tr>
+          <tr><td>9</td><td><b>F</b></td><td>Fluorine</td><td>T1</td></tr>
+          <tr><td>10</td><td><b>Ne</b></td><td>Neon</td><td>T1</td></tr>
+          <tr><td>11</td><td><b>Na</b></td><td>Sodium</td><td>T1</td></tr>
+          <tr><td>12</td><td><b>Mg</b></td><td>Magnesium</td><td>T1</td></tr>
+          <tr><td>13</td><td><b>Al</b></td><td>Aluminum</td><td>T1</td></tr>
+          <tr><td>14</td><td><b>Si</b></td><td>Silicon</td><td>T1</td></tr>
+          <tr><td>15</td><td><b>P</b></td><td>Phosphorus</td><td>T1</td></tr>
+          <tr><td>16</td><td><b>S</b></td><td>Sulfur</td><td>T1</td></tr>
+          <tr><td>17</td><td><b>Cl</b></td><td>Chlorine</td><td>T1</td></tr>
+          <tr><td>18</td><td><b>Ar</b></td><td>Argon</td><td>T1</td></tr>
+          <tr><td>19</td><td><b>K</b></td><td>Potassium</td><td>T1</td></tr>
+          <tr><td>20</td><td><b>Ca</b></td><td>Calcium</td><td>T1</td></tr>
+          <tr><td>21</td><td><b>Sc</b></td><td>Scandium</td><td>T2</td></tr>
+          <tr><td>22</td><td><b>Ti</b></td><td>Titanium</td><td>T2</td></tr>
+          <tr><td>23</td><td><b>V</b></td><td>Vanadium</td><td>T2</td></tr>
+          <tr><td>24</td><td><b>Cr</b></td><td>Chromium</td><td>T2</td></tr>
+          <tr><td>25</td><td><b>Mn</b></td><td>Manganese</td><td>T2</td></tr>
+          <tr><td>26</td><td><b>Fe</b></td><td>Iron</td><td>T2</td></tr>
+          <tr><td>27</td><td><b>Co</b></td><td>Cobalt</td><td>T2</td></tr>
+          <tr><td>28</td><td><b>Ni</b></td><td>Nickel</td><td>T2</td></tr>
+          <tr><td>29</td><td><b>Cu</b></td><td>Copper</td><td>T2</td></tr>
+          <tr><td>30</td><td><b>Zn</b></td><td>Zinc</td><td>T2</td></tr>
+          <tr><td>31</td><td><b>Ga</b></td><td>Gallium</td><td>T2</td></tr>
+          <tr><td>32</td><td><b>Ge</b></td><td>Germanium</td><td>T2</td></tr>
+          <tr><td>33</td><td><b>As</b></td><td>Arsenic</td><td>T2</td></tr>
+          <tr><td>34</td><td><b>Se</b></td><td>Selenium</td><td>T2</td></tr>
+          <tr><td>35</td><td><b>Br</b></td><td>Bromine</td><td>T2</td></tr>
+          <tr><td>36</td><td><b>Kr</b></td><td>Krypton</td><td>T2</td></tr>
+          <tr><td>37</td><td><b>Rb</b></td><td>Rubidium</td><td>T3</td></tr>
+          <tr><td>38</td><td><b>Sr</b></td><td>Strontium</td><td>T3</td></tr>
+          <tr><td>39</td><td><b>Y</b></td><td>Yttrium</td><td>T3</td></tr>
+          <tr><td>40</td><td><b>Zr</b></td><td>Zirconium</td><td>T3</td></tr>
+          <tr><td>41</td><td><b>Nb</b></td><td>Niobium</td><td>T3</td></tr>
+          <tr><td>42</td><td><b>Mo</b></td><td>Molybdenum</td><td>T3</td></tr>
+          <tr><td>43</td><td><b>Tc</b></td><td>Technetium</td><td>T3</td></tr>
+          <tr><td>44</td><td><b>Ru</b></td><td>Ruthenium</td><td>T3</td></tr>
+          <tr><td>45</td><td><b>Rh</b></td><td>Rhodium</td><td>T3</td></tr>
+          <tr><td>46</td><td><b>Pd</b></td><td>Palladium</td><td>T3</td></tr>
+          <tr><td>47</td><td><b>Ag</b></td><td>Silver</td><td>T3</td></tr>
+          <tr><td>48</td><td><b>Cd</b></td><td>Cadmium</td><td>T3</td></tr>
+          <tr><td>49</td><td><b>In</b></td><td>Indium</td><td>T3</td></tr>
+          <tr><td>50</td><td><b>Sn</b></td><td>Tin</td><td>T3</td></tr>
+          <tr><td>51</td><td><b>Sb</b></td><td>Antimony</td><td>T3</td></tr>
+          <tr><td>52</td><td><b>Te</b></td><td>Tellurium</td><td>T3</td></tr>
+          <tr><td>53</td><td><b>I</b></td><td>Iodine</td><td>T3</td></tr>
+          <tr><td>54</td><td><b>Xe</b></td><td>Xenon</td><td>T3</td></tr>
+          <tr><td>55</td><td><b>Cs</b></td><td>Cesium</td><td>T4</td></tr>
+          <tr><td>56</td><td><b>Ba</b></td><td>Barium</td><td>T4</td></tr>
+          <tr><td>57</td><td><b>La</b></td><td>Lanthanum</td><td>T4</td></tr>
+          <tr><td>58</td><td><b>Ce</b></td><td>Cerium</td><td>T4</td></tr>
+          <tr><td>59</td><td><b>Pr</b></td><td>Praseodymium</td><td>T4</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th>Z</th><th>Sym</th><th>Name</th><th>T</th></tr></thead>
+          <tbody>
+          <tr><td>60</td><td><b>Nd</b></td><td>Neodymium</td><td>T4</td></tr>
+          <tr><td>61</td><td><b>Pm</b></td><td>Promethium</td><td>T4</td></tr>
+          <tr><td>62</td><td><b>Sm</b></td><td>Samarium</td><td>T4</td></tr>
+          <tr><td>63</td><td><b>Eu</b></td><td>Europium</td><td>T4</td></tr>
+          <tr><td>64</td><td><b>Gd</b></td><td>Gadolinium</td><td>T4</td></tr>
+          <tr><td>65</td><td><b>Tb</b></td><td>Terbium</td><td>T4</td></tr>
+          <tr><td>66</td><td><b>Dy</b></td><td>Dysprosium</td><td>T4</td></tr>
+          <tr><td>67</td><td><b>Ho</b></td><td>Holmium</td><td>T4</td></tr>
+          <tr><td>68</td><td><b>Er</b></td><td>Erbium</td><td>T4</td></tr>
+          <tr><td>69</td><td><b>Tm</b></td><td>Thulium</td><td>T4</td></tr>
+          <tr><td>70</td><td><b>Yb</b></td><td>Ytterbium</td><td>T4</td></tr>
+          <tr><td>71</td><td><b>Lu</b></td><td>Lutetium</td><td>T4</td></tr>
+          <tr><td>72</td><td><b>Hf</b></td><td>Hafnium</td><td>T4</td></tr>
+          <tr><td>73</td><td><b>Ta</b></td><td>Tantalum</td><td>T4</td></tr>
+          <tr><td>74</td><td><b>W</b></td><td>Tungsten</td><td>T4</td></tr>
+          <tr><td>75</td><td><b>Re</b></td><td>Rhenium</td><td>T4</td></tr>
+          <tr><td>76</td><td><b>Os</b></td><td>Osmium</td><td>T4</td></tr>
+          <tr><td>77</td><td><b>Ir</b></td><td>Iridium</td><td>T4</td></tr>
+          <tr><td>78</td><td><b>Pt</b></td><td>Platinum</td><td>T4</td></tr>
+          <tr><td>79</td><td><b>Au</b></td><td>Gold</td><td>T4</td></tr>
+          <tr><td>80</td><td><b>Hg</b></td><td>Mercury</td><td>T4</td></tr>
+          <tr><td>81</td><td><b>Tl</b></td><td>Thallium</td><td>T4</td></tr>
+          <tr><td>82</td><td><b>Pb</b></td><td>Lead</td><td>T4</td></tr>
+          <tr><td>83</td><td><b>Bi</b></td><td>Bismuth</td><td>T4</td></tr>
+          <tr><td>84</td><td><b>Po</b></td><td>Polonium</td><td>T4</td></tr>
+          <tr><td>85</td><td><b>At</b></td><td>Astatine</td><td>T4</td></tr>
+          <tr><td>86</td><td><b>Rn</b></td><td>Radon</td><td>T4</td></tr>
+          <tr><td>87</td><td><b>Fr</b></td><td>Francium</td><td>T5</td></tr>
+          <tr><td>88</td><td><b>Ra</b></td><td>Radium</td><td>T5</td></tr>
+          <tr><td>89</td><td><b>Ac</b></td><td>Actinium</td><td>T5</td></tr>
+          <tr><td>90</td><td><b>Th</b></td><td>Thorium</td><td>T5</td></tr>
+          <tr><td>91</td><td><b>Pa</b></td><td>Protactinium</td><td>T5</td></tr>
+          <tr><td>92</td><td><b>U</b></td><td>Uranium</td><td>T5</td></tr>
+          <tr><td>93</td><td><b>Np</b></td><td>Neptunium</td><td>T5</td></tr>
+          <tr><td>94</td><td><b>Pu</b></td><td>Plutonium</td><td>T5</td></tr>
+          <tr><td>95</td><td><b>Am</b></td><td>Americium</td><td>T5</td></tr>
+          <tr><td>96</td><td><b>Cm</b></td><td>Curium</td><td>T5</td></tr>
+          <tr><td>97</td><td><b>Bk</b></td><td>Berkelium</td><td>T5</td></tr>
+          <tr><td>98</td><td><b>Cf</b></td><td>Californium</td><td>T5</td></tr>
+          <tr><td>99</td><td><b>Es</b></td><td>Einsteinium</td><td>T5</td></tr>
+          <tr><td>100</td><td><b>Fm</b></td><td>Fermium</td><td>T5</td></tr>
+          <tr><td>101</td><td><b>Md</b></td><td>Mendelevium</td><td>T5</td></tr>
+          <tr><td>102</td><td><b>No</b></td><td>Nobelium</td><td>T5</td></tr>
+          <tr><td>103</td><td><b>Lr</b></td><td>Lawrencium</td><td>T5</td></tr>
+          <tr><td>104</td><td><b>Rf</b></td><td>Rutherfordium</td><td>T5</td></tr>
+          <tr><td>105</td><td><b>Db</b></td><td>Dubnium</td><td>T5</td></tr>
+          <tr><td>106</td><td><b>Sg</b></td><td>Seaborgium</td><td>T5</td></tr>
+          <tr><td>107</td><td><b>Bh</b></td><td>Bohrium</td><td>T5</td></tr>
+          <tr><td>108</td><td><b>Hs</b></td><td>Hassium</td><td>T5</td></tr>
+          <tr><td>109</td><td><b>Mt</b></td><td>Meitnerium</td><td>T5</td></tr>
+          <tr><td>110</td><td><b>Ds</b></td><td>Darmstadtium</td><td>T5</td></tr>
+          <tr><td>111</td><td><b>Rg</b></td><td>Roentgenium</td><td>T5</td></tr>
+          <tr><td>112</td><td><b>Cn</b></td><td>Copernicium</td><td>T5</td></tr>
+          <tr><td>113</td><td><b>Nh</b></td><td>Nihonium</td><td>T5</td></tr>
+          <tr><td>114</td><td><b>Fl</b></td><td>Flerovium</td><td>T5</td></tr>
+          <tr><td>115</td><td><b>Mc</b></td><td>Moscovium</td><td>T5</td></tr>
+          <tr><td>116</td><td><b>Lv</b></td><td>Livermorium</td><td>T5</td></tr>
+          <tr><td>117</td><td><b>Ts</b></td><td>Tennessine</td><td>T5</td></tr>
+          <tr><td>118</td><td><b>Og</b></td><td>Oganesson</td><td>T5</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sheet sheet-break">
+      <h1>Mnemonics (elements 1–20)</h1>
+        <div class="mnemonic">
+          <strong>Elements 1–10</strong> (H He Li Be B C N O F Ne)<br />
+          Hi He Likes Beer, But Could Not Obtain Food Near Neptune.
+        </div>
+        <div class="mnemonic">
+          <strong>Elements 11–20</strong> (Na Mg Al Si P S Cl Ar K Ca)<br />
+          Naughty Magicians Always Sing Perfect Songs, Clapping Around K-Ca.
+        </div>
+
+      <h2>Symbol drill — Tier 1 (write the symbol)</h2>
+      <p class="muted">Cover the reference page and fill in each blank from memory.</p>
+      <div class="drill-grid">
+        <div class="drill-item"><span class="drill-z">1</span> Hydrogen<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">2</span> Helium<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">3</span> Lithium<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">4</span> Beryllium<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">5</span> Boron<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">6</span> Carbon<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">7</span> Nitrogen<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">8</span> Oxygen<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">9</span> Fluorine<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">10</span> Neon<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">11</span> Sodium<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">12</span> Magnesium<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">13</span> Aluminum<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">14</span> Silicon<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">15</span> Phosphorus<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">16</span> Sulfur<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">17</span> Chlorine<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">18</span> Argon<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">19</span> Potassium<span class="blank"></span></div>
+        <div class="drill-item"><span class="drill-z">20</span> Calcium<span class="blank"></span></div>
+      </div>
+
+      <h2>Symbol drill — full table checklist</h2>
+      <p class="muted">Check off each tier when flash-card / quiz accuracy is consistently ≥ 90%.</p>
+      <table>
+        <thead><tr><th>Done</th><th>Tier</th><th>Elements</th><th>Target date</th></tr></thead>
+        <tbody>
+          <tr><td>☐</td><td>T1</td><td>1–20</td><td></td></tr>
+          <tr><td>☐</td><td>T2</td><td>21–36</td><td></td></tr>
+          <tr><td>☐</td><td>T3</td><td>37–54</td><td></td></tr>
+          <tr><td>☐</td><td>T4</td><td>55–86</td><td></td></tr>
+          <tr><td>☐</td><td>T5</td><td>87–118</td><td></td></tr>
+        </tbody>
+      </table>
+      <p class="footer-note">Interactive practice (flash cards &amp; quiz): open periodic-table-study.html on a computer or tablet.</p>
+    </section>
+  </div>
+</body>
+</html>

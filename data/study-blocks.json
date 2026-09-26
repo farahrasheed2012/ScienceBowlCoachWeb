@@ -1,0 +1,1607 @@
+[
+  {
+    "id": "w1-monday-chemistry",
+    "week": 1,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 17 §17.1–17.3",
+    "chapterTitle": "Atoms: The Building Blocks of Matter",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 3",
+    "pass2ChapterTitle": "Atoms & Elements (backup)",
+    "backupBookLine": "Tro Ch 4 §4.3–4.6",
+    "focus": "Proton (+1, in nucleus) · neutron (neutral, nucleus) · electron (−1, shells/cloud) · atomic number Z = # protons (defines element) · mass number A = protons + neutrons · isotopes = same Z, different neutrons · nucleus ≈ all mass · electron cloud ≈ all volume · neutral atom: protons = electrons",
+    "formulasAndTerms": "Z = # protons · A = p + n · ¹²C vs ¹⁴C (isotopes) · p⁺, n⁰, e⁻",
+    "knowCold": [
+      "Element with 17 protons? (Chlorine)",
+      "C-12 (6 protons): electrons in neutral atom? (6)",
+      "~zero-mass particle? (Electron)"
+    ],
+    "topic": "Atoms & periodic table",
+    "sampleTossups": [
+      {
+        "question": "What is the atomic number of an atom with 15 protons?",
+        "answer": "15 (Phosphorus)"
+      },
+      {
+        "question": "An atom has 11 protons and 12 neutrons. What is its mass number?",
+        "answer": "23"
+      },
+      {
+        "question": "How many neutrons are in a neutral carbon-12 atom?",
+        "answer": "6"
+      },
+      {
+        "question": "What subatomic particle carries a negative charge?",
+        "answer": "Electron"
+      },
+      {
+        "question": "Two atoms with the same atomic number but different numbers of neutrons are called what?",
+        "answer": "Isotopes"
+      },
+      {
+        "question": "What is the charge of a proton?",
+        "answer": "Positive (+1)"
+      },
+      {
+        "question": "In a neutral atom, how does the number of electrons compare to the number of protons?",
+        "answer": "They are equal"
+      }
+    ]
+  },
+  {
+    "id": "w1-tuesday-biology",
+    "week": 1,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 1 — Cell Structure and Function · §1.3 Parts of a Cell (~p21–28) · §1.4 Two Kinds of Cells (~p29–37)",
+    "chapterTitle": "Cell Structure and Function",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 3 §3.2–3.4 · CB Ch 4",
+    "focus": "Nucleus (contains DNA/chromosomes) · cell membrane (selective barrier) · cytoplasm · mitochondria → ATP · ribosomes → proteins · ER & Golgi → transport/modify proteins · vacuole (large in plants) · chloroplast (plants only, photosynthesis) · cell wall (plants only) · prokaryote (no nucleus) vs eukaryote (has nucleus)",
+    "formulasAndTerms": "ATP = energy currency · organelle → function pairs",
+    "knowCold": [
+      "Which organelle makes ATP? (Mitochondria)",
+      "Two plant-only structures? (Cell wall, chloroplast)",
+      "Nucleus job? (Houses DNA, controls cell)"
+    ],
+    "topic": "Cell structure",
+    "sampleTossups": [
+      {
+        "question": "Which organelle produces most ATP in eukaryotes?",
+        "answer": "Mitochondria"
+      },
+      {
+        "question": "Name two structures found in plant cells but not in typical animal cells.",
+        "answer": "Cell wall and chloroplast"
+      }
+    ]
+  },
+  {
+    "id": "w1-wednesday-physics",
+    "week": 1,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 1 §1.2–1.5 + App. B",
+    "chapterTitle": "About Science (+ App B optional)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": null,
+    "focus": "~1 hr: Hewitt Ch 1 (hypothesis, SI units, precision). Optional 10-min skim: App. B motion graphs if time remains.",
+    "formulasAndTerms": "v = d/t · a = Δv/Δt (concept) · slope = rise/run",
+    "knowCold": [
+      "Theory vs law — which is broader? (Theory)",
+      "120 km in 2 h → speed? (60 km/h)",
+      "Flat d-t line means? (At rest / zero speed)",
+      "Speed vs velocity difference? (Velocity has direction)"
+    ],
+    "topic": "About Science + Motion",
+    "sampleTossups": [
+      {
+        "question": "A car goes 150 km in 3 hours. What is its average speed?",
+        "answer": "50 km/h"
+      },
+      {
+        "question": "What does a horizontal (flat) line on a distance-time graph indicate?",
+        "answer": "The object is at rest / not moving"
+      }
+    ]
+  },
+  {
+    "id": "w1-thursday-chemistry",
+    "week": 1,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 17 §17.6–17.8",
+    "chapterTitle": "Periodic Law",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 5",
+    "pass2ChapterTitle": "Ions · Molecules & Compounds (backup)",
+    "backupBookLine": "Tro Ch 4 §4.7–4.8 + Ch 5",
+    "focus": "~1 hr · section: periods & groups · metals/nonmetals · valence electrons (intro) · subscripts in formulas · H₂O, CO₂, NaCl",
+    "formulasAndTerms": "Na → Na⁺ + e⁻ · Group 18 = noble gases · H₂O, CO₂, NaCl",
+    "knowCold": [
+      "Noble gas group number? (18)",
+      "CO₂ formula? (CO₂)",
+      "Na forms Na⁺ or Na⁻? (Na⁺)"
+    ],
+    "topic": "Elements & ions",
+    "sampleTossups": [
+      {
+        "question": "Which group on the periodic table contains the noble gases?",
+        "answer": "Group 18"
+      },
+      {
+        "question": "What is the chemical formula for table salt?",
+        "answer": "NaCl"
+      },
+      {
+        "question": "What is the chemical symbol for sodium?",
+        "answer": "Na"
+      },
+      {
+        "question": "Elements in Group 1 are known as what type of metals?",
+        "answer": "Alkali metals"
+      },
+      {
+        "question": "How many valence electrons does a neutral atom of neon have?",
+        "answer": "8"
+      },
+      {
+        "question": "What type of bond forms between a metal and a nonmetal, as in NaCl?",
+        "answer": "Ionic bond"
+      },
+      {
+        "question": "What is the chemical formula for carbon dioxide?",
+        "answer": "CO₂"
+      },
+      {
+        "question": "When sodium loses one electron, what ion does it form?",
+        "answer": "Na⁺"
+      }
+    ]
+  },
+  {
+    "id": "w1-friday-biology",
+    "week": 1,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 16 — Healthy Body Systems · §16.1 Your Body Systems (~p508–518)",
+    "chapterTitle": "Levels of Organization",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 1 §1.1 · CB Ch 6–7",
+    "focus": "~1 hr · section: cell → tissue → organ → system → organism · specialization · tissue types",
+    "formulasAndTerms": "Levels of organization in order",
+    "knowCold": [
+      "Order from simplest: organ, cell, tissue, organism? (Cell → tissue → organ → organism)",
+      "Why do muscle cells look different from nerve cells? (Specialization / different genes expressed)"
+    ],
+    "topic": "Cell energy & organization",
+    "sampleTossups": [
+      {
+        "question": "List from simplest to most complex: organ, cell, tissue, organism.",
+        "answer": "Cell → tissue → organ → organism"
+      },
+      {
+        "question": "Why can muscle cells and nerve cells look so different if they have the same DNA?",
+        "answer": "Different genes are expressed / cell specialization"
+      }
+    ]
+  },
+  {
+    "id": "w2-monday-chemistry",
+    "week": 2,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 15 §15.1–15.5",
+    "chapterTitle": "The Atom",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 5 §3 + Ch 4",
+    "pass2ChapterTitle": "Periodic trends (backup)",
+    "backupBookLine": "Tro Ch 9 §9.7 · §9.9",
+    "focus": "Hewitt Ch 15: atom discovery · elements & periodic table · nucleus (protons/neutrons) · isotopes & weighted average atomic mass · electron shells & valence e⁻ · first 20 symbols H–Ca · builds on Week 1 Ch 17 atom intro",
+    "formulasAndTerms": "Z = # protons · A = p + n · avg atomic mass from isotopes · valence e⁻ in outer shell",
+    "knowCold": [
+      "Symbol for potassium? (K)",
+      "Carbon-12 vs carbon-14 — same proton count? (Yes, isotopes)",
+      "Where are protons located? (Nucleus)"
+    ],
+    "topic": "The atom",
+    "sampleTossups": [
+      {
+        "question": "What is the chemical symbol for potassium?",
+        "answer": "K"
+      },
+      {
+        "question": "Carbon-12 and carbon-14 are isotopes of carbon. How many protons does each have?",
+        "answer": "6"
+      },
+      {
+        "question": "In an atom, where are protons located?",
+        "answer": "In the nucleus"
+      }
+    ]
+  },
+  {
+    "id": "w2-tuesday-biology",
+    "week": 2,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 4 — Modern Genetics · §4.1 Human Inheritance (~p100–110) · §4.2 Advances in Modern Genetics (~p111–121)",
+    "chapterTitle": "Genetics — DNA & genes (part 1)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 8 §8.1–8.2 · CB Ch 9",
+    "focus": "~1 hr · part 1: DNA · gene · chromosome · allele · dominant vs recessive. Finish Punnett squares Friday (Ch 8).",
+    "formulasAndTerms": "Tt × Tt → 3 dominant : 1 recessive phenotype · homozygous (TT, tt) vs heterozygous (Tt)",
+    "knowCold": [
+      "Tt × Tt phenotype ratio? (3:1)",
+      "Dominant allele: capital or lowercase? (Capital)"
+    ],
+    "topic": "Genetics",
+    "sampleTossups": [
+      {
+        "question": "What molecule carries genetic information in the cell?",
+        "answer": "DNA"
+      },
+      {
+        "question": "What is an alternate form of a gene called?",
+        "answer": "An allele"
+      }
+    ]
+  },
+  {
+    "id": "w2-wednesday-physics",
+    "week": 2,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 2 §2.2–2.6 + Ch 3 §3.1–3.3",
+    "chapterTitle": "Newton's 1st & 2nd Laws (part 1)",
+    "pass2BookCode": "Expl",
+    "pass2Chapter": "Ch 2–5",
+    "pass2ChapterTitle": "Newton's Laws + Momentum",
+    "backupBookLine": null,
+    "focus": "~1 hr · part 1: inertia · F = ma · net force · friction (intro). Wed week 3 = Newton's 3rd; week 4 = momentum wrap-up.",
+    "formulasAndTerms": "F = ma · a = F/m · units: Newton (N), kg, m/s²",
+    "knowCold": [
+      "F=20 N, m=4 kg → a? (5 m/s²)",
+      "Double mass, same force → acceleration? (Halves)"
+    ],
+    "topic": "Forces & Newton's laws",
+    "sampleTossups": [
+      {
+        "question": "A 4 kg object experiences an acceleration of 5 m/s². What is the net force?",
+        "answer": "20 N (F = 4 × 5)"
+      },
+      {
+        "question": "Newton's 3rd law: Earth pulls you down. What do you pull on Earth?",
+        "answer": "Up (equal and opposite force)"
+      }
+    ]
+  },
+  {
+    "id": "w2-thursday-chemistry",
+    "week": 2,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 18 §18.1–18.4",
+    "chapterTitle": "Chemical Bonding (part 1)",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 7",
+    "pass2ChapterTitle": "Molecules & Compounds (backup)",
+    "backupBookLine": "Tro Ch 5",
+    "focus": "Electron-dot structures · ions (cations/anions) · ionic bonds (electron transfer, e.g. NaCl) · metallic bonds · valence electrons set bonding behavior",
+    "formulasAndTerms": "Na → Na⁺ + e⁻ · Cl + e⁻ → Cl⁻ · ionic = metal + nonmetal · NaCl",
+    "knowCold": [
+      "NaCl — ionic or covalent? (Ionic)",
+      "Metal atom loses electrons → cation or anion? (Cation)"
+    ],
+    "topic": "Chemical bonding",
+    "sampleTossups": [
+      {
+        "question": "Is NaCl held together by ionic or covalent bonds?",
+        "answer": "Ionic"
+      },
+      {
+        "question": "When a metal atom loses electrons, does it form a cation or an anion?",
+        "answer": "Cation"
+      }
+    ]
+  },
+  {
+    "id": "w2-friday-biology",
+    "week": 2,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 4 — Modern Genetics · §4.3 Genetic Disorders (~p122–133)",
+    "chapterTitle": "Genetics — Punnett squares (part 2)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 8 §8.2–8.3 · CB Ch 9",
+    "focus": "~1 hr · part 2: genotype vs phenotype · Punnett square · Tt × Tt → 3:1 · heterozygous vs homozygous",
+    "formulasAndTerms": "Tt × Tt → 3 dominant : 1 recessive phenotype · homozygous (TT, tt) vs heterozygous (Tt)",
+    "knowCold": [
+      "Tt × Tt phenotype ratio? (3:1)",
+      "Dominant allele: capital or lowercase? (Capital)"
+    ],
+    "topic": "Genetics",
+    "sampleTossups": [
+      {
+        "question": "In a monohybrid cross Tt × Tt, what is the expected phenotypic ratio?",
+        "answer": "3:1 (3 dominant : 1 recessive)"
+      },
+      {
+        "question": "How is a dominant allele typically written in genetics notation?",
+        "answer": "With a capital letter"
+      }
+    ]
+  },
+  {
+    "id": "w3-monday-chemistry",
+    "week": 3,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 19 §19.1–19.4",
+    "chapterTitle": "Solutions",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 12",
+    "pass2ChapterTitle": "Solutions (backup)",
+    "backupBookLine": "Tro Ch 13",
+    "focus": "Solution = solute dissolved in solvent · aqueous = water as solvent · saturation · concentration · filtration separates insoluble solid from liquid · distillation separates liquids by boiling point differences",
+    "formulasAndTerms": "Solute dissolved in solvent · dilution ↓ concentration · filtration vs distillation",
+    "knowCold": [
+      "Salt water — which is the solute? (Salt / NaCl)",
+      "Separate sand from water? (Filtration)"
+    ],
+    "topic": "Solutions",
+    "sampleTossups": [
+      {
+        "question": "In a salt water solution, which substance is the solute?",
+        "answer": "Salt (sodium chloride)"
+      },
+      {
+        "question": "What separation method would you use to separate sand from water?",
+        "answer": "Filtration"
+      }
+    ]
+  },
+  {
+    "id": "w3-tuesday-biology",
+    "week": 3,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 7 — Living Things · §7.2 Classification of Living Things (~p214–224) · §7.3 The Six Kingdoms (~p225–235)",
+    "chapterTitle": "Ecology — communities (part 1)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 19 §19.1 · CB Ch 36–37",
+    "focus": "~1 hr · part 1: producers · consumers · decomposers · food chains · symbiosis types",
+    "formulasAndTerms": "Mutualism (+/+) · commensalism (+/0) · parasitism (+/−) · 10% energy rule",
+    "knowCold": [
+      "3 biomes? (tundra, desert, rainforest, grassland, taiga, temperate forest)",
+      "Who gets sun energy first in a food chain? (Producer)"
+    ],
+    "topic": "Ecology",
+    "sampleTossups": [
+      {
+        "question": "What do we call an organism that makes its own food from sunlight?",
+        "answer": "Producer (autotroph)"
+      },
+      {
+        "question": "Name the three types of symbiosis.",
+        "answer": "Mutualism, commensalism, parasitism"
+      }
+    ]
+  },
+  {
+    "id": "w3-wednesday-physics",
+    "week": 3,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 3 §3.4–3.6 + Ch 4 §4.1–4.3",
+    "chapterTitle": "Newton's 3rd Law & friction (part 2)",
+    "pass2BookCode": "Expl",
+    "pass2Chapter": "Ch 6–7",
+    "pass2ChapterTitle": "Energy · Gravity",
+    "backupBookLine": null,
+    "focus": "~1 hr · part 2: action-reaction pairs · friction · net force · N = kg·m/s². Wed week 7 = momentum.",
+    "formulasAndTerms": "F = ma · action-reaction pairs · friction opposes motion · N = kg·m/s²",
+    "knowCold": [
+      "Newton's 3rd law in words? (Every action has equal and opposite reaction)",
+      "F=20 N, m=4 kg → a? (5 m/s²)"
+    ],
+    "topic": "Forces & Newton's laws",
+    "sampleTossups": [
+      {
+        "question": "Newton's 3rd law: Earth pulls you down. What do you pull on Earth?",
+        "answer": "Up (equal and opposite force)"
+      },
+      {
+        "question": "A 4 kg object experiences an acceleration of 5 m/s². What is the net force?",
+        "answer": "20 N (F = 4 × 5)"
+      }
+    ]
+  },
+  {
+    "id": "w3-thursday-chemistry",
+    "week": 3,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 20 §20.1–20.4",
+    "chapterTitle": "Chemical Equations and Reactions",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 8",
+    "pass2ChapterTitle": "Chemical Reactions (backup)",
+    "backupBookLine": "Tro Ch 7 §7.1–7.4",
+    "focus": "Reactants → products · balancing equations (conservation of mass) · exothermic (releases heat) vs endothermic (absorbs heat) · signs of a chemical reaction (color change, gas, precipitate, energy change)",
+    "formulasAndTerms": "2H₂ + O₂ → 2H₂O · H₂ + Cl₂ → 2HCl (balanced) · exothermic = releases heat",
+    "knowCold": [
+      "Balance H₂ + Cl₂ → HCl (answer: H₂ + Cl₂ → 2HCl)",
+      "Exothermic = releases or absorbs? (Releases)"
+    ],
+    "topic": "Chemical reactions",
+    "sampleTossups": [
+      {
+        "question": "Balance the equation: H₂ + Cl₂ → HCl",
+        "answer": "H₂ + Cl₂ → 2HCl"
+      },
+      {
+        "question": "Does an exothermic reaction release or absorb heat?",
+        "answer": "Releases"
+      }
+    ]
+  },
+  {
+    "id": "w3-friday-biology",
+    "week": 3,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 17 — Bones, Muscles, and Skin · §17.1 Bones and Muscles (~p530–544) · Ch 18 — Food and Digestion · §18.1 Food and Energy (~p560–575)",
+    "chapterTitle": "Body systems — musculoskeletal & cardiopulmonary",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 16 §16.1–16.3 · CB Ch 21–23",
+    "focus": "~1 hr · section: levers · heart · arteries/veins · lungs O₂/CO₂ · capillaries",
+    "formulasAndTerms": "Lever: fulcrum · effort · load · artery = away from heart · vein = toward heart",
+    "knowCold": [
+      "Three parts of a lever? (Fulcrum, effort, load)",
+      "Arteries carry blood toward or away from heart? (Away from heart)"
+    ],
+    "topic": "Human body systems",
+    "sampleTossups": [
+      {
+        "question": "Name the three parts of a lever system.",
+        "answer": "Fulcrum, effort (force), and load"
+      },
+      {
+        "question": "Do arteries carry blood toward or away from the heart?",
+        "answer": "Away from the heart"
+      }
+    ]
+  },
+  {
+    "id": "w4-monday-chemistry",
+    "week": 4,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 17 §17.3–17.5",
+    "chapterTitle": "States of Matter",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 10",
+    "pass2ChapterTitle": "Matter and Energy (backup)",
+    "backupBookLine": "Tro Ch 3",
+    "focus": "Solid (fixed shape & volume) · liquid (fixed volume, takes shape of container) · gas (fills container) · particle model: spacing & motion differences · melting / freezing / boiling / condensation · phase changes absorb or release energy · heating curve: flat plateau during phase change · evaporation (surface only) vs boiling (throughout)",
+    "formulasAndTerms": "Solid ↔ liquid ↔ gas transitions · evaporation vs boiling · heating curve plateau = phase change",
+    "knowCold": [
+      "Which state has fastest-moving particles? (Gas)",
+      "Boiling vs evaporation — one difference? (Boiling occurs throughout liquid; evaporation only at surface)",
+      "Ice melting — what happens to particle spacing? (Spacing increases)"
+    ],
+    "topic": "States of matter",
+    "sampleTossups": [
+      {
+        "question": "Which state of matter has particles with the most kinetic energy at the same temperature?",
+        "answer": "Gas"
+      },
+      {
+        "question": "During boiling, is energy absorbed by or released from the substance?",
+        "answer": "Absorbed"
+      }
+    ]
+  },
+  {
+    "id": "w4-tuesday-biology",
+    "week": 4,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 5 — Evolution · §5.1 Evidence for Evolution (~p134–141) · §5.2 How Evolution Works (~p142–150)",
+    "chapterTitle": "Evolution — natural selection (part 1)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 11 · CB Ch 13–14",
+    "focus": "~1 hr · part 1: natural selection · variation · adaptation · fossil evidence. Fri = classification (Ch 12).",
+    "formulasAndTerms": "Taxonomy mnemonic · Homo sapiens",
+    "knowCold": [
+      "Scientist associated with natural selection? (Charles Darwin)",
+      "Most specific taxonomic rank? (Species)"
+    ],
+    "topic": "Evolution & classification",
+    "sampleTossups": [
+      {
+        "question": "What scientist is most closely associated with the theory of natural selection?",
+        "answer": "Charles Darwin"
+      },
+      {
+        "question": "What is the most specific level in the classification system?",
+        "answer": "Species"
+      }
+    ]
+  },
+  {
+    "id": "w4-wednesday-physics",
+    "week": 4,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 5 §5.1–5.5",
+    "chapterTitle": "Momentum & Collisions",
+    "pass2BookCode": "Expl",
+    "pass2Chapter": "Ch 2–5",
+    "pass2ChapterTitle": "Newton's Laws + Momentum",
+    "backupBookLine": null,
+    "focus": "~1 hr · momentum p = mv · conservation of momentum · elastic vs inelastic · impulse (intro)",
+    "formulasAndTerms": "p = mv · conservation of momentum · F = ma",
+    "knowCold": [
+      "2 kg at 3 m/s — momentum? (6 kg·m/s)",
+      "Same v — truck or bike more momentum? (Truck)"
+    ],
+    "topic": "Forces & momentum",
+    "sampleTossups": [
+      {
+        "question": "A 2 kg object moves at 3 m/s — what is its momentum?",
+        "answer": "6 kg·m/s"
+      },
+      {
+        "question": "At equal velocity, which has greater momentum, a truck or a bicycle?",
+        "answer": "Truck"
+      }
+    ]
+  },
+  {
+    "id": "w4-thursday-chemistry",
+    "week": 4,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 17 §17.1–17.4",
+    "chapterTitle": "Measurements and Calculations",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 2",
+    "pass2ChapterTitle": "Measurement and Problem Solving (backup)",
+    "backupBookLine": "Tro Ch 2",
+    "focus": "SI base units (mass = kg, length = m, time = s, temperature = K, amount = mol, current = A) · significant figures · lab equipment · read meniscus at eye level · safety: goggles always",
+    "formulasAndTerms": "kg, m, s, mol · read meniscus at eye level · graduated cylinder = precise volume",
+    "knowCold": [
+      "SI unit for mass? (Kilogram, kg)",
+      "Glassware for precise volume? (Graduated cylinder)"
+    ],
+    "topic": "Lab & equipment",
+    "sampleTossups": [
+      {
+        "question": "What is the SI base unit for mass?",
+        "answer": "Kilogram (kg)"
+      },
+      {
+        "question": "Which piece of lab glassware is used to measure liquid volume most precisely?",
+        "answer": "Graduated cylinder"
+      }
+    ]
+  },
+  {
+    "id": "w4-friday-biology",
+    "week": 4,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 6 — Earth's History · §6.1 Fossil Evidence (~p160–173)",
+    "chapterTitle": "Classification & taxonomy (part 2)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 12 · CB Ch 14",
+    "focus": "~1 hr · part 2: Domain → Kingdom → … → Species · binomial nomenclature · Homo sapiens",
+    "formulasAndTerms": "Taxonomy mnemonic · Homo sapiens",
+    "knowCold": [
+      "Scientist associated with natural selection? (Charles Darwin)",
+      "Most specific taxonomic rank? (Species)"
+    ],
+    "topic": "Evolution & classification",
+    "sampleTossups": [
+      {
+        "question": "What scientist is most closely associated with the theory of natural selection?",
+        "answer": "Charles Darwin"
+      },
+      {
+        "question": "What is the most specific level in the classification system?",
+        "answer": "Species"
+      }
+    ]
+  },
+  {
+    "id": "w5-monday-chemistry",
+    "week": 5,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 18 §18.5–18.8",
+    "chapterTitle": "Covalent Bonds & Molecular Forces",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 7",
+    "pass2ChapterTitle": "Molecules & Compounds (backup)",
+    "backupBookLine": "Tro Ch 5",
+    "focus": "~1 hr · covalent bonds (electron sharing) · polar vs nonpolar · electronegativity · H₂O vs O₂ · molecular attractions (intermolecular forces intro)",
+    "formulasAndTerms": "covalent = nonmetals share · H₂O · O₂ · polar = uneven sharing",
+    "knowCold": [
+      "O₂ — ionic or covalent? (Covalent)",
+      "Two nonmetals sharing electrons — bond type? (Covalent)"
+    ],
+    "topic": "Covalent bonding",
+    "sampleTossups": [
+      {
+        "question": "Two nonmetals sharing electrons form what type of bond?",
+        "answer": "Covalent"
+      },
+      {
+        "question": "Is O₂ held together by ionic or covalent bonds?",
+        "answer": "Covalent"
+      }
+    ]
+  },
+  {
+    "id": "w5-tuesday-biology",
+    "week": 5,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 2 — Cell Processes and Energy · §2.4 Photosynthesis (~p56–61)",
+    "chapterTitle": "Photosynthesis (part 1)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 4 · CB Ch 8",
+    "focus": "~1 hr · part 1: chloroplast · light reactions · pigments · inputs CO₂ + H₂O + light. Fri = respiration (Ch 5).",
+    "formulasAndTerms": "6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂ · chloroplast",
+    "knowCold": [
+      "Organelle for photosynthesis? (Chloroplast)",
+      "Gas released in photosynthesis? (Oxygen/O₂)"
+    ],
+    "topic": "Photosynthesis & respiration",
+    "sampleTossups": [
+      {
+        "question": "Which organelle carries out photosynthesis?",
+        "answer": "Chloroplast"
+      },
+      {
+        "question": "What gas is released as a product of photosynthesis?",
+        "answer": "Oxygen/O₂"
+      }
+    ]
+  },
+  {
+    "id": "w5-wednesday-physics",
+    "week": 5,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 6 §6.1–6.5",
+    "chapterTitle": "Work & Energy (part 1)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": null,
+    "focus": "~1 hr · part 1: work W = Fd · joule · KE = ½mv² · energy conservation (intro). Wed week 6 = gravity.",
+    "formulasAndTerms": "W = Fd · KE = ½mv² · joule (J)",
+    "knowCold": [
+      "10 N for 4 m — work? (40 J)",
+      "Double speed — KE multiplied by? (4×)"
+    ],
+    "topic": "Work & energy",
+    "sampleTossups": [
+      {
+        "question": "How much work is done by a 10 N force over 4 m?",
+        "answer": "40 J"
+      },
+      {
+        "question": "If speed doubles, kinetic energy is multiplied by what factor?",
+        "answer": "4"
+      }
+    ]
+  },
+  {
+    "id": "w5-thursday-chemistry",
+    "week": 5,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 19 §19.3–19.4",
+    "chapterTitle": "Chemical Quantities",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 6",
+    "pass2ChapterTitle": "Quantities in Chemistry (backup)",
+    "backupBookLine": "Tro Ch 6",
+    "focus": "~1 hr · mole concept · molar mass · mole ↔ grams · Avogadro's number (concept) · percent composition (intro)",
+    "formulasAndTerms": "mol · molar mass (g/mol) · n = m/M",
+    "knowCold": [
+      "SI unit for amount of substance? (Mole/mol)",
+      "H₂O molar mass ≈? (18 g/mol)"
+    ],
+    "topic": "Stoichiometry",
+    "sampleTossups": [
+      {
+        "question": "What is the SI unit for amount of substance?",
+        "answer": "Mole (mol)"
+      },
+      {
+        "question": "What is the approximate molar mass of water (H₂O)?",
+        "answer": "18 g/mol"
+      }
+    ]
+  },
+  {
+    "id": "w5-friday-biology",
+    "week": 5,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 2 — Cell Processes and Energy · §2.5 Cellular Respiration (~p62–67)",
+    "chapterTitle": "Cellular Respiration (part 2)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 5 · CB Ch 9",
+    "focus": "~1 hr · part 2: mitochondria · aerobic respiration · glucose + O₂ → CO₂ + H₂O + ATP · compare to photosynthesis",
+    "formulasAndTerms": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP · mitochondria",
+    "knowCold": [
+      "Organelle for cellular respiration? (Mitochondria)",
+      "Gas consumed in aerobic respiration? (Oxygen/O₂)"
+    ],
+    "topic": "Photosynthesis & respiration",
+    "sampleTossups": [
+      {
+        "question": "Which organelle is the main site of aerobic respiration?",
+        "answer": "Mitochondria"
+      },
+      {
+        "question": "What gas is consumed during aerobic cellular respiration?",
+        "answer": "Oxygen/O₂"
+      }
+    ]
+  },
+  {
+    "id": "w6-monday-chemistry",
+    "week": 6,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 19 §19.3–19.5",
+    "chapterTitle": "Molarity & Dilution",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 12 §",
+    "pass2ChapterTitle": "Solutions (backup)",
+    "backupBookLine": "Tro Ch 13",
+    "focus": "~1 hr · molarity M = mol/L · dilution M₁V₁ = M₂V₂ · saturated vs unsaturated · electrolytes",
+    "formulasAndTerms": "M = mol/L · M₁V₁ = M₂V₂ · saturated · unsaturated",
+    "knowCold": [
+      "Add solvent — concentration up or down? (Down)",
+      "Unit of molarity? (mol/L or M)"
+    ],
+    "topic": "Solutions",
+    "sampleTossups": [
+      {
+        "question": "Adding solvent to a solution — does concentration increase or decrease?",
+        "answer": "Decreases"
+      },
+      {
+        "question": "What is the unit of molarity?",
+        "answer": "mol/L (M)"
+      }
+    ]
+  },
+  {
+    "id": "w6-tuesday-biology",
+    "week": 6,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 7 — Living Things · §7.3 The Six Kingdoms (~p225–235)",
+    "chapterTitle": "Population Ecology (part 2)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 20 · CB Ch 36",
+    "focus": "~1 hr · carrying capacity (K) · exponential vs logistic growth · limiting factors · primary vs secondary succession",
+    "formulasAndTerms": "carrying capacity · biotic vs abiotic · primary succession",
+    "knowCold": [
+      "Max population environment supports? (Carrying capacity)",
+      "Is sunlight biotic or abiotic? (Abiotic)"
+    ],
+    "topic": "Ecology",
+    "sampleTossups": [
+      {
+        "question": "What term describes the maximum population an environment can support?",
+        "answer": "Carrying capacity"
+      },
+      {
+        "question": "Is sunlight biotic or abiotic?",
+        "answer": "Abiotic"
+      }
+    ]
+  },
+  {
+    "id": "w6-wednesday-physics",
+    "week": 6,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 7 §7.1–7.4 + §7.7",
+    "chapterTitle": "Gravity & Projectile Motion",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": null,
+    "focus": "~1 hr · weight W = mg · mass vs weight · free fall · PE = mgh · projectile motion (qualitative)",
+    "formulasAndTerms": "W = mg · PE = mgh · weight ≠ mass",
+    "knowCold": [
+      "On Moon — mass, weight, or both change? (Weight only)",
+      "Ball rises — PE up or down? (Increases)"
+    ],
+    "topic": "Work & energy",
+    "sampleTossups": [
+      {
+        "question": "On the Moon, is an object's mass, weight, or both different from Earth?",
+        "answer": "Weight (mass unchanged)"
+      },
+      {
+        "question": "As a ball rises, does gravitational potential energy increase or decrease?",
+        "answer": "Increases"
+      }
+    ]
+  },
+  {
+    "id": "w6-thursday-chemistry",
+    "week": 6,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 21 §21.1–21.3",
+    "chapterTitle": "Neutralization & Titration",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 14 §",
+    "pass2ChapterTitle": "Acids and Bases (backup)",
+    "backupBookLine": "Tro Ch 14",
+    "focus": "~1 hr · neutralization: acid + base → salt + water · HCl + NaOH · strong vs weak (intro) · titration concept",
+    "formulasAndTerms": "HCl + NaOH → NaCl + H₂O · acid + base → salt + water",
+    "knowCold": [
+      "HCl + NaOH products? (NaCl and water)",
+      "pH 11 — acid or base? (Basic)"
+    ],
+    "topic": "Acids, bases & pH",
+    "sampleTossups": [
+      {
+        "question": "What are the products of HCl + NaOH?",
+        "answer": "NaCl and water"
+      },
+      {
+        "question": "Is a solution with pH 11 acidic or basic?",
+        "answer": "Basic"
+      }
+    ]
+  },
+  {
+    "id": "w6-friday-biology",
+    "week": 6,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 8 — Viruses and Bacteria · §8.1 Bacteria (~p236–251) · §8.2 Viruses (~p252–267)",
+    "chapterTitle": "Bacteria & Viruses",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 13 · CB Ch 16",
+    "focus": "~1 hr · prokaryote · bacteria shapes · virus vs bacterium · antibiotic vs antiviral · vaccines (intro)",
+    "formulasAndTerms": "bacteria = prokaryote · virus needs host · antibiotic ≠ virus",
+    "knowCold": [
+      "Antibiotic for a virus — yes or no? (No)",
+      "Bacteria have nucleus? (No — prokaryote)"
+    ],
+    "topic": "Microorganisms & disease",
+    "sampleTossups": [
+      {
+        "question": "Can antibiotics treat viral infections?",
+        "answer": "No"
+      },
+      {
+        "question": "Do bacteria have a membrane-bound nucleus?",
+        "answer": "No (prokaryote)"
+      }
+    ]
+  },
+  {
+    "id": "w7-monday-chemistry",
+    "week": 7,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 20 §20.1–20.4",
+    "chapterTitle": "Reaction Types (deeper)",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 8 §",
+    "pass2ChapterTitle": "Chemical Reactions (backup)",
+    "backupBookLine": "Tro Ch 7",
+    "focus": "~1 hr · synthesis · decomposition · single/double replacement · combustion · balance harder equations",
+    "formulasAndTerms": "A + B → AB · AB → A + B · combustion needs O₂",
+    "knowCold": [
+      "2H₂O → 2H₂ + O₂ — synthesis or decomposition? (Decomposition)",
+      "Combustion requires which gas? (Oxygen/O₂)"
+    ],
+    "topic": "Chemical reactions",
+    "sampleTossups": [
+      {
+        "question": "Classify 2H₂O → 2H₂ + O₂ — synthesis or decomposition?",
+        "answer": "Decomposition"
+      },
+      {
+        "question": "Combustion reactions require which reactant gas?",
+        "answer": "Oxygen (O₂)"
+      }
+    ]
+  },
+  {
+    "id": "w7-tuesday-biology",
+    "week": 7,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 21 — Fighting Disease · §21.1 The Body's Defenses (~p648–664)",
+    "chapterTitle": "Immune System",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 17 · CB Ch 24",
+    "focus": "~1 hr · innate vs adaptive · B cells · T cells · antibodies · memory cells · vaccines",
+    "formulasAndTerms": "innate vs adaptive · memory cells · antibody",
+    "knowCold": [
+      "Why second infection often milder? (Memory cells)",
+      "One innate barrier? (Skin/mucous membranes)"
+    ],
+    "topic": "Microorganisms & disease",
+    "sampleTossups": [
+      {
+        "question": "Why is a second infection with the same pathogen often milder?",
+        "answer": "Memory cells/adaptive immunity"
+      },
+      {
+        "question": "Name one innate immune barrier.",
+        "answer": "Skin/mucous membranes"
+      }
+    ]
+  },
+  {
+    "id": "w7-wednesday-physics",
+    "week": 7,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 9 §9.1–9.5",
+    "chapterTitle": "Heat & Temperature",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": null,
+    "focus": "~1 hr · thermal energy · temperature vs heat · absolute zero · specific heat · conduction (intro)",
+    "formulasAndTerms": "heat flows hot → cold · specific heat capacity · °C vs K (K = °C + 273)",
+    "knowCold": [
+      "Heat vs temperature — which is energy transfer? (Heat)",
+      "25°C in kelvin? (298 K)"
+    ],
+    "topic": "Heat & thermodynamics",
+    "sampleTossups": [
+      {
+        "question": "Is heat the same as temperature?",
+        "answer": "No — heat is energy transfer; temperature measures average kinetic energy"
+      },
+      {
+        "question": "Convert 25°C to kelvin.",
+        "answer": "298 K"
+      }
+    ]
+  },
+  {
+    "id": "w7-thursday-chemistry",
+    "week": 7,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 17 §17.6–17.7",
+    "chapterTitle": "Periodic Trends (deeper)",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 5 §",
+    "pass2ChapterTitle": "Periodic Trends (backup)",
+    "backupBookLine": "Tro Ch 9",
+    "focus": "~1 hr · ionization energy · electronegativity · metallic character · halogen reactivity · ion size vs atom size",
+    "formulasAndTerms": "radius ↓ across period · ionization energy ↑ across period · F most reactive halogen",
+    "knowCold": [
+      "Across period — radius increases or decreases? (Decreases)",
+      "F or I more reactive halogen? (Fluorine)"
+    ],
+    "topic": "Periodic trends & elements",
+    "sampleTossups": [
+      {
+        "question": "Across a period left to right, does atomic radius generally increase or decrease?",
+        "answer": "Decreases"
+      },
+      {
+        "question": "Which halogen is generally most reactive, fluorine or iodine?",
+        "answer": "Fluorine"
+      }
+    ]
+  },
+  {
+    "id": "w7-friday-biology",
+    "week": 7,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 10 — Introduction to Plants · §10.1 What Are Plants? (~p298–307) · §10.2 Roots, Stems, and Leaves (~p308–317)",
+    "chapterTitle": "Plant Structure (part 1)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 14 · CB Ch 31",
+    "focus": "~1 hr · part 1: root · stem · leaf · meristem · vascular tissue overview. Fri = xylem/phloem (Ch 15).",
+    "formulasAndTerms": "xylem · phloem · meristem · root/stem/leaf",
+    "knowCold": [
+      "Tissue that transports water up? (Xylem)",
+      "Meristem function? (Growth/dividing cells)"
+    ],
+    "topic": "Plants & animals",
+    "sampleTossups": [
+      {
+        "question": "Which vascular tissue transports water upward in plants?",
+        "answer": "Xylem"
+      },
+      {
+        "question": "What type of plant tissue is responsible for growth?",
+        "answer": "Meristem"
+      }
+    ]
+  },
+  {
+    "id": "w8-monday-chemistry",
+    "week": 8,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 17 §17.4–17.5",
+    "chapterTitle": "Density & Unit Analysis",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 2 §",
+    "pass2ChapterTitle": "Measurement (backup)",
+    "backupBookLine": "Tro Ch 2",
+    "focus": "~1 hr · density d = m/V · unit analysis · K = °C + 273 · percent error (intro) · sig figs review",
+    "formulasAndTerms": "d = m/V · K = °C + 273 · sig figs",
+    "knowCold": [
+      "Sig figs in 0.00450? (3)",
+      "25°C to kelvin? (298 K)"
+    ],
+    "topic": "Lab & equipment",
+    "sampleTossups": [
+      {
+        "question": "How many significant figures are in 0.00450?",
+        "answer": "3"
+      },
+      {
+        "question": "Convert 25°C to kelvin.",
+        "answer": "298 K"
+      }
+    ]
+  },
+  {
+    "id": "w8-tuesday-biology",
+    "week": 8,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 11 — Seed Plants · §11.1 Seed Plants (~p328–345)",
+    "chapterTitle": "Plant Transport & Tissues (part 2)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 15 · CB Ch 31",
+    "focus": "~1 hr · part 2: xylem (water up) · phloem (sugars) · stomata · transpiration (intro)",
+    "formulasAndTerms": "xylem · phloem · stomata · transpiration",
+    "knowCold": [
+      "Phloem transports what? (Sugars)",
+      "Xylem moves water up or down? (Up)"
+    ],
+    "topic": "Plants & animals",
+    "sampleTossups": [
+      {
+        "question": "Name the vascular tissue that transports sugars in plants.",
+        "answer": "Phloem"
+      },
+      {
+        "question": "Does xylem transport water upward or downward?",
+        "answer": "Upward"
+      }
+    ]
+  },
+  {
+    "id": "w8-wednesday-physics",
+    "week": 8,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 10 §10.1–10.7 + §10.11",
+    "chapterTitle": "Electricity — Charge & Current",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": null,
+    "focus": "~1 hr · charge · current · voltage · resistance · V = IR · conductors vs insulators · series vs parallel (intro)",
+    "formulasAndTerms": "V = IR · current (A) · voltage (V) · resistance (Ω)",
+    "knowCold": [
+      "SI unit of current? (Ampere/A)",
+      "More resistors in series — R up or down? (Up)"
+    ],
+    "topic": "Electricity",
+    "sampleTossups": [
+      {
+        "question": "What is the SI unit of electric current?",
+        "answer": "Ampere (A)"
+      },
+      {
+        "question": "More resistors added in series — does total resistance increase or decrease?",
+        "answer": "Increases"
+      }
+    ]
+  },
+  {
+    "id": "w8-thursday-chemistry",
+    "week": 8,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 17 §17.3–17.5",
+    "chapterTitle": "Heating Curves & Phase Diagrams",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 10 §",
+    "pass2ChapterTitle": "Matter and Energy (backup)",
+    "backupBookLine": "Tro Ch 3",
+    "focus": "~1 hr · heating/cooling curves · plateau = phase change · physical vs chemical change review · evaporation vs boiling",
+    "formulasAndTerms": "heating curve plateau · physical vs chemical change",
+    "knowCold": [
+      "Plateau on heating curve means? (Phase change at constant T)",
+      "Melting ice — physical or chemical? (Physical)"
+    ],
+    "topic": "States of matter",
+    "sampleTossups": [
+      {
+        "question": "On a heating curve, what does a flat plateau indicate?",
+        "answer": "Phase change at constant temperature"
+      },
+      {
+        "question": "Is melting ice a physical or chemical change?",
+        "answer": "Physical"
+      }
+    ]
+  },
+  {
+    "id": "w8-friday-biology",
+    "week": 8,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 17 — Bones, Muscles, and Skin · §17.1 Bones and Muscles (~p530–544)",
+    "chapterTitle": "Animal Structure & Tissues",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 18 · CB Ch 20",
+    "focus": "~1 hr · epithelial · muscle · nervous · connective tissues · organ systems overview",
+    "formulasAndTerms": "epithelial · muscle · nervous · connective",
+    "knowCold": [
+      "Tissue that contracts? (Muscle)",
+      "Tissue that sends signals? (Nervous)"
+    ],
+    "topic": "Plants & animals",
+    "sampleTossups": [
+      {
+        "question": "Which tissue type is specialized for contraction?",
+        "answer": "Muscle"
+      },
+      {
+        "question": "Which tissue type transmits electrical signals?",
+        "answer": "Nervous"
+      }
+    ]
+  },
+  {
+    "id": "w9-monday-chemistry",
+    "week": 9,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 17 §17.2–17.3",
+    "chapterTitle": "Isotopes & Average Atomic Mass",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 3 §",
+    "pass2ChapterTitle": "Atoms (backup)",
+    "backupBookLine": "Tro Ch 4",
+    "focus": "~1 hr · isotopes · average atomic mass · nuclear notation · review Z vs A with calculations",
+    "formulasAndTerms": "Z = # protons · A = p + n · average atomic mass",
+    "knowCold": [
+      "Isotopes differ in which particle? (Neutrons)",
+      "Carbon-12 neutral atom — electrons? (6)"
+    ],
+    "topic": "Atoms & periodic table",
+    "sampleTossups": [
+      {
+        "question": "Two isotopes of an element differ in which subatomic particle count?",
+        "answer": "Neutrons"
+      },
+      {
+        "question": "Carbon-12 has 6 protons — how many electrons in a neutral atom?",
+        "answer": "6"
+      }
+    ]
+  },
+  {
+    "id": "w9-tuesday-biology",
+    "week": 9,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 3 — Genetics: The Science of Heredity · §3.1 Genetics: The Science of Heredity (~p68–77) · §3.2 Traits and Inheritance (~p78–88)",
+    "chapterTitle": "Cell Reproduction (intro)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 6 · CB Ch 8",
+    "focus": "~1 hr · mitosis stages (overview) · chromosome · diploid vs haploid (intro) · why cells divide",
+    "formulasAndTerms": "mitosis → 2 identical cells · chromosome · diploid",
+    "knowCold": [
+      "Mitosis produces how many cells? (2)",
+      "Division for growth/repair? (Mitosis)"
+    ],
+    "topic": "Cell structure",
+    "sampleTossups": [
+      {
+        "question": "How many daughter cells result from one mitosis?",
+        "answer": "2"
+      },
+      {
+        "question": "Mitosis is used primarily for what purpose in the body?",
+        "answer": "Growth and repair"
+      }
+    ]
+  },
+  {
+    "id": "w9-wednesday-physics",
+    "week": 9,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 11 §11.1–11.5 + Ch 12 §12.1–12.6",
+    "chapterTitle": "Magnetism & Waves",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": null,
+    "focus": "~1 hr · magnetic poles · electromagnetism (intro) · wavelength · frequency · amplitude · v = fλ · reflection · refraction",
+    "formulasAndTerms": "v = fλ · wavelength (λ) · frequency (f) · like poles repel",
+    "knowCold": [
+      "Higher pitch → higher or lower frequency? (Higher)",
+      "Like magnetic poles — attract or repel? (Repel)"
+    ],
+    "topic": "Waves & electromagnetism",
+    "sampleTossups": [
+      {
+        "question": "A higher-pitched sound corresponds to higher or lower frequency?",
+        "answer": "Higher frequency"
+      },
+      {
+        "question": "Do like magnetic poles attract or repel?",
+        "answer": "Repel"
+      }
+    ]
+  },
+  {
+    "id": "w9-thursday-chemistry",
+    "week": 9,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 18 §18.2–18.4",
+    "chapterTitle": "Ions & Ionic Compounds",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Ch 5 + Ch 7",
+    "pass2ChapterTitle": "Ions & Compounds (backup)",
+    "backupBookLine": "Tro Ch 4–5",
+    "focus": "~1 hr · cations (+) · anions (−) · Na⁺, Cl⁻, Ca²⁺, O²⁻ · polyatomic ions CO₃²⁻, OH⁻ · ionic formulas",
+    "formulasAndTerms": "cation (+) · anion (−) · NaCl ionic · CO₃²⁻",
+    "knowCold": [
+      "Charge on oxide ion? (2−)",
+      "Na forms Na⁺ or Na⁻? (Na⁺)"
+    ],
+    "topic": "Ions & compounds",
+    "sampleTossups": [
+      {
+        "question": "What is the charge on the oxide ion?",
+        "answer": "2−"
+      },
+      {
+        "question": "When sodium loses one electron, what ion forms?",
+        "answer": "Na⁺"
+      }
+    ]
+  },
+  {
+    "id": "w9-friday-biology",
+    "week": 9,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Ch 18 — Food and Digestion · §18.1 Food and Energy (~p560–575) · Ch 19 — Circulation · §19.1 The Circulatory System (~p592–606)",
+    "chapterTitle": "Digestive & Circulatory (deeper)",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB Ch 16 § · CB Ch 21–23",
+    "focus": "~1 hr · digestive path · small intestine absorption · heart chambers · arteries/veins/capillaries · alveoli",
+    "formulasAndTerms": "small intestine = absorption · artery away · vein toward heart",
+    "knowCold": [
+      "Most nutrient absorption where? (Small intestine)",
+      "Veins toward or away from heart? (Toward heart)"
+    ],
+    "topic": "Human body systems",
+    "sampleTossups": [
+      {
+        "question": "In which organ does most nutrient absorption occur?",
+        "answer": "Small intestine"
+      },
+      {
+        "question": "Do veins generally carry blood toward or away from the heart?",
+        "answer": "Toward heart"
+      }
+    ]
+  },
+  {
+    "id": "w10-monday-chemistry",
+    "week": 10,
+    "day": "monday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Review",
+    "chapterTitle": "Chemistry capstone — atoms to reactions",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Review",
+    "pass2ChapterTitle": "Mod/Tro if stuck",
+    "backupBookLine": "Tro / BFN-Sci if stuck",
+    "focus": "~1 hr · no new chapter · pick 2 weak Mod topics from your notebook · know-cold + 8 toss-ups · Tro/BFN-Sci if stuck",
+    "formulasAndTerms": "Z · A · pH · balance · M = mol/L · ionic vs covalent",
+    "knowCold": [
+      "pH of pure water? (7)",
+      "Symbol for potassium? (K)"
+    ],
+    "topic": "Atoms & periodic table",
+    "sampleTossups": [
+      {
+        "question": "What is the pH of a neutral solution at 25°C?",
+        "answer": "7"
+      },
+      {
+        "question": "What is the chemical symbol for potassium?",
+        "answer": "K"
+      }
+    ]
+  },
+  {
+    "id": "w10-tuesday-biology",
+    "week": 10,
+    "day": "tuesday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Review",
+    "chapterTitle": "Biology capstone — cells to ecology",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB · CB · BFN-Bio",
+    "focus": "~1 hr · no new chapter · review organelles · genetics · ecology · immunity · 8 toss-ups on weak areas",
+    "formulasAndTerms": "ATP · photosynthesis/respiration · Punnett · symbiosis types",
+    "knowCold": [
+      "Organelle that makes ATP? (Mitochondria)",
+      "Tt × Tt phenotypic ratio? (3:1)"
+    ],
+    "topic": "Cell structure",
+    "sampleTossups": [
+      {
+        "question": "Which organelle produces most ATP in eukaryotes?",
+        "answer": "Mitochondria"
+      },
+      {
+        "question": "In a monohybrid cross Tt × Tt, what is the expected phenotypic ratio?",
+        "answer": "3:1"
+      }
+    ]
+  },
+  {
+    "id": "w10-wednesday-physics",
+    "week": 10,
+    "day": "wednesday",
+    "subject": "physics",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Ch 13 §13.1 + §13.3–13.4",
+    "chapterTitle": "Light & Reflection",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": null,
+    "focus": "~1 hr · electromagnetic spectrum · reflection · refraction · ROYGBIV · review v = fλ · energy forms in a scenario",
+    "formulasAndTerms": "v = fλ · ROYGBIV · reflection vs refraction",
+    "knowCold": [
+      "Red or violet — lower frequency in visible light? (Red)",
+      "Ball falls — PE converts to? (Kinetic energy)"
+    ],
+    "topic": "Waves & light",
+    "sampleTossups": [
+      {
+        "question": "In visible light, does red or violet have the lower frequency?",
+        "answer": "Red"
+      },
+      {
+        "question": "As a ball falls, potential energy is converted primarily into what?",
+        "answer": "Kinetic energy"
+      }
+    ]
+  },
+  {
+    "id": "w10-thursday-chemistry",
+    "week": 10,
+    "day": "thursday",
+    "subject": "chemistry",
+    "pass": "pass1",
+    "bookCode": "Expl",
+    "chapter": "Review",
+    "chapterTitle": "Lab skills & periodic table",
+    "pass2BookCode": "Mod",
+    "pass2Chapter": "Review",
+    "pass2ChapterTitle": "Mod/Tro if stuck",
+    "backupBookLine": "Tro / BFN-Sci if stuck",
+    "focus": "~1 hr · SI units · sig figs · lab equipment · first 20 elements · safety · optional periodic-table HTML in Calendar tab",
+    "formulasAndTerms": "kg, m, s, mol · read meniscus · first 20 symbols",
+    "knowCold": [
+      "SI unit for mass? (Kilogram/kg)",
+      "Glassware for precise volume? (Graduated cylinder)"
+    ],
+    "topic": "Lab & equipment",
+    "sampleTossups": [
+      {
+        "question": "What is the SI base unit for mass?",
+        "answer": "Kilogram (kg)"
+      },
+      {
+        "question": "Which piece of lab glassware measures liquid volume most precisely?",
+        "answer": "Graduated cylinder"
+      }
+    ]
+  },
+  {
+    "id": "w10-friday-biology",
+    "week": 10,
+    "day": "friday",
+    "subject": "biology",
+    "pass": "pass1",
+    "bookCode": "FLS",
+    "chapter": "Review",
+    "chapterTitle": "Final summer bio check",
+    "pass2BookCode": null,
+    "pass2Chapter": null,
+    "pass2ChapterTitle": null,
+    "backupBookLine": "OSB · BFN-Bio",
+    "focus": "~1 hr · mock toss-ups across bio topics · list 3 topics to keep sharp at school meetings · no new reading",
+    "formulasAndTerms": "producer · consumer · antibody · xylem · phloem",
+    "knowCold": [
+      "Three symbiosis types? (Mutualism, commensalism, parasitism)",
+      "Gas released in photosynthesis? (Oxygen/O₂)"
+    ],
+    "topic": "Ecology",
+    "sampleTossups": [
+      {
+        "question": "Name the three types of symbiosis.",
+        "answer": "Mutualism, commensalism, parasitism"
+      },
+      {
+        "question": "What gas is released as a product of photosynthesis?",
+        "answer": "Oxygen/O₂"
+      }
+    ]
+  }
+]

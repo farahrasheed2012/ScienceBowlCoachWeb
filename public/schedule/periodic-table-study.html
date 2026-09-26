@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Periodic Table Study - Soha</title>
+  <style>
+    :root {
+      --bg: #0e1116;
+      --panel: #171b22;
+      --panel-2: #1e2430;
+      --line: #2f3746;
+      --text: #e9eef7;
+      --muted: #aeb7c6;
+      --accent: #d4ac0d;
+      --accent-soft: #f5d76e;
+      --ok: #2ecc71;
+      --warn: #f39c12;
+      --bad: #ff6b6b;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1a202b, #111722);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.38rem;
+      color: var(--accent-soft);
+    }
+
+    p { margin: 0.35rem 0; }
+    .muted { color: var(--muted); }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      padding: 7px 11px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background: #2a2320;
+      border-color: var(--accent);
+      color: var(--accent-soft);
+    }
+
+    .panel {
+      display: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .panel.active { display: block; }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    select, button, input {
+      font: inherit;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--text);
+      padding: 6px 9px;
+    }
+
+    .tier-btn {
+      cursor: pointer;
+      padding: 5px 9px;
+    }
+
+    .tier-btn.active {
+      border-color: var(--accent);
+      color: var(--accent-soft);
+      background: #2a2320;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      background: #111722;
+    }
+
+    .ptable {
+      min-width: 1020px;
+      display: grid;
+      grid-template-columns: repeat(18, 52px);
+      grid-template-rows: repeat(9, 56px);
+      gap: 4px;
+    }
+
+    .element {
+      border: 1px solid #3a4354;
+      border-radius: 6px;
+      padding: 3px;
+      font-size: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      background: #202838;
+    }
+
+    .element .z { font-size: 9px; color: var(--muted); }
+    .element .symbol { font-size: 14px; font-weight: 700; line-height: 1; }
+    .element .name { font-size: 9px; color: #d7deea; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .element.dim { opacity: 0.24; }
+    .element.selected { outline: 2px solid var(--accent); }
+
+    .cat-alkali { background: #5a2a2a; }
+    .cat-alkaline { background: #59431d; }
+    .cat-transition { background: #2c3f5a; }
+    .cat-post { background: #4a3555; }
+    .cat-metalloid { background: #3a4a28; }
+    .cat-nonmetal { background: #1e4a42; }
+    .cat-halogen { background: #3f355f; }
+    .cat-noble { background: #334b60; }
+    .cat-lanthanide { background: #5b3f2a; }
+    .cat-actinide { background: #5a2f37; }
+
+    .detail {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 10px;
+      background: #121923;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #121923;
+      text-align: center;
+    }
+
+    .card .big {
+      font-size: 2.1rem;
+      color: var(--accent-soft);
+      font-weight: 700;
+      margin: 6px 0;
+    }
+
+    .quiz-box {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: #121923;
+      max-width: 640px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #252010;
+      color: var(--accent-soft);
+    }
+
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: 2px 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-right: 6px;
+    }
+
+    .legend {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .legend .pill { background: #111722; }
+    .ok { color: var(--ok); }
+    .bad { color: var(--bad); }
+    .warn { color: var(--warn); }
+
+    @media (max-width: 760px) {
+      .grid-two { grid-template-columns: 1fr; }
+      .wrap { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>Periodic Table Study - NSB Focus</h1>
+      <p>
+        Middle School Nationals uses honors high-school-level chemistry expectations. No periodic table is allowed during competition.
+      </p>
+      <p class="muted">
+        First 20 elements are the summer checklist, but nationals teams should learn all symbols - especially Latin traps:
+        <strong>Fe Cu Ag Au Pb Sn Sb W Hg Na K</strong>.
+      </p>
+      <p id="progressSummary" class="muted"></p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="learn">Learn</button>
+      <button class="tab-btn" data-tab="study-path">Study path</button>
+      <button class="tab-btn" data-tab="mnemonics">Mnemonics</button>
+      <button class="tab-btn" data-tab="traps">NSB traps (Latin symbols)</button>
+      <button class="tab-btn" data-tab="flash">Flash cards</button>
+      <button class="tab-btn" data-tab="quiz">Quiz</button>
+      <button class="tab-btn" data-tab="reference">Reference</button>
+    </div>
+
+    <section id="panel-learn" class="panel active">
+      <div id="learnFilter" class="filter-row"></div>
+      <div class="table-scroll"><div id="ptable" class="ptable"></div></div>
+      <div class="legend">
+        <span class="pill">Rows 1-7 = periods</span>
+        <span class="pill">Row 8 = lanthanides</span>
+        <span class="pill">Row 9 = actinides</span>
+      </div>
+      <div id="detail" class="detail">Tap any element to see details and a study tip.</div>
+    </section>
+
+    <section id="panel-study-path" class="panel">
+      <p class="muted">Use this path to time symbol memorization from summer through nationals season.</p>
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Atomic numbers</th><th>Focus</th><th>When to learn</th><th>Why this timing works</th></tr>
+        </thead>
+        <tbody id="studyPathBody"></tbody>
+      </table>
+    </section>
+
+    <section id="panel-mnemonics" class="panel">
+      <p class="muted">Mnemonics included for elements 1-20 only (summer foundation).</p>
+      <div id="mnemonicsList"></div>
+    </section>
+
+    <section id="panel-traps" class="panel">
+      <h3>Latin / historical symbol traps</h3>
+      <p class="muted">These appear in chemistry clues and are common speed errors if only English names are memorized.</p>
+      <table>
+        <thead><tr><th>Name</th><th>Symbol</th><th>Latin or historical root</th><th>Fast cue</th></tr></thead>
+        <tbody>
+          <tr><td>Iron</td><td>Fe</td><td>Ferrum</td><td>Fe = ferrum</td></tr>
+          <tr><td>Copper</td><td>Cu</td><td>Cuprum</td><td>Cu = cuprum</td></tr>
+          <tr><td>Silver</td><td>Ag</td><td>Argentum</td><td>Ag = argentum</td></tr>
+          <tr><td>Gold</td><td>Au</td><td>Aurum</td><td>Au = aurum</td></tr>
+          <tr><td>Lead</td><td>Pb</td><td>Plumbum</td><td>Pb = plumbum</td></tr>
+          <tr><td>Tin</td><td>Sn</td><td>Stannum</td><td>Sn = stannum</td></tr>
+          <tr><td>Antimony</td><td>Sb</td><td>Stibium</td><td>Sb = stibium</td></tr>
+          <tr><td>Tungsten</td><td>W</td><td>Wolfram</td><td>W = wolfram</td></tr>
+          <tr><td>Mercury</td><td>Hg</td><td>Hydrargyrum</td><td>Hg = hydrargyrum</td></tr>
+          <tr><td>Sodium</td><td>Na</td><td>Natrium</td><td>Na = natrium</td></tr>
+          <tr><td>Potassium</td><td>K</td><td>Kalium</td><td>K = kalium</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="panel-flash" class="panel">
+      <div id="flashFilter" class="filter-row"></div>
+      <div class="card" id="flashCard">
+        <div class="muted">Tap "Next card" to begin.</div>
+      </div>
+      <div class="filter-row" style="margin-top: 8px;">
+        <button id="flashReveal">Reveal</button>
+        <button id="flashKnown">Mark known</button>
+        <button id="flashUnknown">Mark unknown</button>
+        <button id="flashNext">Next card</button>
+      </div>
+    </section>
+
+    <section id="panel-quiz" class="panel">
+      <div id="quizFilter" class="filter-row"></div>
+      <div class="quiz-box">
+        <p id="quizPrompt">Press "New question" to begin.</p>
+        <div class="filter-row">
+          <input id="quizInput" type="text" placeholder="Type symbol (e.g., Na)" />
+          <button id="quizSubmit">Check</button>
+          <button id="quizNew">New question</button>
+        </div>
+        <p id="quizFeedback" class="muted"></p>
+        <p id="quizScore" class="muted"></p>
+      </div>
+    </section>
+
+    <section id="panel-reference" class="panel">
+      <div id="referenceFilter" class="filter-row"></div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Z</th><th>Symbol</th><th>Name</th><th>Group</th><th>Period</th><th>Row</th><th>Col</th><th>Category</th><th>Tier</th>
+            </tr>
+          </thead>
+          <tbody id="referenceBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const ELEMENTS = [{"z":1,"symbol":"H","name":"Hydrogen","group":1,"period":1,"row":1,"col":1,"category":"nonmetal","tier":1},{"z":2,"symbol":"He","name":"Helium","group":18,"period":1,"row":1,"col":18,"category":"noble","tier":1},{"z":3,"symbol":"Li","name":"Lithium","group":1,"period":2,"row":2,"col":1,"category":"alkali","tier":1},{"z":4,"symbol":"Be","name":"Beryllium","group":2,"period":2,"row":2,"col":2,"category":"alkaline","tier":1},{"z":5,"symbol":"B","name":"Boron","group":13,"period":2,"row":2,"col":13,"category":"metalloid","tier":1},{"z":6,"symbol":"C","name":"Carbon","group":14,"period":2,"row":2,"col":14,"category":"nonmetal","tier":1},{"z":7,"symbol":"N","name":"Nitrogen","group":15,"period":2,"row":2,"col":15,"category":"nonmetal","tier":1},{"z":8,"symbol":"O","name":"Oxygen","group":16,"period":2,"row":2,"col":16,"category":"nonmetal","tier":1},{"z":9,"symbol":"F","name":"Fluorine","group":17,"period":2,"row":2,"col":17,"category":"halogen","tier":1},{"z":10,"symbol":"Ne","name":"Neon","group":18,"period":2,"row":2,"col":18,"category":"noble","tier":1},{"z":11,"symbol":"Na","name":"Sodium","group":1,"period":3,"row":3,"col":1,"category":"alkali","tier":1},{"z":12,"symbol":"Mg","name":"Magnesium","group":2,"period":3,"row":3,"col":2,"category":"alkaline","tier":1},{"z":13,"symbol":"Al","name":"Aluminum","group":13,"period":3,"row":3,"col":13,"category":"post","tier":1},{"z":14,"symbol":"Si","name":"Silicon","group":14,"period":3,"row":3,"col":14,"category":"metalloid","tier":1},{"z":15,"symbol":"P","name":"Phosphorus","group":15,"period":3,"row":3,"col":15,"category":"nonmetal","tier":1},{"z":16,"symbol":"S","name":"Sulfur","group":16,"period":3,"row":3,"col":16,"category":"nonmetal","tier":1},{"z":17,"symbol":"Cl","name":"Chlorine","group":17,"period":3,"row":3,"col":17,"category":"halogen","tier":1},{"z":18,"symbol":"Ar","name":"Argon","group":18,"period":3,"row":3,"col":18,"category":"noble","tier":1},{"z":19,"symbol":"K","name":"Potassium","group":1,"period":4,"row":4,"col":1,"category":"alkali","tier":1},{"z":20,"symbol":"Ca","name":"Calcium","group":2,"period":4,"row":4,"col":2,"category":"alkaline","tier":1},{"z":21,"symbol":"Sc","name":"Scandium","group":3,"period":4,"row":4,"col":3,"category":"transition","tier":2},{"z":22,"symbol":"Ti","name":"Titanium","group":4,"period":4,"row":4,"col":4,"category":"transition","tier":2},{"z":23,"symbol":"V","name":"Vanadium","group":5,"period":4,"row":4,"col":5,"category":"transition","tier":2},{"z":24,"symbol":"Cr","name":"Chromium","group":6,"period":4,"row":4,"col":6,"category":"transition","tier":2},{"z":25,"symbol":"Mn","name":"Manganese","group":7,"period":4,"row":4,"col":7,"category":"transition","tier":2},{"z":26,"symbol":"Fe","name":"Iron","group":8,"period":4,"row":4,"col":8,"category":"transition","tier":2},{"z":27,"symbol":"Co","name":"Cobalt","group":9,"period":4,"row":4,"col":9,"category":"transition","tier":2},{"z":28,"symbol":"Ni","name":"Nickel","group":10,"period":4,"row":4,"col":10,"category":"transition","tier":2},{"z":29,"symbol":"Cu","name":"Copper","group":11,"period":4,"row":4,"col":11,"category":"transition","tier":2},{"z":30,"symbol":"Zn","name":"Zinc","group":12,"period":4,"row":4,"col":12,"category":"transition","tier":2},{"z":31,"symbol":"Ga","name":"Gallium","group":13,"period":4,"row":4,"col":13,"category":"post","tier":2},{"z":32,"symbol":"Ge","name":"Germanium","group":14,"period":4,"row":4,"col":14,"category":"metalloid","tier":2},{"z":33,"symbol":"As","name":"Arsenic","group":15,"period":4,"row":4,"col":15,"category":"metalloid","tier":2},{"z":34,"symbol":"Se","name":"Selenium","group":16,"period":4,"row":4,"col":16,"category":"nonmetal","tier":2},{"z":35,"symbol":"Br","name":"Bromine","group":17,"period":4,"row":4,"col":17,"category":"halogen","tier":2},{"z":36,"symbol":"Kr","name":"Krypton","group":18,"period":4,"row":4,"col":18,"category":"noble","tier":2},{"z":37,"symbol":"Rb","name":"Rubidium","group":1,"period":5,"row":5,"col":1,"category":"alkali","tier":3},{"z":38,"symbol":"Sr","name":"Strontium","group":2,"period":5,"row":5,"col":2,"category":"alkaline","tier":3},{"z":39,"symbol":"Y","name":"Yttrium","group":3,"period":5,"row":5,"col":3,"category":"transition","tier":3},{"z":40,"symbol":"Zr","name":"Zirconium","group":4,"period":5,"row":5,"col":4,"category":"transition","tier":3},{"z":41,"symbol":"Nb","name":"Niobium","group":5,"period":5,"row":5,"col":5,"category":"transition","tier":3},{"z":42,"symbol":"Mo","name":"Molybdenum","group":6,"period":5,"row":5,"col":6,"category":"transition","tier":3},{"z":43,"symbol":"Tc","name":"Technetium","group":7,"period":5,"row":5,"col":7,"category":"transition","tier":3},{"z":44,"symbol":"Ru","name":"Ruthenium","group":8,"period":5,"row":5,"col":8,"category":"transition","tier":3},{"z":45,"symbol":"Rh","name":"Rhodium","group":9,"period":5,"row":5,"col":9,"category":"transition","tier":3},{"z":46,"symbol":"Pd","name":"Palladium","group":10,"period":5,"row":5,"col":10,"category":"transition","tier":3},{"z":47,"symbol":"Ag","name":"Silver","group":11,"period":5,"row":5,"col":11,"category":"transition","tier":3},{"z":48,"symbol":"Cd","name":"Cadmium","group":12,"period":5,"row":5,"col":12,"category":"transition","tier":3},{"z":49,"symbol":"In","name":"Indium","group":13,"period":5,"row":5,"col":13,"category":"post","tier":3},{"z":50,"symbol":"Sn","name":"Tin","group":14,"period":5,"row":5,"col":14,"category":"post","tier":3},{"z":51,"symbol":"Sb","name":"Antimony","group":15,"period":5,"row":5,"col":15,"category":"metalloid","tier":3},{"z":52,"symbol":"Te","name":"Tellurium","group":16,"period":5,"row":5,"col":16,"category":"metalloid","tier":3},{"z":53,"symbol":"I","name":"Iodine","group":17,"period":5,"row":5,"col":17,"category":"halogen","tier":3},{"z":54,"symbol":"Xe","name":"Xenon","group":18,"period":5,"row":5,"col":18,"category":"noble","tier":3},{"z":55,"symbol":"Cs","name":"Cesium","group":1,"period":6,"row":6,"col":1,"category":"alkali","tier":4},{"z":56,"symbol":"Ba","name":"Barium","group":2,"period":6,"row":6,"col":2,"category":"alkaline","tier":4},{"z":57,"symbol":"La","name":"Lanthanum","group":3,"period":6,"row":6,"col":3,"category":"lanthanide","tier":4},{"z":58,"symbol":"Ce","name":"Cerium","group":null,"period":6,"row":8,"col":4,"category":"lanthanide","tier":4},{"z":59,"symbol":"Pr","name":"Praseodymium","group":null,"period":6,"row":8,"col":5,"category":"lanthanide","tier":4},{"z":60,"symbol":"Nd","name":"Neodymium","group":null,"period":6,"row":8,"col":6,"category":"lanthanide","tier":4},{"z":61,"symbol":"Pm","name":"Promethium","group":null,"period":6,"row":8,"col":7,"category":"lanthanide","tier":4},{"z":62,"symbol":"Sm","name":"Samarium","group":null,"period":6,"row":8,"col":8,"category":"lanthanide","tier":4},{"z":63,"symbol":"Eu","name":"Europium","group":null,"period":6,"row":8,"col":9,"category":"lanthanide","tier":4},{"z":64,"symbol":"Gd","name":"Gadolinium","group":null,"period":6,"row":8,"col":10,"category":"lanthanide","tier":4},{"z":65,"symbol":"Tb","name":"Terbium","group":null,"period":6,"row":8,"col":11,"category":"lanthanide","tier":4},{"z":66,"symbol":"Dy","name":"Dysprosium","group":null,"period":6,"row":8,"col":12,"category":"lanthanide","tier":4},{"z":67,"symbol":"Ho","name":"Holmium","group":null,"period":6,"row":8,"col":13,"category":"lanthanide","tier":4},{"z":68,"symbol":"Er","name":"Erbium","group":null,"period":6,"row":8,"col":14,"category":"lanthanide","tier":4},{"z":69,"symbol":"Tm","name":"Thulium","group":null,"period":6,"row":8,"col":15,"category":"lanthanide","tier":4},{"z":70,"symbol":"Yb","name":"Ytterbium","group":null,"period":6,"row":8,"col":16,"category":"lanthanide","tier":4},{"z":71,"symbol":"Lu","name":"Lutetium","group":null,"period":6,"row":8,"col":17,"category":"lanthanide","tier":4},{"z":72,"symbol":"Hf","name":"Hafnium","group":4,"period":6,"row":6,"col":4,"category":"transition","tier":4},{"z":73,"symbol":"Ta","name":"Tantalum","group":5,"period":6,"row":6,"col":5,"category":"transition","tier":4},{"z":74,"symbol":"W","name":"Tungsten","group":6,"period":6,"row":6,"col":6,"category":"transition","tier":4},{"z":75,"symbol":"Re","name":"Rhenium","group":7,"period":6,"row":6,"col":7,"category":"transition","tier":4},{"z":76,"symbol":"Os","name":"Osmium","group":8,"period":6,"row":6,"col":8,"category":"transition","tier":4},{"z":77,"symbol":"Ir","name":"Iridium","group":9,"period":6,"row":6,"col":9,"category":"transition","tier":4},{"z":78,"symbol":"Pt","name":"Platinum","group":10,"period":6,"row":6,"col":10,"category":"transition","tier":4},{"z":79,"symbol":"Au","name":"Gold","group":11,"period":6,"row":6,"col":11,"category":"transition","tier":4},{"z":80,"symbol":"Hg","name":"Mercury","group":12,"period":6,"row":6,"col":12,"category":"transition","tier":4},{"z":81,"symbol":"Tl","name":"Thallium","group":13,"period":6,"row":6,"col":13,"category":"post","tier":4},{"z":82,"symbol":"Pb","name":"Lead","group":14,"period":6,"row":6,"col":14,"category":"post","tier":4},{"z":83,"symbol":"Bi","name":"Bismuth","group":15,"period":6,"row":6,"col":15,"category":"post","tier":4},{"z":84,"symbol":"Po","name":"Polonium","group":16,"period":6,"row":6,"col":16,"category":"post","tier":4},{"z":85,"symbol":"At","name":"Astatine","group":17,"period":6,"row":6,"col":17,"category":"halogen","tier":4},{"z":86,"symbol":"Rn","name":"Radon","group":18,"period":6,"row":6,"col":18,"category":"noble","tier":4},{"z":87,"symbol":"Fr","name":"Francium","group":1,"period":7,"row":7,"col":1,"category":"alkali","tier":5},{"z":88,"symbol":"Ra","name":"Radium","group":2,"period":7,"row":7,"col":2,"category":"alkaline","tier":5},{"z":89,"symbol":"Ac","name":"Actinium","group":3,"period":7,"row":7,"col":3,"category":"actinide","tier":5},{"z":90,"symbol":"Th","name":"Thorium","group":null,"period":7,"row":9,"col":4,"category":"actinide","tier":5},{"z":91,"symbol":"Pa","name":"Protactinium","group":null,"period":7,"row":9,"col":5,"category":"actinide","tier":5},{"z":92,"symbol":"U","name":"Uranium","group":null,"period":7,"row":9,"col":6,"category":"actinide","tier":5},{"z":93,"symbol":"Np","name":"Neptunium","group":null,"period":7,"row":9,"col":7,"category":"actinide","tier":5},{"z":94,"symbol":"Pu","name":"Plutonium","group":null,"period":7,"row":9,"col":8,"category":"actinide","tier":5},{"z":95,"symbol":"Am","name":"Americium","group":null,"period":7,"row":9,"col":9,"category":"actinide","tier":5},{"z":96,"symbol":"Cm","name":"Curium","group":null,"period":7,"row":9,"col":10,"category":"actinide","tier":5},{"z":97,"symbol":"Bk","name":"Berkelium","group":null,"period":7,"row":9,"col":11,"category":"actinide","tier":5},{"z":98,"symbol":"Cf","name":"Californium","group":null,"period":7,"row":9,"col":12,"category":"actinide","tier":5},{"z":99,"symbol":"Es","name":"Einsteinium","group":null,"period":7,"row":9,"col":13,"category":"actinide","tier":5},{"z":100,"symbol":"Fm","name":"Fermium","group":null,"period":7,"row":9,"col":14,"category":"actinide","tier":5},{"z":101,"symbol":"Md","name":"Mendelevium","group":null,"period":7,"row":9,"col":15,"category":"actinide","tier":5},{"z":102,"symbol":"No","name":"Nobelium","group":null,"period":7,"row":9,"col":16,"category":"actinide","tier":5},{"z":103,"symbol":"Lr","name":"Lawrencium","group":null,"period":7,"row":9,"col":17,"category":"actinide","tier":5},{"z":104,"symbol":"Rf","name":"Rutherfordium","group":4,"period":7,"row":7,"col":4,"category":"transition","tier":5},{"z":105,"symbol":"Db","name":"Dubnium","group":5,"period":7,"row":7,"col":5,"category":"transition","tier":5},{"z":106,"symbol":"Sg","name":"Seaborgium","group":6,"period":7,"row":7,"col":6,"category":"transition","tier":5},{"z":107,"symbol":"Bh","name":"Bohrium","group":7,"period":7,"row":7,"col":7,"category":"transition","tier":5},{"z":108,"symbol":"Hs","name":"Hassium","group":8,"period":7,"row":7,"col":8,"category":"transition","tier":5},{"z":109,"symbol":"Mt","name":"Meitnerium","group":9,"period":7,"row":7,"col":9,"category":"transition","tier":5},{"z":110,"symbol":"Ds","name":"Darmstadtium","group":10,"period":7,"row":7,"col":10,"category":"transition","tier":5},{"z":111,"symbol":"Rg","name":"Roentgenium","group":11,"period":7,"row":7,"col":11,"category":"transition","tier":5},{"z":112,"symbol":"Cn","name":"Copernicium","group":12,"period":7,"row":7,"col":12,"category":"transition","tier":5},{"z":113,"symbol":"Nh","name":"Nihonium","group":13,"period":7,"row":7,"col":13,"category":"post","tier":5},{"z":114,"symbol":"Fl","name":"Flerovium","group":14,"period":7,"row":7,"col":14,"category":"post","tier":5},{"z":115,"symbol":"Mc","name":"Moscovium","group":15,"period":7,"row":7,"col":15,"category":"post","tier":5},{"z":116,"symbol":"Lv","name":"Livermorium","group":16,"period":7,"row":7,"col":16,"category":"post","tier":5},{"z":117,"symbol":"Ts","name":"Tennessine","group":17,"period":7,"row":7,"col":17,"category":"halogen","tier":5},{"z":118,"symbol":"Og","name":"Oganesson","group":18,"period":7,"row":7,"col":18,"category":"noble","tier":5}];
+    const MNEMONICS = [{"range":"1-10","text":"Hi He Likes Beer, But Could Not Obtain Food Near Neptune.","symbols":"H He Li Be B C N O F Ne"},{"range":"11-20","text":"Naughty Magicians Always Sing Perfect Songs, Clapping Around K-Ca.","symbols":"Na Mg Al Si P S Cl Ar K Ca"}];
+    const STUDY_TIERS = [{"tier":1,"range":"1-20","focus":"Summer foundation checklist","timing":"Summer now","why":"Fast wins; appears often and builds symbol fluency"},{"tier":2,"range":"21-36","focus":"Regional depth","timing":"Late summer / early fall","why":"Frequent transition and halogen/noble symbols in tossups"},{"tier":3,"range":"37-54","focus":"Upper-mid table mastery","timing":"Fall through early winter","why":"Adds common chemistry clue symbols and families"},{"tier":4,"range":"55-86","focus":"Heavy element fluency","timing":"Winter","why":"Needed for nationals-level symbol recall speed"},{"tier":5,"range":"87-118","focus":"Nationals / superheavy coverage","timing":"Late winter to nationals","why":"Completes full-table confidence and prevents trap misses"}];
+    const LATIN_TIPS = {"Fe":"Latin trap: ferrum -> Fe (not Ir).","Cu":"Latin cue: cuprum -> Cu.","Ag":"Latin cue: argentum -> Ag.","Au":"Latin cue: aurum -> Au.","Pb":"Latin cue: plumbum -> Pb.","Sn":"Latin cue: stannum -> Sn.","Sb":"Latin cue: stibium -> Sb.","W":"Historical name: wolfram -> W.","Hg":"Latin cue: hydrargyrum -> Hg.","Na":"Latin cue: natrium -> Na.","K":"Latin cue: kalium -> K."};
+    const STORAGE_KEY = "soha_ptable_progress_v2";
+
+    const state = {
+      tab: "learn",
+      learnTier: "all",
+      flashTier: "all",
+      quizTier: "all",
+      referenceTier: "all",
+      selectedZ: null,
+      flashCurrent: null,
+      flashRevealed: false,
+      quizCurrent: null,
+      progress: {
+        learned: {},
+        knownFlash: {},
+        unknownFlash: {},
+        quizCorrect: 0,
+        quizTotal: 0
+      }
+    };
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object") {
+          state.progress = {
+            learned: parsed.learned || {},
+            knownFlash: parsed.knownFlash || {},
+            unknownFlash: parsed.unknownFlash || {},
+            quizCorrect: parsed.quizCorrect || 0,
+            quizTotal: parsed.quizTotal || 0
+          };
+        }
+      } catch (err) {
+        console.warn("Progress parse failed", err);
+      }
+    }
+
+    function saveProgress() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress));
+      updateProgressSummary();
+    }
+
+    function updateProgressSummary() {
+      const learnedCount = Object.keys(state.progress.learned).length;
+      const knownCount = Object.keys(state.progress.knownFlash).length;
+      const qTotal = state.progress.quizTotal;
+      const qCorrect = state.progress.quizCorrect;
+      const pct = qTotal ? Math.round((qCorrect / qTotal) * 100) : 0;
+      document.getElementById("progressSummary").textContent =
+        `Progress key: ${STORAGE_KEY} | tapped: ${learnedCount}/118 | flash-known: ${knownCount} | quiz: ${qCorrect}/${qTotal} (${pct}%)`;
+    }
+
+    function filteredElements(tier) {
+      if (tier === "all") return ELEMENTS.slice();
+      return ELEMENTS.filter(e => e.tier === Number(tier));
+    }
+
+    function buildTierFilter(targetId, stateKey, onChange) {
+      const host = document.getElementById(targetId);
+      host.innerHTML = "";
+
+      const label = document.createElement("span");
+      label.className = "pill";
+      label.textContent = "Tier filter";
+      host.appendChild(label);
+
+      const select = document.createElement("select");
+      select.innerHTML = `
+        <option value="all">All tiers (1-118)</option>
+        <option value="1">Tier 1 (1-20)</option>
+        <option value="2">Tier 2 (21-36)</option>
+        <option value="3">Tier 3 (37-54)</option>
+        <option value="4">Tier 4 (55-86)</option>
+        <option value="5">Tier 5 (87-118)</option>
+      `;
+      select.value = state[stateKey];
+      select.addEventListener("change", () => {
+        state[stateKey] = select.value;
+        syncTierButtons(host, stateKey);
+        onChange();
+      });
+      host.appendChild(select);
+
+      for (const value of ["all", "1", "2", "3", "4", "5"]) {
+        const btn = document.createElement("button");
+        btn.className = "tier-btn";
+        btn.dataset.value = value;
+        btn.textContent = value === "all" ? "All" : `T${value}`;
+        if (value === state[stateKey]) btn.classList.add("active");
+        btn.addEventListener("click", () => {
+          state[stateKey] = value;
+          select.value = value;
+          syncTierButtons(host, stateKey);
+          onChange();
+        });
+        host.appendChild(btn);
+      }
+    }
+
+    function syncTierButtons(host, stateKey) {
+      host.querySelectorAll(".tier-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.value === state[stateKey]);
+      });
+    }
+
+    function elementTitle(e) {
+      return `${e.name} (${e.symbol}) - Z=${e.z}`;
+    }
+
+    function renderLearn() {
+      const holder = document.getElementById("ptable");
+      holder.innerHTML = "";
+      const visible = new Set(filteredElements(state.learnTier).map(e => e.z));
+
+      for (const e of ELEMENTS) {
+        const div = document.createElement("div");
+        div.className = `element cat-${e.category}`;
+        if (!visible.has(e.z)) div.classList.add("dim");
+        if (state.selectedZ === e.z) div.classList.add("selected");
+        div.style.gridColumn = String(e.col);
+        div.style.gridRow = String(e.row);
+        div.title = elementTitle(e);
+        div.innerHTML = `
+          <div class="z">${e.z}</div>
+          <div class="symbol">${e.symbol}</div>
+          <div class="name">${e.name}</div>
+        `;
+        div.addEventListener("click", () => {
+          state.selectedZ = e.z;
+          state.progress.learned[e.z] = true;
+          saveProgress();
+          renderLearn();
+          showDetail(e);
+        });
+        holder.appendChild(div);
+      }
+    }
+
+    function showDetail(e) {
+      const groupText = e.group === null ? "n/a (f-block)" : e.group;
+      const tip = LATIN_TIPS[e.symbol] || "Tip: say symbol + name aloud 3 times for speed recall.";
+      const detail = document.getElementById("detail");
+      detail.innerHTML = `
+        <h3 style="margin:0 0 6px;color:var(--accent-soft);">${e.name} (${e.symbol})</h3>
+        <p><strong>Z:</strong> ${e.z} | <strong>Group:</strong> ${groupText} | <strong>Period:</strong> ${e.period} | <strong>Row:</strong> ${e.row} | <strong>Col:</strong> ${e.col}</p>
+        <p><strong>Category:</strong> ${e.category} | <strong>Tier:</strong> ${e.tier}</p>
+        <p class="warn"><strong>Study tip:</strong> ${tip}</p>
+      `;
+    }
+
+    function renderStudyPath() {
+      const body = document.getElementById("studyPathBody");
+      body.innerHTML = "";
+      for (const row of STUDY_TIERS) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>T${row.tier}</td>
+          <td>${row.range}</td>
+          <td>${row.focus}</td>
+          <td>${row.timing}</td>
+          <td>${row.why}</td>
+        `;
+        body.appendChild(tr);
+      }
+    }
+
+    function renderMnemonics() {
+      const host = document.getElementById("mnemonicsList");
+      host.innerHTML = "";
+      for (const m of MNEMONICS) {
+        const box = document.createElement("div");
+        box.className = "detail";
+        box.innerHTML = `
+          <p><strong>Range:</strong> ${m.range}</p>
+          <p><strong>Symbols:</strong> <code>${m.symbols}</code></p>
+          <p><strong>Mnemonic:</strong> ${m.text}</p>
+        `;
+        host.appendChild(box);
+      }
+    }
+
+    function nextFlashCard() {
+      const pool = filteredElements(state.flashTier);
+      if (!pool.length) {
+        state.flashCurrent = null;
+        renderFlash();
+        return;
+      }
+      state.flashCurrent = pool[Math.floor(Math.random() * pool.length)];
+      state.flashRevealed = false;
+      renderFlash();
+    }
+
+    function renderFlash() {
+      const card = document.getElementById("flashCard");
+      const e = state.flashCurrent;
+      if (!e) {
+        card.innerHTML = `<div class="muted">No elements in this filter. Choose another tier.</div>`;
+        return;
+      }
+      const known = Boolean(state.progress.knownFlash[e.z]);
+      card.innerHTML = `
+        <div class="muted">Name</div>
+        <div class="big">${e.name}</div>
+        <div>${state.flashRevealed ? `Symbol: <strong>${e.symbol}</strong> | Z=${e.z}` : "Tap Reveal to show symbol."}</div>
+        <div style="margin-top:8px;" class="${known ? "ok" : "muted"}">${known ? "Marked known" : "Not marked known yet"}</div>
+      `;
+    }
+
+    function renderReference() {
+      const body = document.getElementById("referenceBody");
+      body.innerHTML = "";
+      const rows = filteredElements(state.referenceTier);
+      for (const e of rows) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${e.z}</td>
+          <td><strong>${e.symbol}</strong></td>
+          <td>${e.name}</td>
+          <td>${e.group === null ? "n/a" : e.group}</td>
+          <td>${e.period}</td>
+          <td>${e.row}</td>
+          <td>${e.col}</td>
+          <td>${e.category}</td>
+          <td>T${e.tier}</td>
+        `;
+        body.appendChild(tr);
+      }
+    }
+
+    function newQuizQuestion() {
+      const pool = filteredElements(state.quizTier);
+      const fb = document.getElementById("quizFeedback");
+      if (!pool.length) {
+        state.quizCurrent = null;
+        document.getElementById("quizPrompt").textContent = "No elements for this tier. Change filter.";
+        fb.textContent = "";
+        return;
+      }
+      state.quizCurrent = pool[Math.floor(Math.random() * pool.length)];
+      document.getElementById("quizPrompt").innerHTML =
+        `What is the <strong>symbol</strong> for <strong>${state.quizCurrent.name}</strong> (Z=${state.quizCurrent.z})?`;
+      document.getElementById("quizInput").value = "";
+      fb.textContent = "";
+    }
+
+    function checkQuiz() {
+      const fb = document.getElementById("quizFeedback");
+      if (!state.quizCurrent) {
+        fb.textContent = "Start a new question first.";
+        return;
+      }
+      const guess = (document.getElementById("quizInput").value || "").trim();
+      const ok = guess.toLowerCase() === state.quizCurrent.symbol.toLowerCase();
+      state.progress.quizTotal += 1;
+      if (ok) {
+        state.progress.quizCorrect += 1;
+        fb.innerHTML = `<span class="ok">Correct.</span> ${state.quizCurrent.name} = ${state.quizCurrent.symbol}`;
+      } else {
+        fb.innerHTML = `<span class="bad">Not yet.</span> Correct symbol is <strong>${state.quizCurrent.symbol}</strong>.`;
+      }
+      saveProgress();
+      updateQuizScore();
+    }
+
+    function updateQuizScore() {
+      const qTotal = state.progress.quizTotal;
+      const qCorrect = state.progress.quizCorrect;
+      const pct = qTotal ? Math.round((qCorrect / qTotal) * 100) : 0;
+      document.getElementById("quizScore").textContent = `Score: ${qCorrect} / ${qTotal} (${pct}%)`;
+    }
+
+    function setupTabs() {
+      const buttons = document.querySelectorAll(".tab-btn");
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tab = btn.dataset.tab;
+          state.tab = tab;
+          buttons.forEach(b => b.classList.toggle("active", b === btn));
+          document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+          document.getElementById(`panel-${tab}`).classList.add("active");
+        });
+      });
+    }
+
+    function setupFilters() {
+      buildTierFilter("learnFilter", "learnTier", renderLearn);
+      buildTierFilter("flashFilter", "flashTier", () => nextFlashCard());
+      buildTierFilter("quizFilter", "quizTier", () => newQuizQuestion());
+      buildTierFilter("referenceFilter", "referenceTier", renderReference);
+    }
+
+    function setupFlashControls() {
+      document.getElementById("flashReveal").addEventListener("click", () => {
+        state.flashRevealed = true;
+        renderFlash();
+      });
+      document.getElementById("flashKnown").addEventListener("click", () => {
+        if (!state.flashCurrent) return;
+        state.progress.knownFlash[state.flashCurrent.z] = true;
+        delete state.progress.unknownFlash[state.flashCurrent.z];
+        saveProgress();
+        renderFlash();
+      });
+      document.getElementById("flashUnknown").addEventListener("click", () => {
+        if (!state.flashCurrent) return;
+        state.progress.unknownFlash[state.flashCurrent.z] = true;
+        delete state.progress.knownFlash[state.flashCurrent.z];
+        saveProgress();
+        renderFlash();
+      });
+      document.getElementById("flashNext").addEventListener("click", nextFlashCard);
+    }
+
+    function setupQuizControls() {
+      document.getElementById("quizSubmit").addEventListener("click", checkQuiz);
+      document.getElementById("quizNew").addEventListener("click", newQuizQuestion);
+      document.getElementById("quizInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") checkQuiz();
+      });
+    }
+
+    function boot() {
+      loadProgress();
+      setupTabs();
+      setupFilters();
+      setupFlashControls();
+      setupQuizControls();
+      renderStudyPath();
+      renderMnemonics();
+      renderLearn();
+      renderReference();
+      nextFlashCard();
+      newQuizQuestion();
+      updateQuizScore();
+      updateProgressSummary();
+    }
+
+    boot();
+  </script>
+</body>
+</html>

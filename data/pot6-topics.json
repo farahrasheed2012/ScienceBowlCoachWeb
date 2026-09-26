@@ -1,0 +1,1381 @@
+[
+  {
+    "id": "T225",
+    "code": "T225",
+    "title": "Introduction to polynomials",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Introduction to polynomials is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T225, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Term: coefficient × variable^n",
+      "Degree = highest exponent",
+      "Constant term has degree 0"
+    ]
+  },
+  {
+    "id": "T226",
+    "code": "T226",
+    "title": "Evaluate polynomials",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Evaluate polynomials is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T226, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "P(a) = substitute x = a into P(x)",
+      "f(0) gives the y-intercept when f is a polynomial"
+    ]
+  },
+  {
+    "id": "T227",
+    "code": "T227",
+    "title": "Polynomial addition and subtraction",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Polynomial addition and subtraction is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T227, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Combine like terms: same variable and exponent",
+      "(ax^n) ± (bx^n) = (a±b)x^n"
+    ]
+  },
+  {
+    "id": "T228",
+    "code": "T228",
+    "title": "Polynomial multiplication",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Polynomial multiplication is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T228, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Distributive property: a(b+c) = ab + ac",
+      "(a+b)(c+d) = ac + ad + bc + bd",
+      "FOIL for binomials"
+    ]
+  },
+  {
+    "id": "T229",
+    "code": "T229",
+    "title": "Polynomial division",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Polynomial division is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T229, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Long division: divide, multiply, subtract, bring down",
+      "Synthetic division for (x - c) divisors"
+    ]
+  },
+  {
+    "id": "T230",
+    "code": "T230",
+    "title": "Polynomial formulas and expansion (easy)",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Polynomial formulas and expansion (easy) is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T230, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "(a+b)^2 = a^2 + 2ab + b^2",
+      "(a-b)^2 = a^2 - 2ab + b^2",
+      "(a+b)(a-b) = a^2 - b^2"
+    ]
+  },
+  {
+    "id": "T231",
+    "code": "T231",
+    "title": "Polynomial formulas and expansion (hard)",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Polynomial formulas and expansion (hard) is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T231, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3",
+      "(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3"
+    ]
+  },
+  {
+    "id": "T239",
+    "code": "T239",
+    "title": "Basics of factoring polynomials",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Basics of factoring polynomials is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T239, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Factor = reverse of multiply",
+      "Look for GCF first",
+      "Check by expanding"
+    ]
+  },
+  {
+    "id": "T240",
+    "code": "T240",
+    "title": "Factor: GCF and formulas",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Factor: GCF and formulas is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T240, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "GCF = greatest common factor of all terms",
+      "a^2 - b^2 = (a+b)(a-b)",
+      "a^2 + 2ab + b^2 = (a+b)^2"
+    ]
+  },
+  {
+    "id": "T241",
+    "code": "T241",
+    "title": "Factor: quadratics",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Factor: quadratics is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T241, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "x^2 + bx + c: find two numbers that multiply to c and add to b",
+      "ax^2 + bx + c: AC method or grouping"
+    ]
+  },
+  {
+    "id": "T242",
+    "code": "T242",
+    "title": "Factor: substitution and grouping",
+    "category": "polynomials",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Factor: substitution and grouping is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T242, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Substitution: let u = inner expression",
+      "Grouping: factor pairs of terms"
+    ]
+  },
+  {
+    "id": "T243",
+    "code": "T243",
+    "title": "Factor: all 5 methods",
+    "category": "polynomials",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Factor: all 5 methods is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T243, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Methods: GCF, formulas, trinomial, substitution, grouping"
+    ]
+  },
+  {
+    "id": "T290",
+    "code": "T290",
+    "title": "Binomial theorem",
+    "category": "polynomials",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Binomial theorem is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T290, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "(a+b)^n = Σ C(n,k) a^(n-k) b^k",
+      "C(n,k) = n! / (k!(n-k)!)"
+    ]
+  },
+  {
+    "id": "T291",
+    "code": "T291",
+    "title": "Find the sum of coefficients",
+    "category": "polynomials",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Find the sum of coefficients is a core POT 6 topic in Polynomials. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T291, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Polynomials. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "P(1) = sum of coefficients",
+      "Set x = 1 in polynomial"
+    ]
+  },
+  {
+    "id": "T247",
+    "code": "T247",
+    "title": "Rectangular coordinate system",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Rectangular coordinate system is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T247, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Quadrant I: (+,+), II: (-,+), III: (-,-), IV: (+,-)",
+      "Origin: (0,0)"
+    ]
+  },
+  {
+    "id": "T248",
+    "code": "T248",
+    "title": "Equations of lines — all 5 forms",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Equations of lines — all 5 forms is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T248, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Slope-intercept: y = mx + b",
+      "Point-slope: y - y1 = m(x - x1)",
+      "Standard: Ax + By = C"
+    ]
+  },
+  {
+    "id": "T249",
+    "code": "T249",
+    "title": "3 examples of line-related problems",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "3 examples of line-related problems is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T249, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Parallel: same slope",
+      "Perpendicular: m1·m2 = -1",
+      "Distance and midpoint formulas"
+    ]
+  },
+  {
+    "id": "T250",
+    "code": "T250",
+    "title": "Slopes of parallel lines",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Slopes of parallel lines is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T250, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Parallel lines: m1 = m2",
+      "Different y-intercepts → distinct parallel lines"
+    ]
+  },
+  {
+    "id": "T251",
+    "code": "T251",
+    "title": "Slopes of perpendicular lines",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Slopes of perpendicular lines is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T251, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Perpendicular: m1 · m2 = -1",
+      "Negative reciprocal slopes"
+    ]
+  },
+  {
+    "id": "T252",
+    "code": "T252",
+    "title": "Midpoint and distance formulas",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Midpoint and distance formulas is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T252, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Midpoint: ((x1+x2)/2, (y1+y2)/2)",
+      "Distance: √((x2-x1)^2 + (y2-y1)^2)"
+    ]
+  },
+  {
+    "id": "T253",
+    "code": "T253",
+    "title": "Point-to-line distance formula",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Point-to-line distance formula is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T253, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "d = |Ax0 + By0 + C| / √(A^2 + B^2)",
+      "Line in form Ax + By + C = 0"
+    ]
+  },
+  {
+    "id": "T254",
+    "code": "T254",
+    "title": "Determine if three points are collinear",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Determine if three points are collinear is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T254, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Collinear if slopes between pairs are equal",
+      "Or area of triangle = 0"
+    ]
+  },
+  {
+    "id": "T255",
+    "code": "T255",
+    "title": "Find coordinates of P on segments",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Find coordinates of P on segments is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T255, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Section formula: weighted average of endpoints",
+      "Ratio m:n → (mx2+nx1)/(m+n)"
+    ]
+  },
+  {
+    "id": "T256",
+    "code": "T256",
+    "title": "Shoelace formula",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Shoelace formula is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T256, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Area = ½|Σ(x_i y_{i+1} - x_{i+1} y_i)|",
+      "Vertices in order around polygon"
+    ]
+  },
+  {
+    "id": "T292",
+    "code": "T292",
+    "title": "Equations of circles",
+    "category": "coordinateGeometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Equations of circles is a core POT 6 topic in Coordinate Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T292, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Coordinate Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "(x-h)^2 + (y-k)^2 = r^2",
+      "Center (h,k), radius r"
+    ]
+  },
+  {
+    "id": "T261",
+    "code": "T261",
+    "title": "Solve quadratic equations",
+    "category": "quadratics",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Solve quadratic equations is a core POT 6 topic in Quadratics. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T261, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Quadratics. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "ax^2 + bx + c = 0",
+      "Quadratic formula: x = (-b ± √(b^2-4ac)) / 2a",
+      "Factor when possible"
+    ]
+  },
+  {
+    "id": "T262",
+    "code": "T262",
+    "title": "Complete the square",
+    "category": "quadratics",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Complete the square is a core POT 6 topic in Quadratics. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T262, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Quadratics. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "x^2 + bx = (x + b/2)^2 - (b/2)^2",
+      "Add (b/2)^2 to both sides"
+    ]
+  },
+  {
+    "id": "T263",
+    "code": "T263",
+    "title": "Vieta's formula",
+    "category": "quadratics",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Vieta's formula is a core POT 6 topic in Quadratics. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T263, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Quadratics. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Sum of roots = -b/a",
+      "Product of roots = c/a"
+    ]
+  },
+  {
+    "id": "T264",
+    "code": "T264",
+    "title": "Absolute values (advanced)",
+    "category": "quadratics",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Absolute values (advanced) is a core POT 6 topic in Quadratics. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T264, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Quadratics. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "|x| = x if x ≥ 0, -x if x < 0",
+      "|a| = |b| → a = b or a = -b"
+    ]
+  },
+  {
+    "id": "T265",
+    "code": "T265",
+    "title": "Solve absolute value inequalities",
+    "category": "quadratics",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Solve absolute value inequalities is a core POT 6 topic in Quadratics. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T265, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Quadratics. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "|x| < a → -a < x < a",
+      "|x| > a → x < -a or x > a"
+    ]
+  },
+  {
+    "id": "T289",
+    "code": "T289",
+    "title": "Complete review of quadratics",
+    "category": "quadratics",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Complete review of quadratics is a core POT 6 topic in Quadratics. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T289, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Quadratics. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Review: factoring, formula, completing square, graphing"
+    ]
+  },
+  {
+    "id": "T272",
+    "code": "T272",
+    "title": "Counting — 7 methods",
+    "category": "counting",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Counting — 7 methods is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T272, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Fundamental counting: multiply choices",
+      "Permutations: nPr",
+      "Combinations: nCr"
+    ]
+  },
+  {
+    "id": "T273",
+    "code": "T273",
+    "title": "Counting water flow model",
+    "category": "counting",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Counting water flow model is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T273, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Water flow: paths through grid",
+      "At each junction, flows split"
+    ]
+  },
+  {
+    "id": "T274",
+    "code": "T274",
+    "title": "Probability using counting",
+    "category": "counting",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Probability using counting is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T274, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "P(event) = favorable / total (equally likely)",
+      "Use counting for numerator and denominator"
+    ]
+  },
+  {
+    "id": "T275",
+    "code": "T275",
+    "title": "Sets",
+    "category": "counting",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Sets is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T275, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Union, intersection, complement",
+      "n(A ∪ B) = n(A) + n(B) - n(A ∩ B)"
+    ]
+  },
+  {
+    "id": "T276",
+    "code": "T276",
+    "title": "Events",
+    "category": "counting",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Events is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T276, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Sample space = all outcomes",
+      "Complement: P(not A) = 1 - P(A)"
+    ]
+  },
+  {
+    "id": "T277",
+    "code": "T277",
+    "title": "Probability using compound events",
+    "category": "counting",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Probability using compound events is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T277, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "P(A and B) = P(A)·P(B) if independent",
+      "P(A or B) = P(A) + P(B) - P(A and B)"
+    ]
+  },
+  {
+    "id": "T278",
+    "code": "T278",
+    "title": "Practice: probability compound events",
+    "category": "counting",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Practice: probability compound events is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T278, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Draw a table or list all outcomes",
+      "Check whether events overlap"
+    ]
+  },
+  {
+    "id": "T279",
+    "code": "T279",
+    "title": "Probability tree diagrams",
+    "category": "counting",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Probability tree diagrams is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T279, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Multiply along branches",
+      "Sum paths for final probability"
+    ]
+  },
+  {
+    "id": "T280",
+    "code": "T280",
+    "title": "Expected values in probability",
+    "category": "counting",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Expected values in probability is a core POT 6 topic in Counting & Probability. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T280, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Counting & Probability. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "E(X) = Σ x·P(x)",
+      "Fair game: expected value = 0"
+    ]
+  },
+  {
+    "id": "T224",
+    "code": "T224",
+    "title": "Convert repeating decimals to fractions",
+    "category": "numberTheory",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Convert repeating decimals to fractions is a core POT 6 topic in Number Theory. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T224, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Number Theory. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "0.abc... = abc/999... (adjust for repeating block length)",
+      "Multiply by 10^n to shift repeat"
+    ]
+  },
+  {
+    "id": "T233",
+    "code": "T233",
+    "title": "Sum of first n counting, squares and cubes",
+    "category": "numberTheory",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Sum of first n counting, squares and cubes is a core POT 6 topic in Number Theory. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T233, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Number Theory. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "1+2+...+n = n(n+1)/2",
+      "1^2+...+n^2 = n(n+1)(2n+1)/6",
+      "1^3+...+n^3 = (n(n+1)/2)^2"
+    ]
+  },
+  {
+    "id": "T238",
+    "code": "T238",
+    "title": "Number of, sum, product of positive factors",
+    "category": "numberTheory",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Number of, sum, product of positive factors is a core POT 6 topic in Number Theory. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T238, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Number Theory. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "If n = p^a · q^b, divisors = (a+1)(b+1)",
+      "Sum of divisors formula"
+    ]
+  },
+  {
+    "id": "T288",
+    "code": "T288",
+    "title": "Different bases",
+    "category": "numberTheory",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Different bases is a core POT 6 topic in Number Theory. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T288, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Number Theory. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Place value in base b",
+      "Convert: divide by base, read remainders"
+    ]
+  },
+  {
+    "id": "T282",
+    "code": "T282",
+    "title": "Arithmetic sequences",
+    "category": "sequences",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Arithmetic sequences is a core POT 6 topic in Sequences & Series. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T282, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Sequences & Series. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "a_n = a_1 + (n-1)d",
+      "Sum = n(a_1 + a_n)/2"
+    ]
+  },
+  {
+    "id": "T287",
+    "code": "T287",
+    "title": "Geometric sequences",
+    "category": "sequences",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Geometric sequences is a core POT 6 topic in Sequences & Series. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T287, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Sequences & Series. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "a_n = a_1 · r^(n-1)",
+      "Sum finite: a_1(1-r^n)/(1-r)"
+    ]
+  },
+  {
+    "id": "T310",
+    "code": "T310",
+    "title": "Introduction to geometry",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Introduction to geometry is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T310, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Point, line, plane",
+      "Postulates: through 2 points one line"
+    ]
+  },
+  {
+    "id": "T311",
+    "code": "T311",
+    "title": "Angles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Angles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T311, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Complementary: sum 90°",
+      "Supplementary: sum 180°",
+      "Vertical angles equal"
+    ]
+  },
+  {
+    "id": "T312",
+    "code": "T312",
+    "title": "Angle and segment bisectors",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Angle and segment bisectors is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T312, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Bisector divides angle into two equal parts",
+      "Segment bisector: midpoint"
+    ]
+  },
+  {
+    "id": "T313",
+    "code": "T313",
+    "title": "Angles with parallel lines",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Angles with parallel lines is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T313, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Corresponding angles equal",
+      "Alternate interior equal",
+      "Same-side interior supplementary"
+    ]
+  },
+  {
+    "id": "T314",
+    "code": "T314",
+    "title": "Relationship between lines",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Relationship between lines is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T314, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Intersecting lines: vertical angles equal",
+      "Perpendicular lines: 90° angle",
+      "Skew lines: not parallel, not intersecting (3D)"
+    ]
+  },
+  {
+    "id": "T315",
+    "code": "T315",
+    "title": "Test if two lines are parallel",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Test if two lines are parallel is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T315, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "If corresponding angles equal → parallel",
+      "If alternate interior equal → parallel",
+      "Converse of parallel line theorems"
+    ]
+  },
+  {
+    "id": "T316",
+    "code": "T316",
+    "title": "Triangle inequalities",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Triangle inequalities is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T316, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Triangle inequality: sum of any two sides > third side",
+      "Difference of two sides < third side"
+    ]
+  },
+  {
+    "id": "T317",
+    "code": "T317",
+    "title": "Angle properties of triangles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Angle properties of triangles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T317, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Triangle angle sum = 180°",
+      "Exterior angle = sum of remote interiors"
+    ]
+  },
+  {
+    "id": "T318",
+    "code": "T318",
+    "title": "Classify triangles by sides and angles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Classify triangles by sides and angles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T318, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Scalene: no equal sides",
+      "Isosceles: two equal sides",
+      "Equilateral: three equal sides",
+      "Classify by angles: acute, right, obtuse"
+    ]
+  },
+  {
+    "id": "T319",
+    "code": "T319",
+    "title": "Polygons",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Polygons is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T319, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "n-gon angle sum = (n-2)·180°",
+      "Regular n-gon: each interior = (n-2)·180°/n"
+    ]
+  },
+  {
+    "id": "T320",
+    "code": "T320",
+    "title": "Properties of isosceles triangles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Properties of isosceles triangles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T320, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Isosceles: two equal sides → base angles equal",
+      "Converse also true"
+    ]
+  },
+  {
+    "id": "T321",
+    "code": "T321",
+    "title": "Properties of quadrilaterals",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Properties of quadrilaterals is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T321, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Parallelogram: opp sides parallel and equal",
+      "Rectangle, rhombus, square are special"
+    ]
+  },
+  {
+    "id": "T322",
+    "code": "T322",
+    "title": "Logical reasoning",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Logical reasoning is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T322, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Draw a diagram",
+      "List givens and what to prove",
+      "Use definitions and prior theorems"
+    ]
+  },
+  {
+    "id": "T323",
+    "code": "T323",
+    "title": "Two-column geometry proofs",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Two-column geometry proofs is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T323, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Statement on left, reason on right",
+      "Each step needs a justification",
+      "QED at the end"
+    ]
+  },
+  {
+    "id": "T324",
+    "code": "T324",
+    "title": "Congruent triangles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Congruent triangles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T324, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "SSS, SAS, ASA, AAS, HL (right triangles)",
+      "CPCTC after congruence"
+    ]
+  },
+  {
+    "id": "T325",
+    "code": "T325",
+    "title": "Similar triangles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Similar triangles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T325, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "AA similarity",
+      "Sides in proportion: a/b = c/d = e/f"
+    ]
+  },
+  {
+    "id": "T326",
+    "code": "T326",
+    "title": "Angle bisector theorem",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Angle bisector theorem is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T326, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Angle bisector divides opposite side proportionally",
+      "BD/DC = AB/AC"
+    ]
+  },
+  {
+    "id": "T331",
+    "code": "T331",
+    "title": "Centroid of a triangle",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Centroid of a triangle is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T331, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Centroid: intersection of medians",
+      "Divides each median 2:1 from vertex"
+    ]
+  },
+  {
+    "id": "T332",
+    "code": "T332",
+    "title": "Isosceles, equilateral, hexagons, trapezoids",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Isosceles, equilateral, hexagons, trapezoids is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T332, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Equilateral: all sides and angles 60°",
+      "Regular hexagon: 6 equilateral triangles"
+    ]
+  },
+  {
+    "id": "T333",
+    "code": "T333",
+    "title": "Right and special triangles (part 1)",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Right and special triangles (part 1) is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T333, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "30-60-90: sides 1 : √3 : 2",
+      "45-45-90: sides 1 : 1 : √2"
+    ]
+  },
+  {
+    "id": "T334",
+    "code": "T334",
+    "title": "Right and special triangles (part 2)",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Right and special triangles (part 2) is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T334, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Pythagorean theorem: a^2 + b^2 = c^2",
+      "Converse for right triangle test"
+    ]
+  },
+  {
+    "id": "T335",
+    "code": "T335",
+    "title": "Determine the type of triangles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Determine the type of triangles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T335, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Use side lengths and angle measures",
+      "Pythagorean converse for right triangles"
+    ]
+  },
+  {
+    "id": "T336",
+    "code": "T336",
+    "title": "Areas of common 2D figures",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Areas of common 2D figures is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T336, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Rectangle: A = bh",
+      "Triangle: A = ½bh",
+      "Circle: A = πr^2"
+    ]
+  },
+  {
+    "id": "T337",
+    "code": "T337",
+    "title": "Methods for finding areas",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Methods for finding areas is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T337, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Decompose into known shapes",
+      "Subtract holes from enclosing figure"
+    ]
+  },
+  {
+    "id": "T338",
+    "code": "T338",
+    "title": "Surface areas and volumes of 3D figures",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Surface areas and volumes of 3D figures is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T338, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Prism: V = Bh",
+      "Cylinder: V = πr^2h",
+      "Sphere: V = (4/3)πr^3"
+    ]
+  },
+  {
+    "id": "T339",
+    "code": "T339",
+    "title": "Circle definitions",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Circle definitions is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T339, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Radius, diameter, chord, secant, tangent",
+      "Tangent ⊥ radius at point of tangency"
+    ]
+  },
+  {
+    "id": "T340",
+    "code": "T340",
+    "title": "Properties of angles and segments in circles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Properties of angles and segments in circles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T340, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Inscribed angle = ½ intercepted arc",
+      "Central angle = intercepted arc"
+    ]
+  },
+  {
+    "id": "T341",
+    "code": "T341",
+    "title": "More circle properties",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "More circle properties is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T341, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Power of a point",
+      "Two tangents from external point equal"
+    ]
+  },
+  {
+    "id": "T344",
+    "code": "T344",
+    "title": "Polyhedrons",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Polyhedrons is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T344, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Polyhedron: faces are polygons",
+      "Euler: V - E + F = 2"
+    ]
+  },
+  {
+    "id": "T345",
+    "code": "T345",
+    "title": "Common solid figures",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Common solid figures is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T345, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Prism, pyramid, cylinder, cone, sphere",
+      "Know faces, edges, vertices"
+    ]
+  },
+  {
+    "id": "T347",
+    "code": "T347",
+    "title": "Formulas for equilateral triangles",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Formulas for equilateral triangles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T347, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Equilateral triangle height: h = (√3/2)s",
+      "Area: A = (√3/4)s^2"
+    ]
+  },
+  {
+    "id": "T327",
+    "code": "T327",
+    "title": "Squares inscribed in right triangles (part 1)",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Squares inscribed in right triangles (part 1) is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T327, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Competition: inscribed square in right triangle"
+    ]
+  },
+  {
+    "id": "T328",
+    "code": "T328",
+    "title": "Squares inscribed in right triangles (part 2)",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Squares inscribed in right triangles (part 2) is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T328, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "See POT 6 notes for T328"
+    ]
+  },
+  {
+    "id": "T329",
+    "code": "T329",
+    "title": "Trapezoids (part 1)",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Trapezoids (part 1) is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T329, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "See POT 6 notes for T329"
+    ]
+  },
+  {
+    "id": "T330",
+    "code": "T330",
+    "title": "Trapezoids (part 2)",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Trapezoids (part 2) is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T330, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "See POT 6 notes for T330"
+    ]
+  },
+  {
+    "id": "T342",
+    "code": "T342",
+    "title": "Auxiliary lines for circles",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Auxiliary lines for circles is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T342, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Add radii, diameters, or right angles",
+      "Look for inscribed right angles"
+    ]
+  },
+  {
+    "id": "T343",
+    "code": "T343",
+    "title": "Inradius and circumradius",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Inradius and circumradius is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T343, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "A = rs (r = inradius, s = semiperimeter)",
+      "R = abc/(4A) (circumradius)"
+    ]
+  },
+  {
+    "id": "T346",
+    "code": "T346",
+    "title": "Methods for solving solid geometry problems",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Methods for solving solid geometry problems is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T346, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Decompose 3D figure",
+      "Draw net or cross-section"
+    ]
+  },
+  {
+    "id": "T348",
+    "code": "T348",
+    "title": "Find center to vertex and edge",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Find center to vertex and edge is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T348, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Competition: center to vertex vs edge in regular solids"
+    ]
+  },
+  {
+    "id": "T349",
+    "code": "T349",
+    "title": "Regular tetrahedrons",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Regular tetrahedrons is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T349, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "See POT 6 notes for T349"
+    ]
+  },
+  {
+    "id": "T350",
+    "code": "T350",
+    "title": "Regular octahedrons",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Regular octahedrons is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T350, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "See POT 6 notes for T350"
+    ]
+  },
+  {
+    "id": "T351",
+    "code": "T351",
+    "title": "Inscribed spheres and cubes",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Inscribed spheres and cubes is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T351, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "See POT 6 notes for T351"
+    ]
+  },
+  {
+    "id": "T352",
+    "code": "T352",
+    "title": "Examples of solving 3D problems",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Examples of solving 3D problems is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T352, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "See POT 6 notes for T352"
+    ]
+  },
+  {
+    "id": "T353",
+    "code": "T353",
+    "title": "Frustums",
+    "category": "geometry",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Frustums is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T353, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Frustum volume: V = (πh/3)(R^2 + Rr + r^2)"
+    ]
+  },
+  {
+    "id": "6HW37",
+    "code": "6HW37",
+    "title": "Hinge theorem; centroid, circumcenter, orthocenter",
+    "category": "geometry",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Hinge theorem; centroid, circumcenter, orthocenter is a core POT 6 topic in Geometry. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study 6HW37, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Geometry. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Hinge theorem: if two sides equal, larger included angle → longer third side",
+      "Centroid: intersection of medians",
+      "Circumcenter: equidistant from vertices",
+      "Orthocenter: intersection of altitudes"
+    ]
+  },
+  {
+    "id": "T283",
+    "code": "T283",
+    "title": "Directly and inversely proportional",
+    "category": "functions",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Directly and inversely proportional is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T283, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Direct: y = kx",
+      "Inverse: y = k/x or xy = k"
+    ]
+  },
+  {
+    "id": "T284",
+    "code": "T284",
+    "title": "Relations and functions",
+    "category": "functions",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Relations and functions is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T284, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Function: each input → exactly one output",
+      "Vertical line test"
+    ]
+  },
+  {
+    "id": "T285",
+    "code": "T285",
+    "title": "Evaluate functions",
+    "category": "functions",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Evaluate functions is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T285, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "f(a): substitute x = a",
+      "Piecewise: use correct branch"
+    ]
+  },
+  {
+    "id": "T286",
+    "code": "T286",
+    "title": "Undefined and unattainable values",
+    "category": "functions",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Undefined and unattainable values is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T286, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Undefined: division by zero, even root of negative",
+      "Domain restrictions"
+    ]
+  },
+  {
+    "id": "T257",
+    "code": "T257",
+    "title": "Graph inequalities on the number line",
+    "category": "functions",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Graph inequalities on the number line is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T257, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Open circle: < or >",
+      "Closed circle: ≤ or ≥",
+      "Shade toward numbers that satisfy"
+    ]
+  },
+  {
+    "id": "T258",
+    "code": "T258",
+    "title": "Graph inequalities on coordinate system",
+    "category": "functions",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Graph inequalities on coordinate system is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T258, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Dashed line: strict inequality",
+      "Solid line: ≤ or ≥",
+      "Shade test point"
+    ]
+  },
+  {
+    "id": "T259",
+    "code": "T259",
+    "title": "Number of solutions for systems of equations",
+    "category": "functions",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Number of solutions for systems of equations is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T259, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "One solution: intersecting lines",
+      "None: parallel",
+      "Infinite: same line"
+    ]
+  },
+  {
+    "id": "T260",
+    "code": "T260",
+    "title": "Solve probability problems via coordinate system",
+    "category": "functions",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Solve probability problems via coordinate system is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T260, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Geometric probability: favorable area / total area"
+    ]
+  },
+  {
+    "id": "T281",
+    "code": "T281",
+    "title": "Find reflection points",
+    "category": "functions",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Find reflection points is a core POT 6 topic in Functions & Relations. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T281, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Functions & Relations. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Reflect over x-axis: (x,y)→(x,-y)",
+      "Over y-axis: (x,y)→(-x,y)",
+      "Over y=x: (x,y)→(y,x)"
+    ]
+  },
+  {
+    "id": "T270",
+    "code": "T270",
+    "title": "Box and whisker plots",
+    "category": "statistics",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Box and whisker plots is a core POT 6 topic in Statistics. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T270, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Statistics. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Five-number summary: min, Q1, median, Q3, max",
+      "IQR = Q3 - Q1"
+    ]
+  },
+  {
+    "id": "T271",
+    "code": "T271",
+    "title": "Stem and leaf plots",
+    "category": "statistics",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Stem and leaf plots is a core POT 6 topic in Statistics. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T271, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Statistics. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "Stem = leading digit(s)",
+      "Leaf = trailing digit",
+      "Key explains scale"
+    ]
+  },
+  {
+    "id": "T266",
+    "code": "T266",
+    "title": "Square roots",
+    "category": "radicals",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Square roots is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T266, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "√(a²) = |a|",
+      "√(ab) = √a · √b for a,b ≥ 0"
+    ]
+  },
+  {
+    "id": "T267",
+    "code": "T267",
+    "title": "Radicals",
+    "category": "radicals",
+    "isCompetitionOnly": false,
+    "conceptSummary": "Radicals is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T267, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days.",
+    "keyFormulas": [
+      "n√a · m√a = (nm)a",
+      "Rationalize denominator"
+    ]
+  },
+  {
+    "id": "T268",
+    "code": "T268",
+    "title": "Simplify nested radicals",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Simplify nested radicals is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T268, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "√(a + √b) nested simplification",
+      "Look for perfect square inside"
+    ]
+  },
+  {
+    "id": "T269",
+    "code": "T269",
+    "title": "Simplify nested square roots and continued fractions",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Simplify nested square roots and continued fractions is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T269, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Continued fraction patterns",
+      "Nested radical simplification"
+    ]
+  },
+  {
+    "id": "T232",
+    "code": "T232",
+    "title": "Distance-speed-time: boat in water",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Distance-speed-time: boat in water is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T232, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Downstream: rate = boat + current",
+      "Upstream: rate = boat - current"
+    ]
+  },
+  {
+    "id": "T234",
+    "code": "T234",
+    "title": "Job problems",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "Job problems is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T234, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Rate × time = work (1 job)",
+      "Combined rate: 1/a + 1/b"
+    ]
+  },
+  {
+    "id": "T235",
+    "code": "T235",
+    "title": "1/a + 1/b = 1/n problems",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "1/a + 1/b = 1/n problems is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T235, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "1/a + 1/b = 1/n → (a-n)(b-n) = n²",
+      "Factor n² to find pairs"
+    ]
+  },
+  {
+    "id": "T236",
+    "code": "T236",
+    "title": "1/a + 1/b = 1/n (a<b) problems",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "1/a + 1/b = 1/n (a<b) problems is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T236, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Same as T235 with constraint a < b"
+    ]
+  },
+  {
+    "id": "T237",
+    "code": "T237",
+    "title": "1/a + 1/b = m/n problems",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "1/a + 1/b = m/n problems is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T237, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "1/a + 1/b = m/n — clear fractions and factor"
+    ]
+  },
+  {
+    "id": "T244",
+    "code": "T244",
+    "title": "x + 1/x problems",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "x + 1/x problems is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T244, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "Let t = x + 1/x",
+      "Square to find x^2 + 1/x^2"
+    ]
+  },
+  {
+    "id": "T245",
+    "code": "T245",
+    "title": "x - 1/x problems",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "x - 1/x problems is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T245, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "(x - 1/x)^2 = (x + 1/x)^2 - 4"
+    ]
+  },
+  {
+    "id": "T246",
+    "code": "T246",
+    "title": "x + 1/x = 2 or -2 problems",
+    "category": "radicals",
+    "isCompetitionOnly": true,
+    "conceptSummary": "x + 1/x = 2 or -2 problems is a core POT 6 topic in Radicals & Complex. At this level you should move beyond memorizing steps and start recognizing which tool fits each problem quickly — exactly the skill Mathcounts and strong algebra classes reward.\n\nWhen you study T246, focus on vocabulary, typical problem shapes, and the most common traps. Write a one-line summary in your notebook, then solve at least one problem without looking at notes. If you can explain the idea to someone else, you truly own it.\n\nConnect this topic to nearby POT 6 ideas in Radicals & Complex. Many contest problems blend two skills — for example, setup from one topic and calculation from another. Review key formulas before drills and check units or signs at the end.\n\nFor daily practice, alternate scaffold problems (build confidence) with standard homework-style problems and occasional challenge sets. Track accuracy over a rolling window and revisit any topic below 60% within three days. This is a Mathcounts-level enrichment topic — expect clever shortcuts and time pressure.",
+    "keyFormulas": [
+      "x + 1/x = 2 → x = 1",
+      "x + 1/x = -2 → x = -1"
+    ]
+  }
+]

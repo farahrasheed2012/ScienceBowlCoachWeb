@@ -1,0 +1,909 @@
+[
+  {
+    "id": "32BDDF24-628D-4352-B2C8-93F0A0F9503B",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 1,
+    "category": "Biology",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "In which organelle does photosynthesis primarily take place?",
+    "choices": [
+      "W) Mitochondria",
+      "X) Nucleus",
+      "Y) Chloroplast",
+      "Z) Ribosome"
+    ],
+    "answer": "Chloroplast",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "CE79F3BD-83B9-4217-9C8B-53DDEB2C45ED",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 2,
+    "category": "Biology",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What gas do plants take in for photosynthesis?",
+    "choices": [
+      "W) Oxygen",
+      "X) Nitrogen",
+      "Y) Carbon dioxide",
+      "Z) Hydrogen"
+    ],
+    "answer": "Carbon dioxide",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "07E8DA77-8581-42C9-8F44-0E8A1685761F",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 3,
+    "category": "Biology",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Which organelle is known as the powerhouse of the cell?",
+    "choices": [
+      "W) Nucleus",
+      "X) Chloroplast",
+      "Y) Mitochondria",
+      "Z) Ribosome"
+    ],
+    "answer": "Mitochondria",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "FBD8AD42-5BB6-4ECE-A9B0-B7264C08DDCD",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 4,
+    "category": "Biology",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Where is DNA stored in a eukaryotic cell?",
+    "choices": [
+      "W) Cytoplasm",
+      "X) Nucleus",
+      "Y) Ribosome",
+      "Z) Golgi apparatus"
+    ],
+    "answer": "Nucleus",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "21A33E95-6F25-4529-A772-77B19746AA67",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 5,
+    "category": "Biology",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What is the main sugar product of photosynthesis?",
+    "choices": [
+      "W) Sucrose",
+      "X) Fructose",
+      "Y) Glucose",
+      "Z) Lactose"
+    ],
+    "answer": "Glucose",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "7A231052-7576-4855-A493-9E8D38BAB1DC",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 6,
+    "category": "Biology",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What gas is released as a byproduct of photosynthesis?",
+    "choices": [
+      "W) Carbon dioxide",
+      "X) Nitrogen",
+      "Y) Oxygen",
+      "Z) Hydrogen"
+    ],
+    "answer": "Oxygen",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "BEAEBF78-E09D-494C-855B-E82936E4A6E3",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 7,
+    "category": "Biology",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Which structure is found in plant cells but not in animal cells?",
+    "choices": [
+      "W) Mitochondria",
+      "X) Cell wall",
+      "Y) Nucleus",
+      "Z) Ribosome"
+    ],
+    "answer": "Cell wall",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "9A5D0B87-70E1-445E-B9FE-45A405C8A82E",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 8,
+    "category": "Biology",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Movement of particles from high to low concentration without energy is called what?",
+    "choices": [
+      "W) Active transport",
+      "X) Osmosis",
+      "Y) Diffusion",
+      "Z) Endocytosis"
+    ],
+    "answer": "Diffusion",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "E291D85B-7E5A-4F64-98F6-C417E19F7B14",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 9,
+    "category": "Chemistry",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Which subatomic particle has a positive charge?",
+    "choices": [
+      "W) Electron",
+      "X) Neutron",
+      "Y) Proton",
+      "Z) Photon"
+    ],
+    "answer": "Proton",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "0FBF34AF-A25B-4F10-BBA4-8D5832C94B07",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 10,
+    "category": "Chemistry",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Horizontal rows on the periodic table are called what?",
+    "choices": [
+      "W) Groups",
+      "X) Periods",
+      "Y) Families",
+      "Z) Series"
+    ],
+    "answer": "Periods",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "3F409951-447D-47C3-963C-EF0770E234D1",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 11,
+    "category": "Chemistry",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Which subatomic particle has a negative charge?",
+    "choices": [
+      "W) Proton",
+      "X) Neutron",
+      "Y) Electron",
+      "Z) Nucleus"
+    ],
+    "answer": "Electron",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "742D66AE-E8DE-482B-BD90-EC2A4ABA92B6",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 12,
+    "category": "Chemistry",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What subatomic particle has no charge?",
+    "choices": [
+      "W) Proton",
+      "X) Electron",
+      "Y) Neutron",
+      "Z) Photon"
+    ],
+    "answer": "Neutron",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "DB446D29-B288-46D7-86D8-5F36C992542E",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 13,
+    "category": "Chemistry",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "A substance made of two or more elements chemically bonded in a fixed ratio is a what?",
+    "choices": [
+      "W) Element",
+      "X) Compound",
+      "Y) Mixture",
+      "Z) Solution"
+    ],
+    "answer": "Compound",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "2DFCA000-AFE2-419B-BAC8-668EE42456AE",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 14,
+    "category": "Chemistry",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Table salt (NaCl) is an example of what?",
+    "choices": [
+      "W) Element",
+      "X) Compound",
+      "Y) Mixture",
+      "Z) Colloid"
+    ],
+    "answer": "Compound",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "39020BEE-9CAE-4162-A54A-B3D679CFFD14",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 15,
+    "category": "Chemistry",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "A bond formed by the transfer of electrons is called what?",
+    "choices": [
+      "W) Covalent",
+      "X) Ionic",
+      "Y) Hydrogen",
+      "Z) Metallic"
+    ],
+    "answer": "Ionic",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "A624030D-D1D1-40F3-9448-7AA94D3FD969",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 16,
+    "category": "Chemistry",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "When atoms share electron pairs, they form what type of bond?",
+    "choices": [
+      "W) Ionic",
+      "X) Covalent",
+      "Y) Hydrogen",
+      "Z) Van der Waals"
+    ],
+    "answer": "Covalent",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "8972F792-9D9F-4050-828C-BDBD0F7672A0",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 17,
+    "category": "Physics",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What is the rate of change of velocity called?",
+    "choices": [
+      "W) Speed",
+      "X) Acceleration",
+      "Y) Momentum",
+      "Z) Force"
+    ],
+    "answer": "Acceleration",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "8E50B16F-69A6-4DBD-92D9-806AC8E5B5F1",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 18,
+    "category": "Physics",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "According to Newton's first law, an object at rest stays at rest unless acted on by what?",
+    "choices": [
+      "W) Gravity",
+      "X) A net force",
+      "Y) Friction",
+      "Z) Inertia"
+    ],
+    "answer": "A net force",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "53EA69AE-69DF-474D-8B0C-CC7AF44198F6",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 19,
+    "category": "Physics",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What is speed in a given direction called?",
+    "choices": [
+      "W) Acceleration",
+      "X) Velocity",
+      "Y) Momentum",
+      "Z) Force"
+    ],
+    "answer": "Velocity",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "D5403464-E3B0-4DC8-92E2-4CFBB063F850",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 20,
+    "category": "Physics",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What is the force that opposes motion between two surfaces?",
+    "choices": [
+      "W) Gravity",
+      "X) Tension",
+      "Y) Friction",
+      "Z) Normal force"
+    ],
+    "answer": "Friction",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "46B774CB-B2E6-4BD2-9CF9-BA071CF259D5",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 21,
+    "category": "Physics",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What is the rate of change of velocity called?",
+    "choices": [],
+    "answer": "Acceleration",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "8309D06E-428B-463D-89D3-F04B2028F437",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 22,
+    "category": "Physics",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What is the formula for work when force and distance are in the same direction?",
+    "choices": [
+      "W) W = F/d",
+      "X) W = F \u00d7 d",
+      "Y) W = F + d",
+      "Z) W = F - d"
+    ],
+    "answer": "W = F \u00d7 d",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "E4BA0A3A-761C-4712-B594-9D3E81B45586",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 23,
+    "category": "Physics",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What is the unit of power?",
+    "choices": [
+      "W) Joule",
+      "X) Newton",
+      "Y) Watt",
+      "Z) Meter"
+    ],
+    "answer": "Watt",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "61361358-9E7F-41BC-B4D1-99C97E1DBDA2",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 24,
+    "category": "Physics",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "What is the formula for kinetic energy?",
+    "choices": [
+      "W) KE = mv",
+      "X) KE = \u00bdmv\u00b2",
+      "Y) KE = mgh",
+      "Z) KE = ma"
+    ],
+    "answer": "KE = \u00bdmv\u00b2",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "DA89ED85-E953-4363-8F62-26C06E8B1A1A",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 25,
+    "category": "Earth and Space",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Which layer of Earth is primarily composed of iron and nickel?",
+    "choices": [
+      "W) Crust",
+      "X) Mantle",
+      "Y) Outer core",
+      "Z) Lithosphere"
+    ],
+    "answer": "Outer core",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "D13E9946-7C1A-45C8-B66D-CBEACA5C90C4",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 26,
+    "category": "Earth and Space",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Which layer of Earth is the thinnest?",
+    "choices": [
+      "W) Mantle",
+      "X) Crust",
+      "Y) Outer core",
+      "Z) Inner core"
+    ],
+    "answer": "Crust",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "494438FE-0F76-4E7E-A5EE-856FA900207A",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 27,
+    "category": "Earth and Space",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "The theory that Earth's lithosphere is broken into moving plates is called what?",
+    "choices": [
+      "W) Continental drift",
+      "X) Plate tectonics",
+      "Y) Seafloor spreading",
+      "Z) Subduction"
+    ],
+    "answer": "Plate tectonics",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "4C4A7BE6-A810-40C1-996B-207CAE1B1F39",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 28,
+    "category": "Earth and Space",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Which seismic wave travels fastest and can go through solids and liquids?",
+    "choices": [
+      "W) S-wave",
+      "X) P-wave",
+      "Y) Surface wave",
+      "Z) Love wave"
+    ],
+    "answer": "P-wave",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "0D8844DD-A7EA-4291-95B2-838400F41D5E",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 29,
+    "category": "Earth and Space",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Molten rock below Earth's surface is called what?",
+    "choices": [
+      "W) Lava",
+      "X) Magma",
+      "Y) Ash",
+      "Z) Tephra"
+    ],
+    "answer": "Magma",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "45284C9F-22A1-4FA4-BAF8-0CDF9D15C814",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 30,
+    "category": "Earth and Space",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Rock formed from cooled magma or lava is called what?",
+    "choices": [
+      "W) Sedimentary",
+      "X) Metamorphic",
+      "Y) Igneous",
+      "Z) Organic"
+    ],
+    "answer": "Igneous",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "8A7E4B99-1FC5-4520-A078-9D5832BE25D2",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 31,
+    "category": "Earth and Space",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Liquid water becoming water vapor is called what?",
+    "choices": [
+      "W) Condensation",
+      "X) Evaporation",
+      "Y) Precipitation",
+      "Z) Runoff"
+    ],
+    "answer": "Evaporation",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "86CCDF7D-00B7-4D99-A0A9-5BCC98D3036F",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 32,
+    "category": "Earth and Space",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "How many planets orbit the Sun?",
+    "choices": [
+      "W) Seven",
+      "X) Eight",
+      "Y) Nine",
+      "Z) Ten"
+    ],
+    "answer": "Eight",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "1F7FAF57-E1B9-4898-B7BD-53D0903654FF",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 33,
+    "category": "Energy",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Energy stored in the bonds of molecules is called what?",
+    "choices": [
+      "W) Kinetic energy",
+      "X) Chemical energy",
+      "Y) Nuclear energy",
+      "Z) Radiant energy"
+    ],
+    "answer": "Chemical energy",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "BB489CC1-8BAB-40B6-A0CF-1F1B4ECF1B10",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 34,
+    "category": "Energy",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Energy of motion is called what?",
+    "choices": [
+      "W) Potential energy",
+      "X) Kinetic energy",
+      "Y) Chemical energy",
+      "Z) Thermal energy"
+    ],
+    "answer": "Kinetic energy",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "9296B5DA-3E62-4E33-8E05-2645367BB12F",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 35,
+    "category": "Energy",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Energy cannot be created or destroyed, only transformed. This is the law of what?",
+    "choices": [
+      "W) Conservation of energy",
+      "X) Conservation of mass",
+      "Y) Thermodynamics",
+      "Z) Entropy"
+    ],
+    "answer": "Conservation of energy",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "34D62351-E747-4B83-9EBF-EA84A241ACB6",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 36,
+    "category": "Energy",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Coal, oil, and natural gas are examples of what type of energy source?",
+    "choices": [
+      "W) Renewable",
+      "X) Fossil fuels",
+      "Y) Nuclear",
+      "Z) Solar"
+    ],
+    "answer": "Fossil fuels",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "82AB6F59-799B-4B44-92AD-A8F810FFAB25",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 37,
+    "category": "Energy",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Converting sunlight directly into electricity using semiconductor cells is called what?",
+    "choices": [
+      "W) Solar thermal",
+      "X) Photovoltaic",
+      "Y) Concentration",
+      "Z) Reflection"
+    ],
+    "answer": "Photovoltaic",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "5EB9B612-E10C-4814-A113-7AE1C1A62F99",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 38,
+    "category": "Energy",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Wind turbines convert the kinetic energy of wind into what?",
+    "choices": [
+      "W) Heat",
+      "X) Electricity",
+      "Y) Light",
+      "Z) Sound"
+    ],
+    "answer": "Electricity",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "696CFE79-4291-47E9-8155-C6C88633CBD3",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 39,
+    "category": "Energy",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Nuclear power plants use what process to generate heat?",
+    "choices": [
+      "W) Fusion",
+      "X) Fission",
+      "Y) Combustion",
+      "Z) Oxidation"
+    ],
+    "answer": "Fission",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "085460D4-A463-4620-ACDE-C2B0EC711C03",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 40,
+    "category": "Energy",
+    "questionType": "TOSS-UP",
+    "format": "Short Answer",
+    "questionText": "Hydroelectric power converts the energy of what into electricity?",
+    "choices": [
+      "W) Wind",
+      "X) Falling or flowing water",
+      "Y) Sunlight",
+      "Z) Heat from Earth"
+    ],
+    "answer": "Falling or flowing water",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "D29AE02D-C449-4E92-BB13-DD6E75158822",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 41,
+    "category": "Math",
+    "questionType": "TOSS-UP",
+    "format": "Multiple Choice",
+    "questionText": "What does PEMDAS stand for?",
+    "choices": [
+      "W) Parentheses, Exponents, Multiply, Divide, Add, Subtract",
+      "X) Please Excuse My Dear Aunt Sally",
+      "Y) Both W and X describe the order of operations",
+      "Z) Parentheses only"
+    ],
+    "answer": "Both W and X describe the order of operations",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "0FF50ED0-E7D1-4F3E-B0E6-D92C03FF3E1F",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 42,
+    "category": "Math",
+    "questionType": "TOSS-UP",
+    "format": "Multiple Choice",
+    "questionText": "What is 3 + 4 \u00d7 2?",
+    "choices": [
+      "W) 14",
+      "X) 11",
+      "Y) 10",
+      "Z) 12"
+    ],
+    "answer": "11",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "3EB60649-8C6D-4AF1-A254-B187380A6FAB",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 43,
+    "category": "Math",
+    "questionType": "TOSS-UP",
+    "format": "Multiple Choice",
+    "questionText": "A number with exactly two factors, 1 and itself, is called what?",
+    "choices": [
+      "W) Composite",
+      "X) Prime",
+      "Y) Even",
+      "Z) Odd"
+    ],
+    "answer": "Prime",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "6D958372-5E6D-45A0-A09E-1F41E2CBE5DC",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 44,
+    "category": "Math",
+    "questionType": "TOSS-UP",
+    "format": "Multiple Choice",
+    "questionText": "To divide by a fraction, you multiply by its what?",
+    "choices": [
+      "W) Numerator",
+      "X) Reciprocal",
+      "Y) Denominator",
+      "Z) Inverse"
+    ],
+    "answer": "Reciprocal",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "77EFE503-7734-46BC-9D08-29862287DC3E",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 45,
+    "category": "Math",
+    "questionType": "TOSS-UP",
+    "format": "Multiple Choice",
+    "questionText": "If a/b = c/d, then ad = bc. This is called what?",
+    "choices": [
+      "W) Distributive property",
+      "X) Cross-multiplication",
+      "Y) Commutative property",
+      "Z) Associative property"
+    ],
+    "answer": "Cross-multiplication",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "1F596FEF-201C-416B-BF9D-984D63CAEBF0",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 46,
+    "category": "Math",
+    "questionType": "TOSS-UP",
+    "format": "Multiple Choice",
+    "questionText": "What is 2\u00b3 \u00d7 2\u00b2?",
+    "choices": [
+      "W) 4\u2075",
+      "X) 2\u2075",
+      "Y) 2\u2076",
+      "Z) 4\u2076"
+    ],
+    "answer": "2\u2075",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "387C8C4C-D6BC-4E4F-A40D-51A0330FC0C1",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 47,
+    "category": "Math",
+    "questionType": "TOSS-UP",
+    "format": "Multiple Choice",
+    "questionText": "In the equation y = mx + b, what does b represent?",
+    "choices": [
+      "W) Slope",
+      "X) y-intercept",
+      "Y) x-intercept",
+      "Z) Variable"
+    ],
+    "answer": "y-intercept",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  },
+  {
+    "id": "D44B2AAB-C661-49C2-AF2B-2DDAF789BE90",
+    "setNumber": 0,
+    "roundNumber": 1,
+    "questionNumber": 48,
+    "category": "Math",
+    "questionType": "TOSS-UP",
+    "format": "Multiple Choice",
+    "questionText": "In a right triangle, a\u00b2 + b\u00b2 = what?",
+    "choices": [
+      "W) a + b",
+      "X) c\u00b2",
+      "Y) 2ab",
+      "Z) (a + b)\u00b2"
+    ],
+    "answer": "c\u00b2",
+    "sourceFile": "doe_starter_cache",
+    "sourceYear": 2024
+  }
+]

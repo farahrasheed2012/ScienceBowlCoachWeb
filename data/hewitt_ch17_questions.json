@@ -1,0 +1,796 @@
+[
+  {
+    "id": "h17-001",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.1 Chemistry Is Known as the Central Science",
+    "type": "tossUp",
+    "questionText": "Chemistry is called the \"central science\" primarily because it:",
+    "answerChoices": {
+      "W": "is the oldest of all sciences",
+      "X": "connects and underlies biology, physics, geology, and other sciences",
+      "Y": "is the most difficult subject to study",
+      "Z": "was developed before mathematics"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-002",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.1 Chemistry Is Known as the Central Science",
+    "type": "bonus",
+    "questionText": "Name TWO scientific fields that rely heavily on chemistry as a foundation.",
+    "answerChoices": null,
+    "correctAnswer": "Any two of: biology, physics, geology, environmental science, medicine, materials science",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-003",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.1 Chemistry Is Known as the Central Science",
+    "type": "tossUp",
+    "questionText": "What term describes matter that has a uniform and definite composition throughout?",
+    "answerChoices": null,
+    "correctAnswer": "Pure substance",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-004",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.1 Chemistry Is Known as the Central Science",
+    "type": "bonus",
+    "questionText": "Which of the following best describes what chemists primarily study?",
+    "answerChoices": {
+      "W": "The motion of planets and stars",
+      "X": "The composition, structure, and properties of matter and how it changes",
+      "Y": "The flow of electrical current through circuits",
+      "Z": "The behavior of living organisms"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-005",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.2 The Submicroscopic World Is Super-Small",
+    "type": "tossUp",
+    "questionText": "Which of the following correctly lists the three subatomic particles found in atoms?",
+    "answerChoices": {
+      "W": "Protons, electrons, neutrons",
+      "X": "Protons, photons, neutrons",
+      "Y": "Electrons, quarks, photons",
+      "Z": "Ions, protons, electrons"
+    },
+    "correctAnswer": "W",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-006",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.2 The Submicroscopic World Is Super-Small",
+    "type": "bonus",
+    "questionText": "Where is virtually all of the mass of an atom concentrated?",
+    "answerChoices": null,
+    "correctAnswer": "The nucleus",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-007",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.2 The Submicroscopic World Is Super-Small",
+    "type": "tossUp",
+    "questionText": "What is the term for atoms of the same element that have different numbers of neutrons?",
+    "answerChoices": null,
+    "correctAnswer": "Isotopes",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-008",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.2 The Submicroscopic World Is Super-Small",
+    "type": "bonus",
+    "questionText": "Approximately how many times smaller is an atom compared to a typical living cell?",
+    "answerChoices": {
+      "W": "10 times smaller",
+      "X": "100 times smaller",
+      "Y": "1,000 times smaller",
+      "Z": "10,000 times smaller"
+    },
+    "correctAnswer": "Z",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-009",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.2 The Submicroscopic World Is Super-Small",
+    "type": "tossUp",
+    "questionText": "The electrons in an atom are located:",
+    "answerChoices": {
+      "W": "Inside the nucleus alongside protons",
+      "X": "Randomly scattered throughout the atom with no pattern",
+      "Y": "In regions of space outside the nucleus called orbitals or shells",
+      "Z": "Attached directly to neutrons"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-010",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.2 The Submicroscopic World Is Super-Small",
+    "type": "bonus",
+    "questionText": "What charge does a proton carry, and what charge does an electron carry?",
+    "answerChoices": null,
+    "correctAnswer": "Proton is positive (+1); electron is negative (\u22121)",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-011",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.2 The Submicroscopic World Is Super-Small",
+    "type": "tossUp",
+    "questionText": "What is the name of the particle in the nucleus that has no electrical charge?",
+    "answerChoices": null,
+    "correctAnswer": "Neutron",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-012",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.2 The Submicroscopic World Is Super-Small",
+    "type": "bonus",
+    "questionText": "If an atom has 6 protons, 6 neutrons, and 6 electrons, what element is it?",
+    "answerChoices": {
+      "W": "Nitrogen",
+      "X": "Oxygen",
+      "Y": "Carbon",
+      "Z": "Boron"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-013",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.3 The Phase of Matter Can Change",
+    "type": "tossUp",
+    "questionText": "In which phase of matter do particles have the most energy and move most freely?",
+    "answerChoices": {
+      "W": "Solid",
+      "X": "Liquid",
+      "Y": "Gas",
+      "Z": "Plasma"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-014",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.3 The Phase of Matter Can Change",
+    "type": "bonus",
+    "questionText": "What is the term for the phase change from liquid to gas that occurs at the surface of a liquid at temperatures below boiling point?",
+    "answerChoices": null,
+    "correctAnswer": "Evaporation",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-015",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.3 The Phase of Matter Can Change",
+    "type": "tossUp",
+    "questionText": "What is the term for the temperature at which a solid changes directly into a liquid?",
+    "answerChoices": null,
+    "correctAnswer": "Melting point",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-016",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.3 The Phase of Matter Can Change",
+    "type": "bonus",
+    "questionText": "Which phase change describes a gas turning directly into a solid, skipping the liquid phase?",
+    "answerChoices": {
+      "W": "Condensation",
+      "X": "Sublimation",
+      "Y": "Deposition",
+      "Z": "Freezing"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-017",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.3 The Phase of Matter Can Change",
+    "type": "tossUp",
+    "questionText": "In a solid, particles:",
+    "answerChoices": {
+      "W": "Move rapidly and are far apart",
+      "X": "Slide past each other freely",
+      "Y": "Vibrate in fixed positions and are closely packed",
+      "Z": "Have no attraction to each other"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-018",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.3 The Phase of Matter Can Change",
+    "type": "bonus",
+    "questionText": "What is the term for the phase change in which a solid converts directly to a gas without passing through the liquid phase? Give an everyday example.",
+    "answerChoices": null,
+    "correctAnswer": "Sublimation; dry ice or mothballs",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-019",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.3 The Phase of Matter Can Change",
+    "type": "tossUp",
+    "questionText": "What happens to the temperature of a substance while it is undergoing a phase change, such as melting or boiling?",
+    "answerChoices": null,
+    "correctAnswer": "It remains constant",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-020",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.3 The Phase of Matter Can Change",
+    "type": "bonus",
+    "questionText": "Which of the following correctly describes a liquid?",
+    "answerChoices": {
+      "W": "Definite shape and definite volume",
+      "X": "No definite shape and no definite volume",
+      "Y": "Definite volume but no definite shape",
+      "Z": "Definite shape but no definite volume"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-021",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.4 Matter Has Physical and Chemical Properties",
+    "type": "tossUp",
+    "questionText": "Which of the following is a PHYSICAL property of matter?",
+    "answerChoices": {
+      "W": "Flammability",
+      "X": "Ability to rust",
+      "Y": "Density",
+      "Z": "Reactivity with acid"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-022",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.4 Matter Has Physical and Chemical Properties",
+    "type": "bonus",
+    "questionText": "Give TWO examples of chemical properties of matter.",
+    "answerChoices": null,
+    "correctAnswer": "Any two of: flammability, reactivity with acid, ability to rust, toxicity, tendency to oxidize",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-023",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.4 Matter Has Physical and Chemical Properties",
+    "type": "tossUp",
+    "questionText": "What physical property describes the ratio of a substance's mass to its volume?",
+    "answerChoices": null,
+    "correctAnswer": "Density",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-024",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.4 Matter Has Physical and Chemical Properties",
+    "type": "bonus",
+    "questionText": "Which of the following is a CHEMICAL property?",
+    "answerChoices": {
+      "W": "Boiling point",
+      "X": "Color",
+      "Y": "Malleability",
+      "Z": "Flammability"
+    },
+    "correctAnswer": "Z",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-025",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.4 Matter Has Physical and Chemical Properties",
+    "type": "tossUp",
+    "questionText": "A substance's melting point, color, and hardness are all examples of:",
+    "answerChoices": {
+      "W": "Chemical properties",
+      "X": "Physical properties",
+      "Y": "Intensive reactions",
+      "Z": "Atomic properties"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-026",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.4 Matter Has Physical and Chemical Properties",
+    "type": "bonus",
+    "questionText": "What is the difference between an intensive physical property and an extensive physical property? Give one example of each.",
+    "answerChoices": null,
+    "correctAnswer": "Intensive does not depend on amount (density, boiling point); extensive depends on amount (mass, volume)",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-027",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.5 Determining Physical and Chemical Changes Can Be Difficult",
+    "type": "tossUp",
+    "questionText": "Which of the following is an example of a CHEMICAL change?",
+    "answerChoices": {
+      "W": "Crushing a can",
+      "X": "Melting ice",
+      "Y": "Dissolving sugar in water",
+      "Z": "Burning wood"
+    },
+    "correctAnswer": "Z",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-028",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.5 Determining Physical and Chemical Changes Can Be Difficult",
+    "type": "bonus",
+    "questionText": "List THREE signs that a chemical change may have occurred.",
+    "answerChoices": null,
+    "correctAnswer": "Any three of: color change, gas production, precipitate, heat/light, odor change, irreversibility",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-029",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.5 Determining Physical and Chemical Changes Can Be Difficult",
+    "type": "tossUp",
+    "questionText": "When iron rusts, is this a physical or chemical change? Explain in one sentence.",
+    "answerChoices": null,
+    "correctAnswer": "Chemical change \u2014 iron reacts with oxygen to form iron oxide",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-030",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.5 Determining Physical and Chemical Changes Can Be Difficult",
+    "type": "bonus",
+    "questionText": "Dissolving salt in water is generally considered a physical change because:",
+    "answerChoices": {
+      "W": "It produces a new gas",
+      "X": "The salt changes color",
+      "Y": "The salt can be recovered by evaporating the water",
+      "Z": "It releases a large amount of heat"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-031",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.5 Determining Physical and Chemical Changes Can Be Difficult",
+    "type": "tossUp",
+    "questionText": "Which of the following is the BEST example of a physical change?",
+    "answerChoices": {
+      "W": "Burning paper",
+      "X": "Digesting food",
+      "Y": "Cutting hair",
+      "Z": "Souring milk"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-032",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.5 Determining Physical and Chemical Changes Can Be Difficult",
+    "type": "bonus",
+    "questionText": "Why can it sometimes be difficult to classify a change as physical or chemical?",
+    "answerChoices": null,
+    "correctAnswer": "Some changes show signs of both or can be interpreted different ways",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-033",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "tossUp",
+    "questionText": "On the periodic table, elements in the same COLUMN (group) share:",
+    "answerChoices": {
+      "W": "The same number of protons",
+      "X": "The same atomic mass",
+      "Y": "Similar chemical properties",
+      "Z": "The same number of neutrons"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-034",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "bonus",
+    "questionText": "What is the atomic number of an element, and what does it tell you?",
+    "answerChoices": null,
+    "correctAnswer": "Number of protons in the nucleus; it uniquely identifies the element",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-035",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "tossUp",
+    "questionText": "What scientist is most credited with developing the modern periodic table by arranging elements by atomic mass and repeating properties?",
+    "answerChoices": null,
+    "correctAnswer": "Dmitri Mendeleev",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-036",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "bonus",
+    "questionText": "Elements in Group 18 of the periodic table are called noble gases. They are chemically unreactive primarily because:",
+    "answerChoices": {
+      "W": "They are all metals",
+      "X": "They have complete outer electron shells",
+      "Y": "They are liquids at room temperature",
+      "Z": "They have very high atomic masses"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-037",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "tossUp",
+    "questionText": "The rows (horizontal) of the periodic table are called:",
+    "answerChoices": {
+      "W": "Groups",
+      "X": "Families",
+      "Y": "Periods",
+      "Z": "Series"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-038",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "bonus",
+    "questionText": "What are the two broad categories that most elements fall into on the periodic table, and which side of the table does each occupy?",
+    "answerChoices": null,
+    "correctAnswer": "Metals (left/center) and nonmetals (right); metalloids along the staircase",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-039",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "tossUp",
+    "questionText": "What is the name given to the elements in Group 1 of the periodic table, which are highly reactive metals?",
+    "answerChoices": null,
+    "correctAnswer": "Alkali metals",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-040",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "bonus",
+    "questionText": "Which of the following elements is a halogen?",
+    "answerChoices": {
+      "W": "Sodium (Na)",
+      "X": "Calcium (Ca)",
+      "Y": "Chlorine (Cl)",
+      "Z": "Argon (Ar)"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-041",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "tossUp",
+    "questionText": "How many naturally occurring elements exist?",
+    "answerChoices": null,
+    "correctAnswer": "92",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-042",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.6 The Periodic Table",
+    "type": "bonus",
+    "questionText": "In the periodic table, as you move LEFT to RIGHT across a period, the atomic number:",
+    "answerChoices": {
+      "W": "Decreases by one each step",
+      "X": "Stays the same",
+      "Y": "Increases by one each step",
+      "Z": "Doubles each step"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-043",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.7 Elements Can Combine to Form Compounds",
+    "type": "tossUp",
+    "questionText": "A compound differs from a mixture in that a compound:",
+    "answerChoices": {
+      "W": "Contains only one type of atom",
+      "X": "Has components that can be separated by physical means",
+      "Y": "Has elements chemically bonded in fixed ratios",
+      "Z": "Is always a liquid at room temperature"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-044",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.7 Elements Can Combine to Form Compounds",
+    "type": "bonus",
+    "questionText": "Water is a compound with the chemical formula H\u2082O. What does this formula tell you about the ratio of hydrogen to oxygen atoms in water?",
+    "answerChoices": null,
+    "correctAnswer": "2 hydrogen atoms for every 1 oxygen atom",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-045",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.7 Elements Can Combine to Form Compounds",
+    "type": "tossUp",
+    "questionText": "What type of chemical bond forms when one atom transfers electrons to another atom, creating oppositely charged ions that attract each other?",
+    "answerChoices": null,
+    "correctAnswer": "Ionic bond",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-046",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.7 Elements Can Combine to Form Compounds",
+    "type": "bonus",
+    "questionText": "Which of the following is an example of a compound (not a mixture or pure element)?",
+    "answerChoices": {
+      "W": "Gold (Au)",
+      "X": "Air",
+      "Y": "Table salt (NaCl)",
+      "Z": "Brass"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-047",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.7 Elements Can Combine to Form Compounds",
+    "type": "tossUp",
+    "questionText": "A covalent bond forms when two atoms:",
+    "answerChoices": {
+      "W": "Transfer electrons from one to the other completely",
+      "X": "Share electrons between them",
+      "Y": "Repel each other due to like charges",
+      "Z": "Exchange protons in their nuclei"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-048",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.7 Elements Can Combine to Form Compounds",
+    "type": "bonus",
+    "questionText": "What is the law of definite proportions, and how does it apply to compounds?",
+    "answerChoices": null,
+    "correctAnswer": "A compound always contains the same elements in the same proportion by mass",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-049",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.7 Elements Can Combine to Form Compounds",
+    "type": "tossUp",
+    "questionText": "What is the smallest unit of a compound that still has the chemical properties of that compound?",
+    "answerChoices": null,
+    "correctAnswer": "Molecule",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-050",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.7 Elements Can Combine to Form Compounds",
+    "type": "bonus",
+    "questionText": "Table salt forms when sodium and chlorine combine. This is an example of:",
+    "answerChoices": {
+      "W": "A physical change forming a mixture",
+      "X": "A chemical change forming a compound",
+      "Y": "Sublimation",
+      "Z": "A nuclear reaction"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-051",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "tossUp",
+    "questionText": "In the name \"dinitrogen monoxide,\" the prefix \"mono-\" indicates:",
+    "answerChoices": {
+      "W": "Two atoms of nitrogen",
+      "X": "One atom of oxygen",
+      "Y": "Two molecules total",
+      "Z": "The compound is a metal"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-052",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "bonus",
+    "questionText": "Using the system for naming binary covalent compounds, what is the name of CO\u2082?",
+    "answerChoices": null,
+    "correctAnswer": "Carbon dioxide",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-053",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "tossUp",
+    "questionText": "What is the name of the compound with the formula N\u2082O\u2084?",
+    "answerChoices": null,
+    "correctAnswer": "Dinitrogen tetroxide",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-054",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "bonus",
+    "questionText": "When naming an ionic compound, which ion's name is written first?",
+    "answerChoices": {
+      "W": "The negative ion",
+      "X": "The ion with higher atomic mass",
+      "Y": "The positive ion (cation)",
+      "Z": "Whichever is a metal"
+    },
+    "correctAnswer": "Y",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-055",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "tossUp",
+    "questionText": "What is the correct name for the compound NaCl?",
+    "answerChoices": {
+      "W": "Sodium chlorine",
+      "X": "Sodium chloride",
+      "Y": "Monosodium chloride",
+      "Z": "Natrium chloride"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-056",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "bonus",
+    "questionText": "What prefix is used in compound naming to indicate FOUR atoms of an element?",
+    "answerChoices": null,
+    "correctAnswer": "Tetra-",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-057",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "tossUp",
+    "questionText": "What is the chemical formula for water, and using the naming system for covalent compounds, what would its systematic name be?",
+    "answerChoices": null,
+    "correctAnswer": "H\u2082O; dihydrogen monoxide",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-058",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "bonus",
+    "questionText": "Which compound name is correctly written?",
+    "answerChoices": {
+      "W": "Iron two oxide",
+      "X": "Iron(II) oxide",
+      "Y": "Diiron oxide",
+      "Z": "Iron monoxide"
+    },
+    "correctAnswer": "X",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  },
+  {
+    "id": "h17-059",
+    "subject": "Chemistry",
+    "subtopic": "\u00a717.8 There Is a System for Naming Compounds",
+    "type": "tossUp",
+    "questionText": "What suffix is added to the name of the nonmetal element when naming a binary ionic compound?",
+    "answerChoices": null,
+    "correctAnswer": "-ide",
+    "difficulty": "grade7",
+    "topicId": "hewitt-ch17"
+  }
+]

@@ -1,0 +1,418 @@
+[
+  {
+    "id": "ls-reg-resp-photosyn",
+    "track": "lifeScience",
+    "title": "Respiration & Photosynthesis",
+    "subtitle": "Glycolysis · Krebs · ETC · Calvin — locations & I/O",
+    "topicId": "ls-reg-resp-photosyn",
+    "knowCold": [
+      "Glycolysis location? (Cytoplasm)",
+      "Krebs cycle location? (Mitochondrial matrix)",
+      "ETC location? (Inner mitochondrial membrane)",
+      "Calvin cycle location? (Chloroplast stroma)",
+      "ETC final electron acceptor? (Oxygen)",
+      "Photosynthesis gas released? (Oxygen)",
+      "Aerobic respiration gas consumed? (Oxygen)"
+    ],
+    "tossups": [
+      {
+        "question": "Where does glycolysis occur?",
+        "answer": "Cytoplasm"
+      },
+      {
+        "question": "Where does the Krebs cycle occur?",
+        "answer": "Mitochondrial matrix"
+      },
+      {
+        "question": "Where does the Calvin cycle occur?",
+        "answer": "Chloroplast stroma"
+      },
+      {
+        "question": "Final electron acceptor in the ETC?",
+        "answer": "Oxygen"
+      },
+      {
+        "question": "Light reactions location in chloroplast?",
+        "answer": "Thylakoid membranes"
+      }
+    ]
+  },
+  {
+    "id": "ls-reg-genetics",
+    "track": "lifeScience",
+    "title": "Genetics & Molecular Biology",
+    "subtitle": "Helicase · polymerase · pedigrees · sex-linked",
+    "topicId": "ls-reg-genetics",
+    "knowCold": [
+      "Enzyme that unwinds DNA? (Helicase)",
+      "Enzyme that builds DNA strand? (DNA polymerase)",
+      "Enzyme that builds RNA from DNA? (RNA polymerase)",
+      "AB blood type inheritance? (Codominance)",
+      "Hemophilia inheritance pattern? (X-linked recessive)",
+      "Pedigree square shape? (Male)",
+      "Pedigree circle shape? (Female)"
+    ],
+    "tossups": [
+      {
+        "question": "What enzyme unwinds DNA during replication?",
+        "answer": "Helicase"
+      },
+      {
+        "question": "What enzyme synthesizes new DNA?",
+        "answer": "DNA polymerase"
+      },
+      {
+        "question": "Blood type AB shows what inheritance?",
+        "answer": "Codominance"
+      },
+      {
+        "question": "Hemophilia is commonly what type of trait?",
+        "answer": "X-linked recessive"
+      },
+      {
+        "question": "Transcription produces what nucleic acid?",
+        "answer": "mRNA"
+      }
+    ]
+  },
+  {
+    "id": "ls-reg-anatomy",
+    "track": "lifeScience",
+    "title": "Human Anatomy Sprint",
+    "subtitle": "Heart path · neuron · nephron",
+    "topicId": "ls-reg-anatomy",
+    "knowCold": [
+      "Deoxygenated blood enters heart via? (Vena cava)",
+      "RA to RV valve? (Tricuspid)",
+      "RV to lungs via? (Pulmonary artery)",
+      "Oxygenated blood returns via? (Pulmonary veins)",
+      "LA to LV valve? (Mitral / bicuspid)",
+      "LV pumps to body via? (Aorta)",
+      "Neuron impulse carrier away from cell body? (Axon)",
+      "Nephron filter structure? (Glomerulus)"
+    ],
+    "tossups": [
+      {
+        "question": "Valve between left atrium and left ventricle?",
+        "answer": "Mitral (bicuspid)"
+      },
+      {
+        "question": "Artery carrying deoxygenated blood to lungs?",
+        "answer": "Pulmonary artery"
+      },
+      {
+        "question": "Neuron part that receives signals?",
+        "answer": "Dendrites"
+      },
+      {
+        "question": "Fatty layer that speeds nerve impulses?",
+        "answer": "Myelin"
+      },
+      {
+        "question": "First step of nephron filtration?",
+        "answer": "Glomerulus"
+      }
+    ]
+  },
+  {
+    "id": "ls-reg-phyla",
+    "track": "lifeScience",
+    "title": "Nine Animal Phyla",
+    "subtitle": "Porifera through Chordata — instant recognition",
+    "topicId": "ls-reg-phyla",
+    "knowCold": [
+      "Sponges phylum? (Porifera)",
+      "Jellyfish phylum? (Cnidaria)",
+      "Flatworms phylum? (Platyhelminthes)",
+      "Roundworms phylum? (Nematoda)",
+      "Snails/clams phylum? (Mollusca)",
+      "Segmented worms phylum? (Annelida)",
+      "Insects/spiders phylum? (Arthropoda)",
+      "Starfish phylum? (Echinodermata)",
+      "Vertebrates phylum? (Chordata)"
+    ],
+    "tossups": [
+      {
+        "question": "Phylum of jellyfish and coral?",
+        "answer": "Cnidaria"
+      },
+      {
+        "question": "Phylum of insects and spiders?",
+        "answer": "Arthropoda"
+      },
+      {
+        "question": "Phylum of sponges?",
+        "answer": "Porifera"
+      },
+      {
+        "question": "Phylum of starfish?",
+        "answer": "Echinodermata"
+      },
+      {
+        "question": "Phylum of earthworms?",
+        "answer": "Annelida"
+      }
+    ]
+  },
+  {
+    "id": "ch-reg-nomenclature",
+    "track": "chemistry",
+    "title": "IUPAC & Polyatomic Ions",
+    "subtitle": "Acetate · permanganate · dichromate · naming sprint",
+    "topicId": "ch-reg-nomenclature",
+    "knowCold": [
+      "Acetate formula? (C₂H₃O₂⁻)",
+      "Permanganate formula? (MnO₄⁻)",
+      "Dichromate formula? (Cr₂O₇²⁻)",
+      "Nitrate formula? (NO₃⁻)",
+      "Sulfate formula? (SO₄²⁻)",
+      "Hydroxide formula? (OH⁻)",
+      "Ammonium formula? (NH₄⁺)"
+    ],
+    "tossups": [
+      {
+        "question": "Formula and charge of permanganate?",
+        "answer": "MnO₄⁻"
+      },
+      {
+        "question": "Formula and charge of dichromate?",
+        "answer": "Cr₂O₇²⁻"
+      },
+      {
+        "question": "Formula and charge of acetate?",
+        "answer": "C₂H₃O₂⁻"
+      },
+      {
+        "question": "Prefix meaning 2 in covalent names?",
+        "answer": "Di-"
+      },
+      {
+        "question": "Roman numerals used for which metals?",
+        "answer": "Transition metals"
+      }
+    ]
+  },
+  {
+    "id": "ch-reg-trends",
+    "track": "chemistry",
+    "title": "Periodic Trends",
+    "subtitle": "Electronegativity · IE · radius · exceptions",
+    "topicId": "ch-reg-trends",
+    "knowCold": [
+      "Most electronegative element? (Fluorine)",
+      "Atomic radius across period L→R? (Decreases)",
+      "Ionization energy down a group? (Decreases)",
+      "Higher IE: N or O? (Nitrogen)",
+      "Noble gas electron affinity? (~Zero / none)",
+      "Metals tend to lose or gain electrons? (Lose)"
+    ],
+    "tossups": [
+      {
+        "question": "Highest electronegativity element?",
+        "answer": "Fluorine"
+      },
+      {
+        "question": "Atomic radius trend across a period?",
+        "answer": "Decreases"
+      },
+      {
+        "question": "Which has higher first ionization energy: N or O?",
+        "answer": "Nitrogen"
+      },
+      {
+        "question": "Atomic radius trend down a group?",
+        "answer": "Increases"
+      },
+      {
+        "question": "Group 1 elements called?",
+        "answer": "Alkali metals"
+      }
+    ]
+  },
+  {
+    "id": "ch-reg-gas-laws",
+    "track": "chemistry",
+    "title": "Gas Laws & Molarity",
+    "subtitle": "Boyle · Charles · M = mol/L · dilution",
+    "topicId": "ch-reg-gas-laws",
+    "knowCold": [
+      "Boyle's Law? (P₁V₁ = P₂V₂)",
+      "Charles's Law ratio? (V₁/T₁ = V₂/T₂)",
+      "Molarity formula? (M = mol/L)",
+      "Dilution formula? (M₁V₁ = M₂V₂)",
+      "Temperature unit for gas laws? (Kelvin)",
+      "1 mol ideal gas at STP volume? (~22.4 L)"
+    ],
+    "tossups": [
+      {
+        "question": "State Boyle's Law.",
+        "answer": "P₁V₁ = P₂V₂"
+      },
+      {
+        "question": "2 atm, 4 L → 4 atm at constant T: new volume?",
+        "answer": "2 L"
+      },
+      {
+        "question": "Molarity of 2 mol in 0.5 L?",
+        "answer": "4 M"
+      },
+      {
+        "question": "Charles's Law relates volume to what?",
+        "answer": "Temperature (Kelvin)"
+      },
+      {
+        "question": "Dilution equation?",
+        "answer": "M₁V₁ = M₂V₂"
+      }
+    ]
+  },
+  {
+    "id": "ch-reg-acids",
+    "track": "chemistry",
+    "title": "Acids & Bases (Advanced)",
+    "subtitle": "Arrhenius · Brønsted-Lowry · strong acids",
+    "topicId": "ch-reg-acids",
+    "knowCold": [
+      "Arrhenius acid produces? (H⁺)",
+      "Arrhenius base produces? (OH⁻)",
+      "Brønsted acid does? (Donates H⁺)",
+      "Brønsted base does? (Accepts H⁺)",
+      "Three strong acids? (HCl, HNO₃, H₂SO₄)",
+      "Strong base example? (NaOH)",
+      "Neutral pH? (7)"
+    ],
+    "tossups": [
+      {
+        "question": "Arrhenius base ion in water?",
+        "answer": "OH⁻"
+      },
+      {
+        "question": "Is HCl Arrhenius acid or base?",
+        "answer": "Acid"
+      },
+      {
+        "question": "NH₃ is Brønsted-Lowry acid or base?",
+        "answer": "Base"
+      },
+      {
+        "question": "pH of neutral solution?",
+        "answer": "7"
+      },
+      {
+        "question": "Name two strong acids besides HCl.",
+        "answer": "HNO₃ and H₂SO₄"
+      }
+    ]
+  },
+  {
+    "id": "ps-reg-kinematics",
+    "track": "physics",
+    "title": "Kinematics Sprint",
+    "subtitle": "v = d/t · g ≈ 9.8 · constant acceleration",
+    "topicId": "ps-reg-kinematics",
+    "knowCold": [
+      "Average speed formula? (v = d/t)",
+      "Acceleration formula? (a = Δv/Δt)",
+      "g near Earth surface? (~9.8 m/s²)",
+      "At max height, vertical velocity? (Zero)",
+      "Speed scalar or vector? (Scalar)",
+      "Velocity scalar or vector? (Vector)"
+    ],
+    "tossups": [
+      {
+        "question": "Approximate g in m/s²?",
+        "answer": "9.8"
+      },
+      {
+        "question": "Dropped from rest, speed after 2 s (g=10)?",
+        "answer": "20 m/s"
+      },
+      {
+        "question": "Formula relating v, d, t at constant speed?",
+        "answer": "v = d/t"
+      },
+      {
+        "question": "At projectile peak, vertical velocity?",
+        "answer": "0"
+      },
+      {
+        "question": "Acceleration units in SI?",
+        "answer": "m/s²"
+      }
+    ]
+  },
+  {
+    "id": "ps-reg-forces",
+    "track": "physics",
+    "title": "Forces (Advanced)",
+    "subtitle": "Centripetal · torque · free-body diagrams",
+    "topicId": "ps-reg-forces",
+    "knowCold": [
+      "Newton's 2nd Law? (F = ma)",
+      "Centripetal force formula? (mv²/r)",
+      "Torque formula? (rF sin θ)",
+      "Centripetal direction? (Toward center)",
+      "Friction opposes? (Motion / sliding)",
+      "Net force zero means acceleration? (Zero)"
+    ],
+    "tossups": [
+      {
+        "question": "Centripetal force formula?",
+        "answer": "mv²/r"
+      },
+      {
+        "question": "Torque formula?",
+        "answer": "rF sin θ"
+      },
+      {
+        "question": "Car turning: friction provides what force?",
+        "answer": "Centripetal"
+      },
+      {
+        "question": "ΣF = 0 implies what about acceleration?",
+        "answer": "Zero acceleration"
+      },
+      {
+        "question": "Unit of force in SI?",
+        "answer": "Newton (N)"
+      }
+    ]
+  },
+  {
+    "id": "ps-reg-waves",
+    "track": "physics",
+    "title": "Optics & Waves Sprint",
+    "subtitle": "EM spectrum · Snell · f · T · λ",
+    "topicId": "ps-reg-waves",
+    "knowCold": [
+      "Wave equation? (v = fλ)",
+      "Period formula? (T = 1/f)",
+      "Snell's Law? (n₁ sin θ₁ = n₂ sin θ₂)",
+      "Highest frequency EM radiation? (Gamma rays)",
+      "Speed of light in vacuum? (~3 × 10⁸ m/s)",
+      "Reflection law? (Angle of incidence = angle of reflection)"
+    ],
+    "tossups": [
+      {
+        "question": "State Snell's Law.",
+        "answer": "n₁ sin θ₁ = n₂ sin θ₂"
+      },
+      {
+        "question": "Highest frequency in EM spectrum?",
+        "answer": "Gamma rays"
+      },
+      {
+        "question": "Period T in terms of frequency?",
+        "answer": "T = 1/f"
+      },
+      {
+        "question": "Wave speed formula?",
+        "answer": "v = fλ"
+      },
+      {
+        "question": "Visible light sits between IR and what?",
+        "answer": "Ultraviolet"
+      }
+    ]
+  }
+]

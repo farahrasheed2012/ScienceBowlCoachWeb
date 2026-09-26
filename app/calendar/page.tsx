@@ -1,0 +1,31 @@
+"use client";
+
+import { useState } from "react";
+import { useStore } from "@/lib/store";
+
+const DOCS = [
+  { id: "whiteboard", title: "10-week whiteboard", src: "/schedule/summer-2026-whiteboard.html" },
+  { id: "week", title: "Weekly timetable", src: "/schedule/weekly-timetable.html" },
+  { id: "prep", title: "Prep guide", src: "/schedule/science-bowl-prep.html" },
+  { id: "table", title: "Periodic table", src: "/schedule/periodic-table-study.html" },
+  { id: "print", title: "Periodic table print", src: "/schedule/periodic-table-print.html" },
+];
+
+export default function CalendarPage() {
+  const store = useStore();
+  const [doc, setDoc] = useState(DOCS[0]);
+  return (
+    <div>
+      <h1>Calendar</h1>
+      <p className="muted">Bundled HTML from the Mac app. Current week {store.currentWeek}.</p>
+      <div className="row">
+        {DOCS.map((item) => (
+          <button key={item.id} className={`btn ${doc.id === item.id ? "" : "ghost"}`} type="button" onClick={() => setDoc(item)}>
+            {item.title}
+          </button>
+        ))}
+      </div>
+      <iframe className="schedule" src={doc.src} title={doc.title} />
+    </div>
+  );
+}

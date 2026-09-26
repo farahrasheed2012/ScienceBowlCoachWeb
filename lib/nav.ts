@@ -1,0 +1,16 @@
+export const NAV = [
+  { href: "/today", label: "Today" },
+  { href: "/weeks", label: "Weeks" },
+  { href: "/calendar", label: "Calendar" },
+  { href: "/topics", label: "Topics" },
+  { href: "/learn", label: "Learn" },
+  { href: "/elements", label: "Elements" },
+  { href: "/mathcounts", label: "MathCounts" },
+  { href: "/pot6", label: "POT 6" },
+  { href: "/pot6-geo", label: "POT 6 Geo" },
+  { href: "/mental-math", label: "Mental Math" },
+  { href: "/games", label: "Games" },
+  { href: "/quiz", label: "Quiz" },
+  { href: "/progress", label: "Progress" },
+  { href: "/settings", label: "Settings" },
+] as const;

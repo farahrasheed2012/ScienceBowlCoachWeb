@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Science Bowl Prep — 7th Grade TAG</title>
+  <style>
+    @page overview { size: portrait; margin: 0.45in; }
+    @page guide { size: landscape; margin: 0.35in; }
+    @page portrait { size: portrait; margin: 0.45in; }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.38;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+
+    .screen-only {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-bottom: 3px solid #333;
+      max-width: 920px;
+      margin: 0 auto 2rem;
+    }
+
+    .screen-only h1 { margin-top: 0; font-size: 1.35rem; }
+    .screen-only ol { margin: 0.5rem 0 0 1.2rem; }
+    .screen-only a { color: #1a5276; }
+
+    .page {
+      page-break-after: always;
+      break-after: page;
+      padding: 0.06in 0;
+    }
+
+    .page:last-child { page-break-after: auto; }
+    .page-overview { page: overview; }
+    .page-guide { page: guide; }
+    .page-portrait { page: portrait; }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 3px solid #111;
+      padding-bottom: 0.1in;
+      margin-bottom: 0.12in;
+    }
+
+    .page-header h2 {
+      margin: 0;
+      font-size: 18pt;
+      letter-spacing: -0.02em;
+    }
+
+    .page-meta {
+      text-align: right;
+      font-size: 8.5pt;
+      max-width: 48%;
+      line-height: 1.35;
+    }
+
+    h3 {
+      font-size: 11pt;
+      margin: 0.14in 0 0.08in 0;
+      border-bottom: 1px solid #999;
+      padding-bottom: 0.04in;
+    }
+
+    h3:first-of-type { margin-top: 0; }
+
+    h4 {
+      font-size: 9.5pt;
+      margin: 0.12in 0 0.06in 0;
+      color: #333;
+    }
+
+    p { margin: 0.08in 0; }
+
+    ul, ol { margin: 0.06in 0; padding-left: 1.2em; }
+    li { margin-bottom: 0.2em; }
+
+    .callout {
+      background: #f0f0f0;
+      border-left: 4px solid #111;
+      padding: 0.35em 0.55em;
+      margin: 0.1in 0;
+      font-size: 9pt;
+    }
+
+    .callout-warn {
+      background: #fef9e7;
+      border-left-color: #d4ac0d;
+    }
+
+    .goal-bar {
+      background: #111;
+      color: #fff;
+      padding: 0.35em 0.55em;
+      font-size: 9pt;
+      margin-bottom: 0.12in;
+      line-height: 1.45;
+    }
+
+    .goal-bar a { color: #aed6f1; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.18in;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.12in;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+      margin-bottom: 0.1in;
+    }
+
+    th {
+      background: #eee;
+      border: 2px solid #111;
+      padding: 0.28em 0.4em;
+      text-align: left;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      vertical-align: bottom;
+    }
+
+    td {
+      border: 1.5px solid #333;
+      padding: 0.28em 0.4em;
+      vertical-align: top;
+    }
+
+    .chem { background: #fef9e7; }
+    .bio  { background: #eafaf1; }
+    .phys { background: #ebf5fb; }
+    .alg  { background: #f4ecf7; }
+    .review { background: #fdedec; font-weight: 600; }
+
+    .block-label { font-weight: 700; white-space: nowrap; }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .steps li {
+      counter-increment: step;
+      padding-left: 1.6em;
+      position: relative;
+      margin-bottom: 0.35em;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      background: #111;
+      color: #fff;
+      width: 1.2em;
+      height: 1.2em;
+      line-height: 1.2em;
+      text-align: center;
+      font-size: 8pt;
+      border-radius: 50%;
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+      font-size: 9pt;
+    }
+
+    .checklist li {
+      padding-left: 1.4em;
+      position: relative;
+      margin-bottom: 0.25em;
+    }
+
+    .checklist li::before {
+      content: "☐";
+      position: absolute;
+      left: 0;
+      font-size: 11pt;
+      line-height: 1;
+    }
+
+    .checklist h4 {
+      margin-top: 0.14in;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 0.12in;
+      font-size: 7pt;
+      color: #444;
+      border-top: 1px solid #999;
+      padding-top: 0.08in;
+      line-height: 1.35;
+    }
+
+    .week-tag {
+      display: inline-block;
+      background: #333;
+      color: #fff;
+      font-size: 7.5pt;
+      padding: 0.1em 0.45em;
+      border-radius: 2px;
+      margin-right: 0.3em;
+    }
+
+    .blank-row td { height: 1.4em; background: #fafafa; }
+
+    @media print {
+      .screen-only { display: none !important; }
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PAGE 1 — OVERVIEW -->
+<section class="page page-overview">
+  <div class="page-header">
+    <h2>Science Bowl Prep</h2>
+    <div class="page-meta">Soha · 7th Grade TAG · RRISD<br>Life + Physical sciences only</div>
+  </div>
+
+  <div class="goal-bar">
+    <strong>Goal:</strong> Middle School National Science Bowl · Regionals ~Feb 2026 · Nationals ~Apr 30 – May 4, 2026<br>
+    <strong>Summer 2026:</strong> <a href="summer-2026-calendar.md">summer-2026-calendar.md</a> (Jun 8 – Aug 19) · School starts <strong>Aug 19, 2026</strong> ·
+    Plugs into <a href="weekly-timetable.html">weekly timetable</a> — same times, different science topics
+  </div>
+
+  <div class="callout callout-warn">
+    Full NSB also includes Earth &amp; Space, Energy, and Mathematics. You're <strong>not</strong> prepping those — teammates cover them. Math in chem/physics problems still gets practiced inside science blocks.
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3>How this fits your schedule</h3>
+      <table>
+        <tr><th>Block</th><th>When</th><th>Focus</th><th>/wk</th></tr>
+        <tr><td><strong>Science</strong></td><td>30 min · Mon–Fri</td><td>Life + Physical sciences</td><td><strong>150 min</strong></td></tr>
+        <tr><td><strong>Algebra 1</strong></td><td>30 min · daily</td><td>School curriculum</td><td>150 min</td></tr>
+        <tr class="review"><td><strong>Plan next week</strong></td><td>Fri 4:40–5:40 PM</td><td>Review · weak spots</td><td>60 min</td></tr>
+      </table>
+
+      <h3>Your two NSB categories</h3>
+      <table>
+        <tr><th>Category</th><th>Subject</th><th>Days</th><th>/wk</th></tr>
+        <tr class="chem"><td>Physical sciences</td><td>Chemistry</td><td>Mon + Thu</td><td>60 min</td></tr>
+        <tr class="bio"><td>Life sciences</td><td>Biology</td><td>Tue + Fri</td><td>60 min</td></tr>
+        <tr class="phys"><td>Physical sciences</td><td>Physics</td><td>Wed</td><td>30 min</td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Daily map — what to study when</h3>
+      <table>
+        <tr><th>Day</th><th>Block</th><th>When</th><th>Category</th></tr>
+        <tr class="chem"><td><strong>Mon</strong></td><td>Chemistry</td><td>10:00–10:30 AM</td><td>Physical</td></tr>
+        <tr class="bio"><td><strong>Tue</strong></td><td>Biology</td><td>10:00–10:30 AM</td><td>Life</td></tr>
+        <tr class="phys"><td><strong>Wed</strong></td><td>Physics</td><td>3:00–3:30 PM</td><td>Physical</td></tr>
+        <tr class="chem"><td><strong>Thu</strong></td><td>Chemistry (deeper)</td><td>11:00–11:30 AM</td><td>Physical</td></tr>
+        <tr class="bio"><td><strong>Fri</strong></td><td>Biology (deeper)</td><td>3:00–3:30 PM</td><td>Life</td></tr>
+        <tr class="review"><td><strong>Fri</strong></td><td>SB review</td><td>4:40–5:40 PM</td><td>Both</td></tr>
+      </table>
+      <p style="font-size:8.5pt"><strong>Algebra 1</strong> stays normal school work — don't swap for NSB math-category prep.</p>
+
+      <h3>1-hr science block</h3>
+      <ol class="steps">
+        <li><strong>0–5 min</strong> — Recall: 5 toss-ups from last week (same category)</li>
+        <li><strong>5–20 min</strong> — Read for <strong>Focus</strong> · copy <strong>Formulas</strong> into notebook</li>
+        <li><strong>20–25 min</strong> — Close book · <strong>Know cold</strong> without notes</li>
+        <li><strong>25–30 min</strong> — Both <strong>sample toss-ups</strong> · check answer key · 3 facts + 1 miss</li>
+      </ol>
+
+      <h3>Competition basics</h3>
+      <table style="font-size:8pt">
+        <tr><th>Term</th><th>Meaning</th></tr>
+        <tr><td><strong>Toss-up</strong></td><td>4 pts · both teams buzz · 5 sec to answer</td></tr>
+        <tr><td><strong>Bonus</strong></td><td>10 pts · only toss-up winner's team · multi-step OK</td></tr>
+        <tr><td><strong>Your job</strong></td><td>Buzz on Bio, Chem, Phys — skip Earth/Energy/Math</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <table style="font-size:8pt;margin-top:0.08in">
+    <tr><th colspan="2">Notebook spread (one per study day)</th></tr>
+    <tr><td><strong>Header</strong></td><td>Date · Week # · Block · Book + chapter</td></tr>
+    <tr><td><strong>Formulas box</strong></td><td>Every formula from calendar that day</td></tr>
+    <tr><td><strong>3 facts + 1 miss</strong></td><td>New facts · wrong Q with correct answer</td></tr>
+    <tr><td><strong>Toss-up log</strong></td><td>Both sample Qs · ✓/✗ · flash card misses</td></tr>
+  </table>
+
+  <p class="footer">Six layers in <a href="summer-2026-calendar.md">summer-2026-calendar.md</a> · Primary = § sections · Extra DOE → Quiz tab first · Flash cards at school cards</p>
+</section>
+
+<!-- PAGE 2 — BOOKS -->
+<section class="page page-portrait">
+  <div class="page-header">
+    <h2>Your textbooks</h2>
+    <div class="page-meta">Editions you own · ISBNs<br>One summer pass · Jun 8 – Aug 14</div>
+  </div>
+
+  <table>
+    <tr><th>Code</th><th>Book</th><th>ISBN</th><th>When</th></tr>
+    <tr class="bio"><td><strong>FLS</strong></td><td><em>Focus on Life Science</em> — CA ed. (2001)</td><td>9780130443465</td><td>FLS primary · Tue &amp; Fri</td></tr>
+    <tr class="bio"><td><strong>OSB</strong></td><td><em>OpenStax Biology 2e</em> — free online</td><td>openstax.org</td><td>Biology backup · Tue &amp; Fri</td></tr>
+    <tr class="bio"><td><strong>CB</strong></td><td><em>Campbell Biology: C&amp;C</em> — 7th ed.</td><td>9780321696816</td><td>Biology backup · deeper TAG</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>BFN-C</strong></td><td><em>Big Fat Notebook: High School Chemistry</em></td><td>9781523504251</td><td>Primary chem · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>Mod</strong></td><td><em>Modern Chemistry</em> — 2012</td><td>9780547586632</td><td>Chemistry backup · Mon &amp; Thu</td></tr>
+    <tr class="chem"><td><strong>Tro</strong></td><td><em>Introductory Chemistry</em> — Tro 4th ed.</td><td>9780321687937</td><td>Tro backup · chem</td></tr>
+    <tr class="phys"><td><strong>Hewitt</strong></td><td><em>Conceptual Physical Science Explorations</em> — Hewitt student text</td><td>9780321567918</td><td>Chemistry backup · Wed physics</td></tr>
+    <tr><td><strong>ExplLab</strong></td><td><em>Explorations</em> Lab Manual</td><td>9780321051837</td><td>Optional Wed labs</td></tr>
+    <tr class="alg"><td><strong>Lar</strong></td><td><em>Larson Algebra 1</em> — 2011</td><td>9780547315157</td><td>Algebra daily</td></tr>
+    <tr class="alg"><td><strong>BFN-A</strong></td><td><em>Big Fat Notebook: Pre-Algebra &amp; Algebra</em></td><td>9781523504382</td><td>Algebra backup · CYK</td></tr>
+    <tr class="bio"><td><strong>BFN-Bio</strong></td><td><em>BFN Biology</em> (HS)</td><td>9781523504367</td><td>Fri review · bio recall</td></tr>
+    <tr class="chem"><td><strong>BFN-Sci</strong></td><td><em>BFN Science</em> (MS)</td><td>9780761160957</td><td>Fri review · chem/phys</td></tr>
+  </table>
+
+  <div class="callout" style="font-size:8.5pt"><strong>For Soha:</strong> Open <strong>summer-2026-calendar.md</strong> (or the whiteboard) each morning — every day has <strong>Reading · Focus · Formulas · Know cold · Toss-ups</strong>. Explorations chapters match the student textbook (9780321567918). Physics = Part One (Mechanics) + Part Two (Forms of Energy). <strong>Ch 1 = About Science</strong> (not motion). <strong>App. B</strong> = motion. <strong>Chem:</strong> <strong>BFN-C</strong> primary · <strong>Hewitt/Mod/Tro</strong> backup. See <strong>weekly-timetable</strong> book picker.</div>
+
+  <div class="two-col">
+    <div>
+      <h3>How books work together</h3>
+      <table>
+        <tr><th>Block</th><th>Biology</th><th>Chemistry</th><th>Physics</th></tr>
+        <tr><td><strong>Mon/Thu</strong></td><td>—</td><td class="chem"><strong>BFN-C</strong> primary (+ <strong>Hewitt/Mod</strong> backup)</td><td>—</td></tr>
+        <tr><td><strong>Tue/Fri</strong></td><td class="bio"><strong>FLS</strong> primary</td><td>—</td><td>—</td></tr>
+        <tr><td><strong>Wed</strong></td><td>—</td><td>—</td><td class="phys"><strong>Hewitt</strong></td></tr>
+        <tr><td><strong>Backup</strong></td><td class="bio"><strong>OSB</strong> · <strong>CB</strong> · <strong>BFN-Bio</strong></td><td class="chem"><strong>Hewitt</strong> · <strong>Mod</strong> · <strong>Tro</strong> · <strong>BFN-Sci</strong></td><td class="phys">Flash cards at school</td></tr>
+      </table>
+      <table>
+        <tr><th>Stage</th><th>Book</th><th>Notes</th></tr>
+        <tr><td>Primary (§)</td><td class="phys"><strong>Hewitt</strong> Ch 1 · App. B · 2–4 · 6 · 10–13</td><td>Section splits · stop at Focus</td></tr>
+        <tr><td>Backup</td><td class="phys"><strong>BFN-Sci</strong> · flash cards</td><td>If Expl section feels dense</td></tr>
+        <tr><td>School meetings</td><td class="phys">Flash cards → book if stuck</td><td>Fall review</td></tr>
+      </table>
+      <p style="font-size:8.5pt"><strong>Best workflow:</strong> <a href="https://science.osti.gov/wdts/nsb/Regional-Competitions">DOE past questions</a> → miss → read chapter → retry</p>
+    </div>
+    <div>
+      <h3>Hewitt chapters — what you learn</h3>
+      <table style="font-size:7.5pt">
+        <tr><th>Ch</th><th>Title</th><th>What you learn</th><th>Wks</th></tr>
+        <tr><td>1</td><td>About Science</td><td>Scientific method · SI units · hypothesis vs theory vs law</td><td>1,5,9</td></tr>
+        <tr><td>App. B</td><td>Linear &amp; Rotational Motion</td><td>Speed vs velocity · <strong>v = d/t</strong> · d-t graphs · acceleration</td><td>1,5,9</td></tr>
+        <tr><td>2–4</td><td>Newton's laws</td><td>Inertia · <strong>F = ma</strong> · friction · action-reaction</td><td>2,6</td></tr>
+        <tr><td>5</td><td>Momentum</td><td><strong>p = mv</strong> · impulse · conservation · collisions</td><td>6 P2</td></tr>
+        <tr><td>6</td><td>Energy</td><td><strong>W = Fd</strong> · power · KE/PE · machines · efficiency</td><td>3,7,10</td></tr>
+        <tr><td>7</td><td>Gravity &amp; satellites</td><td>Weight = mg · projectiles · orbits</td><td>7 P2</td></tr>
+        <tr><td>10</td><td>Electricity</td><td>Current · voltage · <strong>V = IR</strong> · series/parallel</td><td>4,8</td></tr>
+        <tr><td>12</td><td>Waves &amp; Sound</td><td>λ · f · <strong>v = fλ</strong> · reflection · Doppler</td><td>4,8</td></tr>
+        <tr><td>13</td><td>Light, Reflection &amp; Color</td><td>EM spectrum · refraction · color · ROYGBIV</td><td>4,8</td></tr>
+        <tr><td>14</td><td>Properties of Light</td><td>Dispersion · lenses · diffraction · interference</td><td>8 stretch</td></tr>
+        <tr><td colspan="4" style="background:#f5f0e8;font-size:7pt"><strong>Chem (BFN-C primary Mon/Thu):</strong> U2 Matter · U3–4 Atoms/Periodic · U5 Bonding · U6–7 Mole/Reactions · U9–10 Solutions/Acids</td></tr>
+      </table>
+                                                                                                                                                                                                                              <h3>Three-book chemistry map</h3>
+      <table style="font-size:7pt">
+        <tr><th>Wk</th><th>Topic</th><th>BFN-C (primary)</th><th>Hewitt (backup)</th><th>Mod (backup)</th><th>Tro (backup)</th></tr>
+        <tr><td>1 Mon</td><td>Atoms</td><td>BFN-C — Ch 8–9 — Atoms, Elements, Compounds, and Mixtures · Atomic Theory</td><td>Ch 17 §17.1–17.3</td><td>Ch 3 §3.1–3.3</td><td>Ch 4 §4.3–4.6</td></tr>
+        <tr><td>1 Thu</td><td>Periodic Law</td><td>BFN-C — Ch 11–12 — The Periodic Table · Periodic Trends</td><td>Ch 17 §17.6–17.8</td><td>Ch 5 §5.1–5.2</td><td>Ch 4 §4.7–4.8 + Ch 5</td></tr>
+        <tr><td>2 Mon</td><td>The Atom</td><td>BFN-C — Ch 9–10 — Atomic Theory · Waves, Quantum Theory, and Photons</td><td>Ch 15 §15.1–15.5</td><td>Ch 5 §3 + Ch 4</td><td>Ch 9 §9.7 · §9.9</td></tr>
+        <tr><td>2 Thu</td><td>Chemical bonding (part 1)</td><td>BFN-C — Ch 14 — Bonding</td><td>Ch 18 §18.1–18.4</td><td>Ch 7 §7.1–7.2</td><td>Ch 5</td></tr>
+        <tr><td>3 Mon</td><td>Solutions</td><td>BFN-C — Ch 25–26 — Solubility · Solubility Rules and Conditions</td><td>Ch 19 §19.1–19.4</td><td>Ch 12 §12.1–12.2</td><td>Ch 13</td></tr>
+        <tr><td>3 Thu</td><td>Chemical reactions</td><td>BFN-C — Ch 20 — Chemical Reactions</td><td>Ch 20 §20.1–20.4</td><td>Ch 8 §8.1–8.3</td><td>Ch 7 §7.1–7.4</td></tr>
+        <tr><td>4 Mon</td><td>States of matter</td><td>BFN-C — Ch 6–7 — Properties of Matter and Changes in Form · States of Matter</td><td>Ch 17 §17.3–17.5</td><td>Ch 10 §10.1–10.2</td><td>Ch 3</td></tr>
+        <tr><td>4 Thu</td><td>Lab &amp; measurement</td><td>BFN-C — Ch 4–5 — Measurement · Lab Safety and Scientific Tools</td><td>Ch 17 §17.1–17.4</td><td>Ch 2 §2.1–2.3</td><td>Ch 2</td></tr>
+      </table>
+      <h3>Larson Algebra 1 chapters</h3>
+      <table>
+        <tr><th>Ch</th><th>Maps to</th></tr>
+        <tr><td>1</td><td>Sci notation · unit conversion</td></tr>
+        <tr><td>2</td><td>Ratios · percent · estimation</td></tr>
+        <tr><td>3</td><td>F = ma · formula plug-in · v = fλ</td></tr>
+        <tr><td>4</td><td>v = d/t graphs</td></tr>
+        <tr><td>8</td><td>Exponents · balancing-style</td></tr>
+        <tr><td>11</td><td>V = IR · square roots</td></tr>
+        <tr><td>13</td><td>Logic · Venn · data</td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="footer">BFN-A backup: U1 p.1 Arithmetic · U2 p.23 Number System · U3 p.75 Ratios/Percent · U4 p.141 Exponents/Sci Not · U5 p.175 Linear eq · U6 p.247 Graphing · U7 p.325 Statistics</p>
+</section>
+
+<!-- PAGE 3 — READING GUIDE WEEKS 1–2 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Textbook reading guide — weeks 1–2</h2>
+    <div class="page-meta">One summer pass · assigned § sections only · Full detail → summer-2026-calendar.md</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4 id="week-1"><span class="week-tag">Week 1</span> Atoms · cells · motion</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>Atoms</td><td><strong>BFN-C</strong> — Ch 8–9 — Atoms, Elements, Compounds, and Mixtures · Atomic Theory</td><td>Hewitt Ch 17 §17.1–17.3 · Mod Ch 3 §3.1–3.3 · Tro Ch 4 §4.3–4.6 · BFN-Sci · Unit 2 · Ch 7 Periodic Table, Atomic Structure, and Compounds · p59</td><td>Mod Ch 3 §3.1–3.3</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Cell organelles &amp; membrane</td><td><strong>FLS</strong> Ch 1 — Cell Structure and Function · §1.3 Parts of a Cell (~p21–28) · §1.4 Two Kinds of Cells (~p29–37)</td><td>OSB Ch 3 §3.2–3.4 · CB Ch 4 · BFN-Bio · Unit 3 · Ch 9 Cell Structure and Function · p84</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>About Science + motion</td><td><strong>Hewitt</strong> Ch 1 §1.2–1.5 + App. B</td><td>BFN-Sci · Unit 3 · Ch 1–2 Scientific thinking · Ch 9 Motion · p1 · p91</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Periodic Law</td><td><strong>BFN-C</strong> — Ch 11–12 — The Periodic Table · Periodic Trends</td><td>Hewitt Ch 17 §17.6–17.8 · Mod Ch 5 §5.1–5.2 · Tro Ch 4 §4.7–4.8 + Ch 5 · BFN-Sci · Unit 2 · Ch 7 Periodic Table and Compounds · p59</td><td>Mod Ch 5 §5.1–5.2</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Levels of organization</td><td><strong>FLS</strong> Ch 16 — Healthy Body Systems · §16.1 Your Body Systems (~p508–518)</td><td>OSB Ch 1 §1.1 · CB Ch 6–7 · BFN-Bio · Unit 3 · Ch 10 Chemical Energy and ATP · Ch 11–12 Energy in cells · p97</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Scientific notation</td><td>BFN-A — Ch 1–2 — Types of Numbers · Algebraic Properties</td><td>BFN-A · Unit 1 · Ch 1–2 · p1 · Also OK: OSA §1.1 · §1.2 · Lar Ch 1</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Ratios</td><td>BFN-A — Ch 3–4 — Order of Operations · Adding Positive and Negative Whole Numbers</td><td>BFN-A · Unit 1 · Ch 3–4 · p1 · Also OK: OSA §5.8 · Lar Ch 2</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>Graphs &amp; slope</td><td>BFN-A — Ch 5–6 — Subtracting Positive and Negative Whole Numbers · Multiplying and Dividing Positive and Negative Whole Numbers</td><td>BFN-A · Unit 2 · Ch 5–6 · p23 · Also OK: OSA §2.1 · §4.1 · §3.3 · Lar Ch 4</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Unit conversion</td><td>BFN-A — Ch 7–8 — Multiplying and Dividing Positive and Negative Fractions · Adding and Subtracting Positive and Negative Fractions</td><td>BFN-A · Unit 2 · Ch 7–8 · p23 · Also OK: OSA §1.1 · §1.2 · Lar Ch 1–2</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>PEMDAS &amp; estimation</td><td>BFN-A — Ch 9–10 — Adding and Subtracting Decimals · Multiplying and Dividing Decimals</td><td>BFN-A · Unit 2 · Ch 9–10 · p23 · Also OK: OSA §1.1 · Lar Ch 2</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Plan next week — skim Week 2 · list 2 weak topics</p>
+
+    </div>
+    <div>
+      <h4 id="week-2"><span class="week-tag">Week 2</span> Atoms · genetics · Newton's</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>The Atom</td><td><strong>BFN-C</strong> — Ch 9–10 — Atomic Theory · Waves, Quantum Theory, and Photons</td><td>Hewitt Ch 15 §15.1–15.5 · Mod Ch 5 §3 + Ch 4 · Tro Ch 9 §9.7 · §9.9 · BFN-Sci · Unit 2 · Ch 6 Matter, Properties, and Phases · p59</td><td>Mod Ch 5 §3 + Ch 4</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>DNA &amp; genes</td><td><strong>FLS</strong> Ch 4 — Modern Genetics · §4.1 Human Inheritance (~p100–110) · §4.2 Advances in Modern Genetics (~p111–121)</td><td>OSB Ch 8 §8.1–8.2 (part 1) · CB Ch 9 · BFN-Bio · Unit 10 · Ch 44 Introduction to Genetics · Ch 45 DNA and RNA · p413</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Newton's 1st &amp; 2nd</td><td><strong>Hewitt</strong> Ch 2 §2.2–2.6 + Ch 3 §3.1–3.3</td><td>BFN-Sci · Unit 3 · Ch 10 Force and Newton's Laws · Ch 11 Gravity and Friction · p91</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Chemical bonding (part 1)</td><td><strong>BFN-C</strong> — Ch 14 — Bonding</td><td>Hewitt Ch 18 §18.1–18.4 · Mod Ch 7 §7.1–7.2 · Tro Ch 5 · BFN-Sci · Unit 2 · Ch 6–8 Matter · Solutions · Chemical change · p59</td><td>Mod Ch 7 §7.1–7.2</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Punnett squares</td><td><strong>FLS</strong> Ch 4 — Modern Genetics · §4.3 Genetic Disorders (~p122–133)</td><td>OSB Ch 8 §8.2–8.3 (part 2) · CB Ch 9 · BFN-Bio · Unit 10 · Ch 44 Introduction to Genetics · Ch 45 DNA and RNA · p413</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Percent</td><td>BFN-A — Ch 11–12 — Ratio · Unit Rate</td><td>BFN-A · Unit 3 · Ch 11–12 · p75 · Also OK: OSA §1.1 · Lar Ch 2</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Proportions</td><td>BFN-A — Ch 13–14 — Proportion · Percent</td><td>BFN-A · Unit 3 · Ch 13–14 · p75 · Also OK: OSA §5.8 · Lar Ch 3</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>F = ma</td><td>BFN-A — Ch 15–16 — Percent Applications · Simple Interest</td><td>BFN-A · Unit 3 · Ch 15–16 · p75 · Also OK: OSA §2.3 · Lar Ch 3</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Exponents</td><td>BFN-A — Ch 17–18 — Percent Rate of Change · Tables and Ratios</td><td>BFN-A · Unit 3 · Ch 17–18 · p75 · Also OK: OSA §1.2 · §6.1 · Lar Ch 8</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>Body-scale ratios</td><td>BFN-A — Ch 19–20 — Exponents · Scientific Notation</td><td>BFN-A · Unit 4 · Ch 19–20 · p141 · Also OK: OSA §5.8 · Lar Ch 3</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Timed drill · 20 toss-ups (Bio + Chem + Phys) · log misses</p>
+
+    </div>
+  </div>
+
+  <p class="footer">Read assigned § sections only (stop at Focus) · Mod/OSB/CB = backup · DOE topics not whole books · Daily detail in summer-2026-calendar.md</p>
+</section>
+
+<!-- PAGE 3a — READING GUIDE WEEKS 3–4 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Textbook reading guide — weeks 3–4</h2>
+    <div class="page-meta">One summer pass · assigned § sections only · Full detail → summer-2026-calendar.md</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4 id="week-3"><span class="week-tag">Week 3</span> Solutions · ecology · forces</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>Solutions</td><td><strong>BFN-C</strong> — Ch 25–26 — Solubility · Solubility Rules and Conditions</td><td>Hewitt Ch 19 §19.1–19.4 · Mod Ch 12 §12.1–12.2 · Tro Ch 13 · BFN-Sci · Unit 2 · Ch 6–8 Matter and Solutions · p59</td><td>Mod Ch 12 §12.1–12.2</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Ecology — communities</td><td><strong>FLS</strong> Ch 7 — Living Things · §7.2 Classification of Living Things (~p214–224) · §7.3 The Six Kingdoms (~p225–235)</td><td>OSB Ch 19 §19.1 (part 1) · CB Ch 36–37 · BFN-Bio · Unit 12 · Ch 49 The Ecosystem · Ch 50 Populations · p483</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Newton's 3rd &amp; friction</td><td><strong>Hewitt</strong> Ch 3 §3.4–3.6 + Ch 4 §4.1–4.3</td><td>BFN-Sci · Unit 3 · Ch 10 Force and Newton's Laws · Ch 11 Gravity and Friction · p91</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Chemical reactions</td><td><strong>BFN-C</strong> — Ch 20 — Chemical Reactions</td><td>Hewitt Ch 20 §20.1–20.4 · Mod Ch 8 §8.1–8.3 · Tro Ch 7 §7.1–7.4 · BFN-Sci · Unit 2 · Ch 8 Solutions and Fluids · p59</td><td>Mod Ch 8 §8.1–8.3</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Body systems</td><td><strong>FLS</strong> Ch 17 — Bones, Muscles, and Skin · §17.1 Bones and Muscles (~p530–544) · Ch 18 — Food and Digestion · §18.1 Food and Energy (~p560–575) · Heavy day — split or OSB backup</td><td>OSB Ch 16 §16.1–16.3 · CB Ch 21–23 · BFN-Bio · Unit 9 · Ch 36 Body Systems · Ch 40 Respiratory/Circulatory · Ch 41 Digestive · p325</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Formula substitution</td><td>BFN-A — Ch 21–22 — Expressions · Evaluating Algebraic Expressions</td><td>BFN-A · Unit 4 · Ch 21–22 · p141 · Also OK: OSA §2.3 · Lar Ch 1</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Graph reading</td><td>BFN-A — Ch 23–24 — Combining Like Terms · Introduction to Equations</td><td>BFN-A · Unit 4 · Ch 23–24 · p141 · Also OK: OSA §2.3 · Lar Ch 3</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>W = Fd</td><td>BFN-A — Ch 25–26 — Solving One-Variable Equations · Solving One-Variable Inequalities</td><td>BFN-A · Unit 5 · Ch 25–26 · p175 · Also OK: OSA §2.3 · Lar Ch 3</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Concentration ratios</td><td>BFN-A — Ch 27–28 — Solving Compound Inequalities · Rewriting Formulas</td><td>BFN-A · Unit 5 · Ch 27–28 · p175 · Also OK: OSA §2.3 · Lar Ch 6</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>Mixed review</td><td>BFN-A — Units 1–3 · Check Your Knowledge</td><td>BFN-A · Units 1–3 · Check Your Knowledge · Also OK: OSA §1.2 · §5.8 · §2.3 · Lar Ch 1–4</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Timed drill · 20 toss-ups · log misses by subject</p>
+
+    </div>
+    <div>
+      <h4 id="week-4"><span class="week-tag">Week 4</span> Evolution · states · momentum</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>States of matter</td><td><strong>BFN-C</strong> — Ch 6–7 — Properties of Matter and Changes in Form · States of Matter</td><td>Hewitt Ch 17 §17.3–17.5 · Mod Ch 10 §10.1–10.2 · Tro Ch 3 · BFN-Sci · Unit 2 · Ch 7 Periodic Table and Atomic Structure · p59</td><td>Mod Ch 10 §10.1–10.2</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Evolution — natural selection</td><td><strong>FLS</strong> Ch 5 — Evolution · §5.1 Evidence for Evolution (~p134–141) · §5.2 How Evolution Works (~p142–150)</td><td>OSB Ch 11 (part 1) · CB Ch 13–14 · BFN-Bio · Unit 11 · Ch 47 Evolution · Ch 48 History of Life · p451</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Momentum &amp; Collisions</td><td><strong>Hewitt</strong> Ch 5 §5.1–5.5</td><td>BFN-Sci · Unit 4 · Ch 15 Light and Sound · p129</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Lab &amp; measurement</td><td><strong>BFN-C</strong> — Ch 4–5 — Measurement · Lab Safety and Scientific Tools</td><td>Hewitt Ch 17 §17.1–17.4 · Mod Ch 2 §2.1–2.3 · Tro Ch 2 · BFN-Sci · Unit 1 · Ch 4–5 SI Units · Lab Safety and Scientific Tools · p1</td><td>Mod Ch 2 §2.1–2.3</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Classification &amp; taxonomy</td><td><strong>FLS</strong> Ch 6 — Earth's History · §6.1 Fossil Evidence (~p160–173)</td><td>OSB Ch 12 (part 2) · CB Ch 13–14 · BFN-Bio · Unit 11 · Ch 47 Evolution · Ch 48 History of Life · p451</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Number review</td><td>BFN-A — Ch 29–30 — Solving Systems of Linear Equations by Substitution · Solving Systems of Linear Equations by Elimination</td><td>BFN-A · Unit 5 · Ch 29–30 · p175 · Also OK: OSA §4.1 · §5.8 · Lar Ch 7</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Logic &amp; probability</td><td>BFN-A — POT 6 — T225, T226, T227 · Ch 47–48 — Application of Functions · Adding and Subtracting Polynomials</td><td>BFN-A · Unit 8 · Ch 47–48 · p395 · Also OK: OSA §6.1 · Lar Ch 9</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>v = fλ</td><td>BFN-A — POT 6 — T228, T229 · Ch 51 — Multiplying and Dividing Polynomials</td><td>BFN-A · Unit 9 · Ch 51 Multiplying and Dividing Polynomials · p427 · Also OK: OSA §6.1 · Lar Ch 9</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Unit conversion review</td><td>BFN-A — POT 6 — T230, T231 · Ch 51 — Multiplying and Dividing Polynomials</td><td>BFN-A · Unit 9 · Ch 51 Multiplying and Dividing Polynomials · p427 · Also OK: OSA §6.1 · Lar Ch 9</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>Formula plug-in</td><td>BFN-A — POT 6 — T239, T240 · Ch 52–56 — Factoring Polynomials Using GCF · Factoring Using Special Formulas</td><td>BFN-A · Unit 10 · Ch 52–56 · p461 · Also OK: OSA §6.1 · Lar Ch 9</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Mock round · 25 toss-ups · log weak subtopics</p>
+
+    </div>
+  </div>
+
+  <p class="footer">Read assigned § sections only (stop at Focus) · Mod/OSB/CB = backup · DOE topics not whole books · Daily detail in summer-2026-calendar.md</p>
+</section>
+
+<!-- PAGE 3b — READING GUIDE WEEKS 5–6 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Textbook reading guide — weeks 5–6</h2>
+    <div class="page-meta">One summer pass · assigned § sections only · Full detail → summer-2026-calendar.md</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4 id="week-5"><span class="week-tag">Week 5</span> Energy in life & physics</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>Covalent bonding</td><td><strong>BFN-C</strong> — Ch 14–15 — Bonding · Valence Shell Electron Pair Repulsion (VSEPR) Theory</td><td>Hewitt Ch 18 §18.5–18.8 · Mod Ch 7 §7.1–7.2 · Tro Ch 5 · BFN-Sci · Unit 2 · Ch 7 Atomic Structure and Compounds · p59</td><td>Mod Ch 7 §7.1–7.2</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Photosynthesis (part 1)</td><td><strong>FLS</strong> Ch 2 — Cell Processes and Energy · §2.4 Photosynthesis (~p56–61)</td><td>OSB Ch 4 · CB Ch 8 · BFN-Bio · Unit 3 · Ch 11 Photosynthesis · Ch 12 Cellular Respiration · p103</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Work &amp; Energy (part 1)</td><td><strong>Hewitt</strong> Ch 6 §6.1–6.5</td><td>BFN-Sci · Unit 3–4 · Ch 12 Work and Machines · Ch 13 Forms of Energy · p91 · p129</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Chemical Quantities</td><td><strong>BFN-C</strong> — Ch 18–19 — The Mole · Finding Compositions in Compounds</td><td>Hewitt Ch 19 §19.3–19.4 · Mod Ch 6 §6.1–6.2 · Tro Ch 6 · BFN-Sci · Unit 2 · Ch 8 Solutions and Fluids · Molarity intro · p59</td><td>Mod Ch 6 §6.1–6.2</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Cellular Respiration (part 2)</td><td><strong>FLS</strong> Ch 2 — Cell Processes and Energy · §2.5 Cellular Respiration (~p62–67)</td><td>OSB Ch 5 · CB Ch 9 · BFN-Bio · Unit 3 · Ch 11 Photosynthesis · Ch 12 Cellular Respiration · p103</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Scientific notation</td><td>BFN-A — POT 6 — T241 · Ch 54–55 — Factoring Trinomials When a = 1 · Factoring Trinomials When a ≠ 1</td><td>BFN-A · Unit 10 · Ch 54–55 · p461 · Also OK: OSA §6.1 · Lar Ch 9</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Ratios</td><td>BFN-A — POT 6 — T247 · Ch 31 — Points and Lines</td><td>BFN-A · Unit 6 · Ch 31 Points and Lines · p247 · Also OK: OSA §2.1 · Lar Ch 4</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>Graphs &amp; slope</td><td>BFN-A — POT 6 — T248, T250, T251 · Ch 33–36 — Slope of a Line · Solving Systems of Linear Equations by Graphing</td><td>BFN-A · Unit 6 · Ch 33–36 · p247 · Also OK: OSA §2.1 · §4.1 · §3.3 · Lar Ch 4–5</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Unit conversion</td><td>BFN-A — POT 6 — T252, T254, T257 · Ch 31–27 — Points and Lines · Solving Compound Inequalities</td><td>BFN-A · Unit 6 · Ch 31–27 · p247 · Also OK: OSA §2.1 · §2.3 · Lar Ch 4</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>PEMDAS &amp; estimation</td><td>BFN-A — POT 6 — T258, T259 · Ch 37–36 — Graphing Linear Inequalities · Solving Systems of Linear Equations by Graphing</td><td>BFN-A · Unit 6 · Ch 37–36 · p247 · Also OK: OSA §4.1 · §5.8 · Lar Ch 6–7</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Photosynthesis + respiration · 10 toss-ups on cell energy</p>
+
+    </div>
+    <div>
+      <h4 id="week-6"><span class="week-tag">Week 6</span> Ecology & solutions</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>Molarity &amp; Dilution</td><td><strong>BFN-C</strong> — Ch 27 — Concentrations of Solutions</td><td>Hewitt Ch 19 §19.3–19.5 · Mod Ch 12 § · Tro Ch 13 · BFN-Sci · Unit 2 · Ch 8 Solutions and Fluids · p59</td><td>Mod Ch 12 §</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Population Ecology (part 2)</td><td><strong>FLS</strong> Ch 7 — Living Things · §7.3 The Six Kingdoms (~p225–235)</td><td>OSB Ch 20 · CB Ch 36 · BFN-Bio · Unit 12 · Ch 49 The Ecosystem · Ch 50 Populations · p483</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Gravity &amp; Projectiles</td><td><strong>Hewitt</strong> Ch 7 §7.1–7.4 + §7.7</td><td>BFN-Sci · Unit 3–4 · Ch 12 Work and Machines · Ch 13 Forms of Energy · p91 · p129</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Neutralization</td><td><strong>BFN-C</strong> — Ch 28–31 — Properties of Acids and Bases · pH Scale and Calculations · …</td><td>Hewitt Ch 21 §21.1–21.3 · Mod Ch 14 § · Tro Ch 14 · BFN-Sci · Unit 2 · Ch 6–8 Matter and Solutions · p59</td><td>Mod Ch 14 §</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Bacteria &amp; Viruses</td><td><strong>FLS</strong> Ch 8 — Viruses and Bacteria · §8.1 Bacteria (~p236–251) · §8.2 Viruses (~p252–267) · Heavy day — split or OSB backup</td><td>OSB Ch 13 · CB Ch 16 · BFN-Bio · Unit 4 · Ch 15 Bacteria · Ch 16 Viruses · Ch 18 Disease · p141</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Percent</td><td>BFN-A — POT 6 — T264, T265 · Ch 26–27 — Solving One-Variable Inequalities · Solving Compound Inequalities</td><td>BFN-A · Unit 5 · Ch 26–27 · p175 · Also OK: OSA §2.3 · Lar Ch 6</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Proportions</td><td>BFN-A — POT 6 — T266, T267 · Ch 57–60 — Square Roots and Cube Roots · Multiplying and Dividing Radicals</td><td>BFN-A · Unit 11 · Ch 57–60 · p505 · Also OK: OSA §1.3 · Lar Ch 11</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>F = ma</td><td>BFN-A — POT 6 — T261, T262 · Ch 61–64 — Introduction to Quadratic Equations · Solving Quadratic Equations by Completing the Square</td><td>BFN-A · Unit 12 · Ch 61–64 · p533 · Also OK: OSA §6.1 · Lar Ch 10</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Exponents</td><td>BFN-A — POT 6 — T263, T289 · Ch 65–68 — Solving Quadratic Equations with the Quadratic Formula · Solving Quadratic Equations by Graphing</td><td>BFN-A · Unit 12 · Ch 65–68 · p533 · Also OK: OSA §6.1 · Lar Ch 10</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>Body-scale ratios</td><td>BFN-A — POT 6 — T282, T283, T284 · Ch 45–14 — Relations and Functions · Percent</td><td>BFN-A · Unit 8 · Ch 45–14 · p395 · Also OK: OSA §5.8 · §6.1 · Lar Ch 1</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Ecology + microbes drill · 15 toss-ups</p>
+
+    </div>
+  </div>
+
+  <p class="footer">Read assigned § sections only (stop at Focus) · Mod/OSB/CB = backup · DOE topics not whole books · Daily detail in summer-2026-calendar.md</p>
+</section>
+
+<!-- PAGE 3c — READING GUIDE WEEKS 7–8 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Textbook reading guide — weeks 7–8</h2>
+    <div class="page-meta">One summer pass · assigned § sections only · Full detail → summer-2026-calendar.md</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4 id="week-7"><span class="week-tag">Week 7</span> Immunity & heat</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>Reaction Types (deeper)</td><td><strong>BFN-C</strong> — Ch 20–21 — Chemical Reactions · Chemical Calculations</td><td>Hewitt Ch 20 §20.1–20.4 · Mod Ch 8 § · Tro Ch 7 · BFN-Sci · Unit 2 · Ch 6–8 Matter · Solutions · Chemical change · p59</td><td>Mod Ch 8 §</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Immune System</td><td><strong>FLS</strong> Ch 21 — Fighting Disease · §21.1 The Body's Defenses (~p648–664)</td><td>OSB Ch 17 · CB Ch 24 · BFN-Bio · Unit 4 · Ch 15 Bacteria · Ch 16 Viruses · Ch 18 Disease · p141</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Heat &amp; Temperature</td><td><strong>Hewitt</strong> Ch 9 §9.1–9.5</td><td>BFN-Sci · Unit 3 · Ch 10–11 Forces · Newton's laws · p91</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Periodic Trends (deeper)</td><td><strong>BFN-C</strong> — Ch 12–13 — Periodic Trends · Electrons</td><td>Hewitt Ch 17 §17.6–17.7 · Mod Ch 5 § · Tro Ch 9 · BFN-Sci · Unit 2 · Ch 7 Periodic Table and Atomic Structure · p59</td><td>Mod Ch 5 §</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Plant Structure (part 1)</td><td><strong>FLS</strong> Ch 10 — Introduction to Plants · §10.1 What Are Plants? (~p298–307) · §10.2 Roots, Stems, and Leaves (~p308–317)</td><td>OSB Ch 14 · CB Ch 31 · BFN-Bio · Unit 7–8 · Ch 26–29 Plants · Ch 30–35 Animals · p229</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Formula substitution</td><td>BFN-A — POT 6 — T281, T285, T286, T287 · Ch 46–45 — Function Notation · Relations and Functions</td><td>BFN-A · Unit 8 · Ch 46–45 · p395 · Also OK: OSA §3.1 · §3.2 · §6.1 · Lar Ch 1</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Graph reading</td><td>BFN-A — POT 6 Algebra · Review — lines, systems &amp; verbal models</td><td>BFN-A · Unit 5 · Ch 29–30 · p175 · Also OK: OSA §2.2 · §4.1 · §5.8 · Lar Ch 7</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>W = Fd</td><td>BFN-A — RRISD · Quadratic transformations · OSA §3.5 &amp; §5.1 · Ch 67–68</td><td>BFN-A · Unit 13 · Ch 67–68 · p587 · Also OK: OSA §3.5 · §5.1 · Lar Ch 10</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Concentration ratios</td><td>BFN-A — RRISD · Domain &amp; range · OSA §3.1 &amp; §3.2</td><td>BFN-A · Unit 8 · Ch 45–46 · p395 · Also OK: OSA §3.1 · §3.2 · Lar Ch 1</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>Mixed review</td><td>BFN-A — Units 4–7 · Check Your Knowledge</td><td>BFN-A · Units 4–7 · Check Your Knowledge · Also OK: OSA §2.3 · Lar Ch 1–4</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Plant structure · draw xylem/phloem path</p>
+
+    </div>
+    <div>
+      <h4 id="week-8"><span class="week-tag">Week 8</span> Plants & electricity</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>Density &amp; Unit Analysis</td><td><strong>BFN-C</strong> — Ch 4–19 — Measurement · Finding Compositions in Compounds</td><td>Hewitt Ch 17 §17.4–17.5 · Mod Ch 2 § · Tro Ch 2 · BFN-Sci · Unit 1 · Ch 4–5 SI Units · Lab Safety and Scientific Tools · p1</td><td>Mod Ch 2 §</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Plant Transport (part 2)</td><td><strong>FLS</strong> Ch 11 — Seed Plants · §11.1 Seed Plants (~p328–345)</td><td>OSB Ch 15 · CB Ch 31 · BFN-Bio · Unit 7–8 · Ch 26–29 Plants · Ch 30–35 Animals · p229</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Electricity — Current</td><td><strong>Hewitt</strong> Ch 10 §10.1–10.7 + §10.11</td><td>BFN-Sci · Unit 4 · Ch 16 Electricity and Magnetism · p129</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Heating Curves</td><td><strong>BFN-C</strong> — Ch 6–7 — Properties of Matter and Changes in Form · States of Matter</td><td>Hewitt Ch 17 §17.3–17.5 · Mod Ch 10 § · Tro Ch 3 · BFN-Sci · Unit 2 · Ch 6 Matter, Properties, and Phases · p59</td><td>Mod Ch 10 §</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Animal Tissues</td><td><strong>FLS</strong> Ch 17 — Bones, Muscles, and Skin · §17.1 Bones and Muscles (~p530–544)</td><td>OSB Ch 18 · CB Ch 20 · BFN-Bio · Unit 7–8 · Ch 26–29 Plants · Ch 30–35 Animals · p229</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Number review</td><td>BFN-A — RRISD · Scatter plots &amp; linear regression · OSA §4.2 &amp; §4.3 · T270, T271</td><td>BFN-A · Unit 3 · Ch 18–41 · p75 · Also OK: OSA §4.2 · §4.3 · Lar Ch 4</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Logic &amp; probability</td><td>BFN-A — POT 6 — T275, T276, T277 · Ch 42–43 — Probability · Compound Events</td><td>BFN-A · Unit 7 · Ch 42–43 · p325 · Also OK: OSA §13.7 · Lar Ch 13</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>v = fλ</td><td>BFN-A — POT 6 — T278, T279, T280 · Ch 43 — Compound Events</td><td>BFN-A · Unit 7 · Ch 43 Compound Events · p325 · Also OK: OSA §13.7 · Lar Ch 13</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Unit conversion review</td><td>BFN-A — POT 6 — MIX1</td><td>BFN-A · See index · Also OK: OSA §1.2 · §5.8 · §2.3 · Lar Ch 1–13</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>Formula plug-in</td><td>BFN-A — POT 6 — T272, T274 · Ch 32–44 — Graphing a Line from a Table of Values · Permutations and Combinations</td><td>BFN-A · Unit 6 · Ch 32–44 · p247 · Also OK: OSA §2.1 · §3.3 · §13.7 · Lar Ch 4</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Electricity + waves · V = IR and v = fλ toss-ups</p>
+
+    </div>
+  </div>
+
+  <p class="footer">Read assigned § sections only (stop at Focus) · Mod/OSB/CB = backup · DOE topics not whole books · Daily detail in summer-2026-calendar.md</p>
+</section>
+
+<!-- PAGE 3d — READING GUIDE WEEKS 9–10 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Textbook reading guide — weeks 9–10</h2>
+    <div class="page-meta">One summer pass · assigned § sections only · Full detail → summer-2026-calendar.md</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4 id="week-9"><span class="week-tag">Week 9</span> Magnetism · waves · body systems</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>Isotopes &amp; Avg Atomic Mass</td><td><strong>BFN-C</strong> — Ch 9–10 — Atomic Theory · Waves, Quantum Theory, and Photons</td><td>Hewitt Ch 17 §17.2–17.3 · Mod Ch 3 § · Tro Ch 4 · BFN-Sci · Unit 2 · Ch 7 Periodic Table, Atomic Structure, and Compounds · p59</td><td>Mod Ch 3 §</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Cell Reproduction (intro)</td><td><strong>FLS</strong> Ch 3 — Genetics: The Science of Heredity · §3.1 Genetics: The Science of Heredity (~p68–77) · §3.2 Traits and Inheritance (~p78–88)</td><td>OSB Ch 6 · CB Ch 8 · BFN-Bio · Unit 3 · Ch 9 Cell Structure and Function · p84</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Magnetism &amp; Waves</td><td><strong>Hewitt</strong> Ch 11 §11.1–11.5 + Ch 12 §12.1–12.6</td><td>BFN-Sci · Unit 4 · Ch 15 Light and Sound · Ch 16 Electricity and Magnetism · p129</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Ions &amp; Ionic Compounds</td><td><strong>BFN-C</strong> — Ch 16–17 — Metallic Bonds and Intramolecular Forces · Naming Substances</td><td>Hewitt Ch 18 §18.2–18.4 · Mod Ch 5 + Ch 7 · Tro Ch 4–5 · BFN-Sci · Unit 2 · Ch 7 Atomic Structure and Compounds · p59</td><td>Mod Ch 5 + Ch 7</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Digestive &amp; Circulatory</td><td><strong>FLS</strong> Ch 18 — Food and Digestion · §18.1 Food and Energy (~p560–575) · Ch 19 — Circulation · §19.1 The Circulatory System (~p592–606) · Heavy day — split or OSB backup</td><td>OSB Ch 16 § · CB Ch 21–23 · BFN-Bio · Unit 9 · Ch 36 Body Systems · Ch 40 Respiratory/Circulatory · Ch 41 Digestive · p325</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Scientific notation</td><td>BFN-A — RRISD · Exponential functions · OSA §6.1 · Ch 19, 49</td><td>BFN-A · Unit 4 · Ch 19–49 · p141 · Also OK: OSA §6.1 · Lar Ch 8</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Ratios</td><td>BFN-A — RRISD · Graphing exponentials · OSA §6.2</td><td>BFN-A · See index · Also OK: OSA §6.2 · Lar Ch 8</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>Graphs</td><td>BFN-A — RRISD · Logarithmic functions intro · OSA §6.3</td><td>BFN-A · See index · Also OK: OSA §6.3 · Lar Ch 8</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Unit conversion</td><td>BFN-A — POT 6 Algebra · App drills &amp; weak spots</td><td>BFN-A · See index · Also OK: OSA §2.1 · §6.1 · §13.7 · Lar Ch 1–13</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>Flash review</td><td>BFN-A — Units 8–11 · Check Your Knowledge</td><td>BFN-A · Units 8–11 · Check Your Knowledge · Also OK: OSA §1.2 · §5.8 · Lar Ch 1–4</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Mixed drill · 20 toss-ups all categories</p>
+
+    </div>
+    <div>
+      <h4 id="week-10"><span class="week-tag">Week 10</span> Summer capstone</h4>
+      <table>
+        <tr><th>Block</th><th>Topic</th><th>Primary (§ sections)</th><th>Backup</th><th>Mod backup</th></tr>
+        <tr class="chem"><td>Mon Chem</td><td>Chemistry capstone</td><td><strong>BFN-C</strong> — Units 1–6 · Check Your Knowledge</td><td>Hewitt Review · Mod Review · Tro if stuck · BFN-Sci · Unit 2 · Ch 7 Periodic Table, Atomic Structure, and Compounds · p59</td><td>Mod Review</td></tr>
+        <tr class="bio"><td>Tue Bio</td><td>Biology capstone</td><td><strong>FLS</strong> Review</td><td>OSB Review · CB · BFN-Bio · BFN-Bio · Unit 3 · Ch 9 Cell Structure and Function · p84</td><td>—</td></tr>
+        <tr class="phys"><td>Wed Phys</td><td>Light &amp; Reflection</td><td><strong>Hewitt</strong> Ch 13 §13.1 + §13.3–13.4</td><td>BFN-Sci · Unit 4 · Ch 16 Electricity and Magnetism · p129</td><td>—</td></tr>
+        <tr class="chem"><td>Thu Chem</td><td>Lab &amp; periodic table</td><td><strong>BFN-C</strong> — Units 7–10 · Check Your Knowledge</td><td>Hewitt Review · Mod Review · Tro if stuck · BFN-Sci · Unit 1 · Ch 4–5 SI Units · Lab Safety and Scientific Tools · p1</td><td>Mod Review</td></tr>
+        <tr class="bio"><td>Fri Bio</td><td>Final bio check</td><td><strong>FLS</strong> Review</td><td>OSB Review · BFN-Bio · BFN-Bio · Unit 12 · Ch 49 The Ecosystem · Ch 50 Populations · p483</td><td>—</td></tr>
+        <tr class="alg"><td>Mon Alg</td><td>Formula substitution</td><td>BFN-A — RRISD · Log graphs, exp equations &amp; models · OSA §6.4 · §6.6 · §6.7</td><td>BFN-A · See index · Also OK: OSA §6.4 · §6.6 · §6.7 · Lar Ch 8</td><td>—</td></tr>
+        <tr class="alg"><td>Tue Alg</td><td>Graph reading</td><td>BFN-A — POT 6 — MIX2</td><td>BFN-A · See index · Also OK: OSA §1.2 · §5.8 · §2.3 · Lar Ch 1–13</td><td>—</td></tr>
+        <tr class="alg"><td>Wed Alg</td><td>W = Fd</td><td>BFN-A — POT 6 — T290 · Ch 51 — Multiplying and Dividing Polynomials</td><td>BFN-A · Unit 9 · Ch 51 Multiplying and Dividing Polynomials · p427 · Also OK: OSA §6.1 · Lar Ch 9</td><td>—</td></tr>
+        <tr class="alg"><td>Thu Alg</td><td>Concentration ratios</td><td>BFN-A — POT 6 · Weak spots &amp; app drills</td><td>BFN-A · See index · Also OK: OSA §1.2 · §5.8 · §2.3 · §6.1 · Lar Ch 1–13</td><td>—</td></tr>
+        <tr class="alg"><td>Fri Alg</td><td>Final review</td><td>BFN-A — Full book · Check Your Knowledge</td><td>BFN-A · Full book · Check Your Knowledge · Also OK: Lar Ch 1–13</td><td>—</td></tr>
+      </table>
+      <p style="font-size:8pt"><strong>Fri review:</strong> Final summer mock · 25 toss-ups · list 3 topics for school meetings</p>
+
+    </div>
+  </div>
+
+  <p class="footer">Read assigned § sections only (stop at Focus) · Mod/OSB/CB = backup · DOE topics not whole books · Daily detail in summer-2026-calendar.md</p>
+</section>
+
+<!-- PAGE 4 — TOPIC DEEP-DIVES WEEKS 1–2 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Topic deep-dives — Weeks 1–2</h2>
+    <div class="page-meta">Focus · Formulas · Know cold · Sample toss-ups<br>Daily detail → summer-2026-calendar.md</div>
+  </div>
+
+  <h4><span class="week-tag">Week 1</span> Atoms · cells · motion</h4>
+  <table style="font-size:7.5pt">
+    <tr><th>Block</th><th>Focus</th><th>Formulas</th><th>Know cold</th><th>Toss-ups</th></tr>
+    <tr class="chem"><td>Mon Chem</td><td>p/n/e · atomic # · mass # · isotopes · neutral atom</td><td>Z = # p · A = p+n</td><td>17 p → element? · C-12 e⁻?</td><td>1. Z of 15 p?<br>2. 11 p + 12 n → A?</td></tr>
+    <tr class="chem"><td>Thu Chem</td><td>periods/groups · formulas · ionic vs molecular</td><td>Na → Na⁺ · group 18</td><td>Noble gas group? · NaCl formula?</td><td>1. Noble gas group?<br>2. Salt formula?</td></tr>
+    <tr class="bio"><td>Tue Bio</td><td>organelles · plant vs animal · prokaryote</td><td>ATP currency</td><td>ATP organelle? · 2 plant parts?</td><td>1. ATP organelle?<br>2. Plant-only structures?</td></tr>
+    <tr class="bio"><td>Fri Bio</td><td>cell→tissue→organ→system</td><td>levels order</td><td>Order 4 levels?</td><td>1. Order levels<br>2. Why different cell shapes?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td><strong>Ch 1:</strong> SI · hypothesis/theory/law · precision vs accuracy · <strong>App. B:</strong> speed vs velocity · d-t graphs</td><td><strong>v = d/t</strong></td><td>Theory vs law? · 120 km/2 h? · flat d-t?</td><td>1. 150 km/3 h speed?<br>2. Horizontal d-t means?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→15 · 2→23 · 3→Gp18 · 4→NaCl · 5→Mitochondria · 6→Wall+chloroplast · 7→cell→tissue→organ→organism · 8→specialization · 9→50 km/h · 10→at rest</p>
+
+  <h4><span class="week-tag">Week 2</span> Atoms · genetics · Newton's</h4>
+  <table style="font-size:7.5pt">
+    <tr><th>Block</th><th>Focus</th><th>Formulas</th><th>Know cold</th><th>Toss-ups</th></tr>
+    <tr class="chem"><td>Mon Chem</td><td>particle model · phase changes · energy</td><td>solid↔liquid↔gas</td><td>gas vs solid motion?</td><td>1. Most KE at same T?<br>2. Boiling absorbs energy?</td></tr>
+    <tr class="chem"><td>Thu Chem</td><td>balance equations · exo/endothermic</td><td>2H₂+O₂→2H₂O</td><td>Balance H₂+Cl₂→HCl</td><td>1. Balance H₂+Cl₂→HCl<br>2. Releases heat = ?</td></tr>
+    <tr class="bio"><td>Tue Bio</td><td>DNA · Punnett · dominant/recessive</td><td>Tt×Tt → 3:1</td><td>Tt×Tt ratio?</td><td>1. Tt×Tt phenotypic ratio?<br>2. Dominant notation?</td></tr>
+    <tr class="bio"><td>Fri Bio</td><td>levers · heart/lungs · arteries/veins</td><td>fulcrum·effort·load</td><td>3 lever parts?</td><td>1. Three lever parts<br>2. Artery direction?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>inertia · F=ma · action-reaction</td><td><strong>F = ma</strong></td><td>F=20,m=4 → a?</td><td>1. 4 kg, 5 m/s² → F?<br>2. 3rd law direction?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→Gas · 2→Absorbed · 3→2HCl · 4→Exothermic · 5→3:1 · 6→Capital · 7→fulcrum,effort,load · 8→away from heart · 9→20 N · 10→Up · <strong>Fri review:</strong> 20 toss-ups</p>
+</section>
+
+<!-- PAGE 5 — TOPIC DEEP-DIVES WEEKS 3–4 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Topic deep-dives — Weeks 3–4</h2>
+    <div class="page-meta">Focus · Formulas · Know cold · Sample toss-ups</div>
+  </div>
+
+  <h4><span class="week-tag">Week 3</span> Solutions · ecology · forces</h4>
+  <table style="font-size:7.5pt">
+    <tr><th>Block</th><th>Focus</th><th>Formulas</th><th>Know cold</th><th>Toss-ups</th></tr>
+    <tr class="chem"><td>Mon Chem</td><td>pH scale · H⁺/OH⁻ · acids/bases</td><td>pH 7 = neutral</td><td>pH pure water?</td><td>1. Neutral pH?<br>2. pH 11 acid or base?</td></tr>
+    <tr class="chem"><td>Thu Chem</td><td>solvent/solute · saturation · separation</td><td>dilution ↓ conc.</td><td>solute in salt water?</td><td>1. Salt water solute?<br>2. Separate sand/water?</td></tr>
+    <tr class="bio"><td>Tue Bio</td><td>food webs · symbiosis · biomes</td><td>mutualism·commensalism·parasitism</td><td>3 symbiosis types?</td><td>1. Makes food from sun?<br>2. Three symbiosis?</td></tr>
+    <tr class="bio"><td>Fri Bio</td><td>bacteria vs virus · vaccines · antibiotics</td><td>antibiotic ≠ virus</td><td>antibiotic for flu?</td><td>1. Antibiotics vs viruses?<br>2. Vaccines produce?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>work · power · KE/PE · machines</td><td><strong>W = Fd</strong></td><td>F=10,d=5 → W?</td><td>1. SI unit of work?<br>2. W for F=10,d=5?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→7 · 2→Basic · 3→Salt · 4→Filtration · 5→Producer · 6→3 symbiosis · 7→No · 8→Antibodies · 9→Joule · 10→50 J · <strong>Fri review:</strong> 20 toss-ups</p>
+
+  <h4><span class="week-tag">Week 4</span> Evolution · states · momentum</h4>
+  <table style="font-size:7.5pt">
+    <tr><th>Block</th><th>Focus</th><th>Formulas</th><th>Know cold</th><th>Toss-ups</th></tr>
+    <tr class="chem"><td>Mon Chem</td><td>valence e⁻ · trends · symbols H–Ca</td><td>radius ↓ across period</td><td>Symbol for K?</td><td>1. Symbol potassium?<br>2. Larger: Na or Cl?</td></tr>
+    <tr class="chem"><td>Thu Chem</td><td>SI units · lab equipment · safety</td><td>kg, m, s, mol</td><td>SI mass unit?</td><td>1. SI mass unit?<br>2. Measure liquid volume?</td></tr>
+    <tr class="bio"><td>Tue Bio</td><td>natural selection · classification</td><td>Homo sapiens</td><td>Most specific rank?</td><td>1. Natural selection scientist?<br>2. Most specific rank?</td></tr>
+    <tr class="bio"><td>Fri Bio</td><td>root/stem/leaf · tissues</td><td>root = absorb H₂O</td><td>Photosynthesis where?</td><td>1. Root function?<br>2. Photosynthesis site?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>λ · f · v=fλ · V=IR · series/parallel</td><td><strong>v=fλ</strong> · <strong>V=IR</strong></td><td>I=2,R=5 → V?</td><td>1. Higher pitch → f?<br>2. I=2A,R=5Ω → V?</td></tr>
+    <tr class="phys"><td>Wed Phys <em>(stretch)</em></td><td>Current · voltage · resistance · series vs parallel</td><td><strong>V=IR</strong> · series R↑</td><td>Unit of current?</td><td>1. SI unit of current?<br>2. Parallel — current splits?</td></tr>
+  </table>
+  <p class="footer">Weeks 1–10 = one pass (Mod+OSB) · Tro/CB backup · DOE in Quiz tab · Weeks 9–10 capstone · flash cards at school · Bonus chains on page 8</p>
+</section>
+
+<!-- PAGE 6 — TOPIC DEEP-DIVES WEEKS 5–6 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Topic deep-dives — Weeks 5–6</h2>
+    <div class="page-meta">Weeks 5–6 · one summer pass · § sections · Full detail → summer-2026-calendar.md</div>
+  </div>
+
+  <h4><span class="week-tag">Week 5</span> Energy in life & physics</h4>
+  <table style="font-size:7.5pt">
+    <tr><th>Block</th><th>Focus</th><th>Formulas</th><th>Know cold</th><th>Toss-ups</th></tr>
+    <tr class="chem"><td>Mon Chem</td><td>isotopes · average atomic mass · Tro depth</td><td>Z · A = p+n</td><td>C-12 e⁻ count?</td><td>1. C-12: 6 p — e⁻?<br>2. Isotopes differ in?</td></tr>
+    <tr class="chem"><td>Thu Chem</td><td>cations/anions · ionic vs covalent · polyatomic ions</td><td>Na⁺ · Cl⁻ · O²⁻</td><td>Oxide charge?</td><td>1. Oxide ion charge?<br>2. NaCl ionic or covalent?</td></tr>
+    <tr class="bio"><td>Tue Bio</td><td>lysosome · rough/smooth ER · bilayer · Campbell detail</td><td>rough ER = ribosomes</td><td>Lysosome job?</td><td>1. Digests worn parts?<br>2. Plant-only organelles?</td></tr>
+    <tr class="bio"><td>Fri Bio</td><td>respiration vs photosynthesis · mitochondria/chloroplast</td><td>C₆H₁₂O₆+O₂→CO₂+H₂O+ATP</td><td>Photo inputs?</td><td>1. Respiration organelle?<br>2. Gas from photosynthesis?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>precision vs accuracy · v-t slope = a</td><td>v=d/t · v-t slope=a</td><td>Slowing → a sign?</td><td>1. 20→10 m/s: a + or −?<br>2. v-t slope = ?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→6 · 2→Neutrons · 3→2− · 4→Ionic · 5→Lysosome · 6→Wall+chloroplast · 7→− · 8→Acceleration · 9→Mitochondria · 10→O₂ · <strong>Fri:</strong> review weak § sections</p>
+
+  <h4><span class="week-tag">Week 6</span> Ecology & solutions</h4>
+  <table style="font-size:7.5pt">
+    <tr><th>Block</th><th>Focus</th><th>Formulas</th><th>Know cold</th><th>Toss-ups</th></tr>
+    <tr class="chem"><td>Mon Chem</td><td>physical vs chemical change · conservation of mass</td><td>conservation of mass</td><td>Burning wood type?</td><td>1. Burning wood: phys/chem?<br>2. Matter created?</td></tr>
+    <tr class="chem"><td>Thu Chem</td><td>synthesis · decomposition · combustion · balance</td><td>A+B→AB · AB→A+B</td><td>Classify 2H₂O→2H₂+O₂</td><td>1. 2H₂O→2H₂+O₂ type?<br>2. Balance Fe+O₂→Fe₂O₃</td></tr>
+    <tr class="bio"><td>Tue Bio</td><td>Mendel · Aa×Aa · genotype vs phenotype</td><td>1:2:1 genotypic · 3:1 phenotypic</td><td>Aa×Aa genotypic ratio?</td><td>1. Aa×Aa genotypic ratio?<br>2. Phenotype of aa?</td></tr>
+    <tr class="bio"><td>Fri Bio</td><td>digestion · alveoli · heart · arteries/veins</td><td>small intestine · vein→heart</td><td>Absorption organ?</td><td>1. Most absorption where?<br>2. Veins toward heart?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>momentum p=mv · conservation · collisions</td><td><strong>p = mv</strong></td><td>2 kg @ 3 m/s → p?</td><td>1. 2 kg, 3 m/s → p?<br>2. Truck or bike more p?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→Chemical · 2→Conserved · 3→1:2:1 · 4→Recessive · 5→Decomposition · 6→4Fe+3O₂→2Fe₂O₃ · 7→Small intestine · 8→Toward · 9→6 kg·m/s · 10→Truck · <strong>Fri:</strong> 20 toss-ups timed</p>
+</section>
+
+<!-- PAGE 7 — TOPIC DEEP-DIVES WEEKS 7–8 -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Topic deep-dives — Weeks 7–8</h2>
+    <div class="page-meta">Weeks 7–8 · one summer pass · § sections</div>
+  </div>
+
+  <h4><span class="week-tag">Week 7</span> Immunity & heat</h4>
+  <table style="font-size:7.5pt">
+    <tr><th>Block</th><th>Focus</th><th>Formulas</th><th>Know cold</th><th>Toss-ups</th></tr>
+    <tr class="chem"><td>Mon Chem</td><td>neutralization · titration · HCl+NaOH</td><td>acid+base→salt+H₂O</td><td>HCl+NaOH products?</td><td>1. HCl+NaOH products?<br>2. pH 11 acid or base?</td></tr>
+    <tr class="chem"><td>Thu Chem</td><td>molarity M=mol/L · dilution · electrolytes</td><td><strong>M = mol/L</strong> · M₁V₁=M₂V₂</td><td>Add solvent → conc.?</td><td>1. Add solvent — conc. up/down?<br>2. Saturated + crystal dissolves?</td></tr>
+    <tr class="bio"><td>Tue Bio</td><td>carrying capacity · logistic growth · succession</td><td>K · biotic vs abiotic</td><td>Max population term?</td><td>1. Max population term?<br>2. Sunlight biotic?</td></tr>
+    <tr class="bio"><td>Fri Bio</td><td>innate vs adaptive · B/T cells · memory cells</td><td>innate vs adaptive</td><td>2nd infection milder why?</td><td>1. 2nd infection milder?<br>2. Innate barrier?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>PE=mgh · KE=½mv² · mass vs weight</td><td>PE=mgh · W=mg</td><td>Ball rises → PE?</td><td>1. Ball rises — PE up/down?<br>2. Moon: mass or weight differs?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→NaCl+H₂O · 2→Basic · 3→Carrying capacity · 4→Abiotic · 5→Memory cells · 6→Skin/mucous · 7→Increases · 8→Weight · 9→Decreases · 10→No · <strong>Fri:</strong> 20 toss-ups</p>
+
+  <h4><span class="week-tag">Week 8</span> Plants & electricity</h4>
+  <table style="font-size:7.5pt">
+    <tr><th>Block</th><th>Focus</th><th>Formulas</th><th>Know cold</th><th>Toss-ups</th></tr>
+    <tr class="chem"><td>Mon Chem</td><td>radius · ionization energy · electronegativity trends</td><td>radius ↓ across period</td><td>Across period radius?</td><td>1. Radius across period?<br>2. F or I more reactive?</td></tr>
+    <tr class="chem"><td>Thu Chem</td><td>sig figs · K=°C+273 · percent error · d=m/V</td><td>K=°C+273 · d=m/V</td><td>Sig figs 0.00450?</td><td>1. Sig figs 0.00450?<br>2. 25°C to K?</td></tr>
+    <tr class="bio"><td>Tue Bio</td><td>geographic isolation · speciation · gene pool</td><td>geographic isolation</td><td>Mountain → isolation type?</td><td>1. Mountain isolation type?<br>2. Source of variation?</td></tr>
+    <tr class="bio"><td>Fri Bio</td><td>xylem/phloem · meristem · tissue types</td><td>xylem up · phloem sugars</td><td>Water transport tissue?</td><td>1. Water upward tissue?<br>2. Sugar transport tissue?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>V=IR · series/parallel · v=fλ · ROYGBIV</td><td><strong>V=IR</strong> · <strong>v=fλ</strong></td><td>Series R up or down?</td><td>1. Series R up/down?<br>2. SI unit of current?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→Decreases · 2→Fluorine · 3→3 · 4→298 K · 5→Geographic · 6→Mutations · 7→Xylem · 8→Phloem · 9→Increases · 10→Ampere · <strong>Fri:</strong> 25 toss-ups mock</p>
+</section>
+
+<!-- PAGE 8 — WEEKS 9–10 + BONUS -->
+<section class="page page-guide">
+  <div class="page-header">
+    <h2>Weeks 9–10 + Bonus questions</h2>
+    <div class="page-meta">Weeks 9–10 · capstone · flash cards at school meetings</div>
+  </div>
+
+  <h4><span class="week-tag">Week 9</span> Magnetism · waves · body systems</h4>
+  <table style="font-size:7pt">
+    <tr><th>Block</th><th>Focus</th><th>Flash-card targets</th><th>Sample toss-ups</th></tr>
+    <tr class="chem"><td>Mon/Thu Chem</td><td>atoms · periodic table · compounds</td><td>Z · A · isotopes · Na⁺ · CO₂ · H₂O</td><td>1. Particle defines element?<br>2. CO₂ formula?</td></tr>
+    <tr class="bio"><td>Tue/Fri Bio</td><td>organelles · photo vs respiration · organization</td><td>ATP organelle · photo I/O · cell→tissue→organ</td><td>1. ATP organelle?<br>2. Gas from photosynthesis?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>v=d/t · SI units · d-t graphs</td><td>v=d/t · m · slope=speed</td><td>1. Speed formula?<br>2. SI distance unit?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→Proton/Z · 2→CO₂ · 3→Mitochondria · 4→O₂ · 5→v=d/t · 6→Meter · <strong>Fri:</strong> 15 mixed toss-ups</p>
+
+  <h4><span class="week-tag">Week 10</span> Summer capstone</h4>
+  <table style="font-size:7pt">
+    <tr><th>Block</th><th>Focus</th><th>Flash-card targets</th><th>Sample toss-ups</th></tr>
+    <tr class="chem"><td>Mon/Thu Chem</td><td>acids/bases · solutions · pH</td><td>pH 7 · acid+base→salt · solute/solvent</td><td>1. Neutral pH?<br>2. Salt water solute?</td></tr>
+    <tr class="bio"><td>Tue/Fri Bio</td><td>ecology · genetics · immunity</td><td>symbiosis ×3 · Tt×Tt 3:1 · antibiotic≠virus</td><td>1. Three symbiosis?<br>2. Antibiotic for virus?</td></tr>
+    <tr class="phys"><td>Wed Phys</td><td>W=Fd · PE/KE · conservation</td><td>W=Fd · PE→KE falling</td><td>1. 8 N × 3 m → W?<br>2. Falling ball PE→?</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Answers:</strong> 1→7 · 2→Salt · 3→mutualism, commensalism, parasitism · 4→No · 5→24 J · 6→KE · <strong>Fri Aug 14:</strong> final 25 toss-ups mock</p>
+
+  <h4>Bonus chains — practice on Fridays</h4>
+  <table style="font-size:7pt">
+    <tr><th>Toss-up (4 pts)</th><th>Bonus parts (10 pts total)</th><th>Key answers</th></tr>
+    <tr class="bio"><td>ATP organelle?</td><td>(A) 2 respiration inputs (B) 2 outputs (C) photosynthesis organelle</td><td>Mito · glucose+O₂ · CO₂+H₂O+ATP · chloroplast</td></tr>
+    <tr class="bio"><td>Tt×Tt phenotypic ratio?</td><td>(A) genotypic ratio (B) tt phenotype (C) heterozygous notation</td><td>3:1 · 1:2:1 · recessive · Tt</td></tr>
+    <tr class="chem"><td>Neutral pH?</td><td>(A) pH 3 acid/base? (B) HCl+NaOH products (C) ion measured</td><td>7 · acid · NaCl+H₂O · H⁺</td></tr>
+    <tr class="chem"><td>NaCl ionic or covalent?</td><td>(A) oxide charge (B) CO₂ formula (C) Cl⁻ cation or anion?</td><td>ionic · 2− · CO₂ · anion</td></tr>
+    <tr class="phys"><td>v = d/t?</td><td>(A) 60 km/2 h + 40 km/1 h avg speed (B) SI speed unit (C) flat d-t means</td><td>≈33.3 km/h · m/s · at rest</td></tr>
+    <tr class="phys"><td>Ohm's law?</td><td>(A) I=2,R=5 → V (B) series R up/down (C) current unit</td><td>10 V · up · ampere</td></tr>
+  </table>
+  <p style="font-size:7pt"><strong>Drill:</strong> 5 toss-up+bonus chains per Fri review · 5 sec toss-up · ~20 sec per bonus part</p>
+</section>
+
+<!-- PAGE 9 — REFERENCE SHEETS -->
+<section class="page page-portrait">
+  <div class="page-header">
+    <h2>Quick reference sheets</h2>
+    <div class="page-meta">Memorize for toss-ups<br>Flash card these</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3>Top 20 elements</h3>
+      <table style="font-size:8pt">
+        <tr><th>#</th><th>Sym</th><th>Name</th><th>#</th><th>Sym</th><th>Name</th></tr>
+        <tr><td>1</td><td><strong>H</strong></td><td>Hydrogen</td><td>11</td><td><strong>Na</strong></td><td>Sodium</td></tr>
+        <tr><td>2</td><td><strong>He</strong></td><td>Helium</td><td>12</td><td><strong>Mg</strong></td><td>Magnesium</td></tr>
+        <tr><td>3</td><td><strong>Li</strong></td><td>Lithium</td><td>13</td><td><strong>Al</strong></td><td>Aluminum</td></tr>
+        <tr><td>6</td><td><strong>C</strong></td><td>Carbon</td><td>14</td><td><strong>Si</strong></td><td>Silicon</td></tr>
+        <tr><td>7</td><td><strong>N</strong></td><td>Nitrogen</td><td>15</td><td><strong>P</strong></td><td>Phosphorus</td></tr>
+        <tr><td>8</td><td><strong>O</strong></td><td>Oxygen</td><td>16</td><td><strong>S</strong></td><td>Sulfur</td></tr>
+        <tr><td>9</td><td><strong>F</strong></td><td>Fluorine</td><td>17</td><td><strong>Cl</strong></td><td>Chlorine</td></tr>
+        <tr><td>10</td><td><strong>Ne</strong></td><td>Neon</td><td>18</td><td><strong>Ar</strong></td><td>Argon</td></tr>
+        <tr><td colspan="3">… also <strong>K</strong> (19) · <strong>Ca</strong> (20)</td><td>19</td><td><strong>K</strong></td><td>Potassium</td></tr>
+        <tr><td></td><td></td><td></td><td>20</td><td><strong>Ca</strong></td><td>Calcium</td></tr>
+      </table>
+
+      <h3>Common ions &amp; formulas</h3>
+      <table style="font-size:8pt">
+        <tr><th>Name</th><th>Formula</th><th>Name</th><th>Ion</th></tr>
+        <tr><td>Water</td><td>H₂O</td><td>Sodium</td><td>Na⁺</td></tr>
+        <tr><td>Carbon dioxide</td><td>CO₂</td><td>Chloride</td><td>Cl⁻</td></tr>
+        <tr><td>Salt</td><td>NaCl</td><td>Oxide</td><td>O²⁻</td></tr>
+        <tr><td>Glucose</td><td>C₆H₁₂O₆</td><td>Calcium</td><td>Ca²⁺</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Organelles</h3>
+      <table style="font-size:8pt">
+        <tr><th>Organelle</th><th>Function</th></tr>
+        <tr><td>Nucleus</td><td>DNA · controls cell</td></tr>
+        <tr><td>Mitochondria</td><td>ATP · respiration</td></tr>
+        <tr><td>Ribosome</td><td>Protein synthesis</td></tr>
+        <tr><td>Chloroplast</td><td>Photosynthesis (plants)</td></tr>
+        <tr><td>Cell wall</td><td>Support (plants)</td></tr>
+        <tr><td>Membrane</td><td>Selective barrier</td></tr>
+        <tr><td>Lysosome</td><td>Breaks down waste</td></tr>
+        <tr><td>Golgi</td><td>Packages proteins</td></tr>
+      </table>
+
+      <h3>Physics formulas</h3>
+      <table style="font-size:8pt">
+        <tr><th>Formula</th><th>Use</th></tr>
+        <tr><td><strong>v = d/t</strong></td><td>Speed from distance &amp; time</td></tr>
+        <tr><td><strong>F = ma</strong></td><td>Force, mass, acceleration</td></tr>
+        <tr><td><strong>W = Fd</strong></td><td>Work</td></tr>
+        <tr><td><strong>P = W/t</strong></td><td>Power</td></tr>
+        <tr><td><strong>v = fλ</strong></td><td>Wave speed</td></tr>
+        <tr><td><strong>V = IR</strong></td><td>Ohm's law</td></tr>
+        <tr><td>PE = mgh · KE = ½mv²</td><td>Energy (concept)</td></tr>
+      </table>
+
+      <h3>SI base units</h3>
+      <table style="font-size:8pt">
+        <tr><th>Quantity</th><th>Unit</th></tr>
+        <tr><td>Length</td><td>meter (m)</td></tr>
+        <tr><td>Mass</td><td>kilogram (kg)</td></tr>
+        <tr><td>Time</td><td>second (s)</td></tr>
+        <tr><td>Amount</td><td>mole (mol)</td></tr>
+        <tr><td>Current</td><td>ampere (A)</td></tr>
+      </table>
+      <h3>Photosynthesis &amp; respiration</h3>
+      <table style="font-size:8pt">
+        <tr><th>Process</th><th>Where</th><th>Inputs</th><th>Outputs</th></tr>
+        <tr class="bio"><td>Photosynthesis</td><td>Chloroplast</td><td>CO₂ + H₂O + light</td><td>glucose + O₂</td></tr>
+        <tr class="bio"><td>Respiration</td><td>Mitochondria</td><td>glucose + O₂</td><td>CO₂ + H₂O + ATP</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 10 — CHECKLISTS (was page 7) -->
+<section class="page page-portrait">
+  <div class="page-header">
+    <h2>Category checklist</h2>
+    <div class="page-meta">Check when you can answer toss-ups without notes<br>Your scope only — Bio + Chem + Phys</div>
+  </div>
+
+  <div class="three-col">
+    <div>
+      <ul class="checklist">
+        <h4 class="bio">Life sciences — Biology</h4>
+        <li>Cell structure — nucleus, mitochondria, ribosomes, chloroplast, wall</li>
+        <li>Photosynthesis &amp; respiration — I/O · ATP · organelles</li>
+        <li>DNA &amp; heredity — Punnett · dominant/recessive</li>
+        <li>Human body systems — digestive, circulatory, respiratory</li>
+        <li>Ecology — food webs · biomes · symbiosis</li>
+        <li>Evolution — natural selection · kingdom→species</li>
+        <li>Microbes &amp; disease — bacteria vs virus · vaccines</li>
+        <li>Plants &amp; animals — root/stem/leaf · tissues</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="checklist">
+        <h4 class="chem">Physical sciences — Chemistry</h4>
+        <li>Atoms &amp; periodic table — p/n/e · first 20 symbols</li>
+        <li>Ions &amp; compounds — Na⁺, Cl⁻ · H₂O, CO₂, NaCl</li>
+        <li>Chemical reactions — balance · exo/endothermic</li>
+        <li>Acids, bases &amp; pH — scale 0–14 · H⁺/OH⁻</li>
+        <li>States of matter — phase changes · particle model</li>
+        <li>Solutions — solute/solvent · concentration</li>
+        <li>Lab &amp; equipment — SI units · safety · glassware</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="checklist">
+        <h4 class="phys">Physical sciences — Physics</h4>
+        <li>Motion — speed, velocity · d-t graphs · v = d/t</li>
+        <li>Forces — F = ma · friction · Newton's 3 laws</li>
+        <li>Work &amp; energy — W = Fd · power · machines</li>
+        <li>Waves &amp; light — v = fλ · reflection/refraction</li>
+        <li>Electricity — V = IR · series vs parallel</li>
+        <li>Energy transfer — conservation · identify forms</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Buzzer practice <span style="font-weight:normal;font-size:9pt">— never 2:00–3:00 PM</span></h3>
+  <table style="font-size:8.5pt">
+    <tr><th>When</th><th>What</th><th>Time</th><th>Example drill questions</th></tr>
+    <tr class="chem"><td>Mon free 12:40–1:30</td><td>Chemistry toss-ups</td><td>10 min</td><td>Atomic number? · Symbol for Na? · pH of water?</td></tr>
+    <tr class="bio"><td>Tue free 3:00+</td><td>Biology toss-ups</td><td>15 min</td><td>ATP organelle? · Photosynthesis product? · Tt×Tt ratio?</td></tr>
+    <tr class="phys"><td>Wed free 3:55+</td><td>Physics flash cards</td><td>10 min</td><td>v=d/t · F=ma · W=Fd · v=fλ · V=IR</td></tr>
+    <tr><td>Thu free 1:10–2:00</td><td>Mixed rapid-fire</td><td>15 min</td><td>Alternate Bio/Chem/Phys · parent reads</td></tr>
+    <tr><td>7:30–8:00 PM opt.</td><td>Family reads aloud</td><td>15 min</td><td>Calendar toss-ups or DOE (your categories only)</td></tr>
+  </table>
+  <p style="font-size:8.5pt"><strong>Format:</strong> ask → buzz → answer in 5 sec → log ✓/✗ → flash card misses · toss-up = 4 pts · bonus = 10 pts · run 5 bonus chains on Fridays</p>
+
+  <h3>Friday planning block (4:40 – 5:40 PM)</h3>
+  <ol class="steps">
+    <li><strong>10 min</strong> — Score the week: % correct in Bio vs Chem vs Phys</li>
+    <li><strong>20 min</strong> — Re-study two weakest subtopics</li>
+    <li><strong>20 min</strong> — Preview next week · write Monday's 3 facts tonight</li>
+    <li><strong>10 min</strong> — Run 5 toss-up+bonus chains · update checklist · one goal</li>
+  </ol>
+</section>
+
+<!-- PAGE 11 — RESOURCES + QUICK REF -->
+<section class="page page-portrait">
+  <div class="page-header">
+    <h2>Resources &amp; quick reference</h2>
+    <div class="page-meta">Links · team tips · weekly planner<br>Jun 8 – Aug 14 summer detail in calendar</div>
+  </div>
+
+  <table>
+    <tr><th>Resource</th><th>Use for</th></tr>
+    <tr><td><a href="periodic-table-study.html">periodic-table-study.html</a></td><td>118-element interactive study — flash cards · quiz · tiers</td></tr>
+    <tr><td><a href="periodic-table-print.html">periodic-table-print.html</a></td><td>Printable periodic table packet (grid + reference + drill)</td></tr>
+    <tr><td>Your textbooks (above)</td><td>Primary study — follow reading guide</td></tr>
+    <tr><td><a href="summer-2026-calendar.md">summer-2026-calendar.md</a></td><td>Daily Focus · Formulas · Toss-ups · answer keys</td></tr>
+    <tr><td><a href="summer-2026-whiteboard.html">summer-2026-whiteboard.html</a></td><td>Print weekly grid for whiteboard</td></tr>
+    <tr><td><a href="https://science.osti.gov/wdts/nsb">DOE Science Bowl</a></td><td>Rules · registration · timeline</td></tr>
+    <tr><td><a href="https://science.osti.gov/-/media/wdts/nsb/pdf/NSB-Resources/Rules2026.pdf">NSB Rules 2026 (PDF)</a></td><td>Competition format · eligibility</td></tr>
+    <tr><td><a href="https://science.osti.gov/wdts/nsb/Regional-Competitions">Past question sets (DOE)</a></td><td>Bio, Chem, Phys only · use after reading</td></tr>
+    <tr><td><a href="https://science.osti.gov/wdts/nsb/Regional-Competitions/Resources/Tips-and-Resources">DOE Tips &amp; Resources</a></td><td>Official textbook guidance</td></tr>
+    <tr><td>Science Bowl MS practice books</td><td>Mock rounds — skip Earth/Energy/Math</td></tr>
+    <tr><td>Quizlet Bio/Chem/Phys decks</td><td>Quick recall between reading days</td></tr>
+  </table>
+
+  <div class="callout" style="font-size:8.5pt;margin-top:0.12in">
+    <strong>RRISD:</strong> Ask TAG science teacher or NSB coach which regional you register for. Confirm school qualifier timing (often Oct/Nov).<br>
+    <strong>Team tip:</strong> You cover life + physical sciences — coordinate teammates for Earth &amp; Space, Energy, and Math.
+  </div>
+
+  <h3>Quick reference — this week at a glance</h3>
+  <p style="font-size:8.5pt;margin-bottom:0.06in">Copy each Sunday or during Fri planning block.</p>
+  <table>
+    <tr><th></th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr>
+    <tr><td><strong>Category</strong></td><td class="chem">Physical (Chem)</td><td class="bio">Life (Bio)</td><td class="phys">Physical (Phys)</td><td class="chem">Physical (Chem)</td><td class="bio">Life (Bio)</td></tr>
+    <tr><td><strong>Topic</strong></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td></tr>
+    <tr><td><strong>Textbook</strong></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td></tr>
+    <tr><td><strong>Practice goal</strong></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td></tr>
+    <tr><td><strong>Weak spot</strong></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td><td class="blank-row"></td></tr>
+  </table>
+
+  <p class="footer">Pairs with <a href="weekly-timetable.html">weekly-timetable.html</a> ·
+  <a href="summer-2026-calendar.md">summer-2026-calendar.md</a> (Jun 8 – Aug 14) ·
+  First study day: Monday June 8, 2026 · Source: science-bowl-prep.md</p>
+</section>
+
+</body>
+</html>
