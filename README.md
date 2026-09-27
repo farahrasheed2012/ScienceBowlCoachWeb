@@ -29,7 +29,7 @@ npx vercel
 npx vercel --prod
 ```
 
-Hobby / free tier is enough. Add `DATABASE_URL` (Neon) in `.env.local` and in Vercel so Settings can link the iPhone and Mac. The app creates table `sbc_web_progress` only. Export/import still works without a database.
+Hobby / free tier is enough. For phone ↔ Mac sync, create a **new** Neon project (do not reuse Sunday School Attendance) and set that `DATABASE_URL` in `.env.local` and in Vercel. The app creates table `sbc_web_progress` only. Export/import still works without a database.
 
 ## Data
 

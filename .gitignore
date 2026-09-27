@@ -9,3 +9,4 @@ out
 .vercel
 scripts/.doe-pdfs
 scripts/__pycache__
+.neon
