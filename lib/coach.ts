@@ -1,4 +1,4 @@
-import { findTopicArticle } from "./questions";
+import { findTopicArticle, isChoiceCorrect } from "./questions";
 import { accuracyWindow, improvedTopics, paceSeconds, performanceFor, subjectAccuracy } from "./stats";
 import type { DrillResult, EncyclopediaTopic, PlayQuestion, PracticeRound } from "./types";
 
@@ -114,6 +114,16 @@ export function coachRead(input: {
   return { kicker: "Coach's read", body: "Answer a few questions and I'll name the next gap." };
 }
 
+export function answerLeaked(text: string, answer: string) {
+  const norm = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const hay = norm(text);
+  const main = norm(answer.split(/\bACCEPT\b|\(/i)[0] ?? "");
+  if (!hay || !main) return false;
+  if (main.length >= 3 && hay.includes(main)) return true;
+  const words = main.split(" ").filter((word) => word.length > 3);
+  return words.length > 0 && words.every((word) => hay.includes(word));
+}
+
 export function localCoach(input: {
   action: CoachAction;
   question: PlayQuestion;
@@ -121,7 +131,7 @@ export function localCoach(input: {
   correct?: boolean | null;
   history?: CoachHistory;
 }) {
-  const article = findTopicArticle(input.question);
+  const article = findTopicArticle(input.question, input.action !== "hint");
   switch (input.action) {
     case "hint":
       return hint(input.question, article);
@@ -179,11 +189,33 @@ function whyWrong(question: PlayQuestion, userAnswer: string | undefined, articl
   ].filter(Boolean).join(" ");
 }
 
+function hintAnswerShape(answer: string) {
+  const main = answer
+    .split(/\bACCEPT\b|\(|;/i)[0]
+    .replace(/^(the|a|an)\s+/i, "")
+    .replace(/[^a-zA-Z0-9\s-]/g, " ")
+    .trim();
+  const words = main.split(/\s+/).filter(Boolean);
+  return { words: words.length, letter: words[0]?.[0]?.toUpperCase() ?? "" };
+}
+
 function hint(question: PlayQuestion, article?: EncyclopediaTopic) {
-  if (article?.nsbTraps[0]) return `Hint: ${article.nsbTraps[0]}`;
-  if (article?.keyTerms[0]) return `Hint: think about ${article.keyTerms[0].term} — ${article.keyTerms[0].definition}`;
-  if (question.format === "multipleChoice") return "Hint: eliminate any choice that answers a nearby fact instead of the exact stem.";
-  return `Hint: this toss-up is about ${question.topic}. Name the precise term, not a related process.`;
+  const trap = article?.nsbTraps[0];
+  if (trap && !answerLeaked(trap, question.answer)) return `Hint: ${trap}`;
+  const term = article?.keyTerms[0];
+  if (term && !answerLeaked(`${term.term} ${term.definition}`, question.answer)) {
+    return `Hint: think about ${term.term}.`;
+  }
+  if (question.format === "multipleChoice") {
+    const wrong = question.choices.find((choice) => !isChoiceCorrect(question, choice.key) && !answerLeaked(choice.text, question.answer));
+    if (wrong) return `Hint: it is not ${wrong.key}) ${wrong.text}. Re-read the last clause of the stem.`;
+    return "Hint: re-read the last clause. Cross out any choice that is true but not what was asked.";
+  }
+  const shape = hintAnswerShape(question.answer);
+  if (shape.words && shape.letter && shape.letter.length === 1 && !/^\d$/.test(shape.letter)) {
+    return `Hint: this is a ${question.category} toss-up. The answer is ${shape.words} word${shape.words === 1 ? "" : "s"} and starts with ${shape.letter}.`;
+  }
+  return `Hint: this ${question.category} toss-up wants a precise term. Re-read the last clause.`;
 }
 
 function eighthGrade(question: PlayQuestion, article?: EncyclopediaTopic) {

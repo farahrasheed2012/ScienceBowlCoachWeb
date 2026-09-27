@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { coachBrief, localCoach, type CoachAction } from "@/lib/coach";
+import { answerLeaked, coachBrief, localCoach, type CoachAction } from "@/lib/coach";
 import { findTopicArticle } from "@/lib/questions";
 import { topicHistory } from "@/lib/stats";
 import { useStore } from "@/lib/store";
@@ -15,6 +15,7 @@ export function CoachPanel({
   correct,
   phase,
   onSimilar,
+  onHint,
   recentAccuracy,
   weakTopic,
 }: {
@@ -23,6 +24,7 @@ export function CoachPanel({
   correct: boolean | null;
   phase: "live" | "buzzed" | "revealed" | "done";
   onSimilar?: () => void;
+  onHint?: () => void;
   recentAccuracy?: number | null;
   weakTopic?: boolean;
 }) {
@@ -31,13 +33,16 @@ export function CoachPanel({
   const [source, setSource] = useState<"local" | "ai" | "">("");
   const [aiError, setAiError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [lastAction, setLastAction] = useState<CoachAction | "">("");
   const article = findTopicArticle(question);
   const tossupId = article ? tossupTopicForEncyclopedia(article.id) : question.topicId;
   const history = topicHistory(store.drillResults, question.topic);
   const brief = coachBrief(question, userAnswer, correct, history);
 
   async function run(action: CoachAction) {
+    if (action === "hint") onHint?.();
     const local = localCoach({ action, question, userAnswer, correct, history });
+    setLastAction(action);
     setText(local);
     setSource("local");
     setAiError("");
@@ -60,7 +65,7 @@ export function CoachPanel({
         }),
       });
       const data = await res.json();
-      if (data.text) {
+      if (data.text && !(action === "hint" && answerLeaked(data.text, question.answer))) {
         setText(data.text);
         setSource(data.source === "ai" ? "ai" : "local");
         setAiError(data.source === "ai" ? "" : String(data.error ?? ""));
@@ -84,8 +89,8 @@ export function CoachPanel({
           {brief.missLine ? <p className="coach-history">{brief.missLine}</p> : null}
         </div>
       ) : null}
-      {phase === "live" ? (
-        <button className="text-btn" type="button" disabled={busy} onClick={() => run("hint")}>Hint</button>
+      {phase === "live" || phase === "buzzed" ? (
+        <button className="btn ghost" type="button" disabled={busy} onClick={() => run("hint")}>Hint</button>
       ) : null}
       {phase === "revealed" ? (
         <details className="more-help">
@@ -110,7 +115,7 @@ export function CoachPanel({
       ) : null}
       {text ? (
         <div className="card stack">
-          <p className="muted">{busy ? "Checking a fuller explanation…" : source === "ai" ? "Simpler explanation" : "Coach notes"}</p>
+          <p className="muted">{busy ? (lastAction === "hint" ? "Looking up a hint…" : "Checking a fuller explanation…") : lastAction === "hint" ? "Hint" : source === "ai" ? "Simpler explanation" : "Coach notes"}</p>
           {aiError ? <p className="muted">AI did not run: {aiError}</p> : null}
           <p>{text}</p>
         </div>

@@ -218,12 +218,15 @@ export function officialSeconds(question: PlayQuestion) {
   return question.format === "multipleChoice" ? 5 : 20;
 }
 
-export function findTopicArticle(question: PlayQuestion): EncyclopediaTopic | undefined {
+export function findTopicArticle(question: PlayQuestion, loose = true): EncyclopediaTopic | undefined {
   if (question.topicId) {
     const exact = topics.find((t) => t.id === question.topicId);
     if (exact) return exact;
   }
-  return articleForLabel(question.topic) ?? articleForLabel(question.category);
+  const byTopic = articleForLabel(question.topic, loose);
+  if (byTopic) return byTopic;
+  if (!loose) return undefined;
+  return articleForLabel(question.category);
 }
 
 export function bonusPool(importedDoe: DoeQuestion[] = []): PlayQuestion[] {

@@ -60,6 +60,10 @@ export function QuestionPlay({
     setPhase("buzzed");
   }
 
+  function pauseForHint() {
+    setClockOn(false);
+  }
+
   useEffect(() => {
     questionGen.current += 1;
     answeredId.current = null;
@@ -366,13 +370,14 @@ export function QuestionPlay({
         {store.parentReadsAloud && phase !== "revealed" ? (
           <button className="btn" type="button" onClick={() => setPhase("revealed")}>Reveal</button>
         ) : null}
-        {phase === "live" ? (
+        {phase === "live" || phase === "buzzed" ? (
           <CoachPanel
-            key={`${question.id}-live`}
+            key={question.id}
             question={question}
             userAnswer={picked ?? typed}
             correct={correct}
-            phase="live"
+            phase={phase}
+            onHint={pauseForHint}
             recentAccuracy={topicRow?.acc}
             weakTopic={Boolean(topicRow && topicRow.acc < 0.7)}
           />
@@ -385,7 +390,7 @@ export function QuestionPlay({
             {!correct ? <p className="reveal-note muted">The answer is {question.answer}.</p> : null}
             <div className="reveal-coach">
               <CoachPanel
-                key={`${question.id}-revealed`}
+                key={question.id}
                 question={question}
                 userAnswer={picked ?? typed}
                 correct={correct}

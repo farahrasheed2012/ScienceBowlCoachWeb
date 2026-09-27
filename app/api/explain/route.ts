@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { localCoach, type CoachAction } from "@/lib/coach";
+import { answerLeaked, localCoach, type CoachAction } from "@/lib/coach";
 import type { PlayQuestion } from "@/lib/types";
 
 const ACTIONS: CoachAction[] = ["explain", "why-wrong", "hint", "eighth-grade", "teach"];
@@ -44,7 +44,9 @@ export async function POST(req: Request) {
         messages: [
           {
             role: "system",
-            content: "You are a concise middle-school Science Bowl coach. Explain in 4-8 short sentences. Use 8th-grade language. Do not invent facts. If unsure, say what to review.",
+            content: action === "hint"
+              ? "You are a middle-school Science Bowl coach. Give ONE short hint. Never state the answer, a synonym, or the correct letter. Do not invent facts."
+              : "You are a concise middle-school Science Bowl coach. Explain in 4-8 short sentences. Use 8th-grade language. Do not invent facts. If unsure, say what to review.",
           },
           {
             role: "user",
@@ -54,7 +56,7 @@ export async function POST(req: Request) {
               `Type: ${question.kind ?? "tossup"} ${question.format}`,
               `Subject: ${body.subject ?? question.category}`,
               `Topic: ${question.topic}`,
-              `Correct answer: ${question.answer}`,
+              action === "hint" ? "The student has not answered yet. Nudge toward the idea. Do not name the answer." : `Correct answer: ${question.answer}`,
               question.choices.length ? `Choices: ${question.choices.map((c) => `${c.key}) ${c.text}`).join(" / ")}` : "",
               body.userAnswer ? `Student answered: ${body.userAnswer}` : "Student did not answer",
               `Correct?: ${body.correct === true ? "yes" : body.correct === false ? "no" : "unknown"}`,
@@ -64,7 +66,9 @@ export async function POST(req: Request) {
               history.missesWeek ? `${history.missesWeek} misses on this topic in the last 7 days.` : "",
               `Local notes: ${fallback}`,
               action === "eighth-grade" ? "Use only 8th-grade words. One short paragraph." : "",
-              "Structure: why the answer is right, one sentence to remember, the common trap. Do not invent facts.",
+              action === "hint"
+                ? "Reply with one hint sentence only. Do not explain why an answer is right."
+                : "Structure: why the answer is right, one sentence to remember, the common trap. Do not invent facts.",
             ].filter(Boolean).join("\n"),
           },
         ],
@@ -72,11 +76,13 @@ export async function POST(req: Request) {
     });
     const data = await res.json();
     const text = data?.choices?.[0]?.message?.content?.trim();
-    if (!text) {
+    if (!text || (action === "hint" && answerLeaked(text, question.answer))) {
       return NextResponse.json({
         text: fallback,
         source: "local",
-        error: typeof data?.error?.message === "string" ? data.error.message : `AI ${res.status}`,
+        error: !text
+          ? (typeof data?.error?.message === "string" ? data.error.message : `AI ${res.status}`)
+          : undefined,
       });
     }
     return NextResponse.json({ text, source: "ai" });
