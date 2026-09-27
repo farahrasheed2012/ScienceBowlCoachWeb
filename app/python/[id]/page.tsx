@@ -14,6 +14,10 @@ import {
 } from "@/lib/python";
 import { useStore } from "@/lib/store";
 
+function BackToHub() {
+  return <Link className="text-btn session-leave" href="/python">Back</Link>;
+}
+
 function CopyCode({ code }: { code: string }) {
   const [note, setNote] = useState("");
   async function copy() {
@@ -92,7 +96,7 @@ export default function PythonLessonPage() {
     return (
       <div className="learn-page">
         <div>
-          <Link href="/python">Python</Link>
+          <BackToHub />
           <p className="mission-kicker">Game</p>
           <h1 className="session-title">{game.title}</h1>
           <p className="muted">{game.summary}</p>
@@ -113,8 +117,8 @@ export default function PythonLessonPage() {
   if (!lesson) {
     return (
       <div className="learn-page">
+        <BackToHub />
         <p>Lesson not found.</p>
-        <Link href="/python">Back to Python</Link>
       </div>
     );
   }
@@ -127,7 +131,7 @@ export default function PythonLessonPage() {
   return (
     <div className="learn-page">
       <div>
-        <Link href="/python">Python</Link>
+        <BackToHub />
         <p className="mission-kicker">
           {level ? `${level.title} · ` : ""}
           {week ? `${week.emoji} ${week.title}` : "Lesson"}
@@ -173,7 +177,7 @@ export default function PythonLessonPage() {
         </button>
         {next ? <Link className="btn ghost" href={`/python/${next.id}`}>Next</Link> : <Link className="btn ghost" href="/python">All weeks</Link>}
       </div>
-      {prev ? <Link href={`/python/${prev.id}`}>Previous · {prev.title}</Link> : null}
+      {prev ? <Link className="text-btn" href={`/python/${prev.id}`}>Previous · {prev.title}</Link> : null}
     </div>
   );
 }
