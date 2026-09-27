@@ -274,7 +274,7 @@ export function QuestionPlay({
           <p className="faint">{index + 1} / {list.length}</p>
         )}
       </div>
-      <div className={`play-card ${tone}`}>
+      <div key={question.id} className={`play-card q-enter ${tone}`} data-phase={phase}>
         <p className="stem">{question.questionText}</p>
         {store.parentReadsAloud && phase !== "revealed" ? (
           <p className="faint">Parent is reading. Answers stay hidden until Reveal.</p>
@@ -337,7 +337,7 @@ export function QuestionPlay({
         {phase === "revealed" ? (
           <div className="reveal-block">
             <p className={`reveal-verdict ${correct ? "ok-text" : "bad-text"}`}>
-              {correct ? "✓ Correct" : "✕ Not quite"}
+              {correct ? "Correct" : "Not quite"}
             </p>
             {!correct ? <p className="reveal-note muted">The answer is {question.answer}.</p> : null}
             <div className="reveal-coach">
@@ -359,10 +359,12 @@ export function QuestionPlay({
             )}
           </div>
         ) : null}
-        <SpeechBar text={question.questionText} />
-        {seen > 0 ? (
-          <button className="text-btn" type="button" onClick={finishRound}>End round</button>
-        ) : null}
+        <div className="play-quiet">
+          <SpeechBar text={question.questionText} />
+          {seen > 0 ? (
+            <button className="text-btn" type="button" onClick={finishRound}>End round</button>
+          ) : null}
+        </div>
       </div>
     </div>
   );

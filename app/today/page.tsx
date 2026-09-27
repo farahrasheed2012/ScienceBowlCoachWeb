@@ -80,16 +80,10 @@ export default function TodayPage() {
     : history.missedLast3 >= 2
       ? `You missed ${history.missedLast3} of your last 3 questions on this topic.`
       : whyBullets[0];
-  const recentAcc = history.last5 >= 3
-    ? Math.round((history.last5Correct / history.last5) * 100)
-    : history.attempts
-      ? Math.round(history.accuracy * 100)
-      : null;
   const recent = store.drillResults.slice(-20);
   const recentAvg = recent.length
     ? Math.round((recent.filter((row) => row.correct).length / recent.length) * 100)
     : null;
-  const fourStage = mission.startSession;
   const insight = coachRead({
     results: store.drillResults,
     rounds: store.practiceRounds,
@@ -173,18 +167,13 @@ export default function TodayPage() {
       <div className="stack mission-page session-page view-in">
         <div className="session-chrome">
           <button className="text-btn session-leave" type="button" onClick={leaveSession}>Leave</button>
-          <p className="mission-kicker">Today&apos;s mission</p>
           <h1 className="session-title">{session.title}</h1>
           <div className="stage-nav">
             <ol className="stage-rail">
               {MISSION_STAGES.map((item, i) => (
                 <li key={item.label} className={i === stage ? "current" : i < stage ? "done" : "upcoming"}>
-                  <button type="button" onClick={() => setStage(i)}>
-                    <span className="stage-mark">{i < stage ? "✓" : i === stage ? "●" : ""}</span>
-                    <span className="stage-copy">
-                      <strong>{item.label}</strong>
-                      <span className="faint">{item.minutes} min</span>
-                    </span>
+                  <button type="button" onClick={() => setStage(i)} aria-label={item.label} aria-current={i === stage ? "step" : undefined}>
+                    <span className="stage-mark" />
                   </button>
                 </li>
               ))}
@@ -193,10 +182,7 @@ export default function TodayPage() {
               <div className="stage-fill" style={{ width: `${(stage / (MISSION_STAGES.length - 1)) * 100}%` }} />
             </div>
           </div>
-          <p className="stage-count">{stage + 1} / {MISSION_STAGES.length}</p>
-          {store.showSessionTimer ? (
-            <p className="faint">{session.kind === "summer" ? "1 hour science block" : `${current.label} · about ${leftMin} min left`}</p>
-          ) : null}
+          <p className="stage-now">{current.label}{store.showSessionTimer ? ` · ${leftMin} min left` : ""}</p>
         </div>
         <div key={stage} className="stage-pane">
           {stage === 0 ? <QuestionPlay questions={session.recall} title="Recall from this topic" timed={false} /> : null}
@@ -261,21 +247,14 @@ export default function TodayPage() {
   }
 
   return (
-    <div className="mission-page">
+    <div className="mission-page view-in">
       <p className="mission-hello">{timeGreeting(store.studentName)}</p>
       <p className="faint">{dayLine()}</p>
       <section className="mission stack">
-        <p className="mission-kicker">Your mission</p>
         <h1 className="mission-title">{mission.planId === "flash" ? mission.topic : missionLabel}</h1>
-        <p className="mission-subject">{mission.subject}</p>
-        {mission.planId !== "flash" && recentAcc != null ? <p className="mission-stat">{recentAcc}% recent accuracy</p> : null}
         <p className="mission-why">{whyLead}</p>
         <p className="mission-goal">{mission.planId === "flash" ? mission.outcome : todayGoal(history)}</p>
-        <div className="mission-plan">
-          <p className="mission-time">{mission.minutes} min</p>
-          <p>{fourStage ? "Recall → Learn → Know Cold → Toss-ups" : mission.activities}</p>
-        </div>
-        {mission.planId === "weak" && weakBooks.primary ? <p className="mission-goal">{weakBooks.primary}</p> : null}
+        <p className="mission-time">{mission.minutes} min</p>
         {mission.startSession ? (
           <button className="btn mission-cta" type="button" onClick={beginMission}>Start mission</button>
         ) : (
@@ -283,7 +262,6 @@ export default function TodayPage() {
         )}
       </section>
       <div className="mission-progress">
-        <p className="mission-kicker">Your progress</p>
         <p className="muted">
           {store.studyStreak > 0 ? `${store.studyStreak} day streak` : "Start a streak today"}
           {recentAvg != null ? ` · ${recentAvg}% avg` : store.xp ? ` · ${store.xp} XP` : ""}
