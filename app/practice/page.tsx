@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { tossUpBundled, tossUpHewittPairs, tossUpTopics } from "@/lib/tossup";
 import { regionalSprint } from "@/lib/catalogs";
 import { PacketPicker } from "@/components/PacketPicker";
-import { doeBundled, matchesSubject, mergeDoeQuestions, parseQuestionCache, practiceBank } from "@/lib/questions";
+import { matchesSubject, practiceBank } from "@/lib/questions";
 import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
@@ -30,15 +29,11 @@ const SUBJECTS = [
 
 export default function PracticePage() {
   const store = useStore();
-  const [doeNote, setDoeNote] = useState("");
   const bank = practiceBank(store.importedDoe);
   const weak = topicAccuracy(store.drillResults).filter((row) => row.acc < 0.7);
   const topics = tossUpTopics.filter((t) => !t.id.endsWith("-all"));
   const today = schoolYearFocus();
   const schoolYear = isSchoolYear();
-  const extraDoe = store.importedDoe.filter((row) => !doeBundled.some((bundled) => bundled.id === row.id)).length;
-  const earthCount = bank.filter((q) => matchesSubject(q, "earth") && q.kind !== "bonus").length;
-  const energyCount = bank.filter((q) => matchesSubject(q, "energy") && q.kind !== "bonus").length;
 
   return (
     <div className="stack">
@@ -63,38 +58,6 @@ export default function PracticePage() {
           </div>
         </div>
       ) : null}
-      <div className="card stack">
-        <h3>DOE question bank</h3>
-        <p className="muted">
-          {doeBundled.length + extraDoe} official DOE middle-school questions
-          {extraDoe ? ` · ${extraDoe} extra imported` : ""}.
-          Earth {earthCount} · Energy {energyCount} · Chemistry {bank.filter((q) => matchesSubject(q, "chemistry") && q.kind !== "bonus").length}.
-          Official MS sets 1–16 plus Round Robin and Double Elim. Extra caches still import below.
-        </p>
-        <input
-          type="file"
-          accept="application/json"
-          onChange={async (e) => {
-            const file = e.target.files?.[0];
-            if (!file) return;
-            try {
-              const parsed = parseQuestionCache(JSON.parse(await file.text()));
-              if (parsed.error) {
-                setDoeNote(parsed.error);
-                return;
-              }
-              const merged = mergeDoeQuestions(store.importedDoe, parsed.questions);
-              const added = merged.length - store.importedDoe.length;
-              store.set({ importedDoe: merged });
-              setDoeNote(`${file.name}: ${added} new · ${merged.length} imported total.`);
-            } catch {
-              setDoeNote("That file is not a DOE or TossUp question cache.");
-            }
-            e.target.value = "";
-          }}
-        />
-        {doeNote ? <p className={doeNote.includes("not") || doeNote.includes("backup") || doeNote.includes("No DOE") ? "bad-text" : "ok-text"}>{doeNote}</p> : null}
-      </div>
       <PacketPicker importedDoe={store.importedDoe} />
       <div className="card">
         <p className="muted">Space buzzes · W X Y Z or 1–4 answers · N or Enter goes to the next question after reveal · End round saves the session.</p>
