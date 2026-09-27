@@ -26,6 +26,7 @@ export function CoachPanel({
 }) {
   const [text, setText] = useState("");
   const [source, setSource] = useState<"local" | "ai" | "">("");
+  const [aiError, setAiError] = useState("");
   const [busy, setBusy] = useState(false);
   const article = findTopicArticle(question);
   const tossupId = article ? tossupTopicForEncyclopedia(article.id) : question.topicId;
@@ -35,6 +36,7 @@ export function CoachPanel({
     const local = localCoach({ action, question, userAnswer, correct });
     setText(local);
     setSource("local");
+    setAiError("");
     setBusy(true);
     try {
       const res = await fetch("/api/explain", {
@@ -54,6 +56,7 @@ export function CoachPanel({
       if (data.text) {
         setText(data.text);
         setSource(data.source === "ai" ? "ai" : "local");
+        setAiError(data.source === "ai" ? "" : String(data.error ?? ""));
       }
     } catch {
       /* keep local */
@@ -90,6 +93,7 @@ export function CoachPanel({
       {text ? (
         <div className="card stack">
           <p className="muted">{busy ? "Checking a fuller explanation…" : source === "ai" ? "Simpler explanation" : "Coach notes"}</p>
+          {aiError ? <p className="muted">AI did not run: {aiError}</p> : null}
           <p>{text}</p>
         </div>
       ) : null}

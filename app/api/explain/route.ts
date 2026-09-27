@@ -22,7 +22,7 @@ export async function POST(req: Request) {
   const url = process.env.GROQ_API_KEY
     ? "https://api.groq.com/openai/v1/chat/completions"
     : "https://api.openai.com/v1/chat/completions";
-  const model = process.env.GROQ_API_KEY ? "llama-3.1-8b-instant" : "gpt-4o-mini";
+  const model = process.env.GROQ_API_KEY ? "openai/gpt-oss-20b" : "gpt-4o-mini";
 
   if (!key) {
     return NextResponse.json({ text: fallback, source: "local" });
@@ -68,7 +68,14 @@ export async function POST(req: Request) {
     });
     const data = await res.json();
     const text = data?.choices?.[0]?.message?.content?.trim();
-    return NextResponse.json({ text: text || fallback, source: text ? "ai" : "local" });
+    if (!text) {
+      return NextResponse.json({
+        text: fallback,
+        source: "local",
+        error: typeof data?.error?.message === "string" ? data.error.message : `AI ${res.status}`,
+      });
+    }
+    return NextResponse.json({ text, source: "ai" });
   } catch {
     return NextResponse.json({ text: fallback, source: "local" });
   }
