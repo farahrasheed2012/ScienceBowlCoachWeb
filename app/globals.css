@@ -373,6 +373,28 @@ h3 { font-size: 16px; margin: 0 0 6px; }
 .learn-subjects a:hover { color: var(--text); border-bottom-color: var(--line); }
 .learn-sprint { display: grid; gap: 10px; }
 .learn-sprint p { margin: 0; }
+.python-body { display: grid; gap: 12px; max-width: 40em; }
+.python-body p, .python-body li { margin: 0; color: var(--muted); line-height: 1.5; }
+.python-body h2, .python-body h3 { margin: 8px 0 0; letter-spacing: -0.02em; }
+.python-body ul, .python-body ol { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.python-body code {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.92em;
+  color: var(--text);
+}
+.python-body pre, .learn-page pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+  box-shadow: var(--inset);
+}
+.python-body pre code, .learn-page pre code {
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: pre;
+}
 
 .play-stage { display: grid; gap: 22px; }
 .play-meta {

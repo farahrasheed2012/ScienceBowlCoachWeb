@@ -42,6 +42,7 @@ Copied from the Mac app:
 - 634 TossUp bundled questions (bio, chem, math)
 - Official DOE middle-school sample sets 1–16 plus Round Robin / Double Elim extras (`doe_questions_cache.json`, ~11,300 questions). Physical Science is split into Chemistry vs Physics for practice.
 - calendar / timetable / periodic table HTML
+- Soha Python Coach lessons (`python_coach.json`) — read on iPhone, run on the Mac app
 
 To refresh extracted Swift catalogs after Mac-app edits:
 
@@ -66,7 +67,7 @@ Home · Practice · Learn · Progress · Settings
 
 - **Home** — school-year plan (or summer 1-hour blocks before Aug 28)
 - **Practice** — TossUp bank + encyclopedia + curriculum + imported DOE. Official 5s MC / 20s SA.
-- **Learn** — encyclopedia, Review with books, Formulas, flashcards, Topics, Weeks archive
+- **Learn** — encyclopedia, Python (phone reader), Review with books, Formulas, flashcards, Topics, Weeks archive
 - **Review** (`/learn/review`) — weak topics first, then unreviewed Earth/Energy, with textbook/chapter/page lines from the catalog. Open the assigned section, then drill. Not a new chapter hour.
 
 Textbooks are a lookup tool. The site does not rebuild the Mac FLS/Hewitt chapter-checkbox grid.

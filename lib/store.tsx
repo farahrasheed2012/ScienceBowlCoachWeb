@@ -51,6 +51,7 @@ type State = {
   lastStudyDate: string | null;
   elementMastered: string[];
   completedSessionIds: string[];
+  pythonDoneIds: string[];
   planExtraDate: string | null;
   planExtraDone: string[];
   practiceRounds: PracticeRound[];
@@ -84,6 +85,7 @@ const defaultState = (): State => ({
   lastStudyDate: null,
   elementMastered: [],
   completedSessionIds: [],
+  pythonDoneIds: [],
   planExtraDate: null,
   planExtraDone: [],
   practiceRounds: [],
@@ -100,6 +102,7 @@ type Store = State & {
   reviewFlashCard: (id: string, correct: boolean) => void;
   addFlashCards: (cards: { subject: string; topic: string; prompt: string; answer: string }[]) => number;
   completeSession: (blockId: string) => void;
+  togglePythonDone: (id: string) => void;
   togglePlanItem: (id: string) => void;
   recordRound: (input: { title: string; asked: number; correct: number; seconds: number }) => void;
   clearProgress: () => void;
@@ -182,6 +185,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           checklist: mergeChecklist(parsed.checklist),
           flashCards: mergeFlashCards(parsed.flashCards ?? []),
           drillResults: mergeDrillResults(parsed.drillResults ?? []),
+          pythonDoneIds: Array.isArray(parsed.pythonDoneIds) ? parsed.pythonDoneIds : [],
         });
       }
     } catch {
@@ -327,6 +331,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         completedSessionIds: prev.completedSessionIds.includes(blockId)
           ? prev.completedSessionIds
           : [...prev.completedSessionIds, blockId],
+      }));
+    },
+    togglePythonDone: (id) => {
+      setState((prev) => ({
+        ...prev,
+        pythonDoneIds: prev.pythonDoneIds.includes(id)
+          ? prev.pythonDoneIds.filter((item) => item !== id)
+          : [...prev.pythonDoneIds, id],
       }));
     },
     togglePlanItem: (id) => {

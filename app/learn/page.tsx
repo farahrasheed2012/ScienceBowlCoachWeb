@@ -48,6 +48,7 @@ export default function LearnPage() {
       )}
       <nav className="secondary-links">
         <Link href="/learn/flash">{due ? `${due} flashcards due` : "Flashcards"}</Link>
+        <Link href="/learn/python">Python</Link>
         <Link href="/learn/review">Review with books</Link>
         <Link href="/topics">All topics</Link>
         <Link href="/learn/formulas">Formulas</Link>
