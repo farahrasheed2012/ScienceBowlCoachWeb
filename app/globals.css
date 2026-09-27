@@ -89,40 +89,77 @@ h3 { font-size: 16px; margin: 0 0 6px; }
 .ok-text { color: var(--ok); }
 .bad-text { color: var(--bad); }
 .stem { font-size: clamp(22px, 3.4vw, 30px); line-height: 1.35; margin: 0; }
+.mission-page { display: grid; gap: 16px; }
+.mission-hello {
+  margin: 4px 0 0;
+  font-size: clamp(20px, 3vw, 26px);
+  letter-spacing: -0.02em;
+  font-weight: 650;
+}
 .mission {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 22px 22px 24px;
+  border-radius: 22px;
+  padding: 24px 24px 26px;
   border-top: 4px solid var(--accent);
-  margin: 16px 0 8px;
+  margin: 0;
 }
 .mission-kicker {
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 12px;
+  letter-spacing: 0.1em;
+  font-size: 11px;
   font-weight: 700;
   color: var(--accent);
 }
-.mission-title { margin: 0; font-size: clamp(24px, 3.6vw, 34px); letter-spacing: -0.03em; }
+.mission-title { margin: 0; font-size: clamp(26px, 4vw, 38px); letter-spacing: -0.03em; }
 .btn.mission-cta, a.btn.mission-cta { min-height: 48px; padding: 12px 22px; font-size: 16px; }
+.mission-stages, .why-mission ul {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 8px;
+}
+.mission-stages li, .why-mission li {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--muted);
+}
+.why-mission { padding-top: 8px; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+.why-mission li::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 999px; background: var(--accent); flex: 0 0 auto;
+}
+.secondary-links {
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  color: var(--muted); font-size: 14px;
+}
+.secondary-links a { border-bottom: 1px solid transparent; }
+.secondary-links a:hover { color: var(--text); border-bottom-color: var(--line); }
 .stage-rail {
   list-style: none; margin: 0; padding: 0;
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
 }
-.stage-rail li {
-  display: flex; align-items: center; gap: 8px;
+.stage-rail li { margin: 0; }
+.stage-rail button {
+  width: 100%; display: flex; align-items: center; gap: 8px;
   padding: 10px 12px; border-radius: 12px; background: var(--surface);
   color: var(--muted); border: 1px solid var(--line); font-size: 13px; font-weight: 600;
+  cursor: pointer; text-align: left;
 }
-.stage-rail li.current { color: var(--text); border-color: var(--accent); }
-.stage-rail li.done { color: var(--ok); }
+.stage-rail li.current button { color: var(--text); border-color: var(--accent); }
+.stage-rail li.done button { color: var(--ok); }
 .stage-num {
   width: 22px; height: 22px; border-radius: 999px; display: inline-grid; place-items: center;
-  background: var(--surface-2); font-size: 12px;
+  background: var(--surface-2); font-size: 12px; flex: 0 0 auto;
 }
-.stage-rail li.current .stage-num { background: var(--accent); color: white; }
+.stage-rail li.current .stage-num,
+.mission-stages .stage-num { background: var(--accent); color: white; }
+.stage-now { margin: 0; font-weight: 650; }
+.coach-history {
+  color: var(--gold);
+  font-weight: 650;
+}
+.notebook { color: var(--muted); }
+.notebook summary { cursor: pointer; }
+.rest-today { margin-top: 8px; }
 .play-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; }
 .play-kicker { margin: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 .play-kicker.bio { color: var(--bio); }
@@ -180,6 +217,7 @@ iframe.schedule { width: 100%; min-height: 70vh; border: 0; border-radius: 16px;
   .btn.mission-cta, a.btn.mission-cta { width: 100%; }
   .btn.buzz { width: 100%; }
   .stage-rail { grid-template-columns: 1fr 1fr; }
+  .mission { padding: 20px 18px 22px; }
   .choice { min-height: 48px; }
 }
 @media (min-width: 1100px) {

@@ -2,6 +2,7 @@ import { regionalSprint } from "./catalogs";
 import { matchesSubject } from "./questions";
 import { blocksForWeek, isSchoolYear, schoolYearFocus, todayBlocks, weekdayFromDate } from "./schedule";
 import { topicAccuracy } from "./stats";
+import { sameTopicLabel } from "./topic-map";
 import type { DrillResult, StudyBlock } from "./types";
 
 export type PlanItem = {
@@ -26,7 +27,7 @@ export type TodayMission = {
 };
 
 function lastMissAt(results: DrillResult[], topic: string) {
-  const miss = [...results].reverse().find((row) => row.topic === topic && !row.correct);
+  const miss = [...results].reverse().find((row) => sameTopicLabel(row.topic, topic) && !row.correct);
   return miss ? new Date(miss.at) : null;
 }
 
@@ -70,16 +71,15 @@ export function todaysMission(input: {
   if (pick.id === "weak") {
     const miss = weak ? lastMissAt(input.drillResults, weak.topic) : null;
     const recent = miss && Date.now() - miss.getTime() < 36 * 3600 * 1000;
-    const checkedOff = Boolean(plan.find((item) => item.id === "weak")?.done);
     return {
       subject: weak?.subject || "Mixed",
       topic: weak?.topic || "Weak-area practice",
       reason: weak
-        ? `${Math.round(weak.acc * 100)}% after ${weak.attempts} tries${recent ? " · you missed this recently" : ""}${checkedOff ? " · still under 70% even if you checked it off" : ""}. Open the assigned section, then drill.`
-        : "Answer a few questions and this slot will name a weak topic.",
-      minutes: pick.minutes,
-      activities: "Recall → Read → Know Cold → Toss-ups",
-      outcome: weak ? "Get this topic moving toward 70%" : "Find today's weak spot",
+        ? `You're weakest in ${weak.subject} this week.${recent ? " You missed this recently." : ""}`
+        : "No weak topic yet — start here so I can see what you miss.",
+      minutes: 28,
+      activities: "Recall → Learn → Know Cold → Toss-ups",
+      outcome: weak ? "Reach 80%+ on this topic" : "Find today's weak spot",
       href: pick.href,
       planId: pick.id,
       startSession: isSchoolYear(date),
@@ -93,8 +93,8 @@ export function todaysMission(input: {
       reason: block
         ? `${block.bookCode} ${block.chapter} · today's assigned hour.`
         : "No summer block left — pick an encyclopedia topic.",
-      minutes: pick.minutes,
-      activities: "Recall → Read → Know Cold → Toss-ups",
+      minutes: 28,
+      activities: "Recall → Learn → Know Cold → Toss-ups",
       outcome: "Leave knowing the assigned section cold",
       href: pick.href,
       planId: pick.id,

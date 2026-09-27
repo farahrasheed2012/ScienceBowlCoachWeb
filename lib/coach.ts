@@ -3,21 +3,38 @@ import type { EncyclopediaTopic, PlayQuestion } from "./types";
 
 export type CoachAction = "explain" | "why-wrong" | "hint" | "eighth-grade" | "teach";
 
-export function coachBrief(question: PlayQuestion, userAnswer?: string, correct?: boolean | null) {
+export type CoachHistory = {
+  recentMisses?: number;
+  missesWeek?: number;
+  lastAt?: string;
+  acc?: number | null;
+};
+
+function recentMissLine(history?: CoachHistory) {
+  const n = history?.recentMisses ?? 0;
+  if (n < 2) return "";
+  return n === 2
+    ? "You missed this twice recently."
+    : `You missed this ${n} times recently.`;
+}
+
+export function coachBrief(question: PlayQuestion, userAnswer?: string, correct?: boolean | null, history?: CoachHistory) {
   const article = findTopicArticle(question);
   const picked = question.choices.find((choice) => choice.key === userAnswer || choice.text === userAnswer);
+  const trap = article?.nsbTraps[0] ?? "Read the last clause of the stem before you buzz. Nearby facts are the usual trap.";
+  const missLine = recentMissLine(history);
   const why = [
     `The correct answer is ${question.answer}.`,
     article?.whatIsIt,
     correct === false && userAnswer
       ? `You answered ${picked ? `${picked.key}) ${picked.text}` : userAnswer}, which does not match what the stem asked.`
       : "",
+    correct === true && missLine ? "Lock this one in." : "",
   ].filter(Boolean).join(" ");
   const remember = article?.keyTerms[0]
     ? `${article.keyTerms[0].term}: ${article.keyTerms[0].definition}`
     : `Remember: ${question.answer} — ${question.topic}.`;
-  const trap = article?.nsbTraps[0] ?? "Read the last clause of the stem before you buzz. Nearby facts are the usual trap.";
-  return { why, remember, trap };
+  return { why, remember, trap, missLine };
 }
 
 export function localCoach(input: {
@@ -25,32 +42,36 @@ export function localCoach(input: {
   question: PlayQuestion;
   userAnswer?: string;
   correct?: boolean | null;
+  history?: CoachHistory;
 }) {
   const article = findTopicArticle(input.question);
   switch (input.action) {
     case "hint":
       return hint(input.question, article);
     case "why-wrong":
-      return whyWrong(input.question, input.userAnswer, article);
+      return whyWrong(input.question, input.userAnswer, article, input.history);
     case "teach":
       return teach(input.question, article);
     case "eighth-grade":
       return eighthGrade(input.question, article);
     default:
-      return explain(input.question, input.userAnswer, input.correct ?? null, article);
+      return explain(input.question, input.userAnswer, input.correct ?? null, article, input.history);
   }
 }
 
-function explain(question: PlayQuestion, userAnswer: string | undefined, correct: boolean | null, article?: EncyclopediaTopic) {
+function explain(question: PlayQuestion, userAnswer: string | undefined, correct: boolean | null, article?: EncyclopediaTopic, history?: CoachHistory) {
+  const trap = article?.nsbTraps[0];
+  const missLine = recentMissLine(history);
   const parts = [
+    correct === false && missLine ? `${missLine} The trap you're falling into is ${trap ?? "confusing a nearby fact with what the stem asked."}` : "",
     `The answer is ${question.answer}.`,
     article?.whatIsIt ?? `This is a ${question.kind === "bonus" ? "bonus" : "toss-up"} on ${question.topic}.`,
   ];
   if (question.format === "multipleChoice") {
     parts.push(choiceReview(question, userAnswer));
   }
-  if (article?.nsbTraps[0]) {
-    parts.push(`NSB trap: ${article.nsbTraps[0]}`);
+  if (trap && !(correct === false && missLine)) {
+    parts.push(`NSB trap: ${trap}`);
   }
   if (correct === false && userAnswer) {
     parts.push(`Your answer (${userAnswer}) is close to a related idea, but it does not match what the stem asked.`);
@@ -58,17 +79,27 @@ function explain(question: PlayQuestion, userAnswer: string | undefined, correct
   return parts.filter(Boolean).join(" ");
 }
 
-function whyWrong(question: PlayQuestion, userAnswer: string | undefined, article?: EncyclopediaTopic) {
+function whyWrong(question: PlayQuestion, userAnswer: string | undefined, article?: EncyclopediaTopic, history?: CoachHistory) {
+  const trap = article?.nsbTraps[0] ?? article?.whatIsIt ?? `Review ${question.topic} and try a similar toss-up.`;
+  const missLine = recentMissLine(history);
   if (!userAnswer) {
-    return `No answer was locked in. The stem wanted ${question.answer}. Read the last clause of the question again before you buzz.`;
+    return [
+      missLine,
+      `No answer was locked in. The stem wanted ${question.answer}.`,
+      missLine ? `The trap you're falling into is ${trap}` : "Read the last clause of the question again before you buzz.",
+    ].filter(Boolean).join(" ");
   }
   const picked = question.choices.find((c) => c.key === userAnswer || c.text === userAnswer);
   const label = picked ? `${picked.key}) ${picked.text}` : userAnswer;
   return [
+    missLine,
     `You chose ${label}. The correct answer is ${question.answer}.`,
-    picked ? `That choice is a common mix-up for ${question.topic}.` : `Check the exact wording of the stem.`,
-    article?.nsbTraps[0] ?? article?.whatIsIt ?? `Review ${question.topic} and try a similar toss-up.`,
-  ].join(" ");
+    missLine
+      ? `The trap you're falling into is ${trap}`
+      : picked
+        ? `That choice is a common mix-up for ${question.topic}. ${trap}`
+        : `Check the exact wording of the stem. ${trap}`,
+  ].filter(Boolean).join(" ");
 }
 
 function hint(question: PlayQuestion, article?: EncyclopediaTopic) {

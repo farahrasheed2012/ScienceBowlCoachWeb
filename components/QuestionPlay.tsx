@@ -242,7 +242,7 @@ export function QuestionPlay({
   const answering = phase === "buzzed" || (!timed && phase === "live") || (store.parentReadsAloud && phase === "revealed");
   const showChoices = question.format === "multipleChoice" && (!store.parentReadsAloud || phase === "revealed");
   const showTyped = question.format === "shortAnswer" && phase !== "revealed" && (answering || !timed || phase === "live");
-  const topicRow = topicAccuracy(store.drillResults).find((row) => row.topic === question.topic);
+  const topicRow = topicAccuracy(store.drillResults).find((row) => sameTopicLabel(row.topic, question.topic));
 
   return (
     <div className="stack">

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { coachBrief, localCoach, type CoachAction } from "@/lib/coach";
 import { findTopicArticle } from "@/lib/questions";
+import { topicHistory } from "@/lib/stats";
+import { useStore } from "@/lib/store";
 import { tossupTopicForEncyclopedia } from "@/lib/topic-map";
 import type { PlayQuestion } from "@/lib/types";
 
@@ -24,16 +26,18 @@ export function CoachPanel({
   recentAccuracy?: number | null;
   weakTopic?: boolean;
 }) {
+  const store = useStore();
   const [text, setText] = useState("");
   const [source, setSource] = useState<"local" | "ai" | "">("");
   const [aiError, setAiError] = useState("");
   const [busy, setBusy] = useState(false);
   const article = findTopicArticle(question);
   const tossupId = article ? tossupTopicForEncyclopedia(article.id) : question.topicId;
-  const brief = coachBrief(question, userAnswer, correct);
+  const history = topicHistory(store.drillResults, question.topic);
+  const brief = coachBrief(question, userAnswer, correct, history);
 
   async function run(action: CoachAction) {
-    const local = localCoach({ action, question, userAnswer, correct });
+    const local = localCoach({ action, question, userAnswer, correct, history });
     setText(local);
     setSource("local");
     setAiError("");
@@ -47,8 +51,11 @@ export function CoachPanel({
           question,
           userAnswer,
           correct,
-          recentAccuracy,
+          recentAccuracy: recentAccuracy ?? history.acc,
           weakTopic,
+          recentMisses: history.recentMisses,
+          missesWeek: history.missesWeek,
+          lastPracticed: history.lastAt,
           subject: question.category,
         }),
       });
@@ -69,6 +76,11 @@ export function CoachPanel({
     <div className="stack coach">
       {phase === "revealed" ? (
         <div className="coach-brief">
+          {brief.missLine && correct === false ? (
+            <p className="coach-history">{brief.missLine} The trap you&apos;re falling into is {brief.trap}</p>
+          ) : brief.missLine ? (
+            <p className="coach-history">{brief.missLine} Lock this one in.</p>
+          ) : null}
           <p><strong>Why?</strong> {brief.why}</p>
           <p><strong>Remember this.</strong> {brief.remember}</p>
           <p><strong>Common trap.</strong> {brief.trap}</p>

@@ -11,11 +11,18 @@ export async function POST(req: Request) {
   if (!question?.questionText || !question.answer) {
     return NextResponse.json({ error: "Missing question" }, { status: 400 });
   }
+  const history = {
+    recentMisses: Number(body.recentMisses) || 0,
+    missesWeek: Number(body.missesWeek) || 0,
+    lastAt: typeof body.lastPracticed === "string" ? body.lastPracticed : undefined,
+    acc: body.recentAccuracy != null ? Number(body.recentAccuracy) : null,
+  };
   const fallback = localCoach({
     action,
     question,
     userAnswer: body.userAnswer,
     correct: body.correct,
+    history,
   });
 
   const key = process.env.GROQ_API_KEY;
@@ -53,6 +60,8 @@ export async function POST(req: Request) {
               `Correct?: ${body.correct === true ? "yes" : body.correct === false ? "no" : "unknown"}`,
               body.recentAccuracy != null ? `Recent accuracy on this topic: ${Math.round(Number(body.recentAccuracy) * 100)}%` : "",
               body.weakTopic ? "This topic is currently a weak area for the student." : "",
+              history.recentMisses >= 2 ? `The student missed this topic ${history.recentMisses} times in the last 10 tries.` : "",
+              history.missesWeek ? `${history.missesWeek} misses on this topic in the last 7 days.` : "",
               `Local notes: ${fallback}`,
               action === "eighth-grade" ? "Use only 8th-grade words. One short paragraph." : "",
               "Structure: why the answer is right, one sentence to remember, the common trap. Do not invent facts.",
