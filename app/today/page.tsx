@@ -116,7 +116,7 @@ export default function TodayPage() {
             </li>
           ))}
         </ol>
-        <p className="muted">About {leftMin} min left · {stages.length - stage} stage{stages.length - stage === 1 ? "" : "s"} remaining</p>
+        <p className="muted">About {leftMin} min left · {stages.length - stage} {stages.length - stage === 1 ? "stage" : "stages"} remaining</p>
         {store.showSessionTimer ? (
           <p className="timer">{session.kind === "summer" ? "1 hour science block · stay on this page" : "Keep-sharp session · stay on this page"}</p>
         ) : null}
