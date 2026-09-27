@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { PythonBody } from "@/components/PythonBody";
 import {
   challengeMatches,
@@ -10,6 +10,7 @@ import {
   neighbors,
   pythonGame,
   pythonLesson,
+  pythonLessonStages,
   weekForLesson,
 } from "@/lib/python";
 import { useStore } from "@/lib/store";
@@ -53,8 +54,7 @@ function Challenge({
     setState(challengeMatches(guess, lesson) ? "ok" : "bad");
   }
   return (
-    <section className="stack">
-      <p className="mission-kicker">Quick check</p>
+    <div className="stack">
       <p>{question}</p>
       <form
         className="stack"
@@ -81,6 +81,25 @@ function Challenge({
       {state === "ok" ? <p className="coach-history">Exactly.</p> : null}
       {state === "bad" ? <p className="muted">Not quite — try again, or peek the answer.</p> : null}
       {show && lesson.challengeAnswer ? <p className="muted">{lesson.challengeAnswer}</p> : null}
+    </div>
+  );
+}
+
+function Stage({
+  id,
+  n,
+  label,
+  children,
+}: {
+  id: string;
+  n: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className="py-stage" id={id}>
+      <p className="play-kicker"><span className="py-stage-n">{n}</span> {label}</p>
+      {children}
     </section>
   );
 }
@@ -94,21 +113,27 @@ export default function PythonLessonPage() {
 
   if (game) {
     return (
-      <div className="learn-page">
+      <div className="py-page">
         <div>
           <BackToHub />
           <p className="mission-kicker">Game</p>
           <h1 className="session-title">{game.title}</h1>
           <p className="muted">{game.summary}</p>
-          <p className="faint">Read here. Run in Python Coach on the Mac.{game.weekNumber ? ` Week ${game.weekNumber}.` : ""}</p>
+          <p className="faint">Read here. Run on the Mac.{game.weekNumber ? ` Week ${game.weekNumber}.` : ""}</p>
         </div>
         {game.skills.length ? <p className="faint">{game.skills.join(" · ")}</p> : null}
         {game.steps.length ? (
-          <ol>
-            {game.steps.map((step) => <li key={step}>{step}</li>)}
-          </ol>
+          <Stage id="try" n="01" label="Try it">
+            <ol>
+              {game.steps.map((step) => <li key={step}>{step}</li>)}
+            </ol>
+          </Stage>
         ) : null}
-        {game.starterCode ? <CopyCode code={game.starterCode} /> : null}
+        {game.starterCode ? (
+          <Stage id="build" n="02" label="Build it">
+            <CopyCode code={game.starterCode} />
+          </Stage>
+        ) : null}
         {game.stretchGoal ? <p className="muted">Stretch: {game.stretchGoal}</p> : null}
       </div>
     );
@@ -116,7 +141,7 @@ export default function PythonLessonPage() {
 
   if (!lesson) {
     return (
-      <div className="learn-page">
+      <div className="py-page">
         <BackToHub />
         <p>Lesson not found.</p>
       </div>
@@ -127,57 +152,76 @@ export default function PythonLessonPage() {
   const level = week ? levelForWeek(week.id) : undefined;
   const done = store.pythonDoneIds.includes(lesson.id);
   const { prev, next } = neighbors(lesson.id);
+  const { learn, see, stages } = pythonLessonStages(lesson);
+  const num = (id: string) => stages.find((stage) => stage.id === id)?.n ?? "";
 
   return (
-    <div className="learn-page">
+    <div className="py-page">
       <div>
         <BackToHub />
         <p className="mission-kicker">
           {level ? `${level.title} · ` : ""}
-          {week ? `${week.emoji} ${week.title}` : "Lesson"}
+          {week ? week.title : "Lesson"}
         </p>
         <h1 className="session-title">{lesson.title}</h1>
         <p className="faint">Read here. Type and Run on the Mac.{lesson.durationMinutes ? ` · ~${lesson.durationMinutes} min` : ""}</p>
       </div>
-      <PythonBody text={lesson.body} />
+      <nav className="py-steps" aria-label="Lesson steps">
+        {stages.map((stage) => (
+          <a key={stage.id} className="py-step" href={`#${stage.id}`}>
+            {stage.n} {stage.label}
+          </a>
+        ))}
+      </nav>
+      {learn ? (
+        <Stage id="learn" n={num("learn")} label="Learn">
+          <PythonBody text={learn} />
+        </Stage>
+      ) : null}
+      {see ? (
+        <Stage id="see" n={num("see")} label="See it">
+          <PythonBody text={see} />
+        </Stage>
+      ) : null}
       {lesson.tryItPrompt ? (
-        <section>
-          <p className="mission-kicker">Try it</p>
+        <Stage id="try" n={num("try")} label="Try it">
           <p>{lesson.tryItPrompt}</p>
-        </section>
+        </Stage>
       ) : null}
-      {lesson.practiceSteps.length ? (
-        <section>
-          <p className="mission-kicker">Do this</p>
-          <ol>
-            {lesson.practiceSteps.map((step) => <li key={step}>{step}</li>)}
-          </ol>
-        </section>
+      {lesson.starterCode || lesson.practiceSteps.length ? (
+        <Stage id="build" n={num("build")} label="Build it">
+          {lesson.practiceSteps.length ? (
+            <ol>
+              {lesson.practiceSteps.map((step) => <li key={step}>{step}</li>)}
+            </ol>
+          ) : null}
+          {lesson.starterCode ? (
+            <CopyCode code={lesson.starterCode} />
+          ) : (
+            <p className="muted">No starter file — this one is reading and paper first.</p>
+          )}
+        </Stage>
       ) : null}
-      {lesson.starterCode ? (
-        <section className="stack">
-          <p className="mission-kicker">Starter · Mac Playground</p>
-          <CopyCode code={lesson.starterCode} />
-        </section>
-      ) : (
-        <p className="muted">No starter file — this one is reading and paper first.</p>
-      )}
       {lesson.challengeQuestion ? (
-        <Challenge key={lesson.id} question={lesson.challengeQuestion} lesson={lesson} />
+        <Stage id="prove" n={num("prove")} label="Prove it">
+          <Challenge key={lesson.id} question={lesson.challengeQuestion} lesson={lesson} />
+        </Stage>
       ) : null}
-      {lesson.teacherScript ? (
-        <details className="more-help">
-          <summary>Coach note</summary>
-          <p className="muted">{lesson.teacherScript}</p>
-        </details>
-      ) : null}
-      <div className="row">
-        <button className="btn" type="button" onClick={() => store.togglePythonDone(lesson.id)}>
-          {done ? "Done" : "Mark done"}
-        </button>
-        {next ? <Link className="btn ghost" href={`/python/${next.id}`}>Next</Link> : <Link className="btn ghost" href="/python">All weeks</Link>}
-      </div>
-      {prev ? <Link className="text-btn" href={`/python/${prev.id}`}>Previous · {prev.title}</Link> : null}
+      <Stage id="finish" n={num("finish")} label="Finish">
+        {lesson.teacherScript ? (
+          <details className="more-help">
+            <summary>Coach note</summary>
+            <p className="muted">{lesson.teacherScript}</p>
+          </details>
+        ) : null}
+        <div className="row">
+          <button className="btn" type="button" onClick={() => store.togglePythonDone(lesson.id)}>
+            {done ? "Done" : "Mark complete"}
+          </button>
+          {next ? <Link className="btn ghost" href={`/python/${next.id}`}>Next</Link> : <Link className="btn ghost" href="/python">Your path</Link>}
+        </div>
+        {prev ? <Link className="text-btn" href={`/python/${prev.id}`}>Previous · {prev.title}</Link> : null}
+      </Stage>
     </div>
   );
 }

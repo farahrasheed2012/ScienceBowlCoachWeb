@@ -415,6 +415,69 @@ h3 { font-size: 16px; margin: 0 0 6px; }
 }
 .learn-sprint { display: grid; gap: 10px; }
 .learn-sprint p { margin: 0; }
+.py-page { display: grid; gap: 28px; max-width: 640px; }
+.py-continue {
+  display: grid;
+  gap: 10px;
+  background: var(--glass);
+  border-radius: 28px;
+  padding: 32px 28px;
+  box-shadow: var(--inset), var(--lift-sm);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  animation: view-in 520ms var(--ease-out);
+}
+.py-continue .mission-hello { margin: 0; }
+.py-continue .btn.mission-cta { justify-self: start; margin-top: 8px; }
+.py-path { display: grid; }
+.py-path a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.py-path a:last-child { border-bottom: 0; }
+.py-path .is-now { color: var(--text); }
+.py-path .is-done { color: var(--muted); }
+.py-path .is-next { color: var(--faint); }
+.py-level { display: grid; }
+.py-entry {
+  display: grid;
+  gap: 6px;
+  padding: 4px 0 8px;
+}
+.py-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 10px 0;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.py-step {
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.py-step:hover { color: var(--text); }
+.py-stage {
+  display: grid;
+  gap: 12px;
+  padding: 6px 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+.py-stage:last-child { border-bottom: 0; padding-bottom: 0; }
+.py-stage-n { color: var(--accent); margin-right: 6px; }
 .python-body { display: grid; gap: 12px; max-width: 40em; }
 .python-body p, .python-body li { margin: 0; color: var(--muted); line-height: 1.5; }
 .python-body h2, .python-body h3 { margin: 8px 0 0; letter-spacing: -0.02em; }

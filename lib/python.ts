@@ -88,6 +88,54 @@ export function firstOpenLesson(lessonIds: string[], doneIds: string[]) {
   return lessonIds.find((id) => !done.has(id)) ?? lessonIds[0];
 }
 
+export function splitPythonBody(body: string) {
+  const text = body.replace(/\r\n/g, "\n").trim();
+  const fence = text.indexOf("```");
+  if (fence <= 0) return { learn: text, see: "" };
+  return { learn: text.slice(0, fence).trim(), see: text.slice(fence).trim() };
+}
+
+export function pythonLevelTracks(doneIds: string[]) {
+  const done = new Set(doneIds);
+  return pythonLevels.map((level) => {
+    const weeks = pythonWeeks.filter((week) => level.weeks.includes(week.id));
+    const lessonIds = weeks.flatMap((week) => week.lessonIds);
+    const marked = lessonIds.filter((id) => done.has(id)).length;
+    return {
+      level,
+      weeks,
+      marked,
+      total: lessonIds.length,
+      complete: lessonIds.length > 0 && marked === lessonIds.length,
+    };
+  });
+}
+
+export function currentPythonTrack(doneIds: string[]) {
+  const tracks = pythonLevelTracks(doneIds);
+  return tracks.find((track) => !track.complete) ?? tracks[tracks.length - 1];
+}
+
+export function pythonLessonStages(lesson: PythonLesson) {
+  const { learn, see } = splitPythonBody(lesson.body);
+  const raw = [
+    { id: "learn", label: "Learn", present: Boolean(learn) },
+    { id: "see", label: "See it", present: Boolean(see) },
+    { id: "try", label: "Try it", present: Boolean(lesson.tryItPrompt) },
+    { id: "build", label: "Build it", present: Boolean(lesson.starterCode) || lesson.practiceSteps.length > 0 },
+    { id: "prove", label: "Prove it", present: Boolean(lesson.challengeQuestion) },
+    { id: "finish", label: "Finish", present: true },
+  ].filter((stage) => stage.present);
+  return {
+    learn,
+    see,
+    stages: raw.map((stage, index) => ({
+      ...stage,
+      n: String(index + 1).padStart(2, "0"),
+    })),
+  };
+}
+
 function normalizeAnswer(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, " ");
 }

@@ -47,6 +47,11 @@ export default function LearnPage() {
       ) : (
         <p className="muted">Follow the summer block, then drill.</p>
       )}
+      <section className="py-entry">
+        <p className="mission-kicker">Python Coach</p>
+        <p className="muted">A 50-week path. Read here, run on the Mac.</p>
+        <Link className="text-btn" href="/python">Open Python Coach</Link>
+      </section>
       <nav className="secondary-links">
         <Link href="/learn/flash">{due ? `${due} flashcards due` : "Flashcards"}</Link>
         <Link href="/learn/review">Review with books</Link>
