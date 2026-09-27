@@ -5,7 +5,7 @@ import { AppShell } from "@/components/AppShell";
 
 export const metadata: Metadata = {
   title: "Science Bowl Coach — Soha",
-  description: "Middle School National Science Bowl coaching and study system. Offline-first. No account required.",
+  description: "Soha - Science/Python study space.",
 };
 
 export const viewport: Viewport = {
