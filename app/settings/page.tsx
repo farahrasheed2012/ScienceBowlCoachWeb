@@ -158,7 +158,7 @@ function ProfilesCard() {
   return (
     <section className="card stack">
       <h3>Who is studying</h3>
-      <p className="muted">Each kid has their own Science Bowl, Python, and sync code. Switch before they start.</p>
+      <p className="muted">Add a kid here. That creates their locker — same name on the phone picks it up. Switch before they start.</p>
       <select value={store.profileId} onChange={(event) => store.switchProfile(event.target.value)}>
         {store.profiles.map((profile) => (
           <option key={profile.id} value={profile.id}>{profile.name}</option>
@@ -203,33 +203,10 @@ function DeviceSync() {
       .catch(() => setAvailable(false));
   }, []);
 
-  async function createCode() {
-    setBusy(true);
-    setNote("");
-    try {
-      const res = await fetch("/api/sync", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ state: store.exportState() }),
-      });
-      const data = await res.json() as { code?: string; error?: string };
-      if (!res.ok || !data.code) {
-        setNote(data.error || "Could not create a sync code.");
-        return;
-      }
-      store.set({ syncCode: data.code, savedAt: new Date().toISOString() });
-      setNote("Code created. Type it on the other device.");
-    } catch {
-      setNote("Could not reach sync.");
-    } finally {
-      setBusy(false);
-    }
-  }
-
   async function joinCode() {
     const code = normalizeSyncCode(codeInput);
     if (!isSyncCode(code)) {
-      setNote("Use the 8-character code from the other device.");
+      setNote("Use the 8-character backup code if you have one.");
       return;
     }
     setBusy(true);
@@ -240,12 +217,12 @@ function DeviceSync() {
       store.set({ syncCode: code, savedAt: new Date().toISOString() });
       if (res.ok && data.state) {
         store.mergeRemote({ ...data.state, syncCode: code });
-        setNote("This device is linked. Progress will stay in sync.");
+        setNote("This device is linked.");
       } else {
         setNote("Linked. This device will start sharing from here.");
       }
     } catch {
-      setNote("Could not reach sync.");
+      setNote("Could not reach the locker.");
     } finally {
       setBusy(false);
     }
@@ -256,34 +233,29 @@ function DeviceSync() {
       <h3>Phone and Mac</h3>
       {available === false ? (
         <p className="muted">This browser still saves progress. Add DATABASE_URL in Vercel to share it between iPhone and MacBook.</p>
-      ) : (
+      ) : store.syncCode ? (
         <p className="muted">
-          No account. One code is for <strong>{store.studentName}</strong> only.
-          Switch kid first, then make or enter that kid&apos;s code.
+          <strong>{store.studentName}</strong> is in the locker. On the phone, add the same name.
         </p>
+      ) : (
+        <p className="muted">Saving {store.studentName} to the locker…</p>
       )}
       {store.syncCode ? (
+        <p className="faint">Backup code {formatSyncCode(store.syncCode)} — only if the name does not match.</p>
+      ) : null}
+      {available !== false ? (
         <>
-          <p className="session-title">{formatSyncCode(store.syncCode)}</p>
-          <p className="faint">Type this on the other device under Settings.</p>
-          <button className="btn ghost" type="button" onClick={() => store.set({ syncCode: null })}>Unlink this device</button>
-        </>
-      ) : (
-        <>
-          <button className="btn" type="button" disabled={busy || available === false} onClick={createCode}>
-            Make a sync code
-          </button>
-          <label>Already have a code?</label>
+          <label>Have a backup code?</label>
           <input
             value={codeInput}
             onChange={(event) => setCodeInput(event.target.value.toUpperCase())}
             placeholder="ABCD-EFGH"
           />
-          <button className="btn ghost" type="button" disabled={busy || available === false} onClick={joinCode}>
-            Link this device
+          <button className="btn ghost" type="button" disabled={busy} onClick={joinCode}>
+            Use backup code
           </button>
         </>
-      )}
+      ) : null}
       {note ? <p className="muted">{note}</p> : null}
     </section>
   );

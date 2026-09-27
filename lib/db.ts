@@ -45,6 +45,24 @@ export async function readProgress(code: string) {
   return (rows[0]?.state as Record<string, unknown> | undefined) ?? null;
 }
 
+export async function readProgressByName(name: string) {
+  await ensureProgressSchema();
+  const key = name.trim().toLowerCase();
+  if (!key) return null;
+  const rows = await getSql()`
+    SELECT code, state FROM sbc_web_progress
+    WHERE lower(trim(coalesce(state->>'studentName', ''))) = ${key}
+    ORDER BY updated_at DESC
+    LIMIT 1
+  `;
+  const row = rows[0];
+  if (!row) return null;
+  return {
+    code: String(row.code),
+    state: row.state as Record<string, unknown>,
+  };
+}
+
 export async function writeProgress(code: string, state: unknown) {
   await ensureProgressSchema();
   const payload = JSON.stringify(state);

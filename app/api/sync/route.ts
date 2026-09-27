@@ -1,14 +1,21 @@
 import { NextResponse } from "next/server";
-import { readProgress, syncAvailable, writeProgress } from "@/lib/db";
+import { readProgress, readProgressByName, syncAvailable, writeProgress } from "@/lib/db";
 import { isSyncCode, makeSyncCode, normalizeSyncCode } from "@/lib/sync-code";
 
 export async function GET(request: Request) {
-  const code = normalizeSyncCode(new URL(request.url).searchParams.get("code") ?? "");
-  if (!code) {
+  const url = new URL(request.url);
+  const name = url.searchParams.get("name")?.trim() ?? "";
+  const code = normalizeSyncCode(url.searchParams.get("code") ?? "");
+  if (!name && !code) {
     return NextResponse.json({ available: syncAvailable() });
   }
   if (!syncAvailable()) {
     return NextResponse.json({ error: "Sync is not configured." }, { status: 503 });
+  }
+  if (name) {
+    const found = await readProgressByName(name);
+    if (!found) return NextResponse.json({ error: "No locker for that name yet." }, { status: 404 });
+    return NextResponse.json(found);
   }
   if (!isSyncCode(code)) {
     return NextResponse.json({ error: "That code looks wrong." }, { status: 400 });
