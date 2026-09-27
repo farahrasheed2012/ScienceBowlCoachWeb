@@ -38,10 +38,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className="mobile-profile"><ProfileSwitch /></div>
         <div key={`${store.profileId}:${path}`} className="view-in">{children}</div>
       </main>
-      <nav className="mobile-nav">
+      <nav className="mobile-nav" aria-label="Primary">
         {NAV.map((item) => (
           <Link key={item.href} href={item.href} className={navActive(path, item) ? "active" : ""}>
-            {item.label}
+            {item.short}
           </Link>
         ))}
       </nav>
