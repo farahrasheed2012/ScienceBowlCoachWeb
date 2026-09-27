@@ -49,7 +49,10 @@ export default function TodayPage() {
     : todaySubject
       ? topics.find((topic) => topic.subject === todaySubject && !store.reviewedTopicIds.includes(topic.id))
         ?? topics.find((topic) => topic.subject === todaySubject)
-      : undefined;
+      : topics.find((topic) => (
+        (topic.subject === "Earth & Space Science" || topic.subject === "Energy")
+        && !store.reviewedTopicIds.includes(topic.id)
+      )) ?? topics.find((topic) => topic.id === "ls-photosynthesis");
   const weakBooks = weakArticle ? lookupLine(weakArticle.id) : {};
   const earthEnergyLeft = topics.filter((topic) => (
     (topic.subject === "Earth & Space Science" || topic.subject === "Energy")

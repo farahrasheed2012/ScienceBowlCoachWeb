@@ -67,8 +67,11 @@ export function keepSharpSession(input: {
   const encycl = article
     ? encyclopediaQuestions.filter((question) => question.topicId === article.id).map(encyclopediaToPlay)
     : [];
-  const recall = (encycl.length ? encycl : matched).slice(0, 5);
-  const tossups = shuffle(matched.length ? matched : encycl).slice(0, 12);
+  const fallback = shuffle(bank.filter((question) => question.kind !== "bonus"));
+  const recallPool = encycl.length ? encycl : matched.length ? matched : fallback;
+  const tossPool = matched.length ? matched : encycl.length ? encycl : fallback;
+  const recall = recallPool.slice(0, 5);
+  const tossups = shuffle(tossPool).slice(0, 12);
   const books = article ? lookupLine(article.id) : {};
   const knowCold = article
     ? [
