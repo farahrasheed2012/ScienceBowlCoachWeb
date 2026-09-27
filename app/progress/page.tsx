@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { CoachInsight } from "@/components/CoachInsight";
+import { coachRead } from "@/lib/coach";
+import { pickPriorityTopic } from "@/lib/plan";
 import { isSchoolYear } from "@/lib/schedule";
 import { articleForLabel } from "@/lib/topic-map";
 import { accuracyWindow, improvedTopics, studyMinutes, subjectAccuracy, topicAccuracy } from "@/lib/stats";
@@ -32,6 +35,12 @@ export default function ProgressPage() {
   const lifted = improvedTopics(results);
   const minutes = studyMinutes(rounds) || Math.round((store.studySeconds ?? 0) / 60);
   const weakArticle = weak[0] ? articleForLabel(weak[0].topic) : undefined;
+  const priority = pickPriorityTopic(results);
+  const insight = coachRead({
+    results,
+    rounds,
+    missionTopic: priority?.topic,
+  });
 
   return (
     <div className="stack">
@@ -43,6 +52,7 @@ export default function ProgressPage() {
             : "Accuracy, study time, weak topics, and recent sessions."}
         </p>
       </div>
+      <CoachInsight kicker={insight.kicker} body={insight.body} />
       <div className="grid three">
         <div className="card"><p className="stem">{pct(overall)}</p><p className="muted">Overall accuracy</p></div>
         <div className="card"><p className="stem">{results.length}</p><p className="muted">{correct} correct</p></div>

@@ -5,10 +5,12 @@ import { useEffect, useRef, useState } from "react";
 import { findTopicArticle, isChoiceCorrect, officialSeconds, answersMatch, subjectTone } from "@/lib/questions";
 import { lookupLine } from "@/lib/readings";
 import { RATE, praise, speak, stopSpeech } from "@/lib/speech";
+import { coachRead } from "@/lib/coach";
 import { topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 import { sameTopicLabel } from "@/lib/topic-map";
 import type { PlayQuestion } from "@/lib/types";
+import { CoachInsight } from "./CoachInsight";
 import { SpeechBar } from "./SpeechBar";
 import { CoachPanel } from "./CoachPanel";
 
@@ -222,16 +224,36 @@ export function QuestionPlay({
     const minutes = Math.max(1, Math.round((Date.now() - startedAt.current) / 60000));
     const dueNow = store.flashCards.filter((card) => new Date(card.due) <= new Date()).length;
     const acc = seen ? hits / seen : 0;
+    const read = coachRead({
+      results: store.drillResults,
+      rounds: store.practiceRounds,
+      missionTopic: missedTopics[0] || title,
+      sessionMissed: missedTopics,
+      sessionHits: hits,
+      sessionAsked: seen,
+    });
     return (
       <div className="stack">
-        <h2>Session complete</h2>
+        <p className="mission-kicker">Session complete</p>
         <div className="mission stack">
-          <p className="stem">{hits} / {seen} correct</p>
-          <p className="muted">{Math.round(acc * 100)}% · {minutes} min · +{earned} XP · streak {store.studyStreak}</p>
-          {missedTopics[0] ? <p>Needs review: {missedTopics.join(" · ")}</p> : <p className="muted">No misses this round.</p>}
+          <p className="stem">{hits} / {seen}</p>
+          <p>{Math.round(acc * 100)}%</p>
+          <CoachInsight kicker={read.kicker} body={read.body} />
+          {missedTopics[0] ? (
+            <div>
+              <p className="mission-kicker">Keep</p>
+              <p>Review {missedTopics.length} missed {missedTopics.length === 1 ? "topic" : "topics"}</p>
+              <p className="muted">{missedTopics.join(" · ")}</p>
+            </div>
+          ) : <p className="muted">No misses this round.</p>}
+          <div>
+            <p className="mission-kicker">Next recommended step</p>
+            <p>{missedTopics[0] ? "Try 2 similar questions" : "Keep the streak with a short toss-up"}</p>
+          </div>
+          <p className="muted">{minutes} min · +{earned} XP</p>
           {dueNow ? <p className="muted">{dueNow} flashcards due now.</p> : null}
           <div className="row">
-            {missedTopics[0] ? <Link className="btn" href="/learn/review">Review missed topics</Link> : <Link className="btn" href="/today">Continue today&apos;s plan</Link>}
+            {missedTopics[0] ? <Link className="btn mission-cta" href="/learn/review">Review now</Link> : <Link className="btn mission-cta" href="/today">Back to today</Link>}
             {dueNow ? <Link className="btn ghost" href="/learn/flash">Review flashcards</Link> : <Link className="btn ghost" href="/practice">Free practice</Link>}
           </div>
         </div>
@@ -327,7 +349,8 @@ export function QuestionPlay({
         {phase === "revealed" ? (
           <div className="stack">
             <p className={correct ? "ok-text" : "bad-text"}>
-              <strong>{correct ? "Correct" : "Not quite"}.</strong> {question.answer}
+              <strong>{correct ? "✓ Correct" : "✕ Not quite"}</strong>
+              {!correct ? <> · The answer is: {question.answer}</> : null}
             </p>
             {!correct ? <p className="muted">This miss is on your flashcards — due now, not a second copy.</p> : null}
             <CoachPanel
@@ -348,9 +371,9 @@ export function QuestionPlay({
               </p>
             ) : null}
             {index < list.length - 1 || (correct === false && list[index + 1]?.kind === "bonus") ? (
-              <button className="btn" type="button" onClick={next}>Next</button>
+              <button className={correct ? "btn mission-cta" : "btn ghost"} type="button" onClick={next}>Next question</button>
             ) : (
-              <button className="btn" type="button" onClick={finishRound}>See results</button>
+              <button className="btn mission-cta" type="button" onClick={finishRound}>See results</button>
             )}
           </div>
         ) : null}

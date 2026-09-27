@@ -76,32 +76,40 @@ export function CoachPanel({
     <div className="stack coach">
       {phase === "revealed" ? (
         <div className="coach-brief">
-          {brief.missLine && correct === false ? (
-            <p className="coach-history">{brief.missLine} The trap you&apos;re falling into is {brief.trap}</p>
-          ) : brief.missLine ? (
-            <p className="coach-history">{brief.missLine} Lock this one in.</p>
-          ) : null}
-          <p><strong>Why?</strong> {brief.why}</p>
-          <p><strong>Remember this.</strong> {brief.remember}</p>
-          <p><strong>Common trap.</strong> {brief.trap}</p>
+          <p className="mission-kicker">Coach</p>
+          {correct ? (
+            <p>You recognized the key clue: {brief.clue}.</p>
+          ) : (
+            <p>You missed this because {brief.whyMissed.replace(/^You /, "you ")}</p>
+          )}
+          {brief.missLine ? <p className="coach-history">{brief.missLine}</p> : null}
+          {!correct ? <p><strong>Watch for:</strong> {brief.trap}</p> : null}
+          <p><strong>Remember:</strong> {brief.remember}</p>
+          <p className="coach-next"><strong>Next:</strong> {brief.nextStep}</p>
         </div>
       ) : null}
       <div className="row">
         {phase === "live" ? (
           <button className="btn ghost" type="button" disabled={busy} onClick={() => run("hint")}>Give me a hint</button>
         ) : null}
-        {phase === "revealed" ? (
-          <>
-            <button className="btn ghost" type="button" disabled={busy} onClick={() => run("eighth-grade")}>Explain simpler</button>
-            <button className="btn ghost" type="button" disabled={busy} onClick={() => run("teach")}>Teach this topic</button>
-          </>
+        {phase === "revealed" && !correct && onSimilar ? (
+          <button className="btn" type="button" onClick={onSimilar}>Try similar question</button>
         ) : null}
-        {phase === "revealed" && onSimilar ? (
-          <button className="btn ghost" type="button" onClick={onSimilar}>Try a similar question</button>
-        ) : null}
-        {tossupId ? <Link className="btn ghost" href={`/practice/play?mode=topic&topic=${tossupId}`}>Quiz this topic</Link> : null}
-        {article ? <Link className="btn ghost" href={`/learn/${article.id}`}>Open the article</Link> : null}
       </div>
+      {phase === "revealed" ? (
+        <details className="more-help">
+          <summary>More help</summary>
+          <div className="row">
+            <button className="btn ghost" type="button" disabled={busy} onClick={() => run("eighth-grade")}>Explain more</button>
+            <button className="btn ghost" type="button" disabled={busy} onClick={() => run("teach")}>Teach this topic</button>
+            {correct && onSimilar ? (
+              <button className="btn ghost" type="button" onClick={onSimilar}>Similar question</button>
+            ) : null}
+            {tossupId ? <Link className="btn ghost" href={`/practice/play?mode=topic&topic=${tossupId}`}>Quiz this topic</Link> : null}
+            {article ? <Link className="btn ghost" href={`/learn/${article.id}`}>Study topic</Link> : null}
+          </div>
+        </details>
+      ) : null}
       {text ? (
         <div className="card stack">
           <p className="muted">{busy ? "Checking a fuller explanation…" : source === "ai" ? "Simpler explanation" : "Coach notes"}</p>

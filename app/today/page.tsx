@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { BUZZER_SLOTS, topics } from "@/lib/catalogs";
+import { CoachInsight } from "@/components/CoachInsight";
 import { QuestionPlay } from "@/components/QuestionPlay";
 import { SpeechBar } from "@/components/SpeechBar";
-import { buildTodayPlan, featuredBlock, todaysMission } from "@/lib/plan";
+import { coachRead } from "@/lib/coach";
+import { buildTodayPlan, featuredBlock, pickPriorityTopic, todaysMission } from "@/lib/plan";
 import { lookupLine, topicForWeakTitle } from "@/lib/readings";
 import { isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus, seasonLabel, subjectLabel, todayBlocks, weekdayFromDate } from "@/lib/schedule";
 import { keepSharpSession, sessionFromBlock, type PlaySession } from "@/lib/session";
-import { daysAgoLabel, missionWhy, studyMinutes, topicAccuracy, topicHistory } from "@/lib/stats";
+import { daysAgoLabel, performanceFor, studyMinutes, todayGoal, whyToday } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 
 const MISSION_STAGES = [
@@ -47,7 +49,7 @@ export default function TodayPage() {
     completedSessionIds: store.completedSessionIds,
     extraDone,
   });
-  const weak = topicAccuracy(store.drillResults).find((row) => row.acc < 0.7);
+  const weak = pickPriorityTopic(store.drillResults);
   const todaySubject = schoolYearEncyclopediaSubject();
   const weakArticle = weak
     ? topicForWeakTitle(weak.topic)
@@ -64,19 +66,22 @@ export default function TodayPage() {
     && !store.reviewedTopicIds.includes(topic.id)
   )).length;
   const focus = featuredBlock(store.currentWeek);
-  const missionTitle = mission.planId === "flash"
-    ? mission.topic
-    : `Master ${weakArticle?.title ?? mission.topic}`;
+  const missionLabel = weakArticle?.title ?? mission.topic;
   const missionTopic = weak?.topic || weakArticle?.title || mission.topic;
-  const history = topicHistory(store.drillResults, missionTopic);
+  const history = performanceFor(store.drillResults, missionTopic);
   const whyBullets = mission.planId === "flash"
     ? [
         due.length ? `${due.length} cards due now` : "The pile is clear",
         "Missed toss-ups become one card, due now",
       ]
-    : missionWhy(store.drillResults, missionTopic);
+    : whyToday(history);
   const fourStage = mission.startSession;
-  const lastPracticed = daysAgoLabel(history.lastAt);
+  const lastPracticed = daysAgoLabel(history.lastAttemptAt);
+  const insight = coachRead({
+    results: store.drillResults,
+    rounds: store.practiceRounds,
+    missionTopic,
+  });
 
   function begin(next: PlaySession) {
     sessionStartedAt.current = Date.now();
@@ -108,22 +113,37 @@ export default function TodayPage() {
     const hits = answered.filter((row) => row.correct).length;
     const minutes = Math.max(1, Math.round((Date.now() - sessionStartedAt.current) / 60000));
     const missed = [...new Set(answered.filter((row) => !row.correct).map((row) => row.topic))];
-    const after = topicHistory(store.drillResults, session.topic);
+    const read = coachRead({
+      results: store.drillResults,
+      rounds: store.practiceRounds,
+      missionTopic: session.topic,
+      sessionMissed: missed,
+      sessionHits: hits,
+      sessionAsked: answered.length,
+    });
     return (
       <div className="stack mission-page">
-        <p className="mission-kicker">Mission complete</p>
-        <h1 className="mission-title">Master {session.title}</h1>
+        <p className="mission-kicker">Session complete</p>
+        <h1 className="mission-title">{session.title}</h1>
         <section className="mission stack">
-          <p className="stem">{hits} / {answered.length} this session</p>
-          <p>
-            {after.acc != null ? `${Math.round(after.acc * 100)}% on this topic overall` : "First pass on this topic"}
-            {" · "}
-            {minutes} min · streak {store.studyStreak}
-          </p>
-          {missed[0] ? <p className="muted">Needs review: {missed.join(" · ")}</p> : <p className="muted">No misses logged this session.</p>}
+          <p className="stem">{hits} / {answered.length}</p>
+          <p>{answered.length ? `${Math.round((hits / answered.length) * 100)}%` : "No answers logged"}</p>
+          <CoachInsight kicker={read.kicker} body={read.body} />
+          {missed[0] ? (
+            <div>
+              <p className="mission-kicker">Keep</p>
+              <p>Review {missed.length} missed {missed.length === 1 ? "topic" : "topics"}</p>
+              <p className="muted">{missed.join(" · ")}</p>
+            </div>
+          ) : <p className="muted">No misses logged this session.</p>}
+          <div>
+            <p className="mission-kicker">Next recommended step</p>
+            <p>{missed[0] ? "Try 2 similar questions" : "A short toss-up keeps this cold"}</p>
+          </div>
+          <p className="muted">{minutes} min · streak {store.studyStreak}</p>
           {due.length ? <p className="muted">{due.length} flashcards due now.</p> : null}
           <div className="row">
-            {missed[0] ? <Link className="btn mission-cta" href="/learn/review">Review missed topics</Link> : (
+            {missed[0] ? <Link className="btn mission-cta" href="/learn/review">Review now</Link> : (
               <button className="btn mission-cta" type="button" onClick={leaveSession}>Back to today</button>
             )}
             {due.length ? <Link className="btn ghost" href="/learn/flash">Review flashcards</Link> : <Link className="btn ghost" href="/practice">Free practice</Link>}
@@ -140,21 +160,23 @@ export default function TodayPage() {
       <div className="stack mission-page">
         <button className="btn ghost" type="button" onClick={leaveSession}>Leave mission</button>
         <p className="mission-kicker">Today&apos;s mission</p>
-        <h1 className="mission-title">Master {session.title}</h1>
+        <h1 className="mission-title">{session.title}</h1>
         <p className="muted">{mission.reason}</p>
-        {history.acc != null ? (
+        {history.attempts ? (
           <p className="muted">
-            {Math.round(history.acc * 100)}% after {history.attempts} {history.attempts === 1 ? "try" : "tries"}
+            {Math.round(history.accuracy * 100)}% after {history.attempts} {history.attempts === 1 ? "try" : "tries"}
             {lastPracticed ? ` · last practiced ${lastPracticed}` : ""}
           </p>
         ) : null}
         <ol className="stage-rail">
           {MISSION_STAGES.map((item, i) => (
-            <li key={item.label} className={i === stage ? "current" : i < stage ? "done" : ""}>
+            <li key={item.label} className={i === stage ? "current" : i < stage ? "done" : "upcoming"}>
               <button type="button" onClick={() => setStage(i)}>
-                <span className="stage-num">{i + 1}</span>
-                <span>{item.label}</span>
-                <span className="faint">{item.minutes} min</span>
+                <span className="stage-mark">{i < stage ? "✓" : i === stage ? "●" : "○"}</span>
+                <span className="stage-copy">
+                  <strong>{item.label}</strong>
+                  <span className="faint">{item.minutes} min</span>
+                </span>
               </button>
             </li>
           ))}
@@ -229,35 +251,34 @@ export default function TodayPage() {
       <p className="mission-hello">{store.studentName.trim() || "Soha"}, here&apos;s what I want you to do right now.</p>
       <section className="mission stack">
         <p className="mission-kicker">Today&apos;s mission</p>
-        <h1 className="mission-title">{missionTitle}</h1>
+        <h1 className="mission-title">{mission.planId === "flash" ? mission.topic : missionLabel}</h1>
+        <p className="mission-subject">{mission.subject}</p>
+        {history.attempts ? <p className="mission-stat">{Math.round(history.accuracy * 100)}% accuracy</p> : null}
         <p>{mission.reason}</p>
-        <p className="muted">Goal: {mission.outcome} · Estimated time: {mission.minutes} min</p>
+        <div className="why-mission">
+          <p className="mission-kicker">Why today?</p>
+          <ul>
+            {whyBullets.map((line) => <li key={line}>{line}</li>)}
+          </ul>
+        </div>
+        <div>
+          <p className="mission-kicker">Today&apos;s goal</p>
+          <p>{mission.planId === "flash" ? mission.outcome : todayGoal(history)}</p>
+        </div>
+        <p className="mission-time">{mission.minutes} minutes</p>
         {fourStage ? (
-          <ol className="mission-stages">
-            {MISSION_STAGES.map((item, i) => (
-              <li key={item.label}>
-                <span className="stage-num">{i + 1}</span>
-                <span>{item.label}</span>
-                <span className="faint">{item.minutes} min</span>
-              </li>
-            ))}
-          </ol>
+          <p className="muted">Recall → Learn → Know Cold → Toss-ups</p>
         ) : (
           <p className="muted">{mission.activities}</p>
         )}
         {mission.planId === "weak" && weakBooks.primary ? <p className="muted">{weakBooks.primary}</p> : null}
         {mission.startSession ? (
-          <button className="btn mission-cta" type="button" onClick={beginMission}>Start today&apos;s mission</button>
+          <button className="btn mission-cta" type="button" onClick={beginMission}>Start mission</button>
         ) : (
-          <Link className="btn mission-cta" href={mission.href}>Start today&apos;s mission</Link>
+          <Link className="btn mission-cta" href={mission.href}>Start mission</Link>
         )}
-        <div className="why-mission">
-          <p className="mission-kicker">Why this mission?</p>
-          <ul>
-            {whyBullets.map((line) => <li key={line}>{line}</li>)}
-          </ul>
-        </div>
       </section>
+      <CoachInsight kicker={insight.kicker} body={insight.body} />
       <nav className="secondary-links">
         <Link href="/learn/flash">{due.length ? `${due.length} flashcards due` : "Flashcards"}</Link>
         <Link href="/practice/play?mode=sprint">Regional Sprint</Link>

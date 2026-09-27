@@ -1,7 +1,7 @@
 import { regionalSprint } from "./catalogs";
 import { matchesSubject } from "./questions";
 import { blocksForWeek, isSchoolYear, schoolYearFocus, todayBlocks, weekdayFromDate } from "./schedule";
-import { topicAccuracy } from "./stats";
+import { todayGoal, topicPerformances, type TopicPerformance } from "./stats";
 import { sameTopicLabel } from "./topic-map";
 import type { DrillResult, StudyBlock } from "./types";
 
@@ -26,9 +26,31 @@ export type TodayMission = {
   startSession: boolean;
 };
 
-function lastMissAt(results: DrillResult[], topic: string) {
-  const miss = [...results].reverse().find((row) => sameTopicLabel(row.topic, topic) && !row.correct);
-  return miss ? new Date(miss.at) : null;
+function daysSince(iso: string | null, now = Date.now()) {
+  if (!iso) return 999;
+  return Math.floor((now - new Date(iso).getTime()) / 86400000);
+}
+
+export function topicPriority(row: TopicPerformance, date = new Date()) {
+  const weaknessScore = 1 - row.accuracy;
+  const missDays = daysSince(row.lastMissAt);
+  const recencyScore = missDays <= 0 ? 0.25 : missDays === 1 ? 0.15 : missDays <= 7 ? 0.08 : 0;
+  const missFrequencyScore = row.misses7d >= 3 ? 0.2 : row.misses7d === 2 ? 0.12 : 0;
+  const repetitionNeedScore = daysSince(row.lastAttemptAt) >= 5 ? 0.15 : 0;
+  const subject = row.subject.toLowerCase();
+  let curriculumImportanceScore = 0;
+  if (subject.includes("earth") || subject.includes("energy")) curriculumImportanceScore += 0.1;
+  if (isSchoolYear(date)) {
+    const focus = schoolYearFocus(date);
+    if (focus.subject !== "mixed" && subject.includes(focus.subject)) curriculumImportanceScore += 0.08;
+  }
+  return weaknessScore + recencyScore + missFrequencyScore + repetitionNeedScore + curriculumImportanceScore;
+}
+
+export function pickPriorityTopic(results: DrillResult[], date = new Date()) {
+  return topicPerformances(results)
+    .filter((row) => row.attempts >= 2)
+    .sort((a, b) => topicPriority(b, date) - topicPriority(a, date))[0];
 }
 
 export function todaysMission(input: {
@@ -41,7 +63,7 @@ export function todaysMission(input: {
 }): TodayMission {
   const date = input.date ?? new Date();
   const plan = buildTodayPlan({ ...input, date });
-  const weak = topicAccuracy(input.drillResults).find((row) => row.acc < 0.7);
+  const weak = pickPriorityTopic(input.drillResults, date);
   const block = featuredBlock(input.week, date);
   const next = plan.find((item) => !item.done) ?? plan[plan.length - 1];
   const flashUrgent = input.dueCount >= 8;
@@ -69,17 +91,17 @@ export function todaysMission(input: {
   }
 
   if (pick.id === "weak") {
-    const miss = weak ? lastMissAt(input.drillResults, weak.topic) : null;
-    const recent = miss && Date.now() - miss.getTime() < 36 * 3600 * 1000;
     return {
       subject: weak?.subject || "Mixed",
       topic: weak?.topic || "Weak-area practice",
       reason: weak
-        ? `You're weakest in ${weak.subject} this week.${recent ? " You missed this recently." : ""}`
+        ? weak.accuracy < 0.7
+          ? `Your weakest active topic in ${weak.subject}.`
+          : `Today's priority in ${weak.subject}.`
         : "No weak topic yet — start here so I can see what you miss.",
       minutes: 28,
       activities: "Recall → Learn → Know Cold → Toss-ups",
-      outcome: weak ? "Reach 80%+ on this topic" : "Find today's weak spot",
+      outcome: todayGoal(weak),
       href: pick.href,
       planId: pick.id,
       startSession: isSchoolYear(date),
@@ -165,11 +187,11 @@ export function buildTodayPlan(input: {
   const date = input.date ?? new Date();
   const block = featuredBlock(input.week, date);
   const weekday = weekdayFromDate(date);
-  const weak = topicAccuracy(input.drillResults).find((row) => row.acc < 0.7);
+  const weak = pickPriorityTopic(input.drillResults, date);
   const answeredToday = input.drillResults.filter((row) => sameDay(row.at, date));
   const sessionDone = Boolean(block && input.completedSessionIds.includes(block.id));
   const tossDone = answeredToday.some((row) => !block || String(row.subject).toLowerCase().includes(block.subject));
-  const weakDone = Boolean(weak && answeredToday.some((row) => row.topic === weak.topic));
+  const weakDone = Boolean(weak && answeredToday.some((row) => sameTopicLabel(row.topic, weak.topic)));
   const sprintHits = answeredToday.filter((row) => regionalSprint.some((pack) => pack.title === row.topic)).length;
   const sprintDone = input.extraDone.includes("sprint") || sprintHits >= 5;
 
@@ -180,7 +202,7 @@ export function buildTodayPlan(input: {
         id: "weak",
         minutes: 15,
         title: weak ? `Weak area · ${weak.topic}` : "Weak-area practice",
-        detail: weak ? `${Math.round(weak.acc * 100)}% accuracy — open the assigned section, then drill.` : "Answer a few questions and this slot will fill in.",
+        detail: weak ? `${Math.round(weak.accuracy * 100)}% accuracy — open the assigned section, then drill.` : "Answer a few questions and this slot will fill in.",
         href: weak ? `/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}` : "/practice/play?mode=weak",
         done: weakDone || input.extraDone.includes("weak"),
       },
@@ -237,7 +259,7 @@ export function buildTodayPlan(input: {
       id: "weak",
       minutes: 10,
       title: weak ? `Weak area · ${weak.topic}` : "Weak-area practice",
-      detail: weak ? `${Math.round(weak.acc * 100)}% accuracy — practice this today.` : "Answer a few questions and this slot will fill in.",
+      detail: weak ? `${Math.round(weak.accuracy * 100)}% accuracy — practice this today.` : "Answer a few questions and this slot will fill in.",
       href: weak ? `/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}` : "/practice/play?mode=weak",
       done: weakDone || input.extraDone.includes("weak"),
     },

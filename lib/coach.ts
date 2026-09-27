@@ -1,5 +1,6 @@
 import { findTopicArticle } from "./questions";
-import type { EncyclopediaTopic, PlayQuestion } from "./types";
+import { accuracyWindow, improvedTopics, paceSeconds, performanceFor, subjectAccuracy } from "./stats";
+import type { DrillResult, EncyclopediaTopic, PlayQuestion, PracticeRound } from "./types";
 
 export type CoachAction = "explain" | "why-wrong" | "hint" | "eighth-grade" | "teach";
 
@@ -23,18 +24,94 @@ export function coachBrief(question: PlayQuestion, userAnswer?: string, correct?
   const picked = question.choices.find((choice) => choice.key === userAnswer || choice.text === userAnswer);
   const trap = article?.nsbTraps[0] ?? "Read the last clause of the stem before you buzz. Nearby facts are the usual trap.";
   const missLine = recentMissLine(history);
+  const clue = article?.keyTerms[0]?.term ?? question.topic;
+  const remember = article?.keyTerms[0]
+    ? `${article.keyTerms[0].term}: ${article.keyTerms[0].definition}`
+    : `${question.answer} — ${question.topic}.`;
+  const whyMissed = userAnswer
+    ? `You answered ${picked ? `${picked.key}) ${picked.text}` : userAnswer}, which is a nearby fact instead of ${question.answer}.`
+    : `The stem wanted ${question.answer}. Read the last clause before you buzz.`;
   const why = [
     `The correct answer is ${question.answer}.`,
     article?.whatIsIt,
-    correct === false && userAnswer
-      ? `You answered ${picked ? `${picked.key}) ${picked.text}` : userAnswer}, which does not match what the stem asked.`
-      : "",
+    correct === false ? whyMissed : "",
     correct === true && missLine ? "Lock this one in." : "",
   ].filter(Boolean).join(" ");
-  const remember = article?.keyTerms[0]
-    ? `${article.keyTerms[0].term}: ${article.keyTerms[0].definition}`
-    : `Remember: ${question.answer} — ${question.topic}.`;
-  return { why, remember, trap, missLine };
+  return {
+    why,
+    whyMissed,
+    remember,
+    trap,
+    missLine,
+    clue,
+    nextStep: correct ? "Go to the next question." : "Try one similar question.",
+  };
+}
+
+export function coachRead(input: {
+  results: DrillResult[];
+  rounds?: PracticeRound[];
+  missionTopic?: string;
+  sessionMissed?: string[];
+  sessionHits?: number;
+  sessionAsked?: number;
+}): { kicker: string; body: string } {
+  const { results, rounds = [], missionTopic, sessionMissed = [], sessionHits, sessionAsked } = input;
+  if (sessionAsked != null && sessionHits != null) {
+    const topic = sessionMissed[0] || missionTopic;
+    if (sessionAsked === 0) {
+      return { kicker: "Coach's read", body: "No answers logged this session. Start the toss-ups so I can see the gap." };
+    }
+    if (sessionHits / sessionAsked >= 0.8) {
+      return { kicker: "Coach's read", body: topic ? `You know the basics on ${topic}. Keep it cold with a short timed toss-up next.` : "Clean session. Keep this topic cold tomorrow." };
+    }
+    if (topic) {
+      return { kicker: "Coach's read", body: `You know the basic concepts, but you're still missing questions about ${topic}.` };
+    }
+    return { kicker: "Coach's read", body: "The misses are the lesson. Review those topics, then try two similar questions." };
+  }
+
+  if (missionTopic) {
+    const row = performanceFor(results, missionTopic);
+    if (row.last5 >= 5 && row.last5Correct <= 2) {
+      return { kicker: "Don't move on yet", body: `You know the vocabulary, but you're only ${row.last5Correct}/5 on recent ${row.topic} questions. Today's mission targets that gap.` };
+    }
+    if (row.missedLast3 >= 2) {
+      return { kicker: "Coach's read", body: `You missed ${row.missedLast3} of your last 3 on ${row.topic}. Today's mission is built around that gap.` };
+    }
+  }
+
+  const subjects = ["chemistry", "biology", "physics", "earth", "energy"];
+  for (const subject of subjects) {
+    const last7 = subjectAccuracy(results, subject, 7);
+    const prior = accuracyWindow(
+      results.filter((row) => String(row.subject).toLowerCase().includes(subject)),
+      14,
+      7,
+    );
+    if (last7 != null && prior != null && last7 - prior > 0.08) {
+      const gap = missionTopic ?? "today's topic";
+      return { kicker: "Coach's read", body: `You've improved in ${subject[0].toUpperCase()}${subject.slice(1)} this week, but you're still missing questions involving ${gap}. Today's mission targets that gap.` };
+    }
+  }
+
+  const lifted = improvedTopics(results)[0];
+  if (lifted && missionTopic && lifted.topic !== missionTopic) {
+    return { kicker: "Coach's read", body: `You've improved in ${lifted.topic}, but ${missionTopic} is still the gap. Today's mission targets that.` };
+  }
+
+  const recent = rounds.slice(0, 3);
+  const older = rounds.slice(3, 6);
+  const nowPace = paceSeconds(recent);
+  const oldPace = paceSeconds(older);
+  if (nowPace != null && oldPace != null && oldPace - nowPace >= 1.5) {
+    return { kicker: "You're getting faster", body: `Your average toss-up response time dropped from ${oldPace.toFixed(1)}s to ${nowPace.toFixed(1)}s this week.` };
+  }
+
+  if (missionTopic) {
+    return { kicker: "Coach's read", body: `Today's mission targets ${missionTopic} because that's the highest-priority gap right now.` };
+  }
+  return { kicker: "Coach's read", body: "Answer a few questions and I'll name the next gap." };
 }
 
 export function localCoach(input: {
