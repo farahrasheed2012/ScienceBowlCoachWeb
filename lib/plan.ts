@@ -78,11 +78,11 @@ export function todaysMission(input: {
         ? `${Math.round(weak.acc * 100)}% after ${weak.attempts} tries${recent ? " · you missed this recently" : ""}${checkedOff ? " · still under 70% even if you checked it off" : ""}. Open the assigned section, then drill.`
         : "Answer a few questions and this slot will name a weak topic.",
       minutes: pick.minutes,
-      activities: "5–12 toss-ups + book lookup",
+      activities: "Recall → Read → Know Cold → Toss-ups",
       outcome: weak ? "Get this topic moving toward 70%" : "Find today's weak spot",
       href: pick.href,
       planId: pick.id,
-      startSession: false,
+      startSession: isSchoolYear(date),
     };
   }
 
@@ -124,11 +124,11 @@ export function todaysMission(input: {
       ? "Today's plan is done. A short toss-up keeps the streak."
       : pick.detail,
     minutes: pick.minutes,
-    activities: "Official 5s MC / 20s SA",
+    activities: pick.id === "flash" || pick.id === "sprint" ? pick.detail : "Recall → Read → Know Cold → Toss-ups",
     outcome: focus?.subject === "mixed" ? "5 answers across 2 subjects" : "5 answers in today's subject",
     href: pick.href,
     planId: pick.id,
-    startSession: false,
+    startSession: isSchoolYear(date) && pick.id !== "flash" && pick.id !== "sprint",
   };
 }
 

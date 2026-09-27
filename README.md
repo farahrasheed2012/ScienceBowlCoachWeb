@@ -51,7 +51,7 @@ npm run extract
 
 The Mac `doe_questions_cache.json` is already bundled. Practice or Settings can still import a newer cache if the Mac parser adds more later.
 
-Coach notes on each question work offline from the encyclopedia. Optional richer AI: set `GROQ_API_KEY` or `OPENAI_API_KEY` in `.env.local`.
+Coach notes on each question work offline from the encyclopedia. Optional richer AI (free tier): set `GROQ_API_KEY` in `.env.local` and in Vercel. OpenAI is not used.
 
 ## Tabs
 

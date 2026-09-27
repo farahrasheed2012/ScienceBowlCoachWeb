@@ -18,25 +18,20 @@ export async function POST(req: Request) {
     correct: body.correct,
   });
 
-  const key = process.env.GROQ_API_KEY || process.env.OPENAI_API_KEY;
-  const url = process.env.GROQ_API_KEY
-    ? "https://api.groq.com/openai/v1/chat/completions"
-    : "https://api.openai.com/v1/chat/completions";
-  const model = process.env.GROQ_API_KEY ? "openai/gpt-oss-20b" : "gpt-4o-mini";
-
+  const key = process.env.GROQ_API_KEY;
   if (!key) {
     return NextResponse.json({ text: fallback, source: "local" });
   }
 
   try {
-    const res = await fetch(url, {
+    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${key}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model,
+        model: "openai/gpt-oss-20b",
         temperature: 0.3,
         max_tokens: 220,
         messages: [
