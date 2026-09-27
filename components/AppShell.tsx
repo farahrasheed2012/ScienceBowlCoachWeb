@@ -30,7 +30,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
       </aside>
-      <main className="main">{children}</main>
+      <main className="main">
+        <div key={path} className="view-in">{children}</div>
+      </main>
       <nav className="mobile-nav">
         {NAV.map((item) => (
           <Link key={item.href} href={item.href} className={navActive(path, item) ? "active" : ""}>

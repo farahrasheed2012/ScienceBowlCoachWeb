@@ -76,37 +76,35 @@ export function CoachPanel({
     <div className="stack coach">
       {phase === "revealed" ? (
         <div className="coach-brief">
-          <p className="mission-kicker">Coach</p>
           {correct ? (
-            <p>You recognized the key clue: {brief.clue}.</p>
+            <p className="coach-clue">Exactly. The key clue was {brief.clue}.</p>
           ) : (
-            <p>You missed this because {brief.whyMissed.replace(/^You /, "you ")}</p>
+            <p className="coach-clue">{brief.whyMissed}</p>
           )}
           {brief.missLine ? <p className="coach-history">{brief.missLine}</p> : null}
-          {!correct ? <p><strong>Watch for:</strong> {brief.trap}</p> : null}
-          <p><strong>Remember:</strong> {brief.remember}</p>
-          <p className="coach-next"><strong>Next:</strong> {brief.nextStep}</p>
         </div>
       ) : null}
-      <div className="row">
-        {phase === "live" ? (
-          <button className="btn ghost" type="button" disabled={busy} onClick={() => run("hint")}>Give me a hint</button>
-        ) : null}
-        {phase === "revealed" && !correct && onSimilar ? (
-          <button className="btn" type="button" onClick={onSimilar}>Try similar question</button>
-        ) : null}
-      </div>
+      {phase === "live" ? (
+        <button className="text-btn" type="button" disabled={busy} onClick={() => run("hint")}>Hint</button>
+      ) : null}
       {phase === "revealed" ? (
         <details className="more-help">
           <summary>More help</summary>
-          <div className="row">
-            <button className="btn ghost" type="button" disabled={busy} onClick={() => run("eighth-grade")}>Explain more</button>
-            <button className="btn ghost" type="button" disabled={busy} onClick={() => run("teach")}>Teach this topic</button>
-            {correct && onSimilar ? (
-              <button className="btn ghost" type="button" onClick={onSimilar}>Similar question</button>
-            ) : null}
-            {tossupId ? <Link className="btn ghost" href={`/practice/play?mode=topic&topic=${tossupId}`}>Quiz this topic</Link> : null}
-            {article ? <Link className="btn ghost" href={`/learn/${article.id}`}>Study topic</Link> : null}
+          <div className="stack">
+            {!correct ? <p className="muted">Watch for: {brief.trap}</p> : null}
+            <p className="muted">Remember: {brief.remember}</p>
+            <div className="row">
+              {!correct && onSimilar ? (
+                <button className="btn" type="button" onClick={onSimilar}>Try similar</button>
+              ) : null}
+              <button className="btn ghost" type="button" disabled={busy} onClick={() => run("eighth-grade")}>Explain more</button>
+              <button className="btn ghost" type="button" disabled={busy} onClick={() => run("teach")}>Teach this topic</button>
+              {correct && onSimilar ? (
+                <button className="btn ghost" type="button" onClick={onSimilar}>Similar question</button>
+              ) : null}
+              {tossupId ? <Link className="btn ghost" href={`/practice/play?mode=topic&topic=${tossupId}`}>Quiz this topic</Link> : null}
+              {article ? <Link className="btn ghost" href={`/learn/${article.id}`}>Study topic</Link> : null}
+            </div>
           </div>
         </details>
       ) : null}

@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { findTopicArticle, isChoiceCorrect, officialSeconds, answersMatch, subjectTone } from "@/lib/questions";
-import { lookupLine } from "@/lib/readings";
+import { isChoiceCorrect, officialSeconds, answersMatch, subjectTone } from "@/lib/questions";
 import { RATE, praise, speak, stopSpeech } from "@/lib/speech";
 import { coachRead } from "@/lib/coach";
 import { topicAccuracy } from "@/lib/stats";
@@ -44,10 +43,7 @@ export function QuestionPlay({
   const questionGen = useRef(0);
   const timedOut = useRef(false);
   const question = list[index];
-  const limit = question ? officialSeconds(question) : 5;
   const tone = question ? subjectTone(question.category) : "bio";
-  const article = question ? findTopicArticle(question) : undefined;
-  const books = article ? lookupLine(article.id) : {};
 
   useEffect(() => {
     questionGen.current += 1;
@@ -267,55 +263,27 @@ export function QuestionPlay({
   const topicRow = topicAccuracy(store.drillResults).find((row) => sameTopicLabel(row.topic, question.topic));
 
   return (
-    <div className="stack">
+    <div className="play-stage">
       <div className="play-meta">
-        <p className={`play-kicker ${tone}`}>
-          {question.category} · {question.kind === "bonus" ? "Bonus" : "Toss-up"} · {question.format === "multipleChoice" ? "MC" : "SA"}
-        </p>
-        <p className="muted">{title} · {index + 1} / {list.length}{question.topic ? ` · ${question.topic}` : ""}</p>
-        {seen > 0 ? (
-          <button className="btn ghost" type="button" onClick={finishRound}>End round</button>
-        ) : null}
+        <p className={`play-kicker ${tone}`}>{question.category}</p>
+        {timed && (phase === "live" || phase === "buzzed") ? (
+          <p className={`timer ${seconds <= 2 && clockOn ? "urgent" : ""}`}>
+            {clockOn ? `${String(seconds).padStart(2, "0")}s` : "Listening"}
+          </p>
+        ) : (
+          <p className="faint">{index + 1} / {list.length}</p>
+        )}
       </div>
       <div className={`play-card ${tone}`}>
         <p className="stem">{question.questionText}</p>
-        {timed && phase === "live" ? (
-          <p className={`timer ${seconds <= 2 ? "urgent" : ""}`}>
-            {clockOn ? `${seconds}s · ${limit}s official` : "Listening… clock starts after the read-aloud"}
-          </p>
-        ) : null}
-        {!timed && phase !== "revealed" ? (
-          <p className="muted">Study mode · no official clock.</p>
-        ) : null}
         {store.parentReadsAloud && phase !== "revealed" ? (
-          <p className="muted">Parent is reading. Answers stay hidden until Reveal.</p>
+          <p className="faint">Parent is reading. Answers stay hidden until Reveal.</p>
         ) : null}
         {timed && store.buzzerRoomCode ? (
-          <p className="muted">Phone room {store.buzzerRoomCode} · remote buzz = Space</p>
-        ) : null}
-        <SpeechBar text={question.questionText} />
-        {phase === "live" && timed ? (
-          <div className="row">
-            <button className="btn buzz" type="button" onClick={() => setPhase("buzzed")}>Buzz</button>
-            <span className="muted">Space</span>
-          </div>
-        ) : null}
-        {phase === "live" ? (
-          <CoachPanel
-            key={`${question.id}-live`}
-            question={question}
-            userAnswer={picked ?? typed}
-            correct={correct}
-            phase="live"
-            recentAccuracy={topicRow?.acc}
-            weakTopic={Boolean(topicRow && topicRow.acc < 0.7)}
-          />
-        ) : null}
-        {store.parentReadsAloud && phase !== "revealed" ? (
-          <button className="btn" type="button" onClick={() => setPhase("revealed")}>Reveal</button>
+          <p className="faint">Phone room {store.buzzerRoomCode}</p>
         ) : null}
         {showChoices ? (
-          <div className="stack">
+          <div className="choices">
             {question.choices.map((choice) => {
               const isPicked = picked === choice.key;
               const isRight = isChoiceCorrect(question, choice.key);
@@ -327,7 +295,8 @@ export function QuestionPlay({
                   onClick={() => pick(choice.key)}
                   type="button"
                 >
-                  {choice.key}) {choice.text}
+                  <span className="choice-key">{choice.key}</span>
+                  <span>{choice.text}</span>
                 </button>
               );
             })}
@@ -343,39 +312,56 @@ export function QuestionPlay({
           >
             <input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder="Type your answer" autoFocus />
             <button className="btn" type="submit">Check</button>
-            <button className="btn ghost" type="button" onClick={() => grade(false)}>I missed it</button>
+            <button className="text-btn" type="button" onClick={() => grade(false)}>I missed it</button>
           </form>
         ) : null}
+        {phase === "live" && timed ? (
+          <div className="row">
+            <button className="btn buzz" type="button" onClick={() => setPhase("buzzed")}>Space · Buzz</button>
+          </div>
+        ) : null}
+        {store.parentReadsAloud && phase !== "revealed" ? (
+          <button className="btn" type="button" onClick={() => setPhase("revealed")}>Reveal</button>
+        ) : null}
+        {phase === "live" ? (
+          <CoachPanel
+            key={`${question.id}-live`}
+            question={question}
+            userAnswer={picked ?? typed}
+            correct={correct}
+            phase="live"
+            recentAccuracy={topicRow?.acc}
+            weakTopic={Boolean(topicRow && topicRow.acc < 0.7)}
+          />
+        ) : null}
         {phase === "revealed" ? (
-          <div className="stack">
-            <p className={correct ? "ok-text" : "bad-text"}>
-              <strong>{correct ? "✓ Correct" : "✕ Not quite"}</strong>
-              {!correct ? <> · The answer is: {question.answer}</> : null}
+          <div className="reveal-block">
+            <p className={`reveal-verdict ${correct ? "ok-text" : "bad-text"}`}>
+              {correct ? "✓ Correct" : "✕ Not quite"}
             </p>
-            {!correct ? <p className="muted">This miss is on your flashcards — due now, not a second copy.</p> : null}
-            <CoachPanel
-              key={`${question.id}-revealed`}
-              question={question}
-              userAnswer={picked ?? typed}
-              correct={correct}
-              phase="revealed"
-              onSimilar={similar}
-              recentAccuracy={topicRow?.acc}
-              weakTopic={Boolean(topicRow && topicRow.acc < 0.7)}
-            />
-            {article && (books.primary || books.book) ? (
-              <p className="muted">
-                {books.primary}{books.book ? ` · ${books.book}` : ""}
-                {" · "}
-                <Link href="/learn/review">Review with books</Link>
-              </p>
-            ) : null}
+            {!correct ? <p className="reveal-note muted">The answer is {question.answer}.</p> : null}
+            <div className="reveal-coach">
+              <CoachPanel
+                key={`${question.id}-revealed`}
+                question={question}
+                userAnswer={picked ?? typed}
+                correct={correct}
+                phase="revealed"
+                onSimilar={similar}
+                recentAccuracy={topicRow?.acc}
+                weakTopic={Boolean(topicRow && topicRow.acc < 0.7)}
+              />
+            </div>
             {index < list.length - 1 || (correct === false && list[index + 1]?.kind === "bonus") ? (
-              <button className={correct ? "btn mission-cta" : "btn ghost"} type="button" onClick={next}>Next question</button>
+              <button className={`${correct ? "btn mission-cta" : "btn ghost"} reveal-next`} type="button" onClick={next}>Next →</button>
             ) : (
-              <button className="btn mission-cta" type="button" onClick={finishRound}>See results</button>
+              <button className="btn mission-cta reveal-next" type="button" onClick={finishRound}>See results</button>
             )}
           </div>
+        ) : null}
+        <SpeechBar text={question.questionText} />
+        {seen > 0 ? (
+          <button className="text-btn" type="button" onClick={finishRound}>End round</button>
         ) : null}
       </div>
     </div>

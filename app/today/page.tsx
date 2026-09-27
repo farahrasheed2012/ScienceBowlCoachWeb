@@ -11,7 +11,7 @@ import { buildTodayPlan, featuredBlock, pickPriorityTopic, todaysMission } from 
 import { lookupLine, topicForWeakTitle } from "@/lib/readings";
 import { isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus, seasonLabel, subjectLabel, todayBlocks, weekdayFromDate } from "@/lib/schedule";
 import { keepSharpSession, sessionFromBlock, type PlaySession } from "@/lib/session";
-import { daysAgoLabel, performanceFor, studyMinutes, todayGoal, whyToday } from "@/lib/stats";
+import { performanceFor, studyMinutes, todayGoal, whyToday } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 
 const MISSION_STAGES = [
@@ -20,6 +20,12 @@ const MISSION_STAGES = [
   { label: "Know Cold", minutes: 5 },
   { label: "Toss-ups", minutes: 10 },
 ] as const;
+
+function hello(name: string) {
+  const hour = new Date().getHours();
+  const when = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
+  return `${when}, ${name.trim() || "Soha"}`;
+}
 
 export default function TodayPage() {
   const store = useStore();
@@ -75,8 +81,21 @@ export default function TodayPage() {
         "Missed toss-ups become one card, due now",
       ]
     : whyToday(history);
+  const whyLead = mission.planId === "flash"
+    ? whyBullets[0]
+    : history.missedLast3 >= 2
+      ? `You missed ${history.missedLast3} of your last 3 questions on this topic.`
+      : whyBullets[0];
+  const recentAcc = history.last5 >= 3
+    ? Math.round((history.last5Correct / history.last5) * 100)
+    : history.attempts
+      ? Math.round(history.accuracy * 100)
+      : null;
+  const recent = store.drillResults.slice(-20);
+  const recentAvg = recent.length
+    ? Math.round((recent.filter((row) => row.correct).length / recent.length) * 100)
+    : null;
   const fourStage = mission.startSession;
-  const lastPracticed = daysAgoLabel(history.lastAttemptAt);
   const insight = coachRead({
     results: store.drillResults,
     rounds: store.practiceRounds,
@@ -122,7 +141,7 @@ export default function TodayPage() {
       sessionAsked: answered.length,
     });
     return (
-      <div className="stack mission-page">
+      <div className="stack mission-page view-in">
         <p className="mission-kicker">Session complete</p>
         <h1 className="mission-title">{session.title}</h1>
         <section className="mission stack">
@@ -157,76 +176,78 @@ export default function TodayPage() {
     const current = MISSION_STAGES[stage];
     const leftMin = MISSION_STAGES.slice(stage).reduce((sum, item) => sum + item.minutes, 0);
     return (
-      <div className="stack mission-page">
-        <button className="btn ghost" type="button" onClick={leaveSession}>Leave mission</button>
-        <p className="mission-kicker">Today&apos;s mission</p>
-        <h1 className="mission-title">{session.title}</h1>
-        <p className="muted">{mission.reason}</p>
-        {history.attempts ? (
-          <p className="muted">
-            {Math.round(history.accuracy * 100)}% after {history.attempts} {history.attempts === 1 ? "try" : "tries"}
-            {lastPracticed ? ` · last practiced ${lastPracticed}` : ""}
-          </p>
-        ) : null}
-        <ol className="stage-rail">
-          {MISSION_STAGES.map((item, i) => (
-            <li key={item.label} className={i === stage ? "current" : i < stage ? "done" : "upcoming"}>
-              <button type="button" onClick={() => setStage(i)}>
-                <span className="stage-mark">{i < stage ? "✓" : i === stage ? "●" : "○"}</span>
-                <span className="stage-copy">
-                  <strong>{item.label}</strong>
-                  <span className="faint">{item.minutes} min</span>
-                </span>
-              </button>
-            </li>
-          ))}
-        </ol>
-        <p className="stage-now">{current.label} · {current.minutes} min · about {leftMin} min left</p>
-        {store.showSessionTimer ? (
-          <p className="timer">{session.kind === "summer" ? "1 hour science block · stay on this page" : "Keep-sharp session · stay on this page"}</p>
-        ) : null}
-        {stage === 0 ? <QuestionPlay questions={session.recall} title="Recall from this topic" timed={false} /> : null}
-        {stage === 1 ? (
-          <div className="play-card stack">
-            {session.read.primary ? <p><strong>{session.read.primary}</strong></p> : null}
-            {session.read.book ? <p className="muted">{session.read.book}</p> : null}
-            <p>{session.read.body}</p>
-            {session.read.extra ? <p className="muted">{session.read.extra}</p> : null}
-            <SpeechBar text={`${session.title}. ${session.read.body}. ${session.read.extra ?? ""}`} />
-            {session.kind === "keep-sharp" && weakArticle ? <Link href={`/learn/${weakArticle.id}`}>Open the full article</Link> : null}
+      <div className="stack mission-page session-page view-in">
+        <div className="session-chrome">
+          <button className="text-btn session-leave" type="button" onClick={leaveSession}>Leave</button>
+          <p className="mission-kicker">Today&apos;s mission</p>
+          <h1 className="session-title">{session.title}</h1>
+          <div className="stage-nav">
+            <ol className="stage-rail">
+              {MISSION_STAGES.map((item, i) => (
+                <li key={item.label} className={i === stage ? "current" : i < stage ? "done" : "upcoming"}>
+                  <button type="button" onClick={() => setStage(i)}>
+                    <span className="stage-mark">{i < stage ? "✓" : i === stage ? "●" : ""}</span>
+                    <span className="stage-copy">
+                      <strong>{item.label}</strong>
+                      <span className="faint">{item.minutes} min</span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+            <div className="stage-track" aria-hidden="true">
+              <div className="stage-fill" style={{ width: `${(stage / (MISSION_STAGES.length - 1)) * 100}%` }} />
+            </div>
           </div>
-        ) : null}
-        {stage === 2 ? (
-          <div className="play-card stack">
-            {session.knowCold.map((line) => <p key={line}>{line}</p>)}
-            <SpeechBar text={session.knowCold.join(". ")} />
-          </div>
-        ) : null}
-        {stage === 3 ? (
-          <>
-            <QuestionPlay questions={session.tossups} title="Toss-ups" />
-            <details className="notebook">
-              <summary>Notebook</summary>
-              <form
-                className="stack"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const data = new FormData(e.currentTarget);
-                  const text = String(data.get("note") || "").trim();
-                  if (text) store.addNotebook(text);
-                  e.currentTarget.reset();
-                }}
-              >
-                <textarea name="note" rows={3} placeholder="Write what you want to remember" />
-                <button className="btn ghost" type="submit">Save note</button>
-              </form>
-            </details>
-          </>
-        ) : null}
+          <p className="stage-count">{stage + 1} / {MISSION_STAGES.length}</p>
+          {store.showSessionTimer ? (
+            <p className="faint">{session.kind === "summer" ? "1 hour science block" : `${current.label} · about ${leftMin} min left`}</p>
+          ) : null}
+        </div>
+        <div key={stage} className="stage-pane">
+          {stage === 0 ? <QuestionPlay questions={session.recall} title="Recall from this topic" timed={false} /> : null}
+          {stage === 1 ? (
+            <div className="read-card stack">
+              {session.read.primary ? <p><strong>{session.read.primary}</strong></p> : null}
+              {session.read.book ? <p className="muted">{session.read.book}</p> : null}
+              <p>{session.read.body}</p>
+              {session.read.extra ? <p className="muted">{session.read.extra}</p> : null}
+              <SpeechBar text={`${session.title}. ${session.read.body}. ${session.read.extra ?? ""}`} />
+              {session.kind === "keep-sharp" && weakArticle ? <Link href={`/learn/${weakArticle.id}`}>Open the full article</Link> : null}
+            </div>
+          ) : null}
+          {stage === 2 ? (
+            <div className="know-card stack">
+              {session.knowCold.map((line) => <p key={line}>{line}</p>)}
+              <SpeechBar text={session.knowCold.join(". ")} />
+            </div>
+          ) : null}
+          {stage === 3 ? (
+            <>
+              <QuestionPlay questions={session.tossups} title="Toss-ups" />
+              <details className="notebook">
+                <summary>Notebook</summary>
+                <form
+                  className="stack"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const data = new FormData(e.currentTarget);
+                    const text = String(data.get("note") || "").trim();
+                    if (text) store.addNotebook(text);
+                    e.currentTarget.reset();
+                  }}
+                >
+                  <textarea name="note" rows={3} placeholder="Write what you want to remember" />
+                  <button className="btn ghost" type="submit">Save note</button>
+                </form>
+              </details>
+            </>
+          ) : null}
+        </div>
         <div className="row">
           {stage < 3 ? (
             <button className="btn mission-cta" type="button" onClick={() => setStage((s) => s + 1)}>
-              Continue mission
+              Continue
             </button>
           ) : (
             <button
@@ -248,49 +269,42 @@ export default function TodayPage() {
   return (
     <div className="mission-page">
       <p className="faint">{seasonLabel(store.currentWeek)}</p>
-      <p className="mission-hello">{store.studentName.trim() || "Soha"}, here&apos;s what I want you to do right now.</p>
+      <p className="mission-hello">{hello(store.studentName)}</p>
       <section className="mission stack">
-        <p className="mission-kicker">Today&apos;s mission</p>
+        <p className="mission-kicker">Your mission</p>
         <h1 className="mission-title">{mission.planId === "flash" ? mission.topic : missionLabel}</h1>
         <p className="mission-subject">{mission.subject}</p>
-        {history.attempts ? <p className="mission-stat">{Math.round(history.accuracy * 100)}% accuracy</p> : null}
-        <p>{mission.reason}</p>
-        <div className="why-mission">
-          <p className="mission-kicker">Why today?</p>
-          <ul>
-            {whyBullets.map((line) => <li key={line}>{line}</li>)}
-          </ul>
+        {mission.planId !== "flash" && recentAcc != null ? <p className="mission-stat">{recentAcc}% recent accuracy</p> : null}
+        <p className="mission-why">{whyLead}</p>
+        <p className="mission-goal">{mission.planId === "flash" ? mission.outcome : todayGoal(history)}</p>
+        <div className="mission-plan">
+          <p className="mission-time">{mission.minutes} min</p>
+          <p>{fourStage ? "Recall → Learn → Know Cold → Toss-ups" : mission.activities}</p>
         </div>
-        <div>
-          <p className="mission-kicker">Today&apos;s goal</p>
-          <p>{mission.planId === "flash" ? mission.outcome : todayGoal(history)}</p>
-        </div>
-        <p className="mission-time">{mission.minutes} minutes</p>
-        {fourStage ? (
-          <p className="muted">Recall → Learn → Know Cold → Toss-ups</p>
-        ) : (
-          <p className="muted">{mission.activities}</p>
-        )}
-        {mission.planId === "weak" && weakBooks.primary ? <p className="muted">{weakBooks.primary}</p> : null}
+        {mission.planId === "weak" && weakBooks.primary ? <p className="mission-goal">{weakBooks.primary}</p> : null}
         {mission.startSession ? (
           <button className="btn mission-cta" type="button" onClick={beginMission}>Start mission</button>
         ) : (
           <Link className="btn mission-cta" href={mission.href}>Start mission</Link>
         )}
       </section>
-      <CoachInsight kicker={insight.kicker} body={insight.body} />
+      <div className="mission-progress">
+        <p className="mission-kicker">Your progress</p>
+        <p className="muted">
+          {store.studyStreak > 0 ? `${store.studyStreak} day streak` : "Start a streak today"}
+          {recentAvg != null ? ` · ${recentAvg}% avg` : store.xp ? ` · ${store.xp} XP` : ""}
+          {store.practiceRounds?.[0] ? ` · last ${store.practiceRounds[0].correct}/${store.practiceRounds[0].asked}` : ""}
+          {studyMinutes(store.practiceRounds ?? []) ? ` · ${studyMinutes(store.practiceRounds ?? [])} min studied` : ""}
+        </p>
+        <CoachInsight kicker={insight.kicker} body={insight.body} />
+      </div>
       <nav className="secondary-links">
         <Link href="/learn/flash">{due.length ? `${due.length} flashcards due` : "Flashcards"}</Link>
         <Link href="/practice/play?mode=sprint">Regional Sprint</Link>
         <Link href="/practice">Free Practice</Link>
         <Link href="/progress">Progress</Link>
       </nav>
-      <p className="faint">
-        {store.studyStreak > 0 ? `Streak ${store.studyStreak} · ${store.xp} XP` : `${store.xp} XP`}
-        {store.practiceRounds?.[0] ? ` · last ${store.practiceRounds[0].correct}/${store.practiceRounds[0].asked}` : ""}
-        {studyMinutes(store.practiceRounds ?? []) ? ` · ${studyMinutes(store.practiceRounds ?? [])} min studied` : ""}
-      </p>
-      <button className="btn ghost" type="button" onClick={() => setShowPlan((value) => !value)}>
+      <button className="text-btn" type="button" onClick={() => setShowPlan((value) => !value)}>
         {showPlan ? "Hide the rest of today" : `More of today · ${finished} / ${plan.length} done`}
       </button>
       {showPlan ? (
