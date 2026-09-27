@@ -63,12 +63,12 @@ Coach notes on each question work offline from the encyclopedia. Optional richer
 
 ## Tabs
 
-Home · Practice · Learn · Progress · Settings
+Home · Practice · Learn · Python · Progress · Settings
 
 - **Home** — school-year plan (or summer 1-hour blocks before Aug 28)
 - **Practice** — TossUp bank + encyclopedia + curriculum + imported DOE. Official 5s MC / 20s SA.
-- **Learn** — Science Bowl encyclopedia, Python Coach, flashcards, books, Topics, Weeks archive
-- **Python Coach** (`/python`) — 50-week path under Learn. Read on the phone; Run stays on the Mac app
+- **Learn** — encyclopedia, Review with books, Formulas, flashcards, Topics, Weeks archive
+- **Python** — Soha Python Coach lessons on the phone; Run stays on the Mac app
 - **Review** (`/learn/review`) — weak topics first, then unreviewed Earth/Energy, with textbook/chapter/page lines from the catalog. Open the assigned section, then drill. Not a new chapter hour.
 
 Textbooks are a lookup tool. The site does not rebuild the Mac FLS/Hewitt chapter-checkbox grid.
