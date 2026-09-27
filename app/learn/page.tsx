@@ -4,6 +4,7 @@ import Link from "next/link";
 import { encyclopediaQuestions, NSB_SUBJECTS, regionalSprint, topics } from "@/lib/catalogs";
 import { dayLine, isSchoolYear, schoolYearFocus, timeGreeting } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
+import { subjectTone } from "@/lib/questions";
 import { articleForLabel, practiceSubjectFor } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
 
@@ -64,14 +65,29 @@ export default function LearnPage() {
         {NSB_SUBJECTS.map((subject) => {
           const list = topics.filter((t) => t.subject === subject);
           const reviewed = list.filter((t) => store.reviewedTopicIds.includes(t.id)).length;
+          const tone = subject === "Energy" ? "energy" : subjectTone(subject);
           return (
-            <section key={subject}>
-              <p className="mission-kicker">{subject}</p>
-              <p className="faint">{reviewed}/{list.length} reviewed</p>
-              {list.slice(0, 6).map((topic) => (
-                <Link key={topic.id} href={`/learn/${topic.id}`}>{topic.title}</Link>
-              ))}
-              {list.length > 6 ? <Link href="/topics">+ {list.length - 6} more</Link> : null}
+            <section key={subject} className={`learn-subject ${tone}`}>
+              <header className="learn-subject-head">
+                <p className={`play-kicker ${tone}`}>{subject}</p>
+                <p className="faint">{reviewed}/{list.length}</p>
+              </header>
+              {list.slice(0, 6).map((topic) => {
+                const seen = store.reviewedTopicIds.includes(topic.id);
+                return (
+                  <Link
+                    key={topic.id}
+                    className={seen ? "learn-topic is-reviewed" : "learn-topic"}
+                    href={`/learn/${topic.id}`}
+                  >
+                    <span>{topic.title}</span>
+                    {seen ? <span className="faint">Reviewed</span> : null}
+                  </Link>
+                );
+              })}
+              {list.length > 6 ? (
+                <Link className="learn-topic learn-more" href="/topics">+ {list.length - 6} more</Link>
+              ) : null}
             </section>
           );
         })}

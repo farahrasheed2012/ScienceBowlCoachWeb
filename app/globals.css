@@ -371,16 +371,48 @@ h3 { font-size: 16px; margin: 0 0 6px; }
 .rest-item:last-child { border-bottom: 0; padding-bottom: 0; }
 .learn-page { display: grid; gap: 28px; max-width: 640px; }
 .learn-hero { display: grid; gap: 10px; }
-.learn-subjects { display: grid; gap: 26px; }
-.learn-subjects section { display: grid; gap: 2px; }
-.learn-subjects a {
-  display: block;
-  padding: 8px 0;
-  color: var(--muted);
-  border-bottom: 1px solid transparent;
-  transition: color 180ms var(--ease), border-color 180ms var(--ease);
+.learn-subjects { display: grid; gap: 32px; }
+.learn-subjects section { display: grid; gap: 0; }
+.learn-subject {
+  padding-left: 16px;
+  border-left: 2px solid color-mix(in srgb, var(--tone, var(--line)) 70%, transparent);
 }
-.learn-subjects a:hover { color: var(--text); border-bottom-color: var(--line); }
+.learn-subject.bio { --tone: var(--bio); }
+.learn-subject.chem { --tone: var(--chem); }
+.learn-subject.phys { --tone: var(--phys); }
+.learn-subject.earth { --tone: var(--earth); }
+.learn-subject.math { --tone: var(--math); }
+.learn-subject.energy { --tone: var(--gold); }
+.learn-subject-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.learn-subjects a, .learn-topic {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid var(--line);
+  transition: color 180ms var(--ease), opacity 180ms var(--ease);
+}
+.learn-subjects a:last-child, .learn-topic:last-child { border-bottom: 0; }
+.learn-subjects a:hover, .learn-topic:hover { color: var(--text); }
+.learn-topic.is-reviewed { color: var(--muted); font-weight: 500; }
+.learn-topic.learn-more, .learn-subjects a.learn-more {
+  color: var(--faint);
+  font-weight: 650;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
 .learn-sprint { display: grid; gap: 10px; }
 .learn-sprint p { margin: 0; }
 .python-body { display: grid; gap: 12px; max-width: 40em; }
@@ -423,6 +455,7 @@ h3 { font-size: 16px; margin: 0 0 6px; }
 .play-kicker.phys { color: var(--phys); }
 .play-kicker.math { color: var(--math); }
 .play-kicker.earth { color: var(--earth); }
+.play-kicker.energy { color: var(--gold); }
 .coach-brief { display: grid; gap: 8px; }
 .coach-brief p { margin: 0; }
 .play-card {
