@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { nextPythonLesson, pythonGames, pythonLessons, pythonLevels, pythonWeeks } from "@/lib/python";
+import { firstOpenLesson, nextPythonLesson, pythonDoneCount, pythonGames, pythonLessons, pythonLevels, pythonWeeks } from "@/lib/python";
 import { useStore } from "@/lib/store";
 
 export default function PythonHubPage() {
   const store = useStore();
   const done = new Set(store.pythonDoneIds);
   const next = nextPythonLesson(store.pythonDoneIds);
-  const finished = store.pythonDoneIds.length;
+  const finished = pythonDoneCount(store.pythonDoneIds);
   const week = next ? pythonWeeks.find((row) => row.lessonIds.includes(next.id)) : undefined;
 
   return (
@@ -40,7 +40,7 @@ export default function PythonHubPage() {
               <p className="faint">{level.subtitle} · {marked}/{total}</p>
               {weeks.map((week) => {
                 const count = week.lessonIds.filter((id) => done.has(id)).length;
-                const href = `/python/${week.lessonIds[0]}`;
+                const href = `/python/${firstOpenLesson(week.lessonIds, store.pythonDoneIds)}`;
                 return (
                   <Link key={week.id} href={href}>
                     {week.emoji} {week.title}

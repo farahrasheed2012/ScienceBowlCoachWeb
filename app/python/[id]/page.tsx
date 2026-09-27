@@ -45,39 +45,45 @@ function Challenge({
   const [guess, setGuess] = useState("");
   const [state, setState] = useState<"idle" | "ok" | "bad">("idle");
   const [show, setShow] = useState(false);
+  function check() {
+    setState(challengeMatches(guess, lesson) ? "ok" : "bad");
+  }
   return (
     <section className="stack">
       <p className="mission-kicker">Quick check</p>
       <p>{question}</p>
-      <input
-        value={guess}
-        onChange={(event) => {
-          setGuess(event.target.value);
-          setState("idle");
+      <form
+        className="stack"
+        onSubmit={(event) => {
+          event.preventDefault();
+          check();
         }}
-        placeholder="Type an answer"
-      />
-      <div className="row">
-        <button
-          className="btn"
-          type="button"
-          onClick={() => setState(challengeMatches(guess, lesson) ? "ok" : "bad")}
-        >
-          Check
-        </button>
-        <button className="text-btn" type="button" onClick={() => setShow((value) => !value)}>
-          {show ? "Hide hint" : "Show hint"}
-        </button>
-      </div>
+      >
+        <input
+          value={guess}
+          onChange={(event) => {
+            setGuess(event.target.value);
+            setState("idle");
+          }}
+          placeholder="Type an answer"
+        />
+        <div className="row">
+          <button className="btn" type="submit">Check</button>
+          <button className="text-btn" type="button" onClick={() => setShow((value) => !value)}>
+            {show ? "Hide answer" : "Show answer"}
+          </button>
+        </div>
+      </form>
       {state === "ok" ? <p className="coach-history">Exactly.</p> : null}
-      {state === "bad" ? <p className="muted">Not quite — try again, or peek the hint.</p> : null}
+      {state === "bad" ? <p className="muted">Not quite — try again, or peek the answer.</p> : null}
       {show && lesson.challengeAnswer ? <p className="muted">{lesson.challengeAnswer}</p> : null}
     </section>
   );
 }
 
 export default function PythonLessonPage() {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
+  const id = typeof params.id === "string" ? params.id : "";
   const store = useStore();
   const lesson = pythonLesson(id);
   const game = pythonGame(id);
@@ -104,7 +110,14 @@ export default function PythonLessonPage() {
     );
   }
 
-  if (!lesson) return <p>Lesson not found.</p>;
+  if (!lesson) {
+    return (
+      <div className="learn-page">
+        <p>Lesson not found.</p>
+        <Link href="/python">Back to Python</Link>
+      </div>
+    );
+  }
 
   const week = weekForLesson(lesson.id);
   const level = week ? levelForWeek(week.id) : undefined;
@@ -145,7 +158,9 @@ export default function PythonLessonPage() {
       ) : (
         <p className="muted">No starter file — this one is reading and paper first.</p>
       )}
-      {lesson.challengeQuestion ? <Challenge question={lesson.challengeQuestion} lesson={lesson} /> : null}
+      {lesson.challengeQuestion ? (
+        <Challenge key={lesson.id} question={lesson.challengeQuestion} lesson={lesson} />
+      ) : null}
       {lesson.teacherScript ? (
         <details className="more-help">
           <summary>Coach note</summary>

@@ -78,6 +78,20 @@ export function nextPythonLesson(doneIds: string[]) {
   return pythonLessons.find((lesson) => !done.has(lesson.id));
 }
 
+export function pythonDoneCount(doneIds: string[]) {
+  const known = new Set(pythonLessons.map((lesson) => lesson.id));
+  return doneIds.filter((id) => known.has(id)).length;
+}
+
+export function firstOpenLesson(lessonIds: string[], doneIds: string[]) {
+  const done = new Set(doneIds);
+  return lessonIds.find((id) => !done.has(id)) ?? lessonIds[0];
+}
+
+function normalizeAnswer(value: string) {
+  return value.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
 export function neighbors(id: string) {
   const index = pythonLessons.findIndex((lesson) => lesson.id === id);
   return {
@@ -89,8 +103,9 @@ export function neighbors(id: string) {
 export function challengeMatches(guess: string, lesson: PythonLesson) {
   const answers = [lesson.challengeAnswer, ...lesson.challengeAcceptedAnswers]
     .filter((value): value is string => Boolean(value))
-    .map((value) => value.trim().toLowerCase());
-  const text = guess.trim().toLowerCase();
+    .map(normalizeAnswer)
+    .filter(Boolean);
+  const text = normalizeAnswer(guess);
   if (!text || !answers.length) return false;
-  return answers.some((answer) => text === answer || text.includes(answer) || answer.includes(text));
+  return answers.includes(text);
 }
