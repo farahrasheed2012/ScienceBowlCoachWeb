@@ -9,7 +9,7 @@ import { SpeechBar } from "@/components/SpeechBar";
 import { coachRead } from "@/lib/coach";
 import { buildTodayPlan, featuredBlock, pickPriorityTopic, todaysMission } from "@/lib/plan";
 import { lookupLine, topicForWeakTitle } from "@/lib/readings";
-import { isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus, seasonLabel, subjectLabel, todayBlocks, weekdayFromDate } from "@/lib/schedule";
+import { dayLine, isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus, subjectLabel, timeGreeting, todayBlocks, weekdayFromDate } from "@/lib/schedule";
 import { keepSharpSession, sessionFromBlock, type PlaySession } from "@/lib/session";
 import { performanceFor, studyMinutes, todayGoal, whyToday } from "@/lib/stats";
 import { useStore } from "@/lib/store";
@@ -20,12 +20,6 @@ const MISSION_STAGES = [
   { label: "Know Cold", minutes: 5 },
   { label: "Toss-ups", minutes: 10 },
 ] as const;
-
-function hello(name: string) {
-  const hour = new Date().getHours();
-  const when = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
-  return `${when}, ${name.trim() || "Soha"}`;
-}
 
 export default function TodayPage() {
   const store = useStore();
@@ -268,8 +262,8 @@ export default function TodayPage() {
 
   return (
     <div className="mission-page">
-      <p className="faint">{seasonLabel(store.currentWeek)}</p>
-      <p className="mission-hello">{hello(store.studentName)}</p>
+      <p className="mission-hello">{timeGreeting(store.studentName)}</p>
+      <p className="faint">{dayLine()}</p>
       <section className="mission stack">
         <p className="mission-kicker">Your mission</p>
         <h1 className="mission-title">{mission.planId === "flash" ? mission.topic : missionLabel}</h1>
@@ -310,7 +304,7 @@ export default function TodayPage() {
       {showPlan ? (
         <div className="stack rest-today">
           {plan.map((item) => (
-            <div className="card stack" key={item.id} id={item.id === "science" && focus ? `session-${focus.id}` : undefined}>
+            <div className="rest-item stack" key={item.id} id={item.id === "science" && focus ? `session-${focus.id}` : undefined}>
               <div className="row">
                 <input type="checkbox" checked={item.done} onChange={() => store.togglePlanItem(item.id)} />
                 <p className="muted">{item.minutes} min</p>
@@ -351,7 +345,7 @@ export default function TodayPage() {
                 <p className="muted">Weekend toss-up · <Link href="/practice/play?mode=tossup">Start</Link> · <Link href="/quiz/buzzer">Phone buzzer</Link></p>
               )}
               {blocks.map((block) => (
-                <div className="card stack" key={block.id}>
+                <div className="rest-item stack" key={block.id}>
                   <p className="muted">{subjectLabel(block.subject)} · {block.bookCode} {block.chapter}</p>
                   <h3>{block.chapterTitle}</h3>
                   <p>{block.focus}</p>

@@ -28,7 +28,7 @@ function TopicRow({
 }) {
   const books = lookupLine(topic.id);
   return (
-    <div className="card stack">
+    <div className="rest-item stack">
       <div className="row">
         <Link href={`/learn/${topic.id}`}><strong>{topic.title}</strong></Link>
         <span className="pill">{topic.subject}</span>

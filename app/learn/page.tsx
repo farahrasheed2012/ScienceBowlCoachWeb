@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { encyclopediaQuestions, NSB_SUBJECTS, regionalSprint, topics } from "@/lib/catalogs";
-import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
+import { dayLine, isSchoolYear, schoolYearFocus, timeGreeting } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
 import { articleForLabel, practiceSubjectFor } from "@/lib/topic-map";
 import { useStore } from "@/lib/store";
@@ -15,87 +15,83 @@ export default function LearnPage() {
   const weak = topicAccuracy(store.drillResults).find((row) => row.acc < 0.7);
   const weakArticle = weak ? articleForLabel(weak.topic) : undefined;
   return (
-    <div>
-      <h1>Learn</h1>
-      <p>Hi, {store.studentName}!</p>
-      <p className="muted">
-        {schoolYear
-          ? "School year · Regional prep. Weak spots and Earth/Energy first — summer chapters live in Weeks."
-          : "Follow the summer block, then drill."}
-      </p>
-      <p className="muted">{topics.length} NSB topics · 6 categories · {encyclopediaQuestions.length} encyclopedia questions plus TossUp drills in Practice.</p>
-      {schoolYear ? (
-        <div className="card stack">
-          <h3>Today · {today.label}</h3>
+    <div className="learn-page">
+      <div>
+        <p className="mission-hello">{timeGreeting(store.studentName)}</p>
+        <p className="faint">{dayLine()}</p>
+      </div>
+      {weak ? (
+        <section className="learn-hero">
+          <p className="mission-kicker">Needs review</p>
+          <h1 className="session-title">{weak.topic}</h1>
+          <p className="muted">{Math.round(weak.acc * 100)}% after {weak.attempts} {weak.attempts === 1 ? "try" : "tries"}</p>
+          <div className="row">
+            <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}`}>Practice this</Link>
+            {weakArticle ? <Link className="text-btn" href={`/learn/${weakArticle.id}`}>Read the article</Link> : (
+              <Link className="text-btn" href={`/practice/play?mode=subject&subject=${practiceSubjectFor(weak.subject)}`}>Open subject</Link>
+            )}
+          </div>
+        </section>
+      ) : schoolYear ? (
+        <section className="learn-hero">
+          <p className="mission-kicker">Keep sharp</p>
+          <h1 className="session-title">{today.label}</h1>
           <p className="muted">
             {today.subject === "earth" || today.subject === "energy"
               ? "Not on the summer pass. Read an article, then drill."
-              : "Keep facts cold. Open Weeks only if you want a chapter hour."}
+              : "One keep-sharp session. Not a new chapter."}
           </p>
-          <div className="row">
-            <Link className="btn" href={today.href}>Practice {today.label}</Link>
-            <Link className="btn ghost" href="/topics">All topics</Link>
-          </div>
-        </div>
-      ) : null}
-      <p className="muted">{store.reviewedTopicIds.length} reviewed · {store.encyclopediaStreak} day encyclopedia streak</p>
-      <div className="row">
-        <Link className="btn" href="/learn/flash">{due ? `Review ${due} flashcards` : "Flashcards"}</Link>
-        <Link className="btn ghost" href="/topics">All topics</Link>
-        <Link className="btn ghost" href="/elements">Elements</Link>
-        <Link className="btn ghost" href="/learn/formulas">Formulas</Link>
-        <Link className="btn ghost" href="/learn/review">Review with books</Link>
-        <Link className="btn ghost" href="/weeks">Weeks</Link>
-        <Link className="btn ghost" href="/calendar">Calendar</Link>
-        <Link className="btn ghost" href="/mental-math">Mental Math</Link>
-      </div>
-      {weak ? (
-        <div className="card stack">
-          <h3>Needs review</h3>
-          <p>{weak.topic} · {Math.round(weak.acc * 100)}% after {weak.attempts} tries</p>
-          <div className="row">
-            <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}`}>Practice this</Link>
-            <Link className="btn ghost" href="/learn/review">Review with books</Link>
-            {weakArticle ? <Link className="btn ghost" href={`/learn/${weakArticle.id}`}>Read the article</Link> : (
-              <Link className="btn ghost" href={`/practice/play?mode=subject&subject=${practiceSubjectFor(weak.subject)}`}>Open subject</Link>
-            )}
-          </div>
-        </div>
-      ) : null}
-      <div className="grid two">
+          <Link className="btn" href={today.href}>Practice {today.label}</Link>
+        </section>
+      ) : (
+        <p className="muted">Follow the summer block, then drill.</p>
+      )}
+      <nav className="secondary-links">
+        <Link href="/learn/flash">{due ? `${due} flashcards due` : "Flashcards"}</Link>
+        <Link href="/learn/review">Review with books</Link>
+        <Link href="/topics">All topics</Link>
+        <Link href="/learn/formulas">Formulas</Link>
+        <Link href="/elements">Elements</Link>
+        <Link href="/weeks">Weeks</Link>
+        <Link href="/calendar">Calendar</Link>
+        <Link href="/mental-math">Mental math</Link>
+      </nav>
+      <p className="faint">
+        {store.reviewedTopicIds.length} reviewed · {topics.length} topics · {encyclopediaQuestions.length} encyclopedia questions
+        {store.encyclopediaStreak ? ` · ${store.encyclopediaStreak} day streak` : ""}
+      </p>
+      <div className="learn-subjects">
         {NSB_SUBJECTS.map((subject) => {
           const list = topics.filter((t) => t.subject === subject);
           const reviewed = list.filter((t) => store.reviewedTopicIds.includes(t.id)).length;
-          const withQ = list.filter((t) => encyclopediaQuestions.some((q) => q.topicId === t.id)).length;
           return (
-            <div className="card stack" key={subject}>
-              <h3>{subject}</h3>
-              <p className="muted">{reviewed}/{list.length} reviewed · {withQ} with drills</p>
+            <section key={subject}>
+              <p className="mission-kicker">{subject}</p>
+              <p className="faint">{reviewed}/{list.length} reviewed</p>
               {list.slice(0, 6).map((topic) => (
                 <Link key={topic.id} href={`/learn/${topic.id}`}>{topic.title}</Link>
               ))}
-              {list.length > 6 ? <p className="muted">+ {list.length - 6} more in Topics</p> : null}
-            </div>
+              {list.length > 6 ? <Link href="/topics">+ {list.length - 6} more</Link> : null}
+            </section>
           );
         })}
       </div>
-      <h2>Regional Sprint</h2>
-      <p className="muted">Texas regional depth — this is the school-year reading, not another summer chapter.</p>
-      <div className="grid two">
-        {regionalSprint.map((pack) => {
-          const article = articleForLabel(pack.title, false);
-          return (
-            <div className="card stack" key={pack.id}>
-              <h3>{pack.title}</h3>
-              <p className="muted">{pack.subtitle}</p>
-              <div className="row">
-                <Link className="btn" href={`/practice/play?mode=sprint&id=${pack.id}`}>Drill {pack.tossups.length}</Link>
-                {article ? <Link className="btn ghost" href={`/learn/${article.id}`}>Read the article</Link> : null}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <details className="more-help">
+        <summary>Regional Sprint</summary>
+        <div className="learn-sprint">
+          <p className="faint">Texas regional depth — school-year reading, not another summer chapter.</p>
+          {regionalSprint.map((pack) => {
+            const article = articleForLabel(pack.title, false);
+            return (
+              <p key={pack.id}>
+                <Link href={`/practice/play?mode=sprint&id=${pack.id}`}>{pack.title}</Link>
+                <span className="faint"> · {pack.tossups.length} toss-ups</span>
+                {article ? <> · <Link href={`/learn/${article.id}`}>Article</Link></> : null}
+              </p>
+            );
+          })}
+        </div>
+      </details>
     </div>
   );
 }

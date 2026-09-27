@@ -29,6 +29,16 @@ export function seasonLabel(week: number, date = new Date()): string {
   return `Week ${week} · ${weekTheme(week)}`;
 }
 
+export function timeGreeting(name: string, date = new Date()) {
+  const hour = date.getHours();
+  const when = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
+  return `${when}, ${name.trim() || "Soha"}`;
+}
+
+export function dayLine(date = new Date()) {
+  return `${date.toLocaleDateString("en-US", { weekday: "long" })} · Science Bowl`;
+}
+
 export function schoolYearEncyclopediaSubject(date = new Date()): string | null {
   const map: Record<string, string> = {
     chemistry: "Chemistry",
