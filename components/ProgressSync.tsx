@@ -9,6 +9,11 @@ export function ProgressSync() {
   const pulling = useRef(false);
 
   useEffect(() => {
+    lastSent.current = "";
+    pulling.current = false;
+  }, [store.profileId]);
+
+  useEffect(() => {
     if (!store.syncCode) return;
     let cancelled = false;
     pulling.current = true;

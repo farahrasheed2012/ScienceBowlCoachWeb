@@ -21,6 +21,7 @@ export default function SettingsPage() {
   return (
     <div className="stack">
       <h1>Settings</h1>
+      <ProfilesCard />
       <section className="card stack">
         <h3>Appearance</h3>
         <select value={store.appAppearance} onChange={(e) => store.set({ appAppearance: e.target.value as Appearance })}>
@@ -38,7 +39,7 @@ export default function SettingsPage() {
         <h3>Speech & review</h3>
         <label className="row"><input type="checkbox" checked={store.readQuestionsAloud} onChange={(e) => store.set({ readQuestionsAloud: e.target.checked })} /> Read questions aloud</label>
         <label className="row"><input type="checkbox" checked={store.autoReadQuestions} onChange={(e) => store.set({ autoReadQuestions: e.target.checked })} /> Auto-read each new question</label>
-        <label>Student name (for praise)</label>
+        <label>This kid&apos;s name</label>
         <input value={store.studentName} onChange={(e) => store.set({ studentName: e.target.value })} />
         <label>Speech speed</label>
         <select value={store.speechRatePreset} onChange={(e) => store.set({ speechRatePreset: e.target.value as SpeechRate })}>
@@ -75,7 +76,7 @@ export default function SettingsPage() {
           className="btn"
           type="button"
           onClick={() => {
-            const blob = new Blob([JSON.stringify(store.exportState(), null, 2)], { type: "application/json" });
+            const blob = new Blob([JSON.stringify(store.exportBag(), null, 2)], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
@@ -99,7 +100,7 @@ export default function SettingsPage() {
             }
           }}
         />
-        <button className="btn ghost" type="button" onClick={() => store.clearProgress()}>Clear all progress</button>
+        <button className="btn ghost" type="button" onClick={() => store.clearProgress()}>Clear this kid&apos;s progress</button>
       </section>
       <section className="card stack">
         <h3>DOE question bank</h3>
@@ -148,6 +149,43 @@ export default function SettingsPage() {
         <p>Science Bowl Coach — Soha. Middle School only. Not affiliated with or endorsed by the U.S. Department of Energy.</p>
       </section>
     </div>
+  );
+}
+
+function ProfilesCard() {
+  const store = useStore();
+  const [name, setName] = useState("");
+  return (
+    <section className="card stack">
+      <h3>Who is studying</h3>
+      <p className="muted">Each kid has their own Science Bowl, Python, and sync code. Switch before they start.</p>
+      <select value={store.profileId} onChange={(event) => store.switchProfile(event.target.value)}>
+        {store.profiles.map((profile) => (
+          <option key={profile.id} value={profile.id}>{profile.name}</option>
+        ))}
+      </select>
+      <label>Add a kid</label>
+      <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Name" />
+      <div className="row">
+        <button
+          className="btn"
+          type="button"
+          onClick={() => {
+            const next = name.trim();
+            if (!next) return;
+            store.addProfile(next);
+            setName("");
+          }}
+        >
+          Add kid
+        </button>
+        {store.profiles.length > 1 ? (
+          <button className="btn ghost" type="button" onClick={() => store.removeProfile(store.profileId)}>
+            Remove {store.studentName}
+          </button>
+        ) : null}
+      </div>
+    </section>
   );
 }
 
@@ -219,7 +257,10 @@ function DeviceSync() {
       {available === false ? (
         <p className="muted">This browser still saves progress. Add DATABASE_URL in Vercel to share it between iPhone and MacBook.</p>
       ) : (
-        <p className="muted">No account. One code links Soha&apos;s iPhone and Mac. Science Bowl and Python progress both travel.</p>
+        <p className="muted">
+          No account. One code is for <strong>{store.studentName}</strong> only.
+          Switch kid first, then make or enter that kid&apos;s code.
+        </p>
       )}
       {store.syncCode ? (
         <>

@@ -64,6 +64,14 @@ button, input, select, textarea { font: inherit; }
   border-right: 1px solid var(--line);
 }
 .brand { font-weight: 700; padding: 8px 12px 20px; font-size: 15px; letter-spacing: -0.02em; }
+.profile-switch {
+  display: grid;
+  gap: 4px;
+  padding: 0 14px 18px;
+}
+.profile-switch span { font-size: 12px; }
+.profile-switch select { max-width: 100%; }
+.mobile-profile { display: none; }
 .nav a {
   display: block; padding: 9px 12px; border-radius: 12px; color: var(--muted); margin-bottom: 2px;
   transition: background 200ms var(--ease), color 200ms var(--ease), transform 200ms var(--ease);
@@ -487,6 +495,8 @@ iframe.schedule { width: 100%; min-height: 70vh; border: 0; border-radius: 16px;
   .shell { grid-template-columns: 1fr; }
   .sidebar { display: none; }
   .main { padding: 24px 18px 104px; }
+  .mobile-profile { display: block; margin: 0 0 18px; }
+  .mobile-profile .profile-switch { padding: 0; }
   .mobile-nav {
     display: flex; position: fixed; bottom: 0; left: 0; right: 0;
     background: color-mix(in srgb, var(--chrome) 88%, transparent);

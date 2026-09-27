@@ -2,7 +2,7 @@
 
 Middle School Science Bowl study site, ported from the Mac/iPhone app in `../ScienceBowlCoach`. The Mac app is unchanged.
 
-No account. Progress stays in this browser. Optional Neon `DATABASE_URL` links iPhone and Mac with a sync code (Settings). MathCounts, POT 6, and Games stay on the Mac only.
+No account. Progress stays in this browser. Switch kids in the sidebar (or Settings). Optional Neon `DATABASE_URL` links each kid’s iPhone and Mac with that kid’s sync code. MathCounts, POT 6, and Games stay on the Mac only.
 
 After August 28, Home is school-year keep-sharp: weak spots, a weekday toss-up, regional sprint, flashcards. The 12-week summer blocks live under Weeks as an archive. Thursday and Friday fill Earth & Energy, which the summer pass skipped.
 

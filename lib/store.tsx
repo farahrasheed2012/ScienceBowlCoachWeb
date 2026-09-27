@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { CHECKLIST_SEED } from "./catalogs";
 import { weekNumber } from "./schedule";
 import type {
@@ -25,7 +25,7 @@ function mergeChecklist(saved?: ChecklistItem[]): ChecklistItem[] {
   return seed.map((item) => byId.get(item.id) ?? item);
 }
 
-type State = {
+export type State = {
   currentWeek: number;
   weekManuallySet: boolean;
   showSessionTimer: boolean;
@@ -59,6 +59,7 @@ type State = {
   buzzerRoomCode: string | null;
   syncCode: string | null;
   savedAt: string | null;
+  profileId: string;
 };
 
 const defaultState = (): State => ({
@@ -95,6 +96,7 @@ const defaultState = (): State => ({
   buzzerRoomCode: null,
   syncCode: null,
   savedAt: null,
+  profileId: "",
 });
 
 type Store = State & {
@@ -110,9 +112,20 @@ type Store = State & {
   togglePlanItem: (id: string) => void;
   recordRound: (input: { title: string; asked: number; correct: number; seconds: number }) => void;
   clearProgress: () => void;
-  importBackup: (data: Partial<State>) => void;
+  importBackup: (data: Partial<State> | ProfileBag) => void;
   mergeRemote: (data: Partial<State>) => void;
   exportState: () => State;
+  exportBag: () => ProfileBag;
+  profiles: { id: string; name: string }[];
+  switchProfile: (id: string) => void;
+  addProfile: (name: string) => void;
+  removeProfile: (id: string) => void;
+};
+
+export type ProfileBag = {
+  bag: 1;
+  activeId: string;
+  profiles: Record<string, State>;
 };
 
 const StoreContext = createContext<Store | null>(null);
@@ -157,6 +170,42 @@ function mergeDrillResults(rows: DrillResult[]): DrillResult[] {
   return out;
 }
 
+function snapshotState(state: State): State {
+  const base = defaultState();
+  return Object.fromEntries(
+    Object.keys(base).map((key) => [key, state[key as keyof State]]),
+  ) as State;
+}
+
+function hydrateState(raw: Partial<State> | undefined, profileId: string): State {
+  const parsed = raw ?? {};
+  return {
+    ...defaultState(),
+    ...parsed,
+    profileId: typeof parsed.profileId === "string" && parsed.profileId ? parsed.profileId : profileId,
+    studentName: parsed.studentName?.trim() || "Student",
+    checklist: mergeChecklist(parsed.checklist),
+    flashCards: mergeFlashCards(parsed.flashCards ?? []),
+    drillResults: mergeDrillResults(parsed.drillResults ?? []),
+    pythonDoneIds: Array.isArray(parsed.pythonDoneIds) ? parsed.pythonDoneIds : [],
+    syncCode: typeof parsed.syncCode === "string" ? parsed.syncCode : null,
+    savedAt: typeof parsed.savedAt === "string" ? parsed.savedAt : null,
+  };
+}
+
+function isBag(value: unknown): value is ProfileBag {
+  if (!value || typeof value !== "object") return false;
+  const bag = value as ProfileBag;
+  return bag.bag === 1 && Boolean(bag.profiles) && typeof bag.profiles === "object";
+}
+
+function profileList(active: State, bag: Record<string, State>) {
+  const all = { ...bag, [active.profileId]: active };
+  return Object.values(all)
+    .filter((profile) => profile.profileId)
+    .map((profile) => ({ id: profile.profileId, name: profile.studentName.trim() || "Student" }));
+}
+
 function mergeFlashCards(cards: FlashCard[]): FlashCard[] {
   const seen = new Map<string, FlashCard>();
   for (const card of cards) {
@@ -178,32 +227,52 @@ function mergeFlashCards(cards: FlashCard[]): FlashCard[] {
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<State>(defaultState);
   const [ready, setReady] = useState(false);
+  const bagRef = useRef<Record<string, State>>({});
 
   useEffect(() => {
     try {
       const raw = localStorage.getItem(KEY);
       if (raw) {
-        const parsed = JSON.parse(raw) as Partial<State>;
-        setState({
-          ...defaultState(),
-          ...parsed,
-          checklist: mergeChecklist(parsed.checklist),
-          flashCards: mergeFlashCards(parsed.flashCards ?? []),
-          drillResults: mergeDrillResults(parsed.drillResults ?? []),
-          pythonDoneIds: Array.isArray(parsed.pythonDoneIds) ? parsed.pythonDoneIds : [],
-          syncCode: typeof parsed.syncCode === "string" ? parsed.syncCode : null,
-          savedAt: typeof parsed.savedAt === "string" ? parsed.savedAt : null,
-        });
+        const parsed = JSON.parse(raw) as unknown;
+        if (isBag(parsed)) {
+          const profiles: Record<string, State> = {};
+          for (const [id, value] of Object.entries(parsed.profiles)) {
+            profiles[id] = hydrateState(value, id);
+          }
+          const activeId = profiles[parsed.activeId] ? parsed.activeId : Object.keys(profiles)[0];
+          if (activeId && profiles[activeId]) {
+            bagRef.current = profiles;
+            setState(profiles[activeId]);
+            setReady(true);
+            return;
+          }
+        } else {
+          const migrated = hydrateState(parsed as Partial<State>, crypto.randomUUID());
+          bagRef.current = { [migrated.profileId]: migrated };
+          setState(migrated);
+          setReady(true);
+          return;
+        }
       }
+      const first = hydrateState({ studentName: "Soha" }, crypto.randomUUID());
+      bagRef.current = { [first.profileId]: first };
+      setState(first);
     } catch {
-      /* keep defaults */
+      const first = hydrateState({ studentName: "Soha" }, crypto.randomUUID());
+      bagRef.current = { [first.profileId]: first };
+      setState(first);
     }
     setReady(true);
   }, []);
 
   useEffect(() => {
-    if (!ready) return;
-    localStorage.setItem(KEY, JSON.stringify(state));
+    if (!ready || !state.profileId) return;
+    bagRef.current = { ...bagRef.current, [state.profileId]: snapshotState(state) };
+    localStorage.setItem(KEY, JSON.stringify({
+      bag: 1,
+      activeId: state.profileId,
+      profiles: bagRef.current,
+    } satisfies ProfileBag));
   }, [state, ready]);
 
   const store = useMemo<Store>(() => ({
@@ -383,10 +452,22 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         parentReadsAloud: state.parentReadsAloud,
         studentName: state.studentName,
         syncCode: state.syncCode,
+        profileId: state.profileId,
       };
       setState({ ...defaultState(), ...keep, savedAt: new Date().toISOString() });
     },
     importBackup: (data) => {
+      if (isBag(data)) {
+        const profiles: Record<string, State> = {};
+        for (const [id, value] of Object.entries(data.profiles)) {
+          profiles[id] = hydrateState(value, id);
+        }
+        const activeId = profiles[data.activeId] ? data.activeId : Object.keys(profiles)[0];
+        if (!activeId) return;
+        bagRef.current = profiles;
+        setState(profiles[activeId]);
+        return;
+      }
       const allowed = defaultState();
       const patch = Object.fromEntries(
         Object.keys(allowed)
@@ -394,7 +475,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           .map((key) => [key, data[key as keyof State]]),
       ) as Partial<State>;
       if (patch.checklist) patch.checklist = mergeChecklist(patch.checklist);
-      setState((prev) => ({ ...prev, ...patch }));
+      setState((prev) => ({ ...prev, ...patch, profileId: prev.profileId }));
     },
     mergeRemote: (data) => {
       setState((prev) => {
@@ -416,11 +497,39 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         };
       });
     },
-    exportState: () => {
-      const snapshot = { ...defaultState(), ...state };
-      return Object.fromEntries(
-        Object.keys(defaultState()).map((key) => [key, snapshot[key as keyof State]]),
-      ) as State;
+    exportState: () => snapshotState(state),
+    exportBag: () => ({
+      bag: 1 as const,
+      activeId: state.profileId,
+      profiles: { ...bagRef.current, [state.profileId]: snapshotState(state) },
+    }),
+    profiles: profileList(state, bagRef.current),
+    switchProfile: (id) => {
+      if (!id || id === state.profileId) return;
+      const next = bagRef.current[id];
+      if (!next) return;
+      bagRef.current = { ...bagRef.current, [state.profileId]: snapshotState(state) };
+      setState(hydrateState(next, id));
+    },
+    addProfile: (name) => {
+      const next = hydrateState({
+        studentName: name.trim() || "Student",
+        appAppearance: state.appAppearance,
+        showSessionTimer: state.showSessionTimer,
+        parentReadsAloud: state.parentReadsAloud,
+      }, crypto.randomUUID());
+      bagRef.current = { ...bagRef.current, [state.profileId]: snapshotState(state), [next.profileId]: next };
+      setState(next);
+    },
+    removeProfile: (id) => {
+      const remaining = Object.values({ ...bagRef.current, [state.profileId]: snapshotState(state) })
+        .filter((profile) => profile.profileId !== id);
+      if (remaining.length === 0) return;
+      const nextBag: Record<string, State> = {};
+      for (const profile of remaining) nextBag[profile.profileId] = profile;
+      bagRef.current = nextBag;
+      if (state.profileId === id) setState(remaining[0]);
+      else setState((prev) => ({ ...prev }));
     },
   }), [state]);
 
