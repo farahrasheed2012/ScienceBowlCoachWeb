@@ -63,9 +63,10 @@ Coach notes on each question work offline from the encyclopedia. Optional richer
 
 ## Tabs
 
-Home · Practice · Learn · Periodic Table · Python · Progress · Settings
+Home · Quick · Practice · Learn · Periodic Table · Python · Progress · Settings
 
 - **Home** — school-year plan (or summer 1-hour blocks before Aug 28)
+- **Quick** — 5 mixed practice or 5 official-clock toss-ups for a few minutes on the go
 - **Practice** — TossUp bank + encyclopedia + curriculum + imported DOE. Official 5s MC / 20s SA.
 - **Learn** — encyclopedia, Review with books, Formulas, flashcards, Topics, Weeks archive
 - **Periodic Table** — 118-element reference, trends, and local study mode

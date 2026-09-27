@@ -30,10 +30,12 @@ function PlayInner() {
   const id = params.get("id") || "";
   const packet = params.get("packet") || "";
   const round = params.get("round") || "";
+  const asked = Number(params.get("n"));
+  const take = Number.isFinite(asked) && asked > 0 ? Math.min(Math.floor(asked), 25) : 0;
   const { title, questions } = useMemo(() => {
     const bank = practiceBank(store.importedDoe);
-    if (mode === "quick") return { title: "Quick Practice", questions: shuffle(bank).slice(0, 10) };
-    if (mode === "tossup") return { title: "Toss-Up", questions: shuffle(bank.filter((q) => q.kind !== "bonus")).slice(0, 15) };
+    if (mode === "quick") return { title: "Quick Practice", questions: shuffle(bank).slice(0, take || 10) };
+    if (mode === "tossup") return { title: "Toss-Up", questions: shuffle(bank.filter((q) => q.kind !== "bonus")).slice(0, take || 15) };
     if (mode === "bonus") {
       return { title: "Bonus pairs", questions: tossUpHewittPairs.flatMap((pair) => [pair.tossup, ...(pair.bonus ? [pair.bonus] : [])]) };
     }
@@ -102,14 +104,14 @@ function PlayInner() {
         }))),
       };
     }
-    return { title: "Practice", questions: shuffle(bank).slice(0, 10) };
-  }, [id, mode, packet, round, store.currentWeek, store.importedDoe, subject, topic, topicId, type, week]);
+    return { title: "Practice", questions: shuffle(bank).slice(0, take || 10) };
+  }, [id, mode, packet, round, store.currentWeek, store.importedDoe, subject, take, topic, topicId, type, week]);
 
   if (mode === "mock" || mode === "compete") {
     return <CompetitionPlay importedDoe={store.importedDoe} />;
   }
 
-  return <QuestionPlay key={`${mode}-${subject}-${topic}-${type}-${topicId}-${week}-${id}-${packet}-${round}`} questions={questions} title={title} timed />;
+  return <QuestionPlay key={`${mode}-${subject}-${topic}-${type}-${topicId}-${week}-${id}-${packet}-${round}-${take}`} questions={questions} title={title} timed />;
 }
 
 export default function PracticePlayPage() {

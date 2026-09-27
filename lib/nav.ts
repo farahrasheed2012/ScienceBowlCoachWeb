@@ -1,5 +1,6 @@
 export const NAV = [
   { href: "/today", label: "Home", short: "Home", match: ["/today"] },
+  { href: "/quick", label: "Quick", short: "Quick", match: ["/quick"] },
   { href: "/practice", label: "Practice", short: "Practice", match: ["/practice", "/quiz"] },
   { href: "/learn", label: "Learn", short: "Learn", match: ["/learn", "/topics", "/elements", "/weeks", "/calendar", "/mental-math"] },
   { href: "/periodic-table", label: "Periodic Table", short: "Table", match: ["/periodic-table"] },

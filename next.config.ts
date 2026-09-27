@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["@neondatabase/serverless"],
   async redirects() {
     return [
-      { source: "/", destination: "/today", permanent: false },
+      { source: "/", destination: "/quick", permanent: false },
       { source: "/quiz", destination: "/practice", permanent: false },
       { source: "/quiz/play", destination: "/practice/play", permanent: false },
       { source: "/learn/python", destination: "/python", permanent: false },
