@@ -73,10 +73,11 @@ def catalog() -> list[tuple[int, int, str, str, str]]:
         0,
         "Sample-Rounds",
         [
-            f"{BASE}/Sample-Rounds/rr2_for_web.pdf",
-            f"{BASE}/Sample-Rounds/rr5_for_web.pdf",
-            f"{BASE}/Sample-Rounds/de1_for_web.pdf",
-            f"{BASE}/Sample-Rounds/de3_for_web.pdf",
+            f"{BASE}/Sample-Rounds/rr{n}_for_web.pdf"
+            for n in (1, 2, 3, 4, 5)
+        ] + [
+            f"{BASE}/Sample-Rounds/de{n}_for_web.pdf"
+            for n in (1, 2, 3, 4)
         ],
     )
     add_set(entries, 14, "Set-14", [f"{BASE}/Sample-Set-14/2020-MS-Rd{n}.pdf" for n in range(1, 18)])
@@ -87,6 +88,7 @@ def catalog() -> list[tuple[int, int, str, str, str]]:
         "Set-4-MS-2021.pdf",
         "Set-5-MS-2021.pdf",
         "Set-6-MS-2021.pdf",
+        "Set-7-MS-2021.pdf",
         "Set-8-MS-2021.pdf",
         "Set-9-MS-2021.pdf",
         "Set-10-MS-2021.pdf",
@@ -148,12 +150,28 @@ SKIP = re.compile(
 )
 
 
-def map_category(raw: str) -> str:
+CHEM_RE = re.compile(
+    r"\b(periodic table|atomic (?:number|mass|radius|weight)|isotope|ion(?:ic)?|covalent|molecule|compound|acid|base|\bpH\b|molar|oxidation|reduction|valence|electron (?:shell|cloud|configuration)|proton|neutron|solute|solvent|precipitat|catalyst|halogen|alkali|noble gas|chemical (?:formula|bond|reaction|equation)|avogadro|stoichiometr|endothermic|exothermic|reactant|ionic compound|hydrogen peroxide|sodium chloride|atomic particle|neutral atom|electron)\b",
+    re.I,
+)
+PHYS_RE = re.compile(
+    r"\b(newton|force|accelerat|velocity|momentum|inertia|friction|kinetic energy|potential energy|wavelength|frequency|circuit|ohm|volt(?:age)?|ampere|amperage|magnet|optics|lens|mirror|refraction|reflection|photon|joule|watt|vector|displacement|gravitational|static electricity|class (?:one|1|two|2|three|3) lever|inclined plane)\b",
+    re.I,
+)
+BIO_RE = re.compile(
+    r"\b(cell|organism|photosynth|mitosis|meiosis|gene|dna|enzyme|bacteria|virus|species|ecosystem|chlorophyll|mitochond|chromosome|allele|habitat|predator|amphibian|arthropod|protein|blood|organelle|taxonomy|photosynthetic)\b",
+    re.I,
+)
+
+
+def official_bucket(raw: str) -> str:
     upper = raw.upper()
-    if "LIFE" in upper or "BIO" in upper:
+    if "LIFE" in upper or ("BIO" in upper and "PHYSICAL" not in upper):
         return "Biology"
     if "CHEM" in upper:
         return "Chemistry"
+    if "PHYSICAL SCIENCE" in upper or upper.strip() == "PHYSICAL":
+        return "Physical Science"
     if "EARTH" in upper or "SPACE" in upper or "ASTRO" in upper:
         return "Earth and Space"
     if "ENERGY" in upper:
@@ -164,7 +182,82 @@ def map_category(raw: str) -> str:
         return "Physics"
     if "GENERAL" in upper:
         return "General Science"
+    return raw.strip() or "General Science"
+
+
+def _hits(text: str, pattern: re.Pattern[str]) -> int:
+    return len(pattern.findall(text))
+
+
+def split_physical_science(text: str) -> str:
+    chem = _hits(text, CHEM_RE)
+    phys = _hits(text, PHYS_RE)
+    if chem > phys:
+        return "Chemistry"
+    if phys > chem:
+        return "Physics"
+    if re.search(r"\b(atom|ion|element|molecule|compound|periodic|isotope)\b", text, re.I):
+        return "Chemistry"
+    return "Physics"
+
+
+def split_general_science(text: str) -> str:
+    bio = _hits(text, BIO_RE)
+    chem = _hits(text, CHEM_RE)
+    phys = _hits(text, PHYS_RE)
+    top = max(bio, chem, phys)
+    if top < 2:
+        return "General Science"
+    if bio == top and bio > chem and bio > phys:
+        return "Biology"
+    if chem == top and chem > bio and chem > phys:
+        return "Chemistry"
+    if phys == top and phys > bio and phys > chem:
+        return "Physics"
     return "General Science"
+
+
+def practice_subject(raw: str, question: str, answer: str) -> str:
+    text = f"{question} {answer}"
+    bucket = official_bucket(raw)
+    if bucket == "Physical Science":
+        return split_physical_science(text)
+    if bucket == "Physics":
+        chem = _hits(text, CHEM_RE)
+        phys = _hits(text, PHYS_RE)
+        if chem >= phys + 1 and chem >= 1:
+            return "Chemistry"
+        return "Physics"
+    if bucket == "General Science":
+        return split_general_science(text)
+    return bucket
+
+
+def map_category(raw: str) -> str:
+    return official_bucket(raw)
+
+
+def detect_packet(text: str, source_file: str, set_number: int, round_number: int) -> tuple[int, int, str, str]:
+    # Yearly sample sets stay Set N / Round M, even when the PDF title says Round Robin or Double Elim.
+    if set_number >= 1:
+        return set_number, round_number, "set", f"Set {set_number}"
+    head = text[:1200].upper()
+    file_name = source_file.lower()
+    rr = (
+        re.search(r"ROUND ROBIN\s*[–—\-]?\s*(?:ROUND\s*)?(\d+)", head)
+        or re.search(r"rr(\d+)", file_name)
+    )
+    if rr or "ROUND ROBIN" in head or file_name.startswith("rr"):
+        number = int(rr.group(1)) if rr else round_number
+        return 0, number, "round-robin", f"Round Robin {number}"
+    de = (
+        re.search(r"DOUBLE ELIM(?:INATION)?\s*[–—\-]?\s*(?:ROUND\s*)?(\d+)", head)
+        or re.search(r"de(\d+)", file_name)
+    )
+    if de or "DOUBLE ELIM" in head or file_name.startswith("de"):
+        number = int(de.group(1)) if de else round_number
+        return 0, number, "double-elim", f"Double Elim {number}"
+    return set_number, round_number, "set", f"Set {set_number}"
 
 
 def clean(text: str) -> str:
@@ -186,11 +279,52 @@ def parse_header(line: str):
         if match:
             return {
                 "number": int(match.group("num")),
-                "category": map_category(match.group("cat")),
+                "raw_category": match.group("cat").strip(),
                 "format": "Multiple Choice" if "multiple" in match.group("fmt").lower() else "Short Answer",
                 "stem": match.group("stem").strip(),
             }
     return None
+
+
+def make_row(
+    kind: str,
+    number: int,
+    raw_category: str,
+    fmt: str,
+    question: str,
+    answer: str,
+    choices: list[str],
+    set_number: int,
+    round_number: int,
+    source_file: str,
+    source_year: int | None,
+    packet: str,
+    packet_label: str,
+) -> dict | None:
+    question = re.sub(r"\s+", " ", question).strip()
+    answer = re.sub(r"\s+", " ", answer).strip()
+    if len(question) < 12 or len(answer) < 1:
+        return None
+    digest = hashlib.sha1(f"{question}|{answer}".encode()).hexdigest()[:12]
+    qtype = "TOSS-UP" if kind.upper().startswith("TOSS") else "BONUS"
+    doe_category = official_bucket(raw_category)
+    return {
+        "id": f"doe-ms-s{set_number}-r{round_number}-q{number}-{qtype[0].lower()}-{digest}",
+        "setNumber": set_number,
+        "roundNumber": round_number,
+        "questionNumber": number,
+        "category": practice_subject(raw_category, question, answer),
+        "doeCategory": doe_category,
+        "packet": packet,
+        "packetLabel": packet_label,
+        "questionType": qtype,
+        "format": "Multiple Choice" if choices or "multiple" in fmt.lower() else "Short Answer",
+        "questionText": question,
+        "choices": choices,
+        "answer": answer,
+        "sourceFile": source_file,
+        "sourceYear": source_year,
+    }
 
 
 def explode_lines(lines: list[str]) -> list[str]:
@@ -222,6 +356,8 @@ def question_from_parts(
     round_number: int,
     source_file: str,
     source_year: int | None,
+    packet: str,
+    packet_label: str,
 ) -> dict | None:
     stem_lines = [part.strip() for part in re.split(r"\n+", stem) if part.strip()]
     choices: list[str] = []
@@ -236,29 +372,32 @@ def question_from_parts(
                 choices.append(f"{choice.group(1).upper()}) {choice.group(2).strip()}")
             else:
                 question_parts.append(chunk)
-    question = re.sub(r"\s+", " ", " ".join(question_parts)).strip()
-    answer = re.sub(r"\s+", " ", answer).strip()
-    if len(question) < 12 or len(answer) < 1:
-        return None
-    digest = hashlib.sha1(f"{question}|{answer}".encode()).hexdigest()[:12]
-    qtype = "TOSS-UP" if kind.upper().startswith("TOSS") else "BONUS"
-    return {
-        "id": f"doe-ms-s{set_number}-r{round_number}-q{number}-{qtype[0].lower()}-{digest}",
-        "setNumber": set_number,
-        "roundNumber": round_number,
-        "questionNumber": number,
-        "category": map_category(category),
-        "questionType": qtype,
-        "format": "Multiple Choice" if choices or "multiple" in fmt.lower() else "Short Answer",
-        "questionText": question,
-        "choices": choices,
-        "answer": answer,
-        "sourceFile": source_file,
-        "sourceYear": source_year,
-    }
+    return make_row(
+        kind,
+        number,
+        category,
+        fmt,
+        " ".join(question_parts),
+        answer,
+        choices,
+        set_number,
+        round_number,
+        source_file,
+        source_year,
+        packet,
+        packet_label,
+    )
 
 
-def parse_inline_blocks(text: str, set_number: int, round_number: int, source_file: str, source_year: int | None) -> list[dict]:
+def parse_inline_blocks(
+    text: str,
+    set_number: int,
+    round_number: int,
+    source_file: str,
+    source_year: int | None,
+    packet: str,
+    packet_label: str,
+) -> list[dict]:
     blob = re.sub(r"\s+", " ", clean(text))
     rows: list[dict] = []
     for match in INLINE_BLOCK.finditer(blob):
@@ -273,6 +412,8 @@ def parse_inline_blocks(text: str, set_number: int, round_number: int, source_fi
             round_number,
             source_file,
             source_year,
+            packet,
+            packet_label,
         )
         if row:
             rows.append(row)
@@ -280,43 +421,37 @@ def parse_inline_blocks(text: str, set_number: int, round_number: int, source_fi
 
 
 def parse_text(text: str, set_number: int, round_number: int, source_file: str, source_year: int | None) -> list[dict]:
+    set_number, round_number, packet, packet_label = detect_packet(text, source_file, set_number, round_number)
     lines = explode_lines(clean(text).splitlines())
     questions: list[dict] = []
     kind = "TOSS-UP"
     number = 0
-    category = "General Science"
+    raw_category = "General Science"
     fmt = "Short Answer"
     stem = ""
     choices: list[str] = []
 
     def flush(answer: str) -> None:
         nonlocal stem, choices
-        question = re.sub(r"\s+", " ", stem).strip()
-        answer = re.sub(r"\s+", " ", answer).strip()
-        if len(question) < 12 or len(answer) < 1:
-            stem = ""
-            choices = []
-            return
-        digest = hashlib.sha1(f"{question}|{answer}".encode()).hexdigest()[:12]
-        qtype = kind
-        questions.append(
-            {
-                "id": f"doe-ms-s{set_number}-r{round_number}-q{number}-{qtype[0].lower()}-{digest}",
-                "setNumber": set_number,
-                "roundNumber": round_number,
-                "questionNumber": number,
-                "category": category,
-                "questionType": qtype,
-                "format": "Multiple Choice" if choices else fmt,
-                "questionText": question,
-                "choices": choices,
-                "answer": answer,
-                "sourceFile": source_file,
-                "sourceYear": source_year,
-            }
+        row = make_row(
+            kind,
+            number,
+            raw_category,
+            fmt,
+            stem,
+            answer,
+            choices,
+            set_number,
+            round_number,
+            source_file,
+            source_year,
+            packet,
+            packet_label,
         )
         stem = ""
         choices = []
+        if row:
+            questions.append(row)
 
     i = 0
     while i < len(lines):
@@ -341,7 +476,7 @@ def parse_text(text: str, set_number: int, round_number: int, source_file: str, 
         header = parse_header(line)
         if header:
             number = header["number"]
-            category = header["category"]
+            raw_category = header["raw_category"]
             fmt = header["format"]
             stem = header["stem"]
             choices = []
@@ -362,7 +497,7 @@ def parse_text(text: str, set_number: int, round_number: int, source_file: str, 
         i += 1
     if len(questions) >= 10:
         return questions
-    return parse_inline_blocks(text, set_number, round_number, source_file, source_year)
+    return parse_inline_blocks(text, set_number, round_number, source_file, source_year, packet, packet_label)
 
 
 def main() -> None:
@@ -407,7 +542,14 @@ def main() -> None:
     print(f"\nPDFs downloaded: {ok_pdfs}")
     print(f"PDFs with questions: {parsed_pdfs}")
     print(f"Official MS questions: {len(questions)}")
-    print("By category:", dict(sorted(cats.items())))
+    packets: dict[str, int] = {}
+    doe_cats: dict[str, int] = {}
+    for row in questions:
+        packets[str(row.get("packetLabel") or "")] = packets.get(str(row.get("packetLabel") or ""), 0) + 1
+        doe_cats[str(row.get("doeCategory") or "")] = doe_cats.get(str(row.get("doeCategory") or ""), 0) + 1
+    print("By official DOE label:", dict(sorted(doe_cats.items())))
+    print("By practice subject:", dict(sorted(cats.items())))
+    print("Packets:", len(packets))
     print(f"Wrote {OUT}")
 
 

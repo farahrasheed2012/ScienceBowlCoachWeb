@@ -55,6 +55,9 @@ export type DoeQuestion = {
   roundNumber?: number;
   questionNumber?: number;
   category: string;
+  doeCategory?: string;
+  packet?: string;
+  packetLabel?: string;
   questionType: string;
   format: string;
   questionText: string;
@@ -77,6 +80,10 @@ export type PlayQuestion = {
   topicId?: string;
   kind?: "tossup" | "bonus";
   answerKey?: string;
+  setNumber?: number;
+  roundNumber?: number;
+  questionNumber?: number;
+  packetLabel?: string;
 };
 
 export type TossUpTopic = {

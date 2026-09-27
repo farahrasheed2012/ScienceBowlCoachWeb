@@ -1,5 +1,6 @@
 import doeCacheJson from "@/data/doe_questions_cache.json";
 import { encyclopediaQuestions, studyBlocks, topics } from "./catalogs";
+import { packetInfo, practiceSubject } from "./subject-tag";
 import { articleForLabel } from "./topic-map";
 import { tossUpBundled, tossUpHewitt, tossUpHewittPairs, parseChoices } from "./tossup";
 import type { DoeQuestion, EncyclopediaQuestion, EncyclopediaTopic, PlayQuestion } from "./types";
@@ -60,6 +61,9 @@ function normalizeImportedQuestion(row: unknown): DoeQuestion | null {
     setNumber: typeof q.setNumber === "number" ? q.setNumber : undefined,
     roundNumber: typeof q.roundNumber === "number" ? q.roundNumber : undefined,
     questionNumber: typeof q.questionNumber === "number" ? q.questionNumber : undefined,
+    doeCategory: q.doeCategory ? String(q.doeCategory) : undefined,
+    packet: q.packet ? String(q.packet) : undefined,
+    packetLabel: q.packetLabel ? String(q.packetLabel) : undefined,
   };
 }
 
@@ -77,17 +81,23 @@ export function mergeDoeQuestions(current: DoeQuestion[], incoming: DoeQuestion[
 export function doeToPlay(q: DoeQuestion): PlayQuestion {
   const choices = parseChoices(q.choices);
   const kind = /bonus/i.test(q.questionType) ? "bonus" : "tossup";
+  const subject = practiceSubject(q.doeCategory || q.category, q.questionText, q.answer);
+  const packet = packetInfo(q.sourceFile, q.setNumber, q.roundNumber);
   return {
     id: q.id,
     source: q.sourceFile ?? "DOE",
-    category: q.category,
+    category: subject,
     type: q.questionType || "TOSS-UP",
     format: choices.length ? "multipleChoice" : "shortAnswer",
-    topic: q.category,
+    topic: subject,
     questionText: q.questionText,
     choices,
     answer: q.answer,
     kind,
+    setNumber: packet.setNumber,
+    roundNumber: packet.roundNumber,
+    questionNumber: q.questionNumber,
+    packetLabel: q.packetLabel || packet.label,
   };
 }
 
@@ -114,20 +124,50 @@ export function allEncyclopediaPlay(): PlayQuestion[] {
   return encyclopediaQuestions.map(encyclopediaToPlay);
 }
 
-export function matchesSubject(question: { category: string }, subject: string) {
-  const category = question.category.toLowerCase();
+export function matchesSubject(question: { category: string; questionText?: string; answer?: string }, subject: string) {
+  const tagged = practiceSubject(question.category, question.questionText, question.answer).toLowerCase();
   const name = subject.toLowerCase();
-  if (name === "biology") return category.includes("bio") || category.includes("life");
-  if (name === "chemistry") return category.includes("chem");
-  if (name === "physics") return category.includes("phys") && !category.includes("earth");
-  if (name === "earth") return category.includes("earth") || category.includes("space") || category.includes("astro");
-  if (name === "energy") return category.includes("energy") || category.includes("power") || category.includes("fuel");
-  if (name === "math") return category.includes("math");
-  return category.includes(name);
+  if (name === "biology") return tagged.includes("bio") || tagged.includes("life");
+  if (name === "chemistry") return tagged === "chemistry";
+  if (name === "physics") return tagged === "physics";
+  if (name === "earth") return tagged.includes("earth") || tagged.includes("space") || tagged.includes("astro");
+  if (name === "energy") return tagged.includes("energy") || tagged.includes("power") || tagged.includes("fuel");
+  if (name === "math") return tagged.includes("math");
+  return tagged.includes(name);
 }
 
 export function starterDoePlay(): PlayQuestion[] {
   return doeBundled.map(doeToPlay);
+}
+
+export function officialPacketGroups(importedDoe: DoeQuestion[] = []) {
+  const groups = new Map<string, { label: string; kind: string; setNumber: number; rounds: { round: number; count: number }[] }>();
+  for (const row of mergeDoeQuestions(doeBundled, importedDoe).map(doeToPlay)) {
+    const label = row.packetLabel || "Official packet";
+    const info = packetInfo(row.source, row.setNumber, row.roundNumber);
+    const current = groups.get(label) ?? { label, kind: info.kind, setNumber: info.setNumber, rounds: [] };
+    const round = row.roundNumber ?? 1;
+    const found = current.rounds.find((item) => item.round === round);
+    if (found) found.count += 1;
+    else current.rounds.push({ round, count: 1 });
+    groups.set(label, current);
+  }
+  return [...groups.values()]
+    .map((group) => ({ ...group, rounds: group.rounds.sort((a, b) => a.round - b.round) }))
+    .sort((a, b) => {
+      const order = { set: 0, "round-robin": 1, "double-elim": 2 };
+      const left = order[a.kind as keyof typeof order] ?? 3;
+      const right = order[b.kind as keyof typeof order] ?? 3;
+      if (left !== right) return left - right;
+      return a.setNumber - b.setNumber || a.label.localeCompare(b.label, undefined, { numeric: true });
+    });
+}
+
+export function officialPacketPlay(importedDoe: DoeQuestion[] = [], packetLabel: string, round?: number) {
+  return mergeDoeQuestions(doeBundled, importedDoe)
+    .map(doeToPlay)
+    .filter((row) => row.packetLabel === packetLabel && (round == null || row.roundNumber === round))
+    .sort((a, b) => (a.questionNumber ?? 0) - (b.questionNumber ?? 0) || (a.kind === "bonus" ? 1 : 0) - (b.kind === "bonus" ? 1 : 0));
 }
 
 export function practiceBank(importedDoe: DoeQuestion[] = []): PlayQuestion[] {

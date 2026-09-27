@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { tossUpBundled, tossUpHewittPairs, tossUpTopics } from "@/lib/tossup";
 import { regionalSprint } from "@/lib/catalogs";
+import { PacketPicker } from "@/components/PacketPicker";
 import { doeBundled, matchesSubject, mergeDoeQuestions, parseQuestionCache, practiceBank } from "@/lib/questions";
 import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
@@ -67,7 +68,8 @@ export default function PracticePage() {
         <p className="muted">
           {doeBundled.length + extraDoe} official DOE middle-school questions
           {extraDoe ? ` · ${extraDoe} extra imported` : ""}.
-          Earth {earthCount} · Energy {energyCount}. Parsed from DOE sample sets 1–16. Extra caches still import below.
+          Earth {earthCount} · Energy {energyCount} · Chemistry {bank.filter((q) => matchesSubject(q, "chemistry") && q.kind !== "bonus").length}.
+          Official MS sets 1–16 plus Round Robin and Double Elim. Extra caches still import below.
         </p>
         <input
           type="file"
@@ -93,6 +95,7 @@ export default function PracticePage() {
         />
         {doeNote ? <p className={doeNote.includes("not") || doeNote.includes("backup") || doeNote.includes("No DOE") ? "bad-text" : "ok-text"}>{doeNote}</p> : null}
       </div>
+      <PacketPicker importedDoe={store.importedDoe} />
       <div className="card">
         <p className="muted">Space buzzes · W X Y Z or 1–4 answers · N or Enter goes to the next question after reveal · End round saves the session.</p>
       </div>

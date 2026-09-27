@@ -104,7 +104,7 @@ export default function SettingsPage() {
         <p className="muted">
           {doeBundled.length} official DOE middle-school questions are already in Practice
           {store.importedDoe.length ? ` · ${store.importedDoe.length} extra imported` : ""}, on top of TossUp’s 634 bundled questions.
-          Import another cache only if you have a newer file.
+          Physical Science is split into Chemistry vs Physics. Import another cache only if you have a newer file.
         </p>
         <input
           type="file"

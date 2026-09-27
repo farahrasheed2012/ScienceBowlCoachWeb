@@ -7,6 +7,7 @@ import { regionalSprint, studyBlocks } from "@/lib/catalogs";
 import {
   buildMockMatch,
   curriculumTossups,
+  officialPacketPlay,
   practiceBank,
   shuffle,
   allEncyclopediaPlay,
@@ -27,6 +28,8 @@ function PlayInner() {
   const topicId = params.get("topicId") || "";
   const week = params.get("week") || "";
   const id = params.get("id") || "";
+  const packet = params.get("packet") || "";
+  const round = params.get("round") || "";
   const { title, questions } = useMemo(() => {
     const bank = practiceBank(store.importedDoe);
     if (mode === "quick") return { title: "Quick Practice", questions: shuffle(bank).slice(0, 10) };
@@ -53,6 +56,14 @@ function PlayInner() {
       return {
         title: weakTopic ? `Weak · ${weakTopic}` : "Weak areas",
         questions: list.length ? list : shuffle(bank).slice(0, 10),
+      };
+    }
+    if (mode === "packet") {
+      const roundNumber = round ? Number(round) : undefined;
+      const list = officialPacketPlay(store.importedDoe, packet, Number.isFinite(roundNumber) ? roundNumber : undefined);
+      return {
+        title: packet ? `${packet}${roundNumber ? ` · Round ${roundNumber}` : ""}` : "Official packet",
+        questions: list,
       };
     }
     if (mode === "mock") return { title: "Mock Match", questions: buildMockMatch(store.importedDoe) };
@@ -92,9 +103,9 @@ function PlayInner() {
       };
     }
     return { title: "Practice", questions: shuffle(bank).slice(0, 10) };
-  }, [id, mode, store.currentWeek, store.importedDoe, subject, topic, topicId, type, week]);
+  }, [id, mode, packet, round, store.currentWeek, store.importedDoe, subject, topic, topicId, type, week]);
 
-  return <QuestionPlay key={`${mode}-${subject}-${topic}-${type}-${topicId}-${week}-${id}`} questions={questions} title={title} timed />;
+  return <QuestionPlay key={`${mode}-${subject}-${topic}-${type}-${topicId}-${week}-${id}-${packet}-${round}`} questions={questions} title={title} timed />;
 }
 
 export default function PracticePlayPage() {

@@ -40,7 +40,7 @@ Copied from the Mac app:
 - 50 summer study blocks (archive after Aug 28)
 - 11 Texas Regional Sprint packs
 - 634 TossUp bundled questions (bio, chem, math)
-- Official DOE middle-school sample sets 1–16 (`doe_questions_cache.json`, ~11,000 questions parsed from public NSB PDFs)
+- Official DOE middle-school sample sets 1–16 plus Round Robin / Double Elim extras (`doe_questions_cache.json`, ~11,300 questions). Physical Science is split into Chemistry vs Physics for practice.
 - calendar / timetable / periodic table HTML
 
 To refresh extracted Swift catalogs after Mac-app edits:
