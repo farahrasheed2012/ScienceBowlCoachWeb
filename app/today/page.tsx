@@ -11,6 +11,7 @@ import { buildTodayPlan, featuredBlock, pickPriorityTopic, todaysMission } from 
 import { lookupLine, topicForWeakTitle } from "@/lib/readings";
 import { dayLine, isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus, subjectLabel, timeGreeting, todayBlocks, weekdayFromDate } from "@/lib/schedule";
 import { keepSharpSession, sessionFromBlock, type PlaySession } from "@/lib/session";
+import { pct, studentReadiness } from "@/lib/readiness";
 import { performanceFor, studyMinutes, todayGoal, whyToday } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 
@@ -89,6 +90,7 @@ export default function TodayPage() {
     rounds: store.practiceRounds,
     missionTopic,
   });
+  const ready = studentReadiness(store.drillResults);
 
   function begin(next: PlaySession) {
     sessionStartedAt.current = Date.now();
@@ -143,15 +145,13 @@ export default function TodayPage() {
               <p className="muted">{missed.join(" · ")}</p>
             </div>
           ) : <p className="muted">No misses logged this session.</p>}
-          <div>
-            <p className="mission-kicker">Next recommended step</p>
-            <p>{missed[0] ? "Try 2 similar questions" : "A short toss-up keeps this cold"}</p>
-          </div>
           <p className="muted">{minutes} min · streak {store.studyStreak}</p>
           {due.length ? <p className="muted">{due.length} flashcards due now.</p> : null}
           <div className="row">
-            {missed[0] ? <Link className="btn mission-cta" href="/learn/review">Review now</Link> : (
-              <button className="btn mission-cta" type="button" onClick={leaveSession}>Back to today</button>
+            {missed[0] ? (
+              <Link className="btn mission-cta" href={`/practice/play?mode=weak&topic=${encodeURIComponent(missed[0])}`}>Fix that weakness</Link>
+            ) : (
+              <Link className="btn mission-cta" href="/practice/play?mode=tossup">Keep going</Link>
             )}
             {due.length ? <Link className="btn ghost" href="/learn/flash">Review flashcards</Link> : <Link className="btn ghost" href="/practice">Free practice</Link>}
           </div>
@@ -250,10 +250,19 @@ export default function TodayPage() {
     <div className="mission-page view-in">
       <p className="mission-hello">{timeGreeting(store.studentName)}</p>
       <p className="faint">{dayLine()}</p>
+      {ready.overall != null ? (
+        <p className="faint">
+          Readiness {pct(ready.overall)}
+          {ready.biggest ? ` · biggest gap ${ready.biggest.label}` : ""}
+        </p>
+      ) : (
+        <p className="faint">Readiness unlocks after a few toss-ups.</p>
+      )}
       <section className="mission stack">
         <h1 className="mission-title">{mission.planId === "flash" ? mission.topic : missionLabel}</h1>
         <p className="mission-why">{whyLead}</p>
         <p className="mission-goal">{mission.planId === "flash" ? mission.outcome : todayGoal(history)}</p>
+        {mission.steps?.length ? <p className="mission-goal">{mission.steps.join(" → ")}</p> : null}
         <p className="mission-time">{mission.minutes} min</p>
         {mission.startSession ? (
           <button className="btn mission-cta" type="button" onClick={beginMission}>Start mission</button>

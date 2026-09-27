@@ -243,6 +243,21 @@ export function pairConsecutive(questions: PlayQuestion[]) {
   return pairs;
 }
 
+export function buildCompetitionPairs(importedDoe: DoeQuestion[] = []) {
+  const doePairs = pairConsecutive(mergeDoeQuestions(doeBundled, importedDoe).map(doeToPlay)).filter((pair) => pair.bonus);
+  const withBonus = shuffle([...tossUpHewittPairs.filter((pair) => pair.bonus), ...doePairs]);
+  const used = new Set(withBonus.flatMap((pair) => [pair.tossup.id, pair.bonus?.id ?? ""]));
+  const fill = shuffle(
+    practiceBank(importedDoe).filter((question) => question.kind !== "bonus" && !used.has(question.id)),
+  );
+  const pairs = [...withBonus];
+  for (const tossup of fill) {
+    if (pairs.length >= 16) break;
+    pairs.push({ tossup });
+  }
+  return pairs.slice(0, 16);
+}
+
 export function buildMockMatch(importedDoe: DoeQuestion[] = []): PlayQuestion[] {
   const doePairs = pairConsecutive(mergeDoeQuestions(doeBundled, importedDoe).map(doeToPlay)).filter((pair) => pair.bonus);
   const pairs = shuffle([...tossUpHewittPairs.filter((pair) => pair.bonus), ...doePairs]);

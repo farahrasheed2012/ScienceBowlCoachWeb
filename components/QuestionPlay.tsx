@@ -42,23 +42,45 @@ export function QuestionPlay({
   const answeredId = useRef<string | null>(null);
   const questionGen = useRef(0);
   const timedOut = useRef(false);
+  const clockStartedAt = useRef<number | null>(null);
+  const buzzedAtSec = useRef<number | null>(null);
+  const didBuzz = useRef(false);
   const question = list[index];
   const tone = question ? subjectTone(question.category) : "bio";
+
+  function elapsedSec() {
+    if (!clockStartedAt.current) return 0;
+    return (Date.now() - clockStartedAt.current) / 1000;
+  }
+
+  function buzz() {
+    if (phase !== "live") return;
+    didBuzz.current = true;
+    buzzedAtSec.current = elapsedSec();
+    setPhase("buzzed");
+  }
 
   useEffect(() => {
     questionGen.current += 1;
     answeredId.current = null;
     timedOut.current = false;
+    didBuzz.current = false;
+    buzzedAtSec.current = null;
     setTyped("");
     setPicked(null);
     setCorrect(null);
     setPhase("live");
     setSeconds(question ? officialSeconds(question) : 5);
-    setClockOn(!(timed && store.readQuestionsAloud && store.autoReadQuestions && !store.parentReadsAloud));
+    const startClock = !(timed && store.readQuestionsAloud && store.autoReadQuestions && !store.parentReadsAloud);
+    clockStartedAt.current = timed && startClock ? Date.now() : null;
+    setClockOn(startClock);
     stopSpeech();
     if (question && store.readQuestionsAloud && store.autoReadQuestions && !store.parentReadsAloud) {
       const choices = question.choices.map((c) => `${c.key}: ${c.text}`).join(". ");
-      void speak(`${question.questionText}. ${choices}`, RATE[store.speechRatePreset], store.speechVoiceURI).then(() => setClockOn(true));
+      void speak(`${question.questionText}. ${choices}`, RATE[store.speechRatePreset], store.speechVoiceURI).then(() => {
+        clockStartedAt.current = Date.now();
+        setClockOn(true);
+      });
     }
   }, [index, question, store.autoReadQuestions, store.parentReadsAloud, store.readQuestionsAloud, store.speechRatePreset, store.speechVoiceURI, timed]);
 
@@ -93,7 +115,12 @@ export function QuestionPlay({
         }
         if (latest?.at && latest.at !== lastAt) {
           lastAt = latest.at;
-          setPhase((current) => (current === "live" ? "buzzed" : current));
+          setPhase((current) => {
+            if (current !== "live") return current;
+            didBuzz.current = true;
+            buzzedAtSec.current = elapsedSec();
+            return "buzzed";
+          });
         }
       } catch {
         /* room may be empty */
@@ -108,7 +135,7 @@ export function QuestionPlay({
       const key = event.key.toLowerCase();
       if (phase === "live" && (event.code === "Space" || key === " ")) {
         event.preventDefault();
-        setPhase("buzzed");
+        buzz();
         return;
       }
       if ((phase === "live" || phase === "buzzed") && !store.parentReadsAloud) {
@@ -152,6 +179,7 @@ export function QuestionPlay({
     } else {
       setMissedTopics((topics) => (topics.includes(question.topic) ? topics : [...topics, question.topic]));
     }
+    const allowed = officialSeconds(question);
     store.recordAnswer({
       questionId: question.id,
       topic: question.topic,
@@ -159,6 +187,14 @@ export function QuestionPlay({
       correct: isCorrect,
       prompt: question.questionText,
       answer: question.answer,
+      kind: timed ? (question.kind === "bonus" ? "bonus" : "tossup") : "recall",
+      format: question.format,
+      timed,
+      buzzed: didBuzz.current,
+      timedOut,
+      secondsUsed: timed ? elapsedSec() : undefined,
+      secondsAllowed: timed ? allowed : undefined,
+      buzzedAtSec: buzzedAtSec.current ?? undefined,
     });
     if (isCorrect && store.readQuestionsAloud) {
       praise(store.studentName, RATE[store.speechRatePreset], store.speechVoiceURI);
@@ -175,6 +211,9 @@ export function QuestionPlay({
     questionGen.current += 1;
     answeredId.current = null;
     timedOut.current = false;
+    didBuzz.current = false;
+    buzzedAtSec.current = null;
+    clockStartedAt.current = timed ? Date.now() : null;
     setTyped("");
     setPicked(null);
     setCorrect(null);
@@ -249,7 +288,11 @@ export function QuestionPlay({
           <p className="muted">{minutes} min · +{earned} XP</p>
           {dueNow ? <p className="muted">{dueNow} flashcards due now.</p> : null}
           <div className="row">
-            {missedTopics[0] ? <Link className="btn mission-cta" href="/learn/review">Review now</Link> : <Link className="btn mission-cta" href="/today">Back to today</Link>}
+            {missedTopics[0] ? (
+              <Link className="btn mission-cta" href={`/practice/play?mode=weak&topic=${encodeURIComponent(missedTopics[0])}`}>Fix that weakness</Link>
+            ) : (
+              <Link className="btn mission-cta" href="/practice/play?mode=tossup">Keep going</Link>
+            )}
             {dueNow ? <Link className="btn ghost" href="/learn/flash">Review flashcards</Link> : <Link className="btn ghost" href="/practice">Free practice</Link>}
           </div>
         </div>
@@ -317,7 +360,7 @@ export function QuestionPlay({
         ) : null}
         {phase === "live" && timed ? (
           <div className="row">
-            <button className="btn buzz" type="button" onClick={() => setPhase("buzzed")}>Space · Buzz</button>
+            <button className="btn buzz" type="button" onClick={buzz}>Space · Buzz</button>
           </div>
         ) : null}
         {store.parentReadsAloud && phase !== "revealed" ? (

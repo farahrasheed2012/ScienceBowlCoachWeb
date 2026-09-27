@@ -15,7 +15,7 @@ const MODES = [
   { href: "/practice/play?mode=tossup", title: "Toss-Up", detail: "Official-style toss-ups · 5s MC / 20s SA" },
   { href: "/practice/play?mode=bonus", title: "Bonus", detail: `${tossUpHewittPairs.length} Hewitt pairs · bonus only after a correct toss-up` },
   { href: "/practice/play?mode=weak", title: "Weak Areas", detail: "Topics under 70% after at least 2 tries" },
-  { href: "/practice/play?mode=mock", title: "Mock Match", detail: "8 toss-up/bonus pairs, then toss-ups to 25 · miss a toss-up and the bonus is skipped" },
+  { href: "/practice/compete", title: "Competition Mode", detail: "Two halves · you vs the field · official 5s buzz / 20s bonus · +4 / −4 / +10" },
   { href: "/practice/play?mode=sprint", title: "Regional Sprint", detail: `${regionalSprint.length} know-cold packs · short answer` },
 ];
 

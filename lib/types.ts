@@ -92,6 +92,8 @@ export type TossUpTopic = {
   name: string;
 };
 
+export type DrillKind = "tossup" | "bonus" | "recall";
+
 export type DrillResult = {
   id: string;
   questionId: string;
@@ -99,6 +101,31 @@ export type DrillResult = {
   subject: Subject | string;
   correct: boolean;
   at: string;
+  kind?: DrillKind;
+  format?: "multipleChoice" | "shortAnswer";
+  timed?: boolean;
+  buzzed?: boolean;
+  timedOut?: boolean;
+  secondsUsed?: number;
+  secondsAllowed?: number;
+  buzzedAtSec?: number;
+};
+
+export type AnswerLog = {
+  questionId: string;
+  topic: string;
+  subject: string;
+  correct: boolean;
+  prompt?: string;
+  answer?: string;
+  kind?: DrillKind;
+  format?: "multipleChoice" | "shortAnswer";
+  timed?: boolean;
+  buzzed?: boolean;
+  timedOut?: boolean;
+  secondsUsed?: number;
+  secondsAllowed?: number;
+  buzzedAtSec?: number;
 };
 
 export type FlashCard = {

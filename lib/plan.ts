@@ -1,5 +1,6 @@
 import { regionalSprint } from "./catalogs";
 import { matchesSubject } from "./questions";
+import { studentReadiness } from "./readiness";
 import { blocksForWeek, isSchoolYear, schoolYearFocus, todayBlocks, weekdayFromDate } from "./schedule";
 import { todayGoal, topicPerformances, type TopicPerformance } from "./stats";
 import { sameTopicLabel } from "./topic-map";
@@ -24,6 +25,8 @@ export type TodayMission = {
   href: string;
   planId: string;
   startSession: boolean;
+  diagnosis?: string;
+  steps?: string[];
 };
 
 function daysSince(iso: string | null, now = Date.now()) {
@@ -68,6 +71,11 @@ export function todaysMission(input: {
   const next = plan.find((item) => !item.done) ?? plan[plan.length - 1];
   const flashUrgent = input.dueCount >= 8;
   const stillWeak = Boolean(weak);
+  const coach = studentReadiness(input.drillResults);
+  const extra: Pick<TodayMission, "diagnosis" | "steps"> = {
+    diagnosis: coach.prescription.diagnosis,
+    steps: coach.prescription.steps,
+  };
   const pick = flashUrgent
     ? plan.find((item) => item.id === "flash") ?? next
     : stillWeak
@@ -87,6 +95,7 @@ export function todaysMission(input: {
       href: pick.href,
       planId: pick.id,
       startSession: false,
+      ...extra,
     };
   }
 
@@ -105,6 +114,7 @@ export function todaysMission(input: {
       href: pick.href,
       planId: pick.id,
       startSession: isSchoolYear(date),
+      ...extra,
     };
   }
 
@@ -121,6 +131,7 @@ export function todaysMission(input: {
       href: pick.href,
       planId: pick.id,
       startSession: Boolean(block),
+      ...extra,
     };
   }
 
@@ -135,6 +146,7 @@ export function todaysMission(input: {
       href: pick.href,
       planId: pick.id,
       startSession: false,
+      ...extra,
     };
   }
 
@@ -151,6 +163,7 @@ export function todaysMission(input: {
     href: pick.href,
     planId: pick.id,
     startSession: isSchoolYear(date) && pick.id !== "flash" && pick.id !== "sprint",
+    ...extra,
   };
 }
 

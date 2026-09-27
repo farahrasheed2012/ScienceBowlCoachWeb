@@ -2,10 +2,10 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense, useMemo } from "react";
+import { CompetitionPlay } from "@/components/CompetitionPlay";
 import { QuestionPlay } from "@/components/QuestionPlay";
 import { regionalSprint, studyBlocks } from "@/lib/catalogs";
 import {
-  buildMockMatch,
   curriculumTossups,
   officialPacketPlay,
   practiceBank,
@@ -66,7 +66,7 @@ function PlayInner() {
         questions: list,
       };
     }
-    if (mode === "mock") return { title: "Mock Match", questions: buildMockMatch(store.importedDoe) };
+    if (mode === "mock" || mode === "compete") return { title: "Competition Mode", questions: [] };
     if (mode === "week") {
       const weekNumber = Number(week || store.currentWeek);
       return { title: `Week ${weekNumber}`, questions: curriculumTossups({ week: weekNumber, subject: subject as "biology" | undefined }) };
@@ -104,6 +104,10 @@ function PlayInner() {
     }
     return { title: "Practice", questions: shuffle(bank).slice(0, 10) };
   }, [id, mode, packet, round, store.currentWeek, store.importedDoe, subject, topic, topicId, type, week]);
+
+  if (mode === "mock" || mode === "compete") {
+    return <CompetitionPlay importedDoe={store.importedDoe} />;
+  }
 
   return <QuestionPlay key={`${mode}-${subject}-${topic}-${type}-${topicId}-${week}-${id}-${packet}-${round}`} questions={questions} title={title} timed />;
 }

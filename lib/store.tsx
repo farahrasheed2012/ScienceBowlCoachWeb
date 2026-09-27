@@ -6,6 +6,7 @@ import { weekNumber } from "./schedule";
 import type {
   Appearance,
   ChecklistItem,
+  AnswerLog,
   DoeQuestion,
   DrillResult,
   FlashCard,
@@ -101,7 +102,7 @@ const defaultState = (): State => ({
 
 type Store = State & {
   set: (patch: Partial<State>) => void;
-  recordAnswer: (input: { questionId: string; topic: string; subject: string; correct: boolean; prompt?: string; answer?: string }) => void;
+  recordAnswer: (input: AnswerLog) => void;
   markReviewed: (topicId: string) => void;
   toggleChecklist: (id: string) => void;
   addNotebook: (text: string) => void;
@@ -278,7 +279,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const store = useMemo<Store>(() => ({
     ...state,
     set: (patch) => setState((prev) => ({ ...prev, ...patch })),
-    recordAnswer: ({ questionId, topic, subject, correct, prompt, answer }) => {
+    recordAnswer: ({ questionId, topic, subject, correct, prompt, answer, kind, format, timed, buzzed, timedOut, secondsUsed, secondsAllowed, buzzedAtSec }) => {
       setState((prev) => {
         const recent = prev.drillResults.at(-1);
         if (recent && recent.questionId === questionId && Date.now() - new Date(recent.at).getTime() < 1500) {
@@ -291,6 +292,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           subject,
           correct,
           at: new Date().toISOString(),
+          kind,
+          format,
+          timed,
+          buzzed,
+          timedOut,
+          secondsUsed,
+          secondsAllowed,
+          buzzedAtSec,
         };
         let flashCards = prev.flashCards;
         if (!correct && prompt && answer) {
