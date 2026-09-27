@@ -2,7 +2,7 @@
 
 Middle School Science Bowl study site, ported from the Mac/iPhone app in `../ScienceBowlCoach`. The Mac app is unchanged.
 
-No account. Progress stays in this browser unless you export a backup. MathCounts, POT 6, and Games stay on the Mac only.
+No account. Progress stays in this browser. Optional Neon `DATABASE_URL` links iPhone and Mac with a sync code (Settings). MathCounts, POT 6, and Games stay on the Mac only.
 
 After August 28, Home is school-year keep-sharp: weak spots, a weekday toss-up, regional sprint, flashcards. The 12-week summer blocks live under Weeks as an archive. Thursday and Friday fill Earth & Energy, which the summer pass skipped.
 
@@ -29,7 +29,7 @@ npx vercel
 npx vercel --prod
 ```
 
-Hobby / free tier is enough. No database is required. Optional later: add `DATABASE_URL` if you want a shared buzzer room that survives serverless instances.
+Hobby / free tier is enough. Add `DATABASE_URL` (Neon) in `.env.local` and in Vercel so Settings can link the iPhone and Mac. The app creates table `sbc_web_progress` only. Export/import still works without a database.
 
 ## Data
 
@@ -63,11 +63,12 @@ Coach notes on each question work offline from the encyclopedia. Optional richer
 
 ## Tabs
 
-Home · Practice · Learn · Progress · Settings
+Home · Practice · Learn · Python · Progress · Settings
 
 - **Home** — school-year plan (or summer 1-hour blocks before Aug 28)
 - **Practice** — TossUp bank + encyclopedia + curriculum + imported DOE. Official 5s MC / 20s SA.
-- **Learn** — encyclopedia, Python (phone reader), Review with books, Formulas, flashcards, Topics, Weeks archive
+- **Learn** — encyclopedia, Review with books, Formulas, flashcards, Topics, Weeks archive
+- **Python** — Soha Python Coach lessons on the phone; Run stays on the Mac app
 - **Review** (`/learn/review`) — weak topics first, then unreviewed Earth/Energy, with textbook/chapter/page lines from the catalog. Open the assigned section, then drill. Not a new chapter hour.
 
 Textbooks are a lookup tool. The site does not rebuild the Mac FLS/Hewitt chapter-checkbox grid.

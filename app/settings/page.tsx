@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { doeBundled, mergeDoeQuestions, parseQuestionCache } from "@/lib/questions";
 import { listVoices, RATE, speak } from "@/lib/speech";
 import { useStore } from "@/lib/store";
+import { formatSyncCode, isSyncCode, normalizeSyncCode } from "@/lib/sync-code";
 import type { Appearance, FlashPace, SpeechRate } from "@/lib/types";
 
 export default function SettingsPage() {
@@ -66,9 +67,10 @@ export default function SettingsPage() {
           {Array.from({ length: 12 }, (_, i) => i + 1).map((w) => <option key={w} value={w}>Week {w}</option>)}
         </select>
       </section>
+      <DeviceSync />
       <section className="card stack">
         <h3>Backup</h3>
-        <p className="muted">Same idea as the Mac JSON backup. No account. Stored in this browser unless you export.</p>
+        <p className="muted">Same idea as the Mac JSON backup. A file is enough if you do not want the phone and Mac linked.</p>
         <button
           className="btn"
           type="button"
@@ -146,5 +148,102 @@ export default function SettingsPage() {
         <p>Science Bowl Coach — Soha. Middle School only. Not affiliated with or endorsed by the U.S. Department of Energy.</p>
       </section>
     </div>
+  );
+}
+
+function DeviceSync() {
+  const store = useStore();
+  const [available, setAvailable] = useState<boolean | null>(null);
+  const [codeInput, setCodeInput] = useState("");
+  const [note, setNote] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/sync")
+      .then((res) => res.json())
+      .then((data: { available?: boolean }) => setAvailable(Boolean(data.available)))
+      .catch(() => setAvailable(false));
+  }, []);
+
+  async function createCode() {
+    setBusy(true);
+    setNote("");
+    try {
+      const res = await fetch("/api/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ state: store.exportState() }),
+      });
+      const data = await res.json() as { code?: string; error?: string };
+      if (!res.ok || !data.code) {
+        setNote(data.error || "Could not create a sync code.");
+        return;
+      }
+      store.set({ syncCode: data.code, savedAt: new Date().toISOString() });
+      setNote("Code created. Type it on the other device.");
+    } catch {
+      setNote("Could not reach sync.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function joinCode() {
+    const code = normalizeSyncCode(codeInput);
+    if (!isSyncCode(code)) {
+      setNote("Use the 8-character code from the other device.");
+      return;
+    }
+    setBusy(true);
+    setNote("");
+    try {
+      const res = await fetch(`/api/sync?code=${encodeURIComponent(code)}`);
+      const data = await res.json() as { state?: Record<string, unknown>; error?: string };
+      store.set({ syncCode: code, savedAt: new Date().toISOString() });
+      if (res.ok && data.state) {
+        store.mergeRemote({ ...data.state, syncCode: code });
+        setNote("This device is linked. Progress will stay in sync.");
+      } else {
+        setNote("Linked. This device will start sharing from here.");
+      }
+    } catch {
+      setNote("Could not reach sync.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <section className="card stack">
+      <h3>Phone and Mac</h3>
+      {available === false ? (
+        <p className="muted">This browser still saves progress. Add DATABASE_URL in Vercel to share it between iPhone and MacBook.</p>
+      ) : (
+        <p className="muted">No account. One code links Soha&apos;s iPhone and Mac. Science Bowl and Python progress both travel.</p>
+      )}
+      {store.syncCode ? (
+        <>
+          <p className="session-title">{formatSyncCode(store.syncCode)}</p>
+          <p className="faint">Type this on the other device under Settings.</p>
+          <button className="btn ghost" type="button" onClick={() => store.set({ syncCode: null })}>Unlink this device</button>
+        </>
+      ) : (
+        <>
+          <button className="btn" type="button" disabled={busy || available === false} onClick={createCode}>
+            Make a sync code
+          </button>
+          <label>Already have a code?</label>
+          <input
+            value={codeInput}
+            onChange={(event) => setCodeInput(event.target.value.toUpperCase())}
+            placeholder="ABCD-EFGH"
+          />
+          <button className="btn ghost" type="button" disabled={busy || available === false} onClick={joinCode}>
+            Link this device
+          </button>
+        </>
+      )}
+      {note ? <p className="muted">{note}</p> : null}
+    </section>
   );
 }

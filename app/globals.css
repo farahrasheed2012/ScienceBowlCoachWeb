@@ -495,7 +495,7 @@ iframe.schedule { width: 100%; min-height: 70vh; border: 0; border-radius: 16px;
     border-top: 1px solid var(--line); overflow-x: auto; padding: 8px;
   }
   .mobile-nav a {
-    flex: 1 0 auto; text-align: center; padding: 10px 8px; color: var(--muted); font-size: 13px;
+    flex: 1 0 auto; text-align: center; padding: 10px 3px; color: var(--muted); font-size: 12px;
     transition: color 180ms var(--ease);
   }
   .mobile-nav a.active { color: var(--text); }

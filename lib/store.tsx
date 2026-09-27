@@ -57,6 +57,8 @@ type State = {
   practiceRounds: PracticeRound[];
   studySeconds: number;
   buzzerRoomCode: string | null;
+  syncCode: string | null;
+  savedAt: string | null;
 };
 
 const defaultState = (): State => ({
@@ -91,6 +93,8 @@ const defaultState = (): State => ({
   practiceRounds: [],
   studySeconds: 0,
   buzzerRoomCode: null,
+  syncCode: null,
+  savedAt: null,
 });
 
 type Store = State & {
@@ -107,6 +111,7 @@ type Store = State & {
   recordRound: (input: { title: string; asked: number; correct: number; seconds: number }) => void;
   clearProgress: () => void;
   importBackup: (data: Partial<State>) => void;
+  mergeRemote: (data: Partial<State>) => void;
   exportState: () => State;
 };
 
@@ -186,6 +191,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           flashCards: mergeFlashCards(parsed.flashCards ?? []),
           drillResults: mergeDrillResults(parsed.drillResults ?? []),
           pythonDoneIds: Array.isArray(parsed.pythonDoneIds) ? parsed.pythonDoneIds : [],
+          syncCode: typeof parsed.syncCode === "string" ? parsed.syncCode : null,
+          savedAt: typeof parsed.savedAt === "string" ? parsed.savedAt : null,
         });
       }
     } catch {
@@ -375,8 +382,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         showSessionTimer: state.showSessionTimer,
         parentReadsAloud: state.parentReadsAloud,
         studentName: state.studentName,
+        syncCode: state.syncCode,
       };
-      setState({ ...defaultState(), ...keep });
+      setState({ ...defaultState(), ...keep, savedAt: new Date().toISOString() });
     },
     importBackup: (data) => {
       const allowed = defaultState();
@@ -387,6 +395,26 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       ) as Partial<State>;
       if (patch.checklist) patch.checklist = mergeChecklist(patch.checklist);
       setState((prev) => ({ ...prev, ...patch }));
+    },
+    mergeRemote: (data) => {
+      setState((prev) => {
+        const incoming = data as Partial<State>;
+        const union = (left: string[] | undefined, right: string[] | undefined) =>
+          [...new Set([...(left ?? []), ...(right ?? [])])];
+        return {
+          ...prev,
+          ...incoming,
+          checklist: mergeChecklist(incoming.checklist ?? prev.checklist),
+          flashCards: mergeFlashCards([...(prev.flashCards ?? []), ...(incoming.flashCards ?? [])]),
+          drillResults: mergeDrillResults([...(prev.drillResults ?? []), ...(incoming.drillResults ?? [])]),
+          pythonDoneIds: union(prev.pythonDoneIds, incoming.pythonDoneIds),
+          reviewedTopicIds: union(prev.reviewedTopicIds, incoming.reviewedTopicIds),
+          completedSessionIds: union(prev.completedSessionIds, incoming.completedSessionIds),
+          elementMastered: union(prev.elementMastered, incoming.elementMastered),
+          syncCode: prev.syncCode ?? incoming.syncCode ?? null,
+          savedAt: new Date().toISOString(),
+        };
+      });
     },
     exportState: () => {
       const snapshot = { ...defaultState(), ...state };

@@ -86,7 +86,7 @@ export default function PythonLessonPage() {
     return (
       <div className="learn-page">
         <div>
-          <Link href="/learn/python">Python</Link>
+          <Link href="/python">Python</Link>
           <p className="mission-kicker">Game</p>
           <h1 className="session-title">{game.title}</h1>
           <p className="muted">{game.summary}</p>
@@ -114,7 +114,7 @@ export default function PythonLessonPage() {
   return (
     <div className="learn-page">
       <div>
-        <Link href="/learn/python">Python</Link>
+        <Link href="/python">Python</Link>
         <p className="mission-kicker">
           {level ? `${level.title} · ` : ""}
           {week ? `${week.emoji} ${week.title}` : "Lesson"}
@@ -156,9 +156,9 @@ export default function PythonLessonPage() {
         <button className="btn" type="button" onClick={() => store.togglePythonDone(lesson.id)}>
           {done ? "Done" : "Mark done"}
         </button>
-        {next ? <Link className="btn ghost" href={`/learn/python/${next.id}`}>Next</Link> : <Link className="btn ghost" href="/learn/python">All weeks</Link>}
+        {next ? <Link className="btn ghost" href={`/python/${next.id}`}>Next</Link> : <Link className="btn ghost" href="/python">All weeks</Link>}
       </div>
-      {prev ? <Link href={`/learn/python/${prev.id}`}>Previous · {prev.title}</Link> : null}
+      {prev ? <Link href={`/python/${prev.id}`}>Previous · {prev.title}</Link> : null}
     </div>
   );
 }

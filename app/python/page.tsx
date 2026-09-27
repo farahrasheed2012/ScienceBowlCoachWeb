@@ -14,18 +14,17 @@ export default function PythonHubPage() {
   return (
     <div className="learn-page">
       <div>
-        <Link href="/learn">Learn</Link>
         <p className="mission-kicker">Python</p>
         <h1 className="session-title">Keep sharp</h1>
-        <p className="muted">Read on the iPhone. Type and Run in Python Coach on the Mac.</p>
-        <p className="faint">{finished}/{pythonLessons.length} lessons marked done on this phone</p>
+        <p className="muted">Read here. Type and Run in Python Coach on the Mac.</p>
+        <p className="faint">{finished}/{pythonLessons.length} lessons marked done</p>
       </div>
       {next ? (
         <section className="learn-hero">
           <p className="mission-kicker">{week ? `${week.emoji} ${week.title}` : "Next lesson"}</p>
           <h2 className="session-title">{next.title}</h2>
           <p className="muted">{week?.goal}</p>
-          <Link className="btn" href={`/learn/python/${next.id}`}>Open lesson</Link>
+          <Link className="btn" href={`/python/${next.id}`}>Open lesson</Link>
         </section>
       ) : (
         <p className="muted">Every lesson is marked done here. Pick any week to review.</p>
@@ -41,7 +40,7 @@ export default function PythonHubPage() {
               <p className="faint">{level.subtitle} · {marked}/{total}</p>
               {weeks.map((week) => {
                 const count = week.lessonIds.filter((id) => done.has(id)).length;
-                const href = `/learn/python/${week.lessonIds[0]}`;
+                const href = `/python/${week.lessonIds[0]}`;
                 return (
                   <Link key={week.id} href={href}>
                     {week.emoji} {week.title}
@@ -59,7 +58,7 @@ export default function PythonHubPage() {
           <p className="faint">Starter code is here. pygame / Flask need the Mac playground.</p>
           {pythonGames.map((game) => (
             <p key={game.id}>
-              <Link href={`/learn/python/${game.id}`}>{game.title}</Link>
+              <Link href={`/python/${game.id}`}>{game.title}</Link>
               <span className="faint"> · {game.summary}</span>
             </p>
           ))}

@@ -10,6 +10,7 @@
     "doe-ms": "python3 scripts/build_doe_ms_cache.py"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { ProgressSync } from "@/components/ProgressSync";
 import { NAV, navActive } from "@/lib/nav";
 import { useStore } from "@/lib/store";
 
@@ -20,6 +21,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const light = store.appAppearance === "warmLight" || (store.appAppearance === "system" && systemLight);
   return (
     <div className="shell" data-theme={light ? "light" : "dark"}>
+      <ProgressSync />
       <aside className="sidebar">
         <div className="brand">Science Bowl Coach</div>
         <nav className="nav">
