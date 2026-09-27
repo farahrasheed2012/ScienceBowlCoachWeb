@@ -144,10 +144,6 @@ export default function SettingsPage() {
         {store.buzzerRoomCode ? <p className="muted">Current room {store.buzzerRoomCode}</p> : null}
         <Link className="btn" href="/quiz/buzzer">Open buzzer room</Link>
       </section>
-      <section className="card stack">
-        <h3>About</h3>
-        <p>Science Bowl Coach — Soha. Middle School only. Not affiliated with or endorsed by the U.S. Department of Energy.</p>
-      </section>
     </div>
   );
 }

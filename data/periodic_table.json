@@ -30,7 +30,7 @@
       "group": 18,
       "period": 1,
       "category": "noble-gas",
-      "electronConfiguration": "[He] 1s2",
+      "electronConfiguration": "1s2",
       "state": "gas",
       "meltingPointC": -272.2,
       "boilingPointC": -268.93,

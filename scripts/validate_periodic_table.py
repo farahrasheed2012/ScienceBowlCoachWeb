@@ -54,6 +54,24 @@ def main() -> int:
             errors.append(f"{el['symbol']} should be group 1")
         if z in (9, 17, 35, 53, 85, 117) and group not in (17, None):
             errors.append(f"{el['symbol']} should be group 17")
+        config = el["electronConfiguration"]
+        if config.startswith(f"[{el['symbol']}]"):
+            errors.append(f"{el['symbol']} electron configuration cites itself: {config}")
+    he = next(el for el in elements if el["symbol"] == "He")
+    if he["electronConfiguration"] != "1s2":
+        errors.append(f"He configuration should be 1s2, got {he['electronConfiguration']}")
+    cells: dict[tuple[int, int], str] = {}
+    for el in elements:
+        z = el["atomicNumber"]
+        if 57 <= z <= 71:
+            cell = (z - 57 + 3, 9)
+        elif 89 <= z <= 103:
+            cell = (z - 89 + 3, 10)
+        else:
+            cell = (el["group"] or 3, el["period"])
+        if cell in cells:
+            errors.append(f"{el['symbol']} overlaps {cells[cell]} at {cell}")
+        cells[cell] = el["symbol"]
     if errors:
         print("\n".join(errors[:40]))
         print(f"{len(errors)} errors")

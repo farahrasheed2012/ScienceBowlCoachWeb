@@ -9,8 +9,8 @@ from pathlib import Path
 # z, symbol, name, mass, group, period, category, config, state, mp_C, bp_C, ox, en, density, year, discoverer, block, occurrence
 # None = unknown / not applicable. Antiquity uses year None and discoverer "known since antiquity".
 ROWS = [
-    (1, "H", "Hydrogen", 1.008, 1, 1, "nonmetal", "[H] 1s1", "gas", -259.16, -252.87, "−1, +1", 2.20, 0.0000899, 1766, "Henry Cavendish", "s", "natural"),
-    (2, "He", "Helium", 4.0026, 18, 1, "noble-gas", "[He] 1s2", "gas", -272.2, -268.93, "0", None, 0.0001785, 1868, "Janssen / Lockyer", "s", "natural"),
+    (1, "H", "Hydrogen", 1.008, 1, 1, "nonmetal", "1s1", "gas", -259.16, -252.87, "−1, +1", 2.20, 0.0000899, 1766, "Henry Cavendish", "s", "natural"),
+    (2, "He", "Helium", 4.0026, 18, 1, "noble-gas", "1s2", "gas", -272.2, -268.93, "0", None, 0.0001785, 1868, "Janssen / Lockyer", "s", "natural"),
     (3, "Li", "Lithium", 6.94, 1, 2, "alkali-metal", "[He] 2s1", "solid", 180.5, 1342, "+1", 0.98, 0.534, 1817, "Johan August Arfwedson", "s", "natural"),
     (4, "Be", "Beryllium", 9.0122, 2, 2, "alkaline-earth", "[He] 2s2", "solid", 1287, 2469, "+2", 1.57, 1.85, 1798, "Louis-Nicolas Vauquelin", "s", "natural"),
     (5, "B", "Boron", 10.81, 13, 2, "metalloid", "[He] 2s2 2p1", "solid", 2076, 3927, "+3", 2.04, 2.34, 1808, "Gay-Lussac / Thénard / Davy", "p", "natural"),
@@ -148,7 +148,7 @@ def main() -> None:
             "group": group,
             "period": period,
             "category": category,
-            "electronConfiguration": config.replace("[H] ", ""),
+            "electronConfiguration": config,
             "state": state,
             "meltingPointC": mp,
             "boilingPointC": bp,

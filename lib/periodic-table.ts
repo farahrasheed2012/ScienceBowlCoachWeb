@@ -177,8 +177,8 @@ export function scienceBowlNotes(element: PeriodicElement) {
   const notes = [...(FAMOUS_NOTES[element.symbol] ?? [])];
   if (element.group === 1 && element.symbol !== "H") notes.push("Group 1 alkali metal — one valence electron, very reactive.");
   if (element.group === 2) notes.push("Group 2 alkaline earth metal — two valence electrons.");
-  if (element.group === 17) notes.push("Group 17 halogen — seven valence electrons, forms 1− ions.");
-  if (element.group === 18) notes.push("Group 18 noble gas — full outer shell, least reactive group.");
+  if (element.group === 17 && element.state !== "unknown") notes.push("Group 17 halogen — seven valence electrons, forms 1− ions.");
+  if (element.group === 18 && element.state !== "unknown") notes.push("Group 18 noble gas — full outer shell, least reactive group.");
   if (element.category === "metalloid") notes.push("On the metal / nonmetal stair-step. Intermediate properties.");
   if (element.category === "lanthanide") notes.push("f-block inner transition metal. Shown in the lanthanide row.");
   if (element.category === "actinide") notes.push("f-block inner transition metal. Shown in the actinide row. Many are radioactive.");
@@ -248,4 +248,11 @@ export function formatTemp(value: number | null) {
 
 export function formatDensity(value: number | null) {
   return value == null ? "—" : `${value} g/cm³`;
+}
+
+export function formatDiscovery(element: PeriodicElement) {
+  if (element.discoveryYear == null) {
+    return element.discoverer ?? "known since antiquity";
+  }
+  return element.discoverer ? `${element.discoveryYear} · ${element.discoverer}` : String(element.discoveryYear);
 }

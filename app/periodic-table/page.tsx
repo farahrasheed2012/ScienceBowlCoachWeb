@@ -6,6 +6,7 @@ import {
   applyStudyResult,
   CATEGORY_LABEL,
   formatDensity,
+  formatDiscovery,
   formatTemp,
   HIGHLIGHT_OPTIONS,
   matchesHighlight,
@@ -36,6 +37,7 @@ export default function PeriodicTablePage() {
   const [guess, setGuess] = useState("");
   const [verdict, setVerdict] = useState<"idle" | "ok" | "bad">("idle");
   const searchRef = useRef<HTMLInputElement>(null);
+  const advanceTimer = useRef<number>(0);
 
   const hits = useMemo(() => searchElements(query), [query]);
   const searching = query.trim().length > 0;
@@ -52,23 +54,32 @@ export default function PeriodicTablePage() {
       }
     }
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.clearTimeout(advanceTimer.current);
+    };
   }, []);
 
   function open(element: PeriodicElement) {
     setSelected(element);
   }
 
+  function nextQuestion() {
+    window.clearTimeout(advanceTimer.current);
+    setPrompt(nextStudyPrompt(prompt.element.atomicNumber));
+    setGuess("");
+    setVerdict("idle");
+  }
+
   function checkStudy() {
+    const text = guess.trim();
+    if (!text || verdict === "ok") return;
     const ok = studyCorrect(prompt, guess);
+    if (verdict === "bad" && !ok) return;
     setVerdict(ok ? "ok" : "bad");
-    store.set({ periodicStudy: applyStudyResult(stats, ok) });
+    store.set({ periodicStudy: applyStudyResult(store.periodicStudy, ok) });
     if (ok) {
-      window.setTimeout(() => {
-        setPrompt(nextStudyPrompt(prompt.element.atomicNumber));
-        setGuess("");
-        setVerdict("idle");
-      }, 650);
+      advanceTimer.current = window.setTimeout(nextQuestion, 650);
     }
   }
 
@@ -135,16 +146,22 @@ export default function PeriodicTablePage() {
               checkStudy();
             }}
           >
-            <input value={guess} onChange={(event) => { setGuess(event.target.value); setVerdict("idle"); }} placeholder="Answer" aria-label="Study answer" />
-            <button className="btn" type="submit">Check</button>
+            <input
+              type="text"
+              value={guess}
+              onChange={(event) => {
+                if (verdict === "ok") return;
+                setGuess(event.target.value);
+                setVerdict("idle");
+              }}
+              placeholder="Answer"
+              aria-label="Study answer"
+            />
+            <button className="btn" type="submit" disabled={verdict === "ok"}>Check</button>
             <button
               className="btn ghost"
               type="button"
-              onClick={() => {
-                setPrompt(nextStudyPrompt(prompt.element.atomicNumber));
-                setGuess("");
-                setVerdict("idle");
-              }}
+              onClick={nextQuestion}
             >
               Skip
             </button>
@@ -221,7 +238,7 @@ export default function PeriodicTablePage() {
                 <li>Electronegativity: {selected.electronegativity ?? "—"}</li>
                 <li>Density: {formatDensity(selected.density)}</li>
                 <li>Oxidation states: {selected.oxidationStates ?? "—"}</li>
-                <li>Discovered: {selected.discoveryYear ?? "antiquity"}{selected.discoverer ? ` · ${selected.discoverer}` : ""}</li>
+                <li>Discovered: {formatDiscovery(selected)}</li>
               </ul>
             </section>
             <section>
