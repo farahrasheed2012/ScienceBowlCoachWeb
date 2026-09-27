@@ -23,6 +23,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="shell" data-theme={light ? "light" : "dark"}>
       <ProgressSync />
+      <nav className="mobile-nav" aria-label="Primary">
+        {NAV.map((item) => (
+          <Link key={item.href} href={item.href} className={navActive(path, item) ? "active" : ""}>
+            {item.short}
+          </Link>
+        ))}
+      </nav>
       <aside className="sidebar">
         <div className="brand">Science Bowl Coach</div>
         <ProfileSwitch />
@@ -38,13 +45,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className="mobile-profile"><ProfileSwitch /></div>
         <div key={`${store.profileId}:${path}`} className="view-in">{children}</div>
       </main>
-      <nav className="mobile-nav" aria-label="Primary">
-        {NAV.map((item) => (
-          <Link key={item.href} href={item.href} className={navActive(path, item) ? "active" : ""}>
-            {item.short}
-          </Link>
-        ))}
-      </nav>
     </div>
   );
 }
