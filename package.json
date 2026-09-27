@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "extract": "python3 scripts/extract-from-mac.py"
+    "extract": "python3 scripts/extract-from-mac.py",
+    "doe-ms": "python3 scripts/build_doe_ms_cache.py"
   },
   "dependencies": {
     "next": "^15.1.6",

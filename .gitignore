@@ -7,3 +7,5 @@ out
 .env*.local
 *.tsbuildinfo
 .vercel
+scripts/.doe-pdfs
+scripts/__pycache__

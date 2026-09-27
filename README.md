@@ -40,7 +40,7 @@ Copied from the Mac app:
 - 50 summer study blocks (archive after Aug 28)
 - 11 Texas Regional Sprint packs
 - 634 TossUp bundled questions (bio, chem, math)
-- DOE question cache from the Mac app (`doe_questions_cache.json`, ~1,100 questions; Earth is thick, official MS Energy is small)
+- Official DOE middle-school sample sets 1–16 (`doe_questions_cache.json`, ~11,000 questions parsed from public NSB PDFs)
 - calendar / timetable / periodic table HTML
 
 To refresh extracted Swift catalogs after Mac-app edits:
@@ -49,7 +49,14 @@ To refresh extracted Swift catalogs after Mac-app edits:
 npm run extract
 ```
 
-The Mac `doe_questions_cache.json` is already bundled. Practice or Settings can still import a newer cache if the Mac parser adds more later.
+Refresh the official DOE bank (downloads public MS PDFs, no invented questions):
+
+```bash
+python3 -m pip install pypdf
+python3 scripts/build_doe_ms_cache.py
+```
+
+Practice or Settings can still import another cache if you have a newer file.
 
 Coach notes on each question work offline from the encyclopedia. Optional richer AI (free tier): set `GROQ_API_KEY` in `.env.local` and in Vercel. OpenAI is not used.
 

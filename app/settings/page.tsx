@@ -102,7 +102,7 @@ export default function SettingsPage() {
       <section className="card stack">
         <h3>DOE question bank</h3>
         <p className="muted">
-          {doeBundled.length} DOE questions from the Mac cache are already in Practice
+          {doeBundled.length} official DOE middle-school questions are already in Practice
           {store.importedDoe.length ? ` · ${store.importedDoe.length} extra imported` : ""}, on top of TossUp’s 634 bundled questions.
           Import another cache only if you have a newer file.
         </p>
@@ -129,7 +129,7 @@ export default function SettingsPage() {
           }}
         />
         {store.importedDoe.length ? (
-          <button className="btn ghost" type="button" onClick={() => { store.set({ importedDoe: [] }); setDoeNote("Extra imported DOE cleared. The bundled Mac cache stays."); }}>
+          <button className="btn ghost" type="button" onClick={() => { store.set({ importedDoe: [] }); setDoeNote("Extra imported DOE cleared. The bundled official MS bank stays."); }}>
             Clear imported DOE
           </button>
         ) : null}

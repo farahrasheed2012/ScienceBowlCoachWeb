@@ -65,9 +65,9 @@ export default function PracticePage() {
       <div className="card stack">
         <h3>DOE question bank</h3>
         <p className="muted">
-          {doeBundled.length + extraDoe} DOE questions loaded · Mac cache bundled
+          {doeBundled.length + extraDoe} official DOE middle-school questions
           {extraDoe ? ` · ${extraDoe} extra imported` : ""}.
-          Earth {earthCount} · Energy {energyCount}. Official MS Energy is a small category; Earth is the thick set. Extra caches still import below.
+          Earth {earthCount} · Energy {energyCount}. Parsed from DOE sample sets 1–16. Extra caches still import below.
         </p>
         <input
           type="file"
