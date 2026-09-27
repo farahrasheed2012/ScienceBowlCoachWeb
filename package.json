@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "extract": "python3 scripts/extract-from-mac.py && python3 scripts/extract_python_coach.py",
-    "doe-ms": "python3 scripts/build_doe_ms_cache.py"
+    "doe-ms": "python3 scripts/build_doe_ms_cache.py",
+    "ptable": "python3 scripts/validate_periodic_table.py"
   },
   "dependencies": {
     "@neon/config": "^1.8.2",

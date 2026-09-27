@@ -34,7 +34,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
       </aside>
-      <main className="main">
+      <main className={`main${path.startsWith("/periodic-table") ? " main-wide" : ""}`}>
         <div className="mobile-profile"><ProfileSwitch /></div>
         <div key={`${store.profileId}:${path}`} className="view-in">{children}</div>
       </main>

@@ -63,11 +63,12 @@ Coach notes on each question work offline from the encyclopedia. Optional richer
 
 ## Tabs
 
-Home · Practice · Learn · Python · Progress · Settings
+Home · Practice · Learn · Periodic Table · Python · Progress · Settings
 
 - **Home** — school-year plan (or summer 1-hour blocks before Aug 28)
 - **Practice** — TossUp bank + encyclopedia + curriculum + imported DOE. Official 5s MC / 20s SA.
 - **Learn** — encyclopedia, Review with books, Formulas, flashcards, Topics, Weeks archive
+- **Periodic Table** — 118-element reference, trends, and local study mode
 - **Python** — Soha Python Coach lessons on the phone; Run stays on the Mac app
 - **Review** (`/learn/review`) — weak topics first, then unreviewed Earth/Energy, with textbook/chapter/page lines from the catalog. Open the assigned section, then drill. Not a new chapter hour.
 

@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { CHECKLIST_SEED } from "./catalogs";
 import { weekNumber } from "./schedule";
+import { emptyPeriodicStudy, hydratePeriodicStudy, type PeriodicStudy } from "./periodic-table";
 import type {
   Appearance,
   ChecklistItem,
@@ -51,6 +52,7 @@ export type State = {
   studyStreak: number;
   lastStudyDate: string | null;
   elementMastered: string[];
+  periodicStudy: PeriodicStudy;
   completedSessionIds: string[];
   pythonDoneIds: string[];
   planExtraDate: string | null;
@@ -88,6 +90,7 @@ const defaultState = (): State => ({
   studyStreak: 0,
   lastStudyDate: null,
   elementMastered: [],
+  periodicStudy: emptyPeriodicStudy(),
   completedSessionIds: [],
   pythonDoneIds: [],
   planExtraDate: null,
@@ -189,6 +192,7 @@ function hydrateState(raw: Partial<State> | undefined, profileId: string): State
     flashCards: mergeFlashCards(parsed.flashCards ?? []),
     drillResults: mergeDrillResults(parsed.drillResults ?? []),
     pythonDoneIds: Array.isArray(parsed.pythonDoneIds) ? parsed.pythonDoneIds : [],
+    periodicStudy: hydratePeriodicStudy(parsed.periodicStudy),
     syncCode: typeof parsed.syncCode === "string" ? parsed.syncCode : null,
     savedAt: typeof parsed.savedAt === "string" ? parsed.savedAt : null,
   };
@@ -501,6 +505,16 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           reviewedTopicIds: union(prev.reviewedTopicIds, incoming.reviewedTopicIds),
           completedSessionIds: union(prev.completedSessionIds, incoming.completedSessionIds),
           elementMastered: union(prev.elementMastered, incoming.elementMastered),
+          periodicStudy: (() => {
+            const left = hydratePeriodicStudy(prev.periodicStudy);
+            const right = hydratePeriodicStudy(incoming.periodicStudy);
+            return {
+              attempted: Math.max(left.attempted, right.attempted),
+              correct: Math.max(left.correct, right.correct),
+              streak: Math.max(left.streak, right.streak),
+              bestStreak: Math.max(left.bestStreak, right.bestStreak),
+            };
+          })(),
           syncCode: prev.syncCode ?? incoming.syncCode ?? null,
           savedAt: new Date().toISOString(),
         };
