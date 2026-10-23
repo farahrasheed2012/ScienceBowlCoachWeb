@@ -6,6 +6,7 @@ import { dayLine, isSchoolYear, schoolYearFocus, timeGreeting } from "@/lib/sche
 import { topicAccuracy } from "@/lib/stats";
 import { subjectTone } from "@/lib/questions";
 import { articleForLabel, practiceSubjectFor } from "@/lib/topic-map";
+import { txt } from "@/lib/copy";
 import { useStore } from "@/lib/store";
 
 export default function LearnPage() {
@@ -25,7 +26,7 @@ export default function LearnPage() {
         <section className="learn-hero">
           <p className="mission-kicker">Needs review</p>
           <h1 className="session-title">{weak.topic}</h1>
-          <p className="muted">{Math.round(weak.acc * 100)}% after {weak.attempts} {weak.attempts === 1 ? "try" : "tries"}</p>
+          <p className="muted">{txt`${Math.round(weak.acc * 100)}% after ${weak.attempts} ${weak.attempts === 1 ? "try" : "tries"}`}</p>
           <div className="row">
             <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}`}>Practice this</Link>
             {weakArticle ? <Link className="text-btn" href={`/learn/${weakArticle.id}`}>Read the article</Link> : (
@@ -63,8 +64,7 @@ export default function LearnPage() {
         <Link href="/mental-math">Mental math</Link>
       </nav>
       <p className="faint">
-        {store.reviewedTopicIds.length} reviewed · {topics.length} topics · {encyclopediaQuestions.length} encyclopedia questions
-        {store.encyclopediaStreak ? ` · ${store.encyclopediaStreak} day streak` : ""}
+        {txt`${store.reviewedTopicIds.length} reviewed · ${topics.length} topics · ${encyclopediaQuestions.length} encyclopedia questions${store.encyclopediaStreak ? ` · ${store.encyclopediaStreak} day streak` : ""}`}
       </p>
       <div className="learn-subjects">
         {NSB_SUBJECTS.map((subject) => {

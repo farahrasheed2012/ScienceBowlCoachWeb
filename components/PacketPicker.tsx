@@ -35,7 +35,7 @@ export function PacketPicker({ importedDoe }: { importedDoe: DoeQuestion[] }) {
         <select value={String(currentRound?.round ?? round)} onChange={(e) => setRound(Number(e.target.value))}>
           {selected.rounds.map((item) => (
             <option key={item.round} value={item.round}>
-              Round {item.round} · {item.count} questions
+              {`Round ${item.round} · ${item.count} questions`}
             </option>
           ))}
         </select>

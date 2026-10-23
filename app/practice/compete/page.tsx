@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useMemo } from "react";
 import { CompetitionPlay } from "@/components/CompetitionPlay";
 import { competitionPairCount, type CompetitionLength } from "@/lib/questions";
+import { txt } from "@/lib/copy";
 import { useStore } from "@/lib/store";
 
 function parseLength(raw: string | null): CompetitionLength | null {
@@ -40,8 +41,9 @@ function CompeteLobby() {
       <div className="card stack">
         <h3>Practice like a real match</h3>
         <p className="muted">
-          1. Open the <Link href="/quiz/buzzer">phone buzzer</Link> on this computer
-          {store.buzzerRoomCode ? ` (room ${store.buzzerRoomCode})` : ""}.
+          {txt`1. Open the phone buzzer on this computer${store.buzzerRoomCode ? ` (room ${store.buzzerRoomCode})` : ""}.`}
+          {" "}
+          <Link href="/quiz/buzzer">Open room</Link>
         </p>
         <p className="muted">2. On your phone, open the room link and keep it ready.</p>
         <p className="muted">3. Start a match here — Space or the phone pad buzzes you in. Do not talk until you convert a toss-up and the bonus clock starts.</p>
@@ -63,8 +65,7 @@ function CompeteInner() {
   return (
     <div className="stack">
       <p className="faint">
-        {length === "full" ? "Full match" : "Regional half"} · {competitionPairCount(length)} toss-up/bonus pairs
-        {" · "}
+        {txt`${length === "full" ? "Full match" : "Regional half"} · ${competitionPairCount(length)} toss-up/bonus pairs · `}
         <Link href="/practice/compete">Change length</Link>
       </p>
       <CompetitionPlay importedDoe={store.importedDoe} length={length} />

@@ -13,6 +13,7 @@ import { dayLine, isSchoolYear, nextMatchTarget, schoolYearEncyclopediaSubject, 
 import { keepSharpSession, sessionFromBlock, type PlaySession } from "@/lib/session";
 import { pct, studentReadiness } from "@/lib/readiness";
 import { performanceFor, studyMinutes, todayGoal, whyToday } from "@/lib/stats";
+import { txt } from "@/lib/copy";
 import { useStore } from "@/lib/store";
 
 const MISSION_STAGES = [
@@ -136,18 +137,18 @@ export default function TodayPage() {
         <p className="mission-kicker">Session complete</p>
         <h1 className="mission-title">{session.title}</h1>
         <section className="mission stack">
-          <p className="stem">{hits} / {answered.length}</p>
+          <p className="stem">{txt`${hits} / ${answered.length}`}</p>
           <p>{answered.length ? `${Math.round((hits / answered.length) * 100)}%` : "No answers logged"}</p>
           <CoachInsight kicker={read.kicker} body={read.body} />
           {missed[0] ? (
             <div>
               <p className="mission-kicker">Keep</p>
-              <p>Review {missed.length} missed {missed.length === 1 ? "topic" : "topics"}</p>
+              <p>{txt`Review ${missed.length} missed ${missed.length === 1 ? "topic" : "topics"}`}</p>
               <p className="muted">{missed.join(" · ")}</p>
             </div>
           ) : <p className="muted">No misses logged this session.</p>}
-          <p className="muted">{minutes} min · streak {store.studyStreak}</p>
-          {due.length ? <p className="muted">{due.length} flashcards due now.</p> : null}
+          <p className="muted">{txt`${minutes} min · streak ${store.studyStreak}`}</p>
+          {due.length ? <p className="muted">{txt`${due.length} flashcards due now.`}</p> : null}
           <div className="row">
             {missed[0] ? (
               <Link className="btn mission-cta" href={`/practice/play?mode=weak&topic=${encodeURIComponent(missed[0])}`}>Fix that weakness</Link>
@@ -253,8 +254,7 @@ export default function TodayPage() {
       <p className="faint">{dayLine()}</p>
       {ready.overall != null ? (
         <p className="faint">
-          Readiness {pct(ready.overall)}
-          {gapLabel ? ` · biggest gap ${gapLabel}` : ""}
+          {txt`Readiness ${pct(ready.overall)}${gapLabel ? ` · biggest gap ${gapLabel}` : ""}`}
         </p>
       ) : (
         <p className="faint">Readiness unlocks after a few toss-ups.</p>
@@ -284,16 +284,14 @@ export default function TodayPage() {
         <CoachInsight kicker={insight.kicker} body={insight.body} />
       </div>
       <section className="card stack">
-        <p className="mission-kicker">{match.kicker} · {match.line}</p>
+        <p className="mission-kicker">{txt`${match.kicker} · ${match.line}`}</p>
         <h3>Full match practice</h3>
         <p className="muted">
           {match.event === "regionals"
-            ? `Texas MS regionals ${match.when} · ${match.line}.`
+            ? txt`Texas MS regionals ${match.when} · ${match.line}. Buzz → +4 · bonus → +10 · early wrong → −4. Full 23 pairs, or a 12-pair regional half. Phone is your pad — no talking on toss-ups.`
             : match.event === "nationals"
-              ? `Nationals ${match.when} · ${match.line}.`
-              : "Keep match pace warm."}
-          {" "}Buzz → +4 · bonus → +10 · early wrong → −4. Full 23 pairs, or a 12-pair regional half.
-          Phone is your pad — no talking on toss-ups.
+              ? txt`Nationals ${match.when} · ${match.line}. Buzz → +4 · bonus → +10 · early wrong → −4. Full 23 pairs, or a 12-pair regional half. Phone is your pad — no talking on toss-ups.`
+              : "Keep match pace warm. Buzz → +4 · bonus → +10 · early wrong → −4. Full 23 pairs, or a 12-pair regional half. Phone is your pad — no talking on toss-ups."}
         </p>
         <div className="row">
           <Link className="btn" href="/practice/compete?length=full">Start full match</Link>

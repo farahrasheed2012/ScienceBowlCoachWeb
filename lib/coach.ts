@@ -56,7 +56,7 @@ export function coachBrief(question: PlayQuestion, userAnswer?: string, correct?
     : `${primaryAnswer(question.answer) || question.answer} — ${question.topic}.`;
   const shown = userAnswer ? displayAnswer(userAnswer) : "";
   const whyMissed = shown
-    ? `You answered ${picked ? `${picked.key}) ${picked.text}` : shown}, which is a nearby fact instead of ${question.answer}.`
+    ? `You answered "${picked ? `${picked.key}) ${picked.text}` : shown}", which is a nearby fact instead of ${question.answer}.`
     : `The stem wanted ${question.answer}. Read the last clause before you buzz.`;
   const why = [
     `The correct answer is ${question.answer}.`,
@@ -250,7 +250,7 @@ function whyWrong(question: PlayQuestion, userAnswer: string | undefined, articl
   const label = picked ? `${picked.key}) ${picked.text}` : displayAnswer(userAnswer);
   return [
     missLine,
-    `You chose ${label}. The correct answer is ${question.answer}.`,
+    `You chose "${label}". The correct answer is ${question.answer}.`,
     missLine
       ? `The trap you're falling into is ${trap}`
       : picked

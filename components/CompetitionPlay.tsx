@@ -14,6 +14,7 @@ import {
 import { pct, studentReadiness } from "@/lib/readiness";
 import { useStore } from "@/lib/store";
 import type { DoeQuestion, PlayQuestion } from "@/lib/types";
+import { txt } from "@/lib/copy";
 
 type Scene = "tossup" | "bonus" | "dead" | "half" | "final";
 type Phase = "live" | "buzzed" | "revealed";
@@ -345,14 +346,12 @@ export function CompetitionPlay({
         <p className="stem">{`Field ${field}`}</p>
       </div>
       <p className="faint">
-        {matchLabel} · half {half} · toss-up {inHalf}/{halfSize}
-        {" · +4 / −4 / +10"}
-        {store.buzzerRoomCode ? ` · phone ${store.buzzerRoomCode}` : ""}
+        {txt`${matchLabel} · half ${half} · toss-up ${inHalf}/${halfSize} · +4 / −4 / +10${store.buzzerRoomCode ? ` · phone ${store.buzzerRoomCode}` : ""}`}
       </p>
       {question ? (
         <div className={`play-card q-enter ${tone}`} data-phase={phase}>
           <div className="play-meta">
-            <p className={`play-kicker ${tone}`}>{scene === "bonus" ? "Bonus" : "Toss-up"} · {question.category}</p>
+            <p className={`play-kicker ${tone}`}>{txt`${scene === "bonus" ? "Bonus" : "Toss-up"} · ${question.category}`}</p>
             {phase !== "revealed" ? (
               <p className={`timer ${seconds <= 2 ? "urgent" : ""}`}>{String(seconds).padStart(2, "0")}s</p>
             ) : null}

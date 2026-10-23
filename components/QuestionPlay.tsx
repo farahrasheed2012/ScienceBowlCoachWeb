@@ -12,6 +12,7 @@ import type { PlayQuestion } from "@/lib/types";
 import { CoachInsight } from "./CoachInsight";
 import { SpeechBar } from "./SpeechBar";
 import { CoachPanel } from "./CoachPanel";
+import { txt } from "@/lib/copy";
 
 type Phase = "live" | "buzzed" | "revealed" | "done";
 
@@ -295,8 +296,8 @@ export function QuestionPlay({
             <p className="mission-kicker">Next recommended step</p>
             <p>{missedTopics[0] ? "Try 2 similar questions" : "Keep the streak with a short toss-up"}</p>
           </div>
-          <p className="muted">{minutes} min · +{earned} XP</p>
-          {dueNow ? <p className="muted">{dueNow} flashcards due now.</p> : null}
+          <p className="muted">{txt`${minutes} min · +${earned} XP`}</p>
+          {dueNow ? <p className="muted">{txt`${dueNow} flashcards due now.`}</p> : null}
           <div className="row">
             {missedTopics[0] ? (
               <Link className="btn mission-cta" href={`/practice/play?mode=weak&topic=${encodeURIComponent(missedTopics[0])}`}>Fix that weakness</Link>

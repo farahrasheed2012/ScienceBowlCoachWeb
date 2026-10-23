@@ -8,6 +8,7 @@ import { pct, studentReadiness } from "@/lib/readiness";
 import { isSchoolYear } from "@/lib/schedule";
 import { articleForLabel } from "@/lib/topic-map";
 import { studyMinutes } from "@/lib/stats";
+import { txt } from "@/lib/copy";
 import { useStore } from "@/lib/store";
 
 function when(iso: string) {
@@ -37,38 +38,29 @@ export default function ProgressPage() {
         <h1 className="session-title">{pct(ready.overall)}</h1>
         <p className="muted">{ready.sentence}</p>
         <p className="faint">
-          {store.studyStreak > 0 ? `${store.studyStreak} day streak` : "Start a streak"}
-          {minutes ? ` · ${minutes} min studied` : ""}
-          {store.xp ? ` · ${store.xp} XP` : ""}
+          {txt`${store.studyStreak > 0 ? `${store.studyStreak} day streak` : "Start a streak"}${minutes ? ` · ${minutes} min studied` : ""}${store.xp ? ` · ${store.xp} XP` : ""}`}
         </p>
       </div>
       <CoachInsight kicker={insight.kicker} body={insight.body} />
       <section className="stack">
         {ready.subjects.map((row) => (
           <p key={row.id}>
-            {row.label}
-            <span className="faint">
-              {" · "}
-              {pct(row.readiness)}
-              {row.knowledge != null ? ` · know ${Math.round(row.knowledge * 100)}%` : ""}
-              {row.speed != null ? ` · speed ${Math.round(row.speed * 100)}%` : row.attempts ? " · no timed toss-ups yet" : ""}
-            </span>
+            {txt`${row.label} · ${pct(row.readiness)}${row.knowledge != null ? ` · know ${Math.round(row.knowledge * 100)}%` : ""}${row.speed != null ? ` · speed ${Math.round(row.speed * 100)}%` : row.attempts ? " · no timed toss-ups yet" : ""}`}
           </p>
         ))}
       </section>
       {ready.buzz ? (
         <p className="muted">
-          Buzz profile · early {Math.round(ready.buzz.early * 100)}% · middle {Math.round(ready.buzz.middle * 100)}% · late {Math.round(ready.buzz.late * 100)}%
+          {txt`Buzz profile · early ${Math.round(ready.buzz.early * 100)}% · middle ${Math.round(ready.buzz.middle * 100)}% · late ${Math.round(ready.buzz.late * 100)}%`}
         </p>
       ) : (
         <p className="faint">Buzz timing shows after a few official-clock toss-ups.</p>
       )}
       <p className="muted">
-        Toss-ups {pct(ready.tossup)}
-        {ready.bonus != null ? ` · bonuses ${pct(ready.bonus)}` : ""}
+        {txt`Toss-ups ${pct(ready.tossup)}${ready.bonus != null ? ` · bonuses ${pct(ready.bonus)}` : ""}`}
       </p>
       {ready.prescription.steps.length ? (
-        <p className="muted">{ready.prescription.diagnosis} {ready.prescription.steps.join(" → ")}</p>
+        <p className="muted">{txt`${ready.prescription.diagnosis} ${ready.prescription.steps.join(" → ")}`}</p>
       ) : null}
       {priority ? (
         <div className="row">
@@ -84,15 +76,14 @@ export default function ProgressPage() {
         <div className="stack">
           {rounds.slice(0, 6).map((round) => (
             <p key={round.id}>
-              {round.title}
-              <span className="faint"> · {round.correct}/{round.asked} · {when(round.at)}</span>
+              {txt`${round.title} · ${round.correct}/${round.asked} · ${when(round.at)}`}
             </p>
           ))}
         </div>
       ) : (
         <p className="muted">Finish a practice round and it will land here.</p>
       )}
-      {due.length ? <Link className="text-btn" href="/learn/flash">{due.length} flashcards due</Link> : null}
+      {due.length ? <Link className="text-btn" href="/learn/flash">{txt`${due.length} flashcards due`}</Link> : null}
     </div>
   );
 }

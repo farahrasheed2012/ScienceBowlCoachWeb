@@ -223,18 +223,36 @@ export function answersMatch(expected: string, given: string) {
   const b = normAnswer(given);
   if (!a || !b) return false;
   if (a === b) return true;
-  // Ignore spacing differences: "absorbs heat" ↔ "absorbsheat"
-  if (a.replace(/\s+/g, "") === b.replace(/\s+/g, "") && a.replace(/\s+/g, "").length >= 4) return true;
+
+  const ac = a.replace(/\s+/g, "");
+  const bc = b.replace(/\s+/g, "");
+  // Ignore spacing differences at any length: "absorbs heat" ↔ "absorbsheat", "4" ↔ "4"
+  if (ac === bc) return true;
+
   // Compare folded forms on the original strings so π / ² survive primaryAnswer cleanup.
   const foldedExpected = foldStudyAnswer(expected);
   const foldedGiven = foldStudyAnswer(given);
-  if (foldedExpected && foldedGiven && foldedExpected === foldedGiven && foldedGiven.length >= 3) return true;
-  if (foldStudyAnswer(rawPrimary) === foldedGiven && foldedGiven.length >= 3) return true;
-  // Also accept any listed ACCEPT: alternative
-  const alts = expected.split(/\bACCEPT\b|:|\bor\b/i).map((part) => normAnswer(primaryAnswer(part) || part)).filter(Boolean);
-  if (alts.some((alt) => alt === b || (alt.length >= 4 && (alt === b.replace(/\s+/g, "") || alt.replace(/\s+/g, "") === b.replace(/\s+/g, ""))))) {
-    return true;
-  }
+  if (foldedExpected && foldedGiven && foldedExpected === foldedGiven) return true;
+  if (foldStudyAnswer(rawPrimary) === foldedGiven && foldedGiven.length > 0) return true;
+
+  // Student added a unit/word after a short answer: "4 seconds" / "4seconds" for "4"
+  const givenTokens = b.split(/\s+/).filter(Boolean);
+  const expectedTokens = a.split(/\s+/).filter(Boolean);
+  if (givenTokens[0] === a) return true;
+  if (expectedTokens[0] === b && b.length >= 1) return true;
+  if (/^\d+$/.test(ac) && bc.startsWith(ac) && bc.length <= ac.length + 16) return true;
+
+  // Also accept any listed ACCEPT: alternative (space-insensitive)
+  const alts = expected
+    .split(/\bACCEPT\b/i)
+    .flatMap((chunk, i) => (i === 0 ? [chunk] : chunk.split(/\bor\b|;/i)))
+    .map((part) => normAnswer(primaryAnswer(part) || part))
+    .filter(Boolean);
+  if (alts.some((alt) => {
+    const altc = alt.replace(/\s+/g, "");
+    return alt === b || altc === bc || givenTokens[0] === alt;
+  })) return true;
+
   // Substring match only when both sides are long enough to avoid
   // "earth" lighting up every Earth-science choice, or "w" matching "water".
   if (a.length >= 4 && b.length >= 4 && (a.includes(b) || b.includes(a))) return true;

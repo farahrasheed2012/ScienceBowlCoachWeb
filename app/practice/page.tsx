@@ -7,6 +7,7 @@ import { PacketPicker } from "@/components/PacketPicker";
 import { matchesSubject, practiceBank } from "@/lib/questions";
 import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
+import { txt } from "@/lib/copy";
 import { useStore } from "@/lib/store";
 
 const FEATURED = {
@@ -45,8 +46,7 @@ export default function PracticePage() {
       <div>
         <h1>Practice</h1>
         <p className="muted">
-          {bank.length} questions ready · {tossUpBundled.length} from TossUp
-          {schoolYear ? " · School year keep-sharp" : ""}
+          {txt`${bank.length} questions ready · ${tossUpBundled.length} from TossUp${schoolYear ? " · School year keep-sharp" : ""}`}
         </p>
       </div>
       {schoolYear ? (
@@ -88,7 +88,7 @@ export default function PracticePage() {
           <Link className="card stack" key={subject.id} href={`/practice/play?mode=subject&subject=${subject.id}`}>
             <h3>{subject.label}</h3>
             <p className="muted">
-              {bank.filter((q) => matchesSubject(q, subject.id) && q.kind !== "bonus").length} toss-ups · 15 in a set
+              {txt`${bank.filter((q) => matchesSubject(q, subject.id) && q.kind !== "bonus").length} toss-ups · 15 in a set`}
             </p>
           </Link>
         ))}
@@ -102,7 +102,7 @@ export default function PracticePage() {
       {weak[0] ? (
         <div className="card stack">
           <h3>Recommended</h3>
-          <p>{weak[0].topic} · {Math.round(weak[0].acc * 100)}% accuracy</p>
+          <p>{txt`${weak[0].topic} · ${Math.round(weak[0].acc * 100)}% accuracy`}</p>
           <Link className="btn" href={`/practice/play?mode=weak&topic=${encodeURIComponent(weak[0].topic)}`}>Practice this topic today</Link>
         </div>
       ) : (
