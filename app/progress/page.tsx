@@ -27,6 +27,7 @@ export default function ProgressPage() {
     results,
     rounds,
     missionTopic: priority?.topic,
+    biggestGapLabel: ready.biggest?.label || priority?.topic,
   });
 
   return (

@@ -34,7 +34,7 @@ function PlayInner() {
   const round = params.get("round") || "";
   const asked = Number(params.get("n"));
   const take = Number.isFinite(asked) && asked > 0 ? Math.min(Math.floor(asked), 25) : 0;
-  const { title, questions } = useMemo(() => {
+  const { title, questions, topicLabel } = useMemo(() => {
     const bank = practiceBank(store.importedDoe);
     if (mode === "quick") return { title: "Quick Practice", questions: shuffle(bank).slice(0, take || 10) };
     if (mode === "tossup") return { title: "Toss-Up", questions: shuffle(bank.filter((q) => q.kind !== "bonus")).slice(0, take || 15) };
@@ -44,22 +44,26 @@ function PlayInner() {
     if (mode === "subject") {
       const name = subject || "biology";
       const list = shuffle(bank.filter((q) => matchesSubject(q, name) && q.kind !== "bonus")).slice(0, 15);
+      const label = name === "earth" ? "Earth & Space" : name === "energy" ? "Energy" : name[0].toUpperCase() + name.slice(1);
       return {
-        title: name === "earth" ? "Earth & Space" : name === "energy" ? "Energy" : name[0].toUpperCase() + name.slice(1),
+        title: label,
         questions: list.length ? list : shuffle(allEncyclopediaPlay().filter((q) => matchesSubject(q, name))).slice(0, 15),
+        topicLabel: label,
       };
     }
     if (mode === "topic") {
       const list = shuffle(bank.filter((q) => q.topicId === topic || sameTopicLabel(q.topic, topic))).slice(0, 15);
       const fallback = list.length ? list : shuffle(allEncyclopediaPlay().filter((q) => q.topicId === topic || sameTopicLabel(q.topic, topic))).slice(0, 15);
-      return { title: fallback[0]?.topic || topic, questions: fallback };
+      const label = fallback[0]?.topic || topic;
+      return { title: label, questions: fallback, topicLabel: label };
     }
     if (mode === "weak") {
       const weakTopic = topic || topicAccuracy(store.drillResults).find((row) => row.acc < 0.7)?.topic || "";
       const list = shuffle(bank.filter((q) => q.topicId === weakTopic || sameTopicLabel(q.topic, weakTopic))).slice(0, 12);
       return {
-        title: weakTopic ? `Weak · ${weakTopic}` : "Weak areas",
+        title: weakTopic ? `Weak area · ${weakTopic}` : "Weak areas",
         questions: list.length ? list : shuffle(bank).slice(0, 10),
+        topicLabel: weakTopic || undefined,
       };
     }
     if (mode === "packet") {
@@ -83,9 +87,11 @@ function PlayInner() {
       };
     }
     if (mode === "encyclopedia") {
+      const list = allEncyclopediaPlay().filter((q) => (!type || q.type.toLowerCase().includes(type.toLowerCase())) && (!topicId || q.topicId === topicId));
       return {
-        title: "Encyclopedia",
-        questions: allEncyclopediaPlay().filter((q) => (!type || q.type.toLowerCase().includes(type.toLowerCase())) && (!topicId || q.topicId === topicId)),
+        title: list[0]?.topic || "Encyclopedia",
+        questions: list,
+        topicLabel: list[0]?.topic,
       };
     }
     if (mode === "sprint") {
@@ -124,7 +130,15 @@ function PlayInner() {
     return <CompetitionPlay importedDoe={store.importedDoe} length={length} />;
   }
 
-  return <QuestionPlay key={`${mode}-${subject}-${topic}-${type}-${topicId}-${week}-${id}-${packet}-${round}-${take}`} questions={questions} title={title} timed />;
+  return (
+    <QuestionPlay
+      key={`${mode}-${subject}-${topic}-${type}-${topicId}-${week}-${id}-${packet}-${round}-${take}`}
+      questions={questions}
+      title={title}
+      topicLabel={topicLabel}
+      timed
+    />
+  );
 }
 
 export default function PracticePlayPage() {

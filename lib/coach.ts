@@ -1,10 +1,12 @@
-import { findTopicArticle, isChoiceCorrect } from "./questions";
+import { findTopicArticle, isChoiceCorrect, primaryAnswer } from "./questions";
 import { accuracyWindow, improvedTopics, paceSeconds, performanceFor, subjectAccuracy } from "./stats";
 import type { DrillResult, EncyclopediaTopic, PlayQuestion, PracticeRound } from "./types";
 
 export type CoachAction = "explain" | "why-wrong" | "hint" | "eighth-grade" | "teach";
 
 export type CoachHistory = {
+  /** Misses of this exact question id (not the whole topic). */
+  questionMisses?: number;
   recentMisses?: number;
   missesWeek?: number;
   lastAt?: string;
@@ -12,11 +14,30 @@ export type CoachHistory = {
 };
 
 function recentMissLine(history?: CoachHistory) {
-  const n = history?.recentMisses ?? 0;
+  const n = history?.questionMisses ?? 0;
   if (n < 2) return "";
   return n === 2
-    ? "You missed this twice recently."
-    : `You missed this ${n} times recently.`;
+    ? "You missed this same question twice before."
+    : `You missed this same question ${n} times before.`;
+}
+
+function keyClue(question: PlayQuestion, article?: EncyclopediaTopic) {
+  const stem = question.questionText.toLowerCase();
+  const answer = primaryAnswer(question.answer);
+  const answerNorm = answer.toLowerCase();
+  if (article?.keyTerms?.length) {
+    const hit = article.keyTerms.find((term) => {
+      const t = term.term.toLowerCase();
+      if (t.length < 3) return false;
+      return stem.includes(t) || answerNorm.includes(t) || t.includes(answerNorm);
+    });
+    if (hit) return hit.term;
+  }
+  return answer || question.answer;
+}
+
+function displayAnswer(value: string) {
+  return value.replace(/\s+/g, " ").trim();
 }
 
 export function coachBrief(question: PlayQuestion, userAnswer?: string, correct?: boolean | null, history?: CoachHistory) {
@@ -24,12 +45,18 @@ export function coachBrief(question: PlayQuestion, userAnswer?: string, correct?
   const picked = question.choices.find((choice) => choice.key === userAnswer || choice.text === userAnswer);
   const trap = article?.nsbTraps[0] ?? "Read the last clause of the stem before you buzz. Nearby facts are the usual trap.";
   const missLine = recentMissLine(history);
-  const clue = article?.keyTerms[0]?.term ?? question.topic;
-  const remember = article?.keyTerms[0]
-    ? `${article.keyTerms[0].term}: ${article.keyTerms[0].definition}`
-    : `${question.answer} — ${question.topic}.`;
-  const whyMissed = userAnswer
-    ? `You answered ${picked ? `${picked.key}) ${picked.text}` : userAnswer}, which is a nearby fact instead of ${question.answer}.`
+  const clue = keyClue(question, article);
+  const rememberTerm = article?.keyTerms.find((term) => {
+    const t = term.term.toLowerCase();
+    const answer = primaryAnswer(question.answer).toLowerCase();
+    return t && (answer.includes(t) || t.includes(answer) || question.questionText.toLowerCase().includes(t));
+  }) ?? article?.keyTerms.find((term) => primaryAnswer(question.answer).toLowerCase().includes(term.term.toLowerCase()));
+  const remember = rememberTerm
+    ? `${rememberTerm.term}: ${rememberTerm.definition}`
+    : `${primaryAnswer(question.answer) || question.answer} — ${question.topic}.`;
+  const shown = userAnswer ? displayAnswer(userAnswer) : "";
+  const whyMissed = shown
+    ? `You answered ${picked ? `${picked.key}) ${picked.text}` : shown}, which is a nearby fact instead of ${question.answer}.`
     : `The stem wanted ${question.answer}. Read the last clause before you buzz.`;
   const why = [
     `The correct answer is ${question.answer}.`,
@@ -48,47 +75,78 @@ export function coachBrief(question: PlayQuestion, userAnswer?: string, correct?
   };
 }
 
+function cleanTopicLabel(label?: string) {
+  if (!label) return "";
+  return label
+    .replace(/^Weak\s*·\s*/i, "")
+    .replace(/^Practice this topic$/i, "")
+    .replace(/^Toss-ups$/i, "")
+    .replace(/^Recall from this topic$/i, "")
+    .trim();
+}
+
 export function coachRead(input: {
   results: DrillResult[];
   rounds?: PracticeRound[];
   missionTopic?: string;
   missionPlanId?: string;
   flashDue?: number;
+  biggestGapLabel?: string;
   sessionMissed?: string[];
   sessionHits?: number;
   sessionAsked?: number;
 }): { kicker: string; body: string } {
-  const { results, rounds = [], missionTopic, missionPlanId, flashDue = 0, sessionMissed = [], sessionHits, sessionAsked } = input;
+  const {
+    results,
+    rounds = [],
+    missionTopic,
+    missionPlanId,
+    flashDue = 0,
+    biggestGapLabel,
+    sessionMissed = [],
+    sessionHits,
+    sessionAsked,
+  } = input;
+
+  const gapName = cleanTopicLabel(biggestGapLabel) || cleanTopicLabel(missionTopic);
 
   if (missionPlanId === "flash" && flashDue > 0) {
     return {
       kicker: "Coach's read",
-      body: missionTopic && !/flashcard/i.test(missionTopic)
-        ? `${flashDue} flashcards are due. Clear those first — then we'll hit ${missionTopic}, your biggest gap.`
+      body: gapName
+        ? `${flashDue} flashcards are due. Clear those first — then drill ${gapName}.`
         : `${flashDue} flashcards are due. Clear the pile, then a short toss-up.`,
     };
   }
 
   if (sessionAsked != null && sessionHits != null) {
-    const topic = sessionMissed[0] || missionTopic;
+    const topic = cleanTopicLabel(sessionMissed[0]) || cleanTopicLabel(missionTopic);
     if (sessionAsked === 0) {
       return { kicker: "Coach's read", body: "No answers logged this session. Start the toss-ups so I can see the gap." };
     }
     if (sessionHits / sessionAsked >= 0.8) {
-      return { kicker: "Coach's read", body: topic ? `You know the basics on ${topic}. Keep it cold with a short timed toss-up next.` : "Clean session. Keep this topic cold tomorrow." };
+      return {
+        kicker: "Coach's read",
+        body: topic
+          ? `Solid round on ${topic}. Keep it cold with a short timed toss-up next.`
+          : "Clean session. Keep this cold tomorrow.",
+      };
     }
     if (topic) {
-      return { kicker: "Coach's read", body: `You know the basic concepts, but you're still missing questions about ${topic}.` };
+      return { kicker: "Coach's read", body: `You're still missing questions about ${topic}. Review that, then try two similar ones.` };
     }
     return { kicker: "Coach's read", body: "The misses are the lesson. Review those topics, then try two similar questions." };
   }
 
   if (missionTopic) {
     const row = performanceFor(results, missionTopic);
-    if (row.last5 >= 5 && row.last5Correct <= 2) {
-      return { kicker: "Don't move on yet", body: `You know the vocabulary, but you're only ${row.last5Correct}/5 on recent ${row.topic} questions. Today's mission targets that gap.` };
+    if (row.last5 >= 3 && row.last5Correct / row.last5 <= 0.4) {
+      return {
+        kicker: "Don't move on yet",
+        body: `You're ${row.last5Correct}/${row.last5} on recent ${row.topic} questions. Today's mission targets that gap.`,
+      };
     }
-    if (row.missedLast3 >= 2) {
+    if (row.missedLast3 >= 2 && row.last5 >= 3) {
       return { kicker: "Coach's read", body: `You missed ${row.missedLast3} of your last 3 on ${row.topic}. Today's mission is built around that gap.` };
     }
   }
@@ -102,7 +160,7 @@ export function coachRead(input: {
       7,
     );
     if (last7 != null && prior != null && last7 - prior > 0.08) {
-      const gap = missionTopic ?? "today's topic";
+      const gap = gapName || "today's topic";
       return { kicker: "Coach's read", body: `You've improved in ${subject[0].toUpperCase()}${subject.slice(1)} this week, but you're still missing questions involving ${gap}. Today's mission targets that gap.` };
     }
   }
@@ -129,7 +187,7 @@ export function coachRead(input: {
 export function answerLeaked(text: string, answer: string) {
   const norm = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
   const hay = norm(text);
-  const main = norm(answer.split(/\bACCEPT\b|\(/i)[0] ?? "");
+  const main = norm(primaryAnswer(answer) || answer);
   if (!hay || !main) return false;
   if (main.length >= 3 && hay.includes(main)) return true;
   const words = main.split(" ").filter((word) => word.length > 3);
@@ -173,7 +231,7 @@ function explain(question: PlayQuestion, userAnswer: string | undefined, correct
     parts.push(`NSB trap: ${trap}`);
   }
   if (correct === false && userAnswer) {
-    parts.push(`Your answer (${userAnswer}) is close to a related idea, but it does not match what the stem asked.`);
+    parts.push(`Your answer (${displayAnswer(userAnswer)}) is close to a related idea, but it does not match what the stem asked.`);
   }
   return parts.filter(Boolean).join(" ");
 }
@@ -189,7 +247,7 @@ function whyWrong(question: PlayQuestion, userAnswer: string | undefined, articl
     ].filter(Boolean).join(" ");
   }
   const picked = question.choices.find((c) => c.key === userAnswer || c.text === userAnswer);
-  const label = picked ? `${picked.key}) ${picked.text}` : userAnswer;
+  const label = picked ? `${picked.key}) ${picked.text}` : displayAnswer(userAnswer);
   return [
     missLine,
     `You chose ${label}. The correct answer is ${question.answer}.`,
@@ -202,11 +260,7 @@ function whyWrong(question: PlayQuestion, userAnswer: string | undefined, articl
 }
 
 function hintAnswerShape(answer: string) {
-  const main = answer
-    .split(/\bACCEPT\b|\(|;/i)[0]
-    .replace(/^(the|a|an)\s+/i, "")
-    .replace(/[^a-zA-Z0-9\s-]/g, " ")
-    .trim();
+  const main = primaryAnswer(answer);
   const words = main.split(/\s+/).filter(Boolean);
   return { words: words.length, letter: words[0]?.[0]?.toUpperCase() ?? "" };
 }
@@ -214,9 +268,9 @@ function hintAnswerShape(answer: string) {
 function hint(question: PlayQuestion, article?: EncyclopediaTopic) {
   const trap = article?.nsbTraps[0];
   if (trap && !answerLeaked(trap, question.answer)) return `Hint: ${trap}`;
-  const term = article?.keyTerms[0];
-  if (term && !answerLeaked(`${term.term} ${term.definition}`, question.answer)) {
-    return `Hint: think about ${term.term}.`;
+  const clue = keyClue(question, article);
+  if (clue && !answerLeaked(clue, question.answer)) {
+    return `Hint: think about ${clue}.`;
   }
   if (question.format === "multipleChoice") {
     const wrong = question.choices.find((choice) => !isChoiceCorrect(question, choice.key) && !answerLeaked(choice.text, question.answer));
@@ -230,31 +284,30 @@ function hint(question: PlayQuestion, article?: EncyclopediaTopic) {
   return `Hint: this ${question.category} toss-up wants a precise term. Re-read the last clause.`;
 }
 
-function eighthGrade(question: PlayQuestion, article?: EncyclopediaTopic) {
-  const simple = article?.whatIsIt ?? `This question is about ${question.topic}.`;
-  return `In 8th-grade words: ${simple} So the answer they want is ${question.answer}.`;
+function teach(question: PlayQuestion, article?: EncyclopediaTopic) {
+  const clue = keyClue(question, article);
+  return [
+    article?.whatIsIt ?? `${question.topic} shows up a lot in middle-school Science Bowl.`,
+    article?.howItWorks,
+    clue ? `Hold onto: ${clue}.` : "",
+    article?.nsbTraps[0] ? `Trap to watch: ${article.nsbTraps[0]}` : "Read the last clause before you buzz.",
+  ].filter(Boolean).join(" ");
 }
 
-function teach(question: PlayQuestion, article?: EncyclopediaTopic) {
-  if (!article) return `${question.topic}: the official answer here is ${question.answer}. Open Learn for a full article on this idea.`;
+function eighthGrade(question: PlayQuestion, article?: EncyclopediaTopic) {
   return [
-    article.whatIsIt,
-    article.howItWorks,
-    article.realWorldExample,
-    article.nsbTraps[0] ? `Watch out: ${article.nsbTraps[0]}` : "",
+    article?.whatIsIt ?? `In plain words: the answer is ${question.answer}.`,
+    article?.realWorldExample,
+    `For this toss-up, say ${question.answer}.`,
   ].filter(Boolean).join(" ");
 }
 
 function choiceReview(question: PlayQuestion, userAnswer?: string) {
-  if (!question.choices.length) return "";
-  return question.choices
-    .map((choice) => {
-      const right = question.answerKey === choice.key || choice.text === question.answer;
-      const yours = userAnswer === choice.key || userAnswer === choice.text;
-      if (right) return `${choice.key}) ${choice.text} is correct.`;
-      if (yours) return `${choice.key}) ${choice.text} is the tempting wrong choice.`;
-      return "";
-    })
-    .filter(Boolean)
-    .join(" ");
+  const right = question.choices.find((choice) => isChoiceCorrect(question, choice.key));
+  if (!right) return "";
+  if (!userAnswer) return `The correct choice is ${right.key}) ${right.text}.`;
+  if (isChoiceCorrect(question, userAnswer) || question.choices.some((c) => c.text === userAnswer && isChoiceCorrect(question, c.key))) {
+    return `Yes — ${right.key}) ${right.text}.`;
+  }
+  return `Correct choice: ${right.key}) ${right.text}.`;
 }

@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
       { source: "/", destination: "/quick", permanent: false },
       { source: "/quiz", destination: "/practice", permanent: false },
       { source: "/quiz/play", destination: "/practice/play", permanent: false },
+      { source: "/flash", destination: "/learn/flash", permanent: false },
+      { source: "/formulas", destination: "/learn/formulas", permanent: false },
       { source: "/learn/python", destination: "/python", permanent: false },
       { source: "/learn/python/:id", destination: "/python/:id", permanent: false },
       { source: "/pot6", destination: "/practice", permanent: false },

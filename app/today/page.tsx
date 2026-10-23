@@ -81,14 +81,16 @@ export default function TodayPage() {
   const recentAvg = recent.length
     ? Math.round((recent.filter((row) => row.correct).length / recent.length) * 100)
     : null;
+  const ready = studentReadiness(store.drillResults);
+  const gapLabel = ready.biggest?.label || gapTopic || undefined;
   const insight = coachRead({
     results: store.drillResults,
     rounds: store.practiceRounds,
     missionTopic: gapTopic || undefined,
     missionPlanId: mission.planId,
     flashDue: due.length,
+    biggestGapLabel: gapLabel,
   });
-  const ready = studentReadiness(store.drillResults);
   const match = nextMatchTarget();
 
   function begin(next: PlaySession) {
@@ -252,7 +254,7 @@ export default function TodayPage() {
       {ready.overall != null ? (
         <p className="faint">
           Readiness {pct(ready.overall)}
-          {ready.biggest ? ` · biggest gap ${ready.biggest.label}` : ""}
+          {gapLabel ? ` · biggest gap ${gapLabel}` : ""}
         </p>
       ) : (
         <p className="faint">Readiness unlocks after a few toss-ups.</p>

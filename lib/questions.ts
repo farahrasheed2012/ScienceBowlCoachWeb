@@ -188,20 +188,47 @@ export function shuffle<T>(items: T[]): T[] {
   return copy;
 }
 
+/** Primary answer text before ACCEPT / parentheticals / letter prefixes. */
+export function primaryAnswer(raw: string) {
+  return raw
+    .split(/\bACCEPT\b|\(|;/i)[0]
+    .replace(/^[WXYZ]\)\s*/i, "")
+    .replace(/^(the|a|an)\s+/i, "")
+    .replace(/[^a-zA-Z0-9\s-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normAnswer(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
 export function answersMatch(expected: string, given: string) {
-  const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-  const a = norm(expected);
-  const b = norm(given);
-  if (!b) return false;
+  const a = normAnswer(primaryAnswer(expected) || expected);
+  const b = normAnswer(given);
+  if (!a || !b) return false;
   if (a === b) return true;
-  if (a.includes(b) || b.includes(a)) return true;
-  return a.split(" ").some((word) => word.length > 3 && b.includes(word));
+  // Substring match only when both sides are long enough to avoid
+  // "earth" lighting up every Earth-science choice, or "w" matching "water".
+  if (a.length >= 4 && b.length >= 4 && (a.includes(b) || b.includes(a))) return true;
+  const words = a.split(" ").filter((word) => word.length > 3);
+  if (words.length >= 2 && words.every((word) => b.includes(word))) return true;
+  return false;
 }
 
 export function isChoiceCorrect(question: PlayQuestion, key: string) {
-  if (question.answerKey && key.toUpperCase() === question.answerKey) return true;
+  const want = (question.answerKey || "").toUpperCase();
+  if (want && /^[WXYZ]$/.test(want)) return key.toUpperCase() === want;
   const choice = question.choices.find((c) => c.key === key);
-  return Boolean(choice && answersMatch(question.answer, choice.text));
+  if (!choice) return false;
+  // Prefer exact primary-answer match so only one option goes green.
+  const primary = normAnswer(primaryAnswer(question.answer));
+  const choiceNorm = normAnswer(choice.text);
+  if (primary && choiceNorm && primary === choiceNorm) return true;
+  if (want && key.toUpperCase() === want) return true;
+  const hits = question.choices.filter((c) => answersMatch(question.answer, c.text));
+  if (hits.length === 1) return hits[0].key === key;
+  return false;
 }
 
 export function subjectTone(category: string) {

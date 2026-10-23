@@ -107,6 +107,7 @@ type Store = State & {
   set: (patch: Partial<State>) => void;
   recordAnswer: (input: AnswerLog) => void;
   markReviewed: (topicId: string) => void;
+  toggleReviewed: (topicId: string) => void;
   toggleChecklist: (id: string) => void;
   addNotebook: (text: string) => void;
   reviewFlashCard: (id: string, correct: boolean) => void;
@@ -391,20 +392,45 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     },
     markReviewed: (topicId) => {
       setState((prev) => {
-        const already = prev.reviewedTopicIds.includes(topicId);
+        if (prev.reviewedTopicIds.includes(topicId)) return prev;
         const today = new Date().toDateString();
         const last = prev.lastEncyclopediaDate ? new Date(prev.lastEncyclopediaDate).toDateString() : null;
         let encyclopediaStreak = prev.encyclopediaStreak;
-        if (!already && last !== today) {
+        if (last !== today) {
           const yesterday = new Date();
           yesterday.setDate(yesterday.getDate() - 1);
           encyclopediaStreak = last === yesterday.toDateString() ? prev.encyclopediaStreak + 1 : 1;
         }
         return {
           ...prev,
-          reviewedTopicIds: already ? prev.reviewedTopicIds : [...prev.reviewedTopicIds, topicId],
+          reviewedTopicIds: [...prev.reviewedTopicIds, topicId],
           encyclopediaStreak,
-          lastEncyclopediaDate: already ? prev.lastEncyclopediaDate : new Date().toISOString(),
+          lastEncyclopediaDate: new Date().toISOString(),
+        };
+      });
+    },
+    toggleReviewed: (topicId) => {
+      setState((prev) => {
+        const already = prev.reviewedTopicIds.includes(topicId);
+        if (already) {
+          return {
+            ...prev,
+            reviewedTopicIds: prev.reviewedTopicIds.filter((id) => id !== topicId),
+          };
+        }
+        const today = new Date().toDateString();
+        const last = prev.lastEncyclopediaDate ? new Date(prev.lastEncyclopediaDate).toDateString() : null;
+        let encyclopediaStreak = prev.encyclopediaStreak;
+        if (last !== today) {
+          const yesterday = new Date();
+          yesterday.setDate(yesterday.getDate() - 1);
+          encyclopediaStreak = last === yesterday.toDateString() ? prev.encyclopediaStreak + 1 : 1;
+        }
+        return {
+          ...prev,
+          reviewedTopicIds: [...prev.reviewedTopicIds, topicId],
+          encyclopediaStreak,
+          lastEncyclopediaDate: new Date().toISOString(),
         };
       });
     },

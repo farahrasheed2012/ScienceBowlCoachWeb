@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { answerLeaked, coachBrief, localCoach, type CoachAction } from "@/lib/coach";
 import { findTopicArticle } from "@/lib/questions";
-import { topicHistory } from "@/lib/stats";
+import { questionMissCount, topicHistory } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 import { tossupTopicForEncyclopedia } from "@/lib/topic-map";
 import type { PlayQuestion } from "@/lib/types";
@@ -36,7 +36,11 @@ export function CoachPanel({
   const [lastAction, setLastAction] = useState<CoachAction | "">("");
   const article = findTopicArticle(question);
   const tossupId = article ? tossupTopicForEncyclopedia(article.id) : question.topicId;
-  const history = topicHistory(store.drillResults, question.topic);
+  const topicStats = topicHistory(store.drillResults, question.topic);
+  const history = {
+    ...topicStats,
+    questionMisses: questionMissCount(store.drillResults, question.id),
+  };
   const brief = coachBrief(question, userAnswer, correct, history);
 
   async function run(action: CoachAction) {
@@ -58,7 +62,7 @@ export function CoachPanel({
           correct,
           recentAccuracy: recentAccuracy ?? history.acc,
           weakTopic,
-          recentMisses: history.recentMisses,
+          recentMisses: history.questionMisses,
           missesWeek: history.missesWeek,
           lastPracticed: history.lastAt,
           subject: question.category,
@@ -82,7 +86,7 @@ export function CoachPanel({
       {phase === "revealed" ? (
         <div className="coach-brief">
           {correct ? (
-            <p className="coach-clue">Exactly. The key clue was {brief.clue}.</p>
+            <p className="coach-clue">Exactly. Hold onto: {brief.clue}.</p>
           ) : (
             <p className="coach-clue">{brief.whyMissed}</p>
           )}

@@ -99,6 +99,12 @@ export function topicHistory(results: DrillResult[], topic: string) {
   };
 }
 
+/** Misses of this exact question only — never inflate from the whole topic. */
+export function questionMissCount(results: DrillResult[], questionId: string) {
+  if (!questionId) return 0;
+  return results.filter((row) => row.questionId === questionId && !row.correct).length;
+}
+
 export function daysAgoLabel(iso?: string | null, now = Date.now()) {
   if (!iso) return null;
   const days = Math.floor((now - new Date(iso).getTime()) / 86400000);

@@ -19,10 +19,15 @@ export function QuestionPlay({
   questions,
   title,
   timed = true,
+  topicLabel,
+  onRoundComplete,
 }: {
   questions: PlayQuestion[];
   title: string;
   timed?: boolean;
+  /** Clean topic name for coach copy (avoids UI titles like "Practice this topic"). */
+  topicLabel?: string;
+  onRoundComplete?: (summary: { hits: number; seen: number }) => void;
 }) {
   const store = useStore();
   const [list] = useState(questions);
@@ -243,6 +248,7 @@ export function QuestionPlay({
         correct: hits,
         seconds: Math.max(1, Math.round((Date.now() - startedAt.current) / 1000)),
       });
+      onRoundComplete?.({ hits, seen });
     }
     setPhase("done");
   }
@@ -266,7 +272,7 @@ export function QuestionPlay({
     const read = coachRead({
       results: store.drillResults,
       rounds: store.practiceRounds,
-      missionTopic: missedTopics[0] || title,
+      missionTopic: missedTopics[0] || topicLabel || undefined,
       sessionMissed: missedTopics,
       sessionHits: hits,
       sessionAsked: seen,

@@ -87,7 +87,7 @@ export function todaysMission(input: {
       subject: "Flashcards",
       topic: input.dueCount ? `${input.dueCount} flashcards due` : "Flashcards",
       reason: input.dueCount
-        ? `${input.dueCount} cards are due now — missed toss-ups and key terms waiting for spaced recall.`
+        ? `${input.dueCount} cards are waiting. Flip them now so they stick.`
         : "The pile is clear. A short flip keeps the streak.",
       minutes: pick.minutes,
       activities: "Spaced recall",
@@ -218,7 +218,9 @@ export function buildTodayPlan(input: {
         id: "weak",
         minutes: 15,
         title: weak ? `Weak area · ${weak.topic}` : "Weak-area practice",
-        detail: weak ? `${Math.round(weak.accuracy * 100)}% accuracy — open the assigned section, then drill.` : "Answer a few questions and this slot will fill in.",
+        detail: weak
+          ? `You're at ${Math.round(weak.accuracy * 100)}% on this. Read the section, then drill.`
+          : "Answer a few questions and this slot will fill in.",
         href: weak ? `/practice/play?mode=weak&topic=${encodeURIComponent(weak.topic)}` : "/practice/play?mode=weak",
         done: weakDone || input.extraDone.includes("weak"),
       },
@@ -227,7 +229,7 @@ export function buildTodayPlan(input: {
         minutes: 15,
         title: `Toss-up · ${focus.label}`,
         detail: focus.subject === "earth" || focus.subject === "energy"
-          ? "Summer skipped this category. Short official clock."
+          ? "Earth and Energy need extra reps this year. Buzz on the official 5s / 20s clock."
           : "Buzz, answer, next. Official 5s / 20s clock.",
         href: focus.href,
         done: input.extraDone.includes("tossup") || tossupFinished(answeredToday, focus.subject),
@@ -236,7 +238,7 @@ export function buildTodayPlan(input: {
         id: "sprint",
         minutes: 10,
         title: "Regional sprint",
-        detail: "Know-cold packs for Texas regionals — deeper than the summer MS pass.",
+        detail: "Short-answer packs that show up at Texas regionals. Know them cold.",
         href: "/practice/play?mode=sprint",
         done: sprintDone,
       },
