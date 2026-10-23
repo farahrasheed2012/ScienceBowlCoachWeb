@@ -292,9 +292,9 @@ export function CompetitionPlay({
     return (
       <div className="learn-page view-in">
         <p className="mission-kicker">Halftime</p>
-        <h1 className="session-title">You {you} · Field {field}</h1>
+        <h1 className="session-title">{`You ${you} · Field ${field}`}</h1>
         <p className="muted">
-          Second half · {total - halfBreak} toss-ups left. Official 5s buzz window, 20s bonus.
+          {`Second half · ${total - halfBreak} toss-ups left. Official 5s buzz window, 20s bonus.`}
         </p>
         <button className="btn mission-cta" type="button" onClick={leaveHalf}>Start second half</button>
       </div>
@@ -306,15 +306,11 @@ export function CompetitionPlay({
     return (
       <div className="learn-page view-in">
         <p className="mission-kicker">{matchLabel}</p>
-        <h1 className="session-title">You {you} · Field {field}</h1>
+        <h1 className="session-title">{`You ${you} · Field ${field}`}</h1>
         <p className="muted">
-          Toss-ups {tossupHits}/{tossupAsked}
-          {bonusAsked ? ` · bonuses ${bonusHits}/${bonusAsked}` : ""}
-          {negs ? ` · ${negs} neg${negs === 1 ? "" : "s"}` : ""}
-          {" · "}
-          {total} pairs
+          {`Toss-ups ${tossupHits}/${tossupAsked}${bonusAsked ? ` · bonuses ${bonusHits}/${bonusAsked}` : ""}${negs ? ` · ${negs} neg${negs === 1 ? "" : "s"}` : ""} · ${total} pairs`}
         </p>
-        {ready.overall != null ? <p className="faint">Readiness {pct(ready.overall)}</p> : null}
+        {ready.overall != null ? <p className="faint">{`Readiness ${pct(ready.overall)}`}</p> : null}
         <div className="row">
           <Link className="btn mission-cta" href={playAgainHref}>Play again</Link>
           <Link className="btn ghost" href="/practice/compete">Match lobby</Link>
@@ -327,10 +323,10 @@ export function CompetitionPlay({
   if (scene === "dead") {
     return (
       <div className="learn-page view-in">
-        <p className="faint">You {you} · Field {field}</p>
+        <p className="faint">{`You ${you} · Field ${field}`}</p>
         <p className="reveal-verdict">No buzz</p>
         <p className="muted">{fieldNote || "The toss-up died."}</p>
-        <p className="muted">The answer is {pair.tossup.answer}.</p>
+        <p className="muted">{`The answer is ${pair.tossup.answer}.`}</p>
         <button className="btn mission-cta" type="button" onClick={nextPair}>Next toss-up</button>
       </div>
     );
@@ -345,8 +341,8 @@ export function CompetitionPlay({
     <div className="learn-page view-in">
       <Link className="text-btn session-leave" href="/practice/compete">Leave</Link>
       <div className="compete-bar">
-        <p className="stem">You {you}</p>
-        <p className="stem">Field {field}</p>
+        <p className="stem">{`You ${you}`}</p>
+        <p className="stem">{`Field ${field}`}</p>
       </div>
       <p className="faint">
         {matchLabel} · half {half} · toss-up {inHalf}/{halfSize}
@@ -410,7 +406,7 @@ export function CompetitionPlay({
               <p className={`reveal-verdict ${correct ? "ok-text" : "bad-text"}`}>
                 {correct ? (scene === "bonus" ? "Bonus" : "+4") : scene === "tossup" && didBuzz.current ? "Neg" : "Not quite"}
               </p>
-              {!correct ? <p className="reveal-note muted">The answer is {question.answer}.</p> : null}
+              {!correct ? <p className="reveal-note muted">{`The answer is ${question.answer}.`}</p> : null}
               {fieldNote ? <p className="muted">{fieldNote}</p> : null}
               {scene === "tossup" && correct && pair.bonus ? (
                 <p className="muted">Your team earned this bonus. 20 seconds. 10 points.</p>

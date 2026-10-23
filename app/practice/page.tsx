@@ -54,7 +54,7 @@ export default function PracticePage() {
           <h3>Today · {today.label}</h3>
           <p className="muted">
             {today.subject === "earth" || today.subject === "energy"
-              ? "Summer skipped this category. Use encyclopedia + DOE if the TossUp bank is thin."
+              ? "Earth and Energy need extra reps this year. Use the encyclopedia and official questions if the bank is thin."
               : "Official 5s / 20s clock. Weak areas stay the first Home card."}
           </p>
           <div className="row">

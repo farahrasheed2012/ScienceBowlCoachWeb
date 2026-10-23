@@ -194,7 +194,8 @@ export function primaryAnswer(raw: string) {
     .split(/\bACCEPT\b|\(|;/i)[0]
     .replace(/^[WXYZ]\)\s*/i, "")
     .replace(/^(the|a|an)\s+/i, "")
-    .replace(/[^a-zA-Z0-9\s-]/g, " ")
+    // Keep digits, letters, spaces, and common science symbols (π, ², ³, −).
+    .replace(/[^a-zA-Z0-9\sπ²³\-−.-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -203,11 +204,37 @@ function normAnswer(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
 
+/** Fold π / squared / spacing so study answers like "4 pi r squared" still count. */
+function foldStudyAnswer(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/π/g, " pi ")
+    .replace(/²/g, " 2 ")
+    .replace(/³/g, " 3 ")
+    .replace(/[−–—-]/g, "-")
+    .replace(/\bsquared\b/g, " 2 ")
+    .replace(/\bcubed\b/g, " 3 ")
+    .replace(/[^a-z0-9-]+/g, "");
+}
+
 export function answersMatch(expected: string, given: string) {
-  const a = normAnswer(primaryAnswer(expected) || expected);
+  const rawPrimary = primaryAnswer(expected) || expected;
+  const a = normAnswer(rawPrimary);
   const b = normAnswer(given);
   if (!a || !b) return false;
   if (a === b) return true;
+  // Ignore spacing differences: "absorbs heat" ↔ "absorbsheat"
+  if (a.replace(/\s+/g, "") === b.replace(/\s+/g, "") && a.replace(/\s+/g, "").length >= 4) return true;
+  // Compare folded forms on the original strings so π / ² survive primaryAnswer cleanup.
+  const foldedExpected = foldStudyAnswer(expected);
+  const foldedGiven = foldStudyAnswer(given);
+  if (foldedExpected && foldedGiven && foldedExpected === foldedGiven && foldedGiven.length >= 3) return true;
+  if (foldStudyAnswer(rawPrimary) === foldedGiven && foldedGiven.length >= 3) return true;
+  // Also accept any listed ACCEPT: alternative
+  const alts = expected.split(/\bACCEPT\b|:|\bor\b/i).map((part) => normAnswer(primaryAnswer(part) || part)).filter(Boolean);
+  if (alts.some((alt) => alt === b || (alt.length >= 4 && (alt === b.replace(/\s+/g, "") || alt.replace(/\s+/g, "") === b.replace(/\s+/g, ""))))) {
+    return true;
+  }
   // Substring match only when both sides are long enough to avoid
   // "earth" lighting up every Earth-science choice, or "w" matching "water".
   if (a.length >= 4 && b.length >= 4 && (a.includes(b) || b.includes(a))) return true;

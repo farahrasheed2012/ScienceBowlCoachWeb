@@ -48,7 +48,7 @@ export default function LearnTopicPage() {
       <p className="muted">{topic.subject}</p>
       {missCount ? (
         <p className="muted">
-          {missCount} {missCount === 1 ? "miss" : "misses"} on this title — drill it before marking reviewed.
+          {`${missCount} ${missCount === 1 ? "miss" : "misses"} on this title — drill it before marking reviewed.`}
         </p>
       ) : null}
       <div className="row">

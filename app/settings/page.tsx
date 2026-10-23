@@ -144,7 +144,7 @@ export default function SettingsPage() {
           Open a room here, buzz from a phone. Works in Practice and Full match —
           phone pad locks in like Space. Best drill: laptop runs the match, phone is the buzzer.
         </p>
-        {store.buzzerRoomCode ? <p className="muted">Current room {store.buzzerRoomCode}</p> : null}
+        {store.buzzerRoomCode ? <p className="muted">{`Current room ${store.buzzerRoomCode}`}</p> : null}
         <div className="row">
           <Link className="btn" href="/quiz/buzzer">Open buzzer room</Link>
           <Link className="btn ghost" href="/practice/compete">Match lobby</Link>

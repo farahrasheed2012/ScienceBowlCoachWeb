@@ -86,7 +86,7 @@ export function CoachPanel({
       {phase === "revealed" ? (
         <div className="coach-brief">
           {correct ? (
-            <p className="coach-clue">Exactly. Hold onto: {brief.clue}.</p>
+            <p className="coach-clue">{`Exactly. Hold onto: ${brief.clue}.`}</p>
           ) : (
             <p className="coach-clue">{brief.whyMissed}</p>
           )}
@@ -100,8 +100,8 @@ export function CoachPanel({
         <details className="more-help">
           <summary>More help</summary>
           <div className="stack">
-            {!correct ? <p className="muted">Watch for: {brief.trap}</p> : null}
-            <p className="muted">Remember: {brief.remember}</p>
+            {!correct ? <p className="muted">{`Watch for: ${brief.trap}`}</p> : null}
+            <p className="muted">{`Remember: ${brief.remember}`}</p>
             <div className="row">
               {!correct && onSimilar ? (
                 <button className="btn" type="button" onClick={onSimilar}>Try similar</button>
@@ -120,7 +120,7 @@ export function CoachPanel({
       {text ? (
         <div className="card stack">
           <p className="muted">{busy ? (lastAction === "hint" ? "Looking up a hint…" : "Checking a fuller explanation…") : lastAction === "hint" ? "Hint" : source === "ai" ? "Simpler explanation" : "Coach notes"}</p>
-          {aiError ? <p className="muted">AI did not run: {aiError}</p> : null}
+          {aiError ? <p className="muted">{`AI did not run: ${aiError}`}</p> : null}
           <p>{text}</p>
         </div>
       ) : null}

@@ -287,7 +287,7 @@ export function QuestionPlay({
           {missedTopics[0] ? (
             <div>
               <p className="mission-kicker">Keep</p>
-              <p>Review {missedTopics.length} missed {missedTopics.length === 1 ? "topic" : "topics"}</p>
+              <p>{`Review ${missedTopics.length} missed ${missedTopics.length === 1 ? "topic" : "topics"}`}</p>
               <p className="muted">{missedTopics.join(" · ")}</p>
             </div>
           ) : <p className="muted">No misses this round.</p>}
@@ -333,7 +333,7 @@ export function QuestionPlay({
           <p className="faint">Parent is reading. Answers stay hidden until Reveal.</p>
         ) : null}
         {timed && store.buzzerRoomCode ? (
-          <p className="faint">Phone room {store.buzzerRoomCode}</p>
+          <p className="faint">{`Phone room ${store.buzzerRoomCode}`}</p>
         ) : null}
         {showChoices ? (
           <div className="choices">
@@ -393,7 +393,7 @@ export function QuestionPlay({
             <p className={`reveal-verdict ${correct ? "ok-text" : "bad-text"}`}>
               {correct ? "Correct" : "Not quite"}
             </p>
-            {!correct ? <p className="reveal-note muted">The answer is {question.answer}.</p> : null}
+            {!correct ? <p className="reveal-note muted">{`The answer is ${question.answer}.`}</p> : null}
             <div className="reveal-coach">
               <CoachPanel
                 key={question.id}

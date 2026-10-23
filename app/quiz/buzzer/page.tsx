@@ -46,7 +46,7 @@ export default function BuzzerHostPage() {
       </div>
       <div className="card stack">
         <h3>How to practice like a match</h3>
-        <p className="muted">1. Leave this page open (or remember room {code}).</p>
+        <p className="muted">{`1. Leave this page open (or remember room ${code}).`}</p>
         <p className="muted">2. On your phone, open the room link above and keep the big BUZZ button ready.</p>
         <p className="muted">
           3. On this computer start{" "}
