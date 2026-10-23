@@ -40,7 +40,7 @@ Copied from the Mac app:
 - 50 summer study blocks (archive after Aug 28)
 - 11 Texas Regional Sprint packs
 - 634 TossUp bundled questions (bio, chem, math)
-- Official DOE middle-school sample sets 1–16 plus Round Robin / Double Elim extras (`doe_questions_cache.json`, ~11,300 questions). Physical Science is split into Chemistry vs Physics for practice.
+- Official DOE middle-school sample bank (`doe_questions_cache.json`): every public MS PDF from [DOE MS Sample Questions](https://science.osti.gov/wdts/nsb/Regional-Competitions/Resources/MS-Sample-Questions) — Sets 1–16, published Round Robin / Double Elim rounds, toss-ups and bonuses. Refresh with `npm run doe-ms` (live page scrape; no invented questions; HS skipped). Physical Science is split into Chemistry vs Physics for practice.
 - calendar / timetable / periodic table HTML
 - Soha Python Coach lessons (`python_coach.json`) — read on iPhone, run on the Mac app
 

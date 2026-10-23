@@ -49,52 +49,135 @@ def add_set(entries: list, set_num: int, folder: str, urls: list[str]) -> None:
         entries.append((set_num, i, folder, name, url))
 
 
-def catalog() -> list[tuple[int, int, str, str, str]]:
-    entries: list[tuple[int, int, str, str, str]] = []
-    add_set(entries, 1, "Set-1", [f"{BASE}/Sample-Set-1/m_round{n:02d}.pdf" for n in range(1, 19)])
-    add_set(entries, 2, "Set-2", [f"{BASE}/Sample-Set-2/sample_questions_r{n}.pdf" for n in range(1, 11)])
-    set3 = [f"{BASE}/Sample-Set-3/Round-{n}C-MS.pdf" for n in range(1, 16)]
-    set3.append(f"{BASE}/Sample-Set-3/Energy-Category.pdf")
-    add_set(entries, 3, "Set-3", set3)
-    add_set(entries, 4, "Set-4", [f"{BASE}/Sample-Set-4/Round{n}.pdf" for n in range(1, 18)])
-    add_set(entries, 5, "Set-5", [f"{BASE}/Sample-Set-5/Round{n}.pdf" for n in range(1, 17)])
-    add_set(entries, 6, "Set-6", [f"{BASE}/Sample-Set-6/Round{n}.pdf" for n in range(1, 18)])
-    add_set(entries, 7, "Set-7", [f"{BASE}/Sample-Set-7/MS_Round-{n}.pdf" for n in range(1, 16)])
-    add_set(entries, 8, "Set-8", [f"{BASE}/Sample-Set-8/Round-{n}-A.pdf" for n in range(1, 18)])
-    set9 = ["RegionalMS_1.pdf", "RegionalMS_2.pdf"] + [f"RegionalMS_{n}A.pdf" for n in range(3, 18)]
-    add_set(entries, 9, "Set-9", [f"{BASE}/Sample-Set-9/{name}" for name in set9])
-    add_set(entries, 10, "Set-10", [f"{BASE}/Sample-Set-10/{n}A_MS_Reg_2016.pdf" for n in range(1, 18)])
-    set11 = ["MS_1.pdf", "MS_2.pdf"] + [f"MS_{n}A.pdf" for n in range(3, 18)]
-    add_set(entries, 11, "Set-11", [f"{BASE}/Sample-set-11/{name}" for name in set11])
-    add_set(entries, 12, "Set-12", [f"{BASE}/Sample-Set-12/MSRound-{n}.pdf" for n in range(1, 18)])
-    add_set(entries, 13, "Set-13", [f"{BASE}/Sample-Set-13/2019-NSB-MSR-Round-{n}A.pdf" for n in range(1, 18)])
-    add_set(
-        entries,
-        0,
-        "Sample-Rounds",
-        [
-            f"{BASE}/Sample-Rounds/rr{n}_for_web.pdf"
-            for n in (1, 2, 3, 4, 5)
-        ] + [
-            f"{BASE}/Sample-Rounds/de{n}_for_web.pdf"
-            for n in (1, 2, 3, 4)
-        ],
+SET_FOLDER = {
+    "Sample-Set-1": 1,
+    "Sample-Set-2": 2,
+    "Sample-Set-3": 3,
+    "Sample-Set-4": 4,
+    "Sample-Set-5": 5,
+    "Sample-Set-6": 6,
+    "Sample-Set-7": 7,
+    "Sample-Set-8": 8,
+    "Sample-Set-9": 9,
+    "Sample-Set-10": 10,
+    "Sample-set-11": 11,
+    "Sample-Set-11": 11,
+    "Sample-Set-12": 12,
+    "Sample-Set-13": 13,
+    "Sample-Set-14": 14,
+    "Sample-Set-15": 15,
+    "Sample-Set-16": 16,
+    "Sample-Rounds": 0,
+}
+
+# Study guides / non-question PDFs linked on the DOE page.
+SKIP_FILES = {
+    "Energy-Category.pdf",
+}
+
+
+def fetch_official_pdf_urls() -> list[str]:
+    """Pull every MS sample PDF href from the live DOE index page."""
+    index = "https://science.osti.gov/wdts/nsb/Regional-Competitions/Resources/MS-Sample-Questions"
+    result = subprocess.run(
+        ["curl", "-fsSL", "-A", UA, index],
+        capture_output=True,
+        text=True,
+        timeout=60,
     )
-    add_set(entries, 14, "Set-14", [f"{BASE}/Sample-Set-14/2020-MS-Rd{n}.pdf" for n in range(1, 18)])
-    set15 = [
-        "Set-1-MS-2021.pdf",
-        "Set-2-MS-2021.pdf",
-        "Set-3-MS-2021.pdf",
-        "Set-4-MS-2021.pdf",
-        "Set-5-MS-2021.pdf",
-        "Set-6-MS-2021.pdf",
-        "Set-7-MS-2021.pdf",
-        "Set-8-MS-2021.pdf",
-        "Set-9-MS-2021.pdf",
-        "Set-10-MS-2021.pdf",
-    ]
-    add_set(entries, 15, "Set-15", [f"{BASE}/Sample-Set-15/{name}" for name in set15])
-    add_set(entries, 16, "Set-16", [f"{BASE}/Sample-Set-16/2022-MS-{n}.pdf" for n in range(1, 10)])
+    if result.returncode != 0 or not result.stdout:
+        return []
+    links = re.findall(r'href="([^"]+\.pdf)"', result.stdout, re.I)
+    links += re.findall(r"href='([^']+\.pdf)'", result.stdout, re.I)
+    out: list[str] = []
+    seen: set[str] = set()
+    for raw in links:
+        url = raw.split("?")[0]
+        if url.startswith("//"):
+            url = "https:" + url
+        elif url.startswith("/"):
+            url = "https://science.osti.gov" + url
+        if "MS-Sample-Questions" not in url:
+            continue
+        if "-HS-" in url or "/HS-" in url:
+            continue
+        name = url.rsplit("/", 1)[-1]
+        if name in SKIP_FILES:
+            continue
+        if url not in seen:
+            seen.add(url)
+            out.append(url)
+    return out
+
+
+def fallback_catalog_urls() -> list[str]:
+    """Hardcoded list matching the public DOE MS page (Sets 1–16 + published RR/DE)."""
+    urls: list[str] = []
+    urls += [f"{BASE}/Sample-Set-1/m_round{n:02d}.pdf" for n in range(1, 19)]
+    urls += [f"{BASE}/Sample-Set-2/sample_questions_r{n}.pdf" for n in range(1, 11)]
+    urls += [f"{BASE}/Sample-Set-3/Round-{n}C-MS.pdf" for n in range(1, 16)]
+    urls += [f"{BASE}/Sample-Set-4/Round{n}.pdf" for n in range(1, 18)]
+    urls += [f"{BASE}/Sample-Set-5/Round{n}.pdf" for n in range(1, 17)]
+    urls += [f"{BASE}/Sample-Set-6/Round{n}.pdf" for n in range(1, 18)]
+    urls += [f"{BASE}/Sample-Set-7/MS_Round-{n}.pdf" for n in range(1, 16)]
+    urls += [f"{BASE}/Sample-Set-8/Round-{n}-A.pdf" for n in range(1, 18)]
+    urls += [f"{BASE}/Sample-Set-9/RegionalMS_1.pdf", f"{BASE}/Sample-Set-9/RegionalMS_2.pdf"]
+    urls += [f"{BASE}/Sample-Set-9/RegionalMS_{n}A.pdf" for n in range(3, 18)]
+    urls += [f"{BASE}/Sample-Set-10/{n}A_MS_Reg_2016.pdf" for n in range(1, 18)]
+    urls += [f"{BASE}/Sample-set-11/MS_1.pdf", f"{BASE}/Sample-set-11/MS_2.pdf"]
+    urls += [f"{BASE}/Sample-set-11/MS_{n}A.pdf" for n in range(3, 18)]
+    urls += [f"{BASE}/Sample-Set-12/MSRound-{n}.pdf" for n in range(1, 18)]
+    urls += [f"{BASE}/Sample-Set-13/2019-NSB-MSR-Round-{n}A.pdf" for n in range(1, 18)]
+    # Only RR/DE rounds still published on the DOE page:
+    urls += [f"{BASE}/Sample-Rounds/{name}" for name in ("rr2_for_web.pdf", "rr5_for_web.pdf", "de1_for_web.pdf", "de3_for_web.pdf")]
+    urls += [f"{BASE}/Sample-Set-14/2020-MS-Rd{n}.pdf" for n in range(1, 18)]
+    urls += [f"{BASE}/Sample-Set-15/Set-{n}-MS-2021.pdf" for n in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)]
+    urls += [f"{BASE}/Sample-Set-16/2022-MS-{n}.pdf" for n in range(1, 10)]
+    return urls
+
+
+def catalog() -> list[tuple[int, int, str, str, str]]:
+    urls = fetch_official_pdf_urls()
+    source = "live DOE page"
+    if not urls:
+        urls = fallback_catalog_urls()
+        source = "fallback list"
+    # Keep Set-15 Round 7 if DOE still hosts it even when the index omits the link.
+    extra = f"{BASE}/Sample-Set-15/Set-7-MS-2021.pdf"
+    if extra not in urls:
+        urls.append(extra)
+    print(f"Catalog source: {source} ({len(urls)} MS PDFs)")
+
+    entries: list[tuple[int, int, str, str, str]] = []
+    per_folder: dict[str, int] = {}
+    for url in urls:
+        rel = url.split("/MS-Sample-Questions/")[-1]
+        folder_name, name = rel.split("/", 1) if "/" in rel else ("?", rel)
+        if name in SKIP_FILES or "-HS-" in name:
+            continue
+        set_num = SET_FOLDER.get(folder_name, 0)
+        cache_folder = {
+            0: "Sample-Rounds",
+            1: "Set-1",
+            2: "Set-2",
+            3: "Set-3",
+            4: "Set-4",
+            5: "Set-5",
+            6: "Set-6",
+            7: "Set-7",
+            8: "Set-8",
+            9: "Set-9",
+            10: "Set-10",
+            11: "Set-11",
+            12: "Set-12",
+            13: "Set-13",
+            14: "Set-14",
+            15: "Set-15",
+            16: "Set-16",
+        }.get(set_num, folder_name)
+        per_folder[cache_folder] = per_folder.get(cache_folder, 0) + 1
+        round_num = per_folder[cache_folder]
+        entries.append((set_num, round_num, cache_folder, name, url))
     return entries
 
 
@@ -136,16 +219,23 @@ def pdf_text(path: Path) -> str:
 
 
 HEADER = re.compile(
-    r"^(?P<num>\d+)\)\s*(?P<cat>.+?)\s*[–—\-]\s*(?P<fmt>Short Answer|Multiple Choice)\s*(?P<stem>.*)$",
+    r"^\*?(?P<num>\d+)\)\s*(?P<cat>.+?)\s*[–—\-]\s*(?P<fmt>Short\s+Answer|Multiple\s+Choice)\s*(?P<stem>.*)$",
     re.I,
 )
 HEADER_SPACE = re.compile(
-    r"^(?P<num>\d+)\)\s*(?P<cat>.+?)\s+(?P<fmt>Short Answer|Multiple Choice)\s+(?P<stem>.*)$",
+    r"^\*?(?P<num>\d+)\)\s*(?P<cat>.+?)\s+(?P<fmt>Short\s+Answer|Multiple\s+Choice)\s+(?P<stem>.*)$",
+    re.I,
+)
+# Older Set-2 PDFs sometimes put "*7)" alone, then category/format/stem next.
+HEADER_BARE = re.compile(r"^\*?(?P<num>\d+)\)\s*$")
+HEADER_CONT = re.compile(
+    r"^(?P<cat>.+?)\s+(?P<fmt>Short\s+Answer|Multiple\s+Choice)\s+(?P<stem>.*)$",
     re.I,
 )
 CHOICE = re.compile(r"^([WXYZ])\)\s*(.+)$", re.I)
+ANSWER_LINE = re.compile(r"^ANSWER\s*:\s*(.*)$", re.I)
 SKIP = re.compile(
-    r"^(page\s+\d+|middle school|round\s+\d|[~\-]{3,}|national science bowl|doe|sample questions|set\s+\d+)",
+    r"^(page\s+\d+|middle school|junior national|round robin|double elim|single elim|round\s+\d|[~\-]{3,}|national science bowl|doe|sample questions|set\s+\d+)",
     re.I,
 )
 
@@ -286,6 +376,22 @@ def parse_header(line: str):
     return None
 
 
+def parse_bare_number(line: str) -> int | None:
+    match = HEADER_BARE.match(line)
+    return int(match.group("num")) if match else None
+
+
+def parse_header_continuation(line: str):
+    match = HEADER_CONT.match(line)
+    if not match:
+        return None
+    return {
+        "raw_category": match.group("cat").strip(),
+        "format": "Multiple Choice" if "multiple" in match.group("fmt").lower() else "Short Answer",
+        "stem": match.group("stem").strip(),
+    }
+
+
 def make_row(
     kind: str,
     number: int,
@@ -318,7 +424,7 @@ def make_row(
         "packet": packet,
         "packetLabel": packet_label,
         "questionType": qtype,
-        "format": "Multiple Choice" if choices or "multiple" in fmt.lower() else "Short Answer",
+        "format": "Multiple Choice" if choices or "multiple" in fmt.lower().replace(" ", "") else "Short Answer",
         "questionText": question,
         "choices": choices,
         "answer": answer,
@@ -469,11 +575,23 @@ def parse_text(text: str, set_number: int, round_number: int, source_file: str, 
         if inline:
             kind = "TOSS-UP" if inline.group(1).upper().startswith("TOSS") else "BONUS"
             line = inline.group(2)
-        if upper.startswith("ANSWER:"):
-            flush(line.split(":", 1)[1])
+        answer_match = ANSWER_LINE.match(line)
+        if answer_match:
+            flush(answer_match.group(1))
             i += 1
             continue
         header = parse_header(line)
+        bare_num = None if header else parse_bare_number(line)
+        if bare_num is not None and i + 1 < len(lines):
+            cont = parse_header_continuation(lines[i + 1])
+            if cont:
+                header = {
+                    "number": bare_num,
+                    "raw_category": cont["raw_category"],
+                    "format": cont["format"],
+                    "stem": cont["stem"],
+                }
+                i += 1  # consume continuation line; stem loop starts after
         if header:
             number = header["number"]
             raw_category = header["raw_category"]
@@ -484,7 +602,13 @@ def parse_text(text: str, set_number: int, round_number: int, source_file: str, 
             while i < len(lines):
                 nxt = lines[i]
                 nxt_u = nxt.upper()
-                if nxt_u.startswith("ANSWER:") or nxt_u in {"TOSS-UP", "BONUS"} or parse_header(nxt) or re.match(r"^(TOSS-UP|BONUS)\s+\d+\)", nxt, re.I):
+                if (
+                    ANSWER_LINE.match(nxt)
+                    or nxt_u in {"TOSS-UP", "BONUS"}
+                    or parse_header(nxt)
+                    or parse_bare_number(nxt) is not None
+                    or re.match(r"^(TOSS-UP|BONUS)\s+\*?\d+\)", nxt, re.I)
+                ):
                     break
                 choice = CHOICE.match(nxt)
                 if choice:
@@ -492,6 +616,8 @@ def parse_text(text: str, set_number: int, round_number: int, source_file: str, 
                     fmt = "Multiple Choice"
                 elif stem:
                     stem += " " + nxt
+                else:
+                    stem = nxt
                 i += 1
             continue
         i += 1
@@ -525,8 +651,14 @@ def main() -> None:
         rows = parse_text(text, set_num, round_num, name, YEAR.get(set_num))
         added = 0
         for row in rows:
-            key = re.sub(r"[^a-z0-9]+", "", (row["questionText"] + row["answer"]).lower())
-            if key in seen or len(key) < 16:
+            # Keep every packet slot. DOE reuses stems across sets; global text
+            # dedupe was dropping toss-ups/bonuses from later rounds.
+            key = (
+                f"{row['setNumber']}|{row['roundNumber']}|{row['questionNumber']}|"
+                f"{row['questionType']}|{row['sourceFile']}"
+            )
+            body = re.sub(r"[^a-z0-9]+", "", (row["questionText"] + row["answer"]).lower())
+            if key in seen or len(body) < 16:
                 continue
             seen.add(key)
             questions.append(row)
