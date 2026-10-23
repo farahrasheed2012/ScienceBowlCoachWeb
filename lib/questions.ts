@@ -246,7 +246,19 @@ export function pairConsecutive(questions: PlayQuestion[]) {
   return pairs;
 }
 
-export function buildCompetitionPairs(importedDoe: DoeQuestion[] = []) {
+/** Regional half ≈ one half of a match; full = DOE-style 23 toss-up/bonus pairs. */
+export type CompetitionLength = "half" | "full";
+
+export function competitionPairCount(length: CompetitionLength) {
+  return length === "half" ? 12 : 23;
+}
+
+/** Halftime after this many toss-ups (0-based next index). */
+export function competitionHalfBreak(length: CompetitionLength) {
+  return length === "half" ? 6 : 12;
+}
+
+export function buildCompetitionPairs(importedDoe: DoeQuestion[] = [], count = 23) {
   const doePairs = pairConsecutive(mergeDoeQuestions(doeBundled, importedDoe).map(doeToPlay)).filter((pair) => pair.bonus);
   const withBonus = shuffle([...tossUpHewittPairs.filter((pair) => pair.bonus), ...doePairs]);
   const used = new Set(withBonus.flatMap((pair) => [pair.tossup.id, pair.bonus?.id ?? ""]));
@@ -255,10 +267,10 @@ export function buildCompetitionPairs(importedDoe: DoeQuestion[] = []) {
   );
   const pairs = [...withBonus];
   for (const tossup of fill) {
-    if (pairs.length >= 16) break;
+    if (pairs.length >= count) break;
     pairs.push({ tossup });
   }
-  return pairs.slice(0, 16);
+  return pairs.slice(0, count);
 }
 
 export function buildMockMatch(importedDoe: DoeQuestion[] = []): PlayQuestion[] {

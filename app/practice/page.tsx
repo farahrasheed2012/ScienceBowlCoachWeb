@@ -9,12 +9,17 @@ import { isSchoolYear, schoolYearFocus } from "@/lib/schedule";
 import { topicAccuracy } from "@/lib/stats";
 import { useStore } from "@/lib/store";
 
+const FEATURED = {
+  href: "/practice/compete",
+  title: "Full match practice",
+  detail: "Buzz → +4 · bonus → +10 · interrupt wrong → −4 · full 23 pairs or regional half of 12",
+};
+
 const MODES = [
   { href: "/practice/play?mode=quick", title: "Quick Practice", detail: "10 mixed questions · about 10 minutes" },
   { href: "/practice/play?mode=tossup", title: "Toss-Up", detail: "Official-style toss-ups · 5s MC / 20s SA" },
   { href: "/practice/play?mode=bonus", title: "Bonus", detail: `${tossUpHewittPairs.length} Hewitt pairs · bonus only after a correct toss-up` },
   { href: "/practice/play?mode=weak", title: "Weak Areas", detail: "Topics under 70% after at least 2 tries" },
-  { href: "/practice/compete", title: "Competition Mode", detail: "Two halves · you vs the field · official 5s buzz / 20s bonus · +4 / −4 / +10" },
   { href: "/practice/play?mode=sprint", title: "Regional Sprint", detail: `${regionalSprint.length} know-cold packs · short answer` },
 ];
 
@@ -60,8 +65,14 @@ export default function PracticePage() {
       ) : null}
       <PacketPicker importedDoe={store.importedDoe} />
       <div className="card">
-        <p className="muted">Space buzzes · W X Y Z or 1–4 answers · N or Enter goes to the next question after reveal · End round saves the session.</p>
+        <p className="muted">Space or phone buzzes · W X Y Z or 1–4 answers · N or Enter goes to the next question after reveal · End round saves the session.</p>
       </div>
+      <Link className="card stack" href={FEATURED.href}>
+        <p className="mission-kicker">Best for match day</p>
+        <h2>{FEATURED.title}</h2>
+        <p className="muted">{FEATURED.detail}</p>
+        <span className="btn">Open match lobby</span>
+      </Link>
       <div className="grid two">
         {MODES.map((mode) => (
           <Link className="card stack" key={mode.href} href={mode.href}>

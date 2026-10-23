@@ -67,7 +67,7 @@ Home · Quick · Practice · Learn · Periodic Table · Python · Progress · Se
 
 - **Home** — school-year plan (or summer 1-hour blocks before Aug 28)
 - **Quick** — 5 mixed practice or 5 official-clock toss-ups for a few minutes on the go
-- **Practice** — TossUp bank + encyclopedia + curriculum + imported DOE. Official 5s MC / 20s SA.
+- **Practice** — TossUp bank + encyclopedia + curriculum + imported DOE. Official 5s MC / 20s SA. **Full match practice** (`/practice/compete`): 23-pair DOE-style match or 12-pair regional half; phone buzzer + Space; +4 / −4 / +10.
 - **Learn** — encyclopedia, Review with books, Formulas, flashcards, Topics, Weeks archive
 - **Periodic Table** — 118-element reference, trends, and local study mode
 - **Python** — Soha Python Coach lessons on the phone; Run stays on the Mac app

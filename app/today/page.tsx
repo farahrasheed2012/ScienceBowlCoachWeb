@@ -279,6 +279,18 @@ export default function TodayPage() {
         </p>
         <CoachInsight kicker={insight.kicker} body={insight.body} />
       </div>
+      <section className="card stack">
+        <p className="mission-kicker">Match day</p>
+        <h3>Full match practice</h3>
+        <p className="muted">
+          Buzz → +4 · bonus → +10 · early wrong → −4. Full 23 pairs, or a 12-pair regional half.
+          Use the phone as your pad — no talking on toss-ups.
+        </p>
+        <div className="row">
+          <Link className="btn" href="/practice/compete?length=full">Start full match</Link>
+          <Link className="btn ghost" href="/quiz/buzzer">Phone buzzer</Link>
+        </div>
+      </section>
       <nav className="secondary-links">
         <Link href="/learn/flash">{due.length ? `${due.length} flashcards due` : "Flashcards"}</Link>
         <Link href="/practice/play?mode=sprint">Regional Sprint</Link>

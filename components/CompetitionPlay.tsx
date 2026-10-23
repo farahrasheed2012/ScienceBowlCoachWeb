@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { answersMatch, buildCompetitionPairs, isChoiceCorrect, subjectTone } from "@/lib/questions";
+import {
+  answersMatch,
+  buildCompetitionPairs,
+  competitionHalfBreak,
+  competitionPairCount,
+  isChoiceCorrect,
+  subjectTone,
+  type CompetitionLength,
+} from "@/lib/questions";
 import { pct, studentReadiness } from "@/lib/readiness";
 import { useStore } from "@/lib/store";
 import type { DoeQuestion, PlayQuestion } from "@/lib/types";
@@ -16,9 +24,20 @@ function fieldTakes(neg: boolean) {
   return { toss: true, bonus: Math.random() < 0.32 };
 }
 
-export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] }) {
+export function CompetitionPlay({
+  importedDoe,
+  length = "full",
+}: {
+  importedDoe: DoeQuestion[];
+  length?: CompetitionLength;
+}) {
   const store = useStore();
-  const pairs = useMemo(() => buildCompetitionPairs(importedDoe), [importedDoe]);
+  const targetCount = competitionPairCount(length);
+  const halfBreak = competitionHalfBreak(length);
+  const pairs = useMemo(
+    () => buildCompetitionPairs(importedDoe, targetCount),
+    [importedDoe, targetCount],
+  );
   const [index, setIndex] = useState(0);
   const [scene, setScene] = useState<Scene>("tossup");
   const [phase, setPhase] = useState<Phase>("live");
@@ -41,10 +60,18 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
   const didBuzz = useRef(false);
   const logged = useRef(false);
   const timedOut = useRef(false);
+  const sceneRef = useRef(scene);
+  const phaseRef = useRef(phase);
+  sceneRef.current = scene;
+  phaseRef.current = phase;
   const pair = pairs[index];
   const question: PlayQuestion | undefined = scene === "bonus" ? pair?.bonus : pair?.tossup;
-  const half = index < 8 ? 1 : 2;
-  const inHalf = index < 8 ? index + 1 : index - 7;
+  const total = pairs.length;
+  const half = index < halfBreak ? 1 : 2;
+  const halfSize = half === 1 ? halfBreak : Math.max(0, total - halfBreak);
+  const inHalf = index < halfBreak ? index + 1 : index - halfBreak + 1;
+  const matchLabel = length === "full" ? "Full match" : "Regional half";
+  const playAgainHref = `/practice/compete?length=${length}`;
 
   function elapsed() {
     return (Date.now() - clockStartedAt.current) / 1000;
@@ -85,9 +112,21 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
     setFieldNote(take.bonus && pair?.bonus ? "The field converted the toss-up and the bonus." : "The field converted the toss-up.");
   }
 
+  function armTossup() {
+    didBuzz.current = false;
+    buzzedAtSec.current = null;
+    setPicked(null);
+    setTyped("");
+    setCorrect(null);
+    setFieldNote("");
+    setScene("tossup");
+    setPhase("live");
+    resetClock(5);
+  }
+
   function nextPair() {
     const next = index + 1;
-    if (next === 8 && !sawHalf) {
+    if (next === halfBreak && !sawHalf && halfBreak < total) {
       setSawHalf(true);
       setScene("half");
       return;
@@ -97,22 +136,14 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
       return;
     }
     setIndex(next);
-    didBuzz.current = false;
-    buzzedAtSec.current = null;
-    setPicked(null);
-    setTyped("");
-    setCorrect(null);
-    setFieldNote("");
-    setScene("tossup");
-    setPhase("live");
-    resetClock(5);
+    armTossup();
   }
 
   function finish() {
     if (!logged.current) {
       logged.current = true;
       store.recordRound({
-        title: "Competition Mode",
+        title: matchLabel,
         asked: tossupAsked + bonusAsked,
         correct: tossupHits + bonusHits,
         seconds: Math.max(1, Math.round((Date.now() - startedAt.current) / 1000)),
@@ -122,16 +153,8 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
   }
 
   function leaveHalf() {
-    setIndex(8);
-    didBuzz.current = false;
-    buzzedAtSec.current = null;
-    setPicked(null);
-    setTyped("");
-    setCorrect(null);
-    setFieldNote("");
-    setScene("tossup");
-    setPhase("live");
-    resetClock(5);
+    setIndex(halfBreak);
+    armTossup();
   }
 
   function buzz() {
@@ -225,11 +248,42 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
     return () => window.removeEventListener("keydown", onKey);
   });
 
+  useEffect(() => {
+    if (!store.buzzerRoomCode) return;
+    let primed = false;
+    let lastAt = "";
+    const id = window.setInterval(async () => {
+      try {
+        const res = await fetch(`/api/buzzer/${store.buzzerRoomCode}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const latest = (data.events as { at: string }[] | undefined)?.at(-1);
+        if (!primed) {
+          primed = true;
+          lastAt = latest?.at ?? "";
+          return;
+        }
+        if (latest?.at && latest.at !== lastAt) {
+          lastAt = latest.at;
+          if (sceneRef.current === "tossup" && phaseRef.current === "live") {
+            didBuzz.current = true;
+            buzzedAtSec.current = elapsed();
+            setPhase("buzzed");
+            resetClock(5);
+          }
+        }
+      } catch {
+        /* room may be empty */
+      }
+    }, 700);
+    return () => window.clearInterval(id);
+  }, [store.buzzerRoomCode]);
+
   if (!pair) {
     return (
       <div className="learn-page">
         <p>Not enough toss-up/bonus pairs for a match.</p>
-        <Link href="/practice">Back to Practice</Link>
+        <Link href="/practice/compete">Back</Link>
       </div>
     );
   }
@@ -239,7 +293,9 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
       <div className="learn-page view-in">
         <p className="mission-kicker">Halftime</p>
         <h1 className="session-title">You {you} · Field {field}</h1>
-        <p className="muted">Second half · 8 toss-ups. Official 5s buzz window, 20s bonus.</p>
+        <p className="muted">
+          Second half · {total - halfBreak} toss-ups left. Official 5s buzz window, 20s bonus.
+        </p>
         <button className="btn mission-cta" type="button" onClick={leaveHalf}>Start second half</button>
       </div>
     );
@@ -249,16 +305,19 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
     const ready = studentReadiness(store.drillResults);
     return (
       <div className="learn-page view-in">
-        <p className="mission-kicker">Final</p>
+        <p className="mission-kicker">{matchLabel}</p>
         <h1 className="session-title">You {you} · Field {field}</h1>
         <p className="muted">
           Toss-ups {tossupHits}/{tossupAsked}
           {bonusAsked ? ` · bonuses ${bonusHits}/${bonusAsked}` : ""}
           {negs ? ` · ${negs} neg${negs === 1 ? "" : "s"}` : ""}
+          {" · "}
+          {total} pairs
         </p>
         {ready.overall != null ? <p className="faint">Readiness {pct(ready.overall)}</p> : null}
         <div className="row">
-          <Link className="btn mission-cta" href="/practice/compete">Play again</Link>
+          <Link className="btn mission-cta" href={playAgainHref}>Play again</Link>
+          <Link className="btn ghost" href="/practice/compete">Match lobby</Link>
           <Link className="btn ghost" href="/progress">Progress</Link>
         </div>
       </div>
@@ -284,12 +343,16 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
 
   return (
     <div className="learn-page view-in">
-      <Link className="text-btn session-leave" href="/practice">Leave</Link>
+      <Link className="text-btn session-leave" href="/practice/compete">Leave</Link>
       <div className="compete-bar">
         <p className="stem">You {you}</p>
         <p className="stem">Field {field}</p>
       </div>
-      <p className="faint">Half {half} · toss-up {inHalf}/8 · +4 / −4 / +10</p>
+      <p className="faint">
+        {matchLabel} · half {half} · toss-up {inHalf}/{halfSize}
+        {" · +4 / −4 / +10"}
+        {store.buzzerRoomCode ? ` · phone ${store.buzzerRoomCode}` : ""}
+      </p>
       {question ? (
         <div className={`play-card q-enter ${tone}`} data-phase={phase}>
           <div className="play-meta">
@@ -300,7 +363,9 @@ export function CompetitionPlay({ importedDoe }: { importedDoe: DoeQuestion[] })
           </div>
           <p className="stem">{question.questionText}</p>
           {scene === "tossup" && phase === "live" ? (
-            <button className="btn buzz" type="button" onClick={buzz}>Space · Buzz</button>
+            <button className="btn buzz" type="button" onClick={buzz}>
+              {store.buzzerRoomCode ? "Space or phone · Buzz" : "Space · Buzz"}
+            </button>
           ) : null}
           {showChoices ? (
             <div className="choices">

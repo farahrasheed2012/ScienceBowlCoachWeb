@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useMemo } from "react";
 import { CompetitionPlay } from "@/components/CompetitionPlay";
@@ -12,6 +13,7 @@ import {
   shuffle,
   allEncyclopediaPlay,
   matchesSubject,
+  type CompetitionLength,
 } from "@/lib/questions";
 import { topicAccuracy } from "@/lib/stats";
 import { sameTopicLabel } from "@/lib/topic-map";
@@ -108,7 +110,18 @@ function PlayInner() {
   }, [id, mode, packet, round, store.currentWeek, store.importedDoe, subject, take, topic, topicId, type, week]);
 
   if (mode === "mock" || mode === "compete") {
-    return <CompetitionPlay importedDoe={store.importedDoe} />;
+    const lengthParam = params.get("length");
+    const length: CompetitionLength | null =
+      lengthParam === "half" || lengthParam === "full" ? lengthParam : null;
+    if (!length) {
+      return (
+        <div className="stack">
+          <p className="muted">Pick a match length in the lobby.</p>
+          <Link className="btn" href="/practice/compete">Open match lobby</Link>
+        </div>
+      );
+    }
+    return <CompetitionPlay importedDoe={store.importedDoe} length={length} />;
   }
 
   return <QuestionPlay key={`${mode}-${subject}-${topic}-${type}-${topicId}-${week}-${id}-${packet}-${round}-${take}`} questions={questions} title={title} timed />;
