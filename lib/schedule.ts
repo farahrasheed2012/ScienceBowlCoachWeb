@@ -3,6 +3,52 @@ import type { StudyBlock, Weekday } from "./types";
 
 export const STUDY_START = new Date(2026, 5, 8);
 export const SUMMER_END = new Date(2026, 7, 28);
+/** Midpoint target for Texas MS regionals (~Feb 2026 per prep plan). */
+export const TEXAS_REGIONALS = new Date(2026, 1, 14);
+export const NSB_NATIONALS_START = new Date(2026, 3, 30);
+export const NSB_NATIONALS_END = new Date(2026, 4, 4);
+
+function startOfDay(date: Date) {
+  return Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+export function daysUntil(target: Date, date = new Date()) {
+  return Math.round((startOfDay(target) - startOfDay(date)) / 86400000);
+}
+
+/** Countdown copy for the Home Match Day card. */
+export function nextMatchTarget(date = new Date()) {
+  const toRegionals = daysUntil(TEXAS_REGIONALS, date);
+  if (toRegionals > 0) {
+    const weeks = Math.max(1, Math.round(toRegionals / 7));
+    return {
+      kicker: "Texas regionals",
+      when: "about February 2026",
+      days: toRegionals,
+      line: toRegionals >= 14
+        ? `about ${weeks} week${weeks === 1 ? "" : "s"} out`
+        : `${toRegionals} day${toRegionals === 1 ? "" : "s"} out`,
+      event: "regionals" as const,
+    };
+  }
+  const toNationals = daysUntil(NSB_NATIONALS_START, date);
+  if (toNationals > 0) {
+    return {
+      kicker: "NSB nationals",
+      when: "Apr 30 – May 4, 2026",
+      days: toNationals,
+      line: `${toNationals} day${toNationals === 1 ? "" : "s"} out`,
+      event: "nationals" as const,
+    };
+  }
+  return {
+    kicker: "Match practice",
+    when: "season",
+    days: 0,
+    line: "keep the match muscles warm",
+    event: "offseason" as const,
+  };
+}
 
 const WEEKDAYS: Weekday[] = ["monday", "tuesday", "wednesday", "thursday", "friday"];
 

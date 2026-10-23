@@ -84,18 +84,21 @@ export function todaysMission(input: {
 
   if (pick.id === "flash") {
     return {
-      subject: "Review",
+      subject: "Flashcards",
       topic: input.dueCount ? `${input.dueCount} flashcards due` : "Flashcards",
       reason: input.dueCount
-        ? `${input.dueCount} cards are due now — missed toss-ups and key terms.`
+        ? `${input.dueCount} cards are due now — missed toss-ups and key terms waiting for spaced recall.`
         : "The pile is clear. A short flip keeps the streak.",
       minutes: pick.minutes,
       activities: "Spaced recall",
-      outcome: "Clear the due pile",
+      outcome: input.dueCount ? "Clear the due pile" : "Quick flip to keep the streak",
       href: pick.href,
       planId: pick.id,
       startSession: false,
-      ...extra,
+      diagnosis: extra.diagnosis,
+      steps: input.dueCount
+        ? ["Flip due cards", "Star the ones you miss", "Stop when the pile is clear"]
+        : ["Quick flip", "Keep the streak"],
     };
   }
 

@@ -204,9 +204,45 @@ function isBag(value: unknown): value is ProfileBag {
   return bag.bag === 1 && Boolean(bag.profiles) && typeof bag.profiles === "object";
 }
 
+function normalizeProfileName(name: string) {
+  return name.trim().toLowerCase();
+}
+
+function profileWeight(profile: State) {
+  return (
+    (profile.drillResults?.length ?? 0)
+    + (profile.flashCards?.length ?? 0)
+    + (profile.practiceRounds?.length ?? 0)
+    + (profile.xp ?? 0)
+  );
+}
+
+/** Collapse duplicate lockers that share the same display name (keeps the richer one). */
+function dedupeProfileBag(bag: Record<string, State>, activeId: string): { bag: Record<string, State>; activeId: string } {
+  const byName = new Map<string, State>();
+  for (const profile of Object.values(bag)) {
+    if (!profile.profileId) continue;
+    const key = normalizeProfileName(profile.studentName || "Student");
+    const prev = byName.get(key);
+    if (!prev || profileWeight(profile) > profileWeight(prev)) {
+      byName.set(key, profile);
+    }
+  }
+  const next: Record<string, State> = {};
+  for (const profile of byName.values()) next[profile.profileId] = profile;
+  if (next[activeId]) return { bag: next, activeId };
+  const activeName = normalizeProfileName(bag[activeId]?.studentName || "");
+  const byActiveName = activeName
+    ? Object.values(next).find((profile) => normalizeProfileName(profile.studentName) === activeName)
+    : undefined;
+  const fallback = byActiveName?.profileId ?? Object.keys(next)[0] ?? activeId;
+  return { bag: next, activeId: fallback };
+}
+
 function profileList(active: State, bag: Record<string, State>) {
   const all = { ...bag, [active.profileId]: active };
-  return Object.values(all)
+  const { bag: unique } = dedupeProfileBag(all, active.profileId);
+  return Object.values(unique)
     .filter((profile) => profile.profileId)
     .map((profile) => ({ id: profile.profileId, name: profile.studentName.trim() || "Student" }));
 }
@@ -246,8 +282,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           }
           const activeId = profiles[parsed.activeId] ? parsed.activeId : Object.keys(profiles)[0];
           if (activeId && profiles[activeId]) {
-            bagRef.current = profiles;
-            setState(profiles[activeId]);
+            const deduped = dedupeProfileBag(profiles, activeId);
+            bagRef.current = deduped.bag;
+            setState(deduped.bag[deduped.activeId]);
             setReady(true);
             return;
           }
@@ -477,8 +514,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         }
         const activeId = profiles[data.activeId] ? data.activeId : Object.keys(profiles)[0];
         if (!activeId) return;
-        bagRef.current = profiles;
-        setState(profiles[activeId]);
+        const deduped = dedupeProfileBag(profiles, activeId);
+        bagRef.current = deduped.bag;
+        setState(deduped.bag[deduped.activeId]);
         return;
       }
       const allowed = defaultState();
@@ -535,8 +573,18 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       setState(hydrateState(next, id));
     },
     addProfile: (name) => {
+      const trimmed = name.trim() || "Student";
+      const existing = Object.values({ ...bagRef.current, [state.profileId]: snapshotState(state) })
+        .find((profile) => normalizeProfileName(profile.studentName) === normalizeProfileName(trimmed));
+      if (existing) {
+        if (existing.profileId !== state.profileId) {
+          bagRef.current = { ...bagRef.current, [state.profileId]: snapshotState(state) };
+          setState(hydrateState(existing, existing.profileId));
+        }
+        return;
+      }
       const next = hydrateState({
-        studentName: name.trim() || "Student",
+        studentName: trimmed,
         appAppearance: state.appAppearance,
         showSessionTimer: state.showSessionTimer,
         parentReadsAloud: state.parentReadsAloud,

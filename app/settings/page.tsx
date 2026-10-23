@@ -160,7 +160,10 @@ function ProfilesCard() {
   return (
     <section className="card stack">
       <h3>Who is studying</h3>
-      <p className="muted">Add a kid here. That creates their locker — same name on the phone picks it up. Switch before they start.</p>
+      <p className="muted">
+        Add a kid here. That creates their locker — same name on the phone picks it up.
+        Adding a name that already exists switches to that locker instead of making a duplicate.
+      </p>
       <select value={store.profileId} onChange={(event) => store.switchProfile(event.target.value)}>
         {store.profiles.map((profile) => (
           <option key={profile.id} value={profile.id}>{profile.name}</option>

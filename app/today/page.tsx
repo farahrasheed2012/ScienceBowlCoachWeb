@@ -9,7 +9,7 @@ import { SpeechBar } from "@/components/SpeechBar";
 import { coachRead } from "@/lib/coach";
 import { buildTodayPlan, featuredBlock, pickPriorityTopic, todaysMission } from "@/lib/plan";
 import { lookupLine, topicForWeakTitle } from "@/lib/readings";
-import { dayLine, isSchoolYear, schoolYearEncyclopediaSubject, schoolYearFocus, subjectLabel, timeGreeting, todayBlocks, weekdayFromDate } from "@/lib/schedule";
+import { dayLine, isSchoolYear, nextMatchTarget, schoolYearEncyclopediaSubject, schoolYearFocus, subjectLabel, timeGreeting, todayBlocks, weekdayFromDate } from "@/lib/schedule";
 import { keepSharpSession, sessionFromBlock, type PlaySession } from "@/lib/session";
 import { pct, studentReadiness } from "@/lib/readiness";
 import { performanceFor, studyMinutes, todayGoal, whyToday } from "@/lib/stats";
@@ -67,20 +67,16 @@ export default function TodayPage() {
     && !store.reviewedTopicIds.includes(topic.id)
   )).length;
   const focus = featuredBlock(store.currentWeek);
-  const missionLabel = weakArticle?.title ?? mission.topic;
-  const missionTopic = weak?.topic || weakArticle?.title || mission.topic;
-  const history = performanceFor(store.drillResults, missionTopic);
-  const whyBullets = mission.planId === "flash"
-    ? [
-        due.length ? `${due.length} cards due now` : "The pile is clear",
-        "Missed toss-ups become one card, due now",
-      ]
-    : whyToday(history);
-  const whyLead = mission.planId === "flash"
-    ? whyBullets[0]
+  const isFlashMission = mission.planId === "flash";
+  const missionLabel = isFlashMission ? mission.topic : (weakArticle?.title ?? mission.topic);
+  const gapTopic = weak?.topic || weakArticle?.title || "";
+  const missionTopic = isFlashMission ? gapTopic : (gapTopic || mission.topic);
+  const history = performanceFor(store.drillResults, missionTopic || mission.topic);
+  const whyLead = isFlashMission
+    ? mission.reason
     : history.missedLast3 >= 2
-      ? `You missed ${history.missedLast3} of your last 3 questions on this topic.`
-      : whyBullets[0];
+      ? `You missed ${history.missedLast3} of your last 3 questions on ${history.topic}.`
+      : (whyToday(history)[0] ?? mission.reason);
   const recent = store.drillResults.slice(-20);
   const recentAvg = recent.length
     ? Math.round((recent.filter((row) => row.correct).length / recent.length) * 100)
@@ -88,9 +84,12 @@ export default function TodayPage() {
   const insight = coachRead({
     results: store.drillResults,
     rounds: store.practiceRounds,
-    missionTopic,
+    missionTopic: gapTopic || undefined,
+    missionPlanId: mission.planId,
+    flashDue: due.length,
   });
   const ready = studentReadiness(store.drillResults);
+  const match = nextMatchTarget();
 
   function begin(next: PlaySession) {
     sessionStartedAt.current = Date.now();
@@ -259,15 +258,18 @@ export default function TodayPage() {
         <p className="faint">Readiness unlocks after a few toss-ups.</p>
       )}
       <section className="mission stack">
-        <h1 className="mission-title">{mission.planId === "flash" ? mission.topic : missionLabel}</h1>
+        <p className="mission-kicker">{isFlashMission ? "Today · Flashcards" : `Today · ${mission.subject}`}</p>
+        <h1 className="mission-title">{missionLabel}</h1>
         <p className="mission-why">{whyLead}</p>
-        <p className="mission-goal">{mission.planId === "flash" ? mission.outcome : todayGoal(history)}</p>
+        <p className="mission-goal">{isFlashMission ? mission.outcome : todayGoal(history)}</p>
         {mission.steps?.length ? <p className="mission-goal">{mission.steps.join(" → ")}</p> : null}
         <p className="mission-time">{mission.minutes} min</p>
         {mission.startSession ? (
           <button className="btn mission-cta" type="button" onClick={beginMission}>Start mission</button>
         ) : (
-          <Link className="btn mission-cta" href={mission.href}>Start mission</Link>
+          <Link className="btn mission-cta" href={mission.href}>
+            {isFlashMission ? "Review flashcards" : "Start mission"}
+          </Link>
         )}
       </section>
       <div className="mission-progress">
@@ -280,11 +282,16 @@ export default function TodayPage() {
         <CoachInsight kicker={insight.kicker} body={insight.body} />
       </div>
       <section className="card stack">
-        <p className="mission-kicker">Match day</p>
+        <p className="mission-kicker">{match.kicker} · {match.line}</p>
         <h3>Full match practice</h3>
         <p className="muted">
-          Buzz → +4 · bonus → +10 · early wrong → −4. Full 23 pairs, or a 12-pair regional half.
-          Use the phone as your pad — no talking on toss-ups.
+          {match.event === "regionals"
+            ? `Texas MS regionals ${match.when} · ${match.line}.`
+            : match.event === "nationals"
+              ? `Nationals ${match.when} · ${match.line}.`
+              : "Keep match pace warm."}
+          {" "}Buzz → +4 · bonus → +10 · early wrong → −4. Full 23 pairs, or a 12-pair regional half.
+          Phone is your pad — no talking on toss-ups.
         </p>
         <div className="row">
           <Link className="btn" href="/practice/compete?length=full">Start full match</Link>

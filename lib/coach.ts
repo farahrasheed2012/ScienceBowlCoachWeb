@@ -52,11 +52,23 @@ export function coachRead(input: {
   results: DrillResult[];
   rounds?: PracticeRound[];
   missionTopic?: string;
+  missionPlanId?: string;
+  flashDue?: number;
   sessionMissed?: string[];
   sessionHits?: number;
   sessionAsked?: number;
 }): { kicker: string; body: string } {
-  const { results, rounds = [], missionTopic, sessionMissed = [], sessionHits, sessionAsked } = input;
+  const { results, rounds = [], missionTopic, missionPlanId, flashDue = 0, sessionMissed = [], sessionHits, sessionAsked } = input;
+
+  if (missionPlanId === "flash" && flashDue > 0) {
+    return {
+      kicker: "Coach's read",
+      body: missionTopic && !/flashcard/i.test(missionTopic)
+        ? `${flashDue} flashcards are due. Clear those first — then we'll hit ${missionTopic}, your biggest gap.`
+        : `${flashDue} flashcards are due. Clear the pile, then a short toss-up.`,
+    };
+  }
+
   if (sessionAsked != null && sessionHits != null) {
     const topic = sessionMissed[0] || missionTopic;
     if (sessionAsked === 0) {
